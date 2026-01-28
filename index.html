@@ -1,92 +1,420 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angga Conni Saputra | Portfolio</title>
+    <!-- Font Inter & Phosphor Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
-        /* CSS Sederhana Modern - Tidak perlu pusing mikirin desain */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; background-color: #f4f4f9; }
-        header { background: #2c3e50; color: white; padding: 50px 20px; text-align: center; }
-        h1 { margin: 0; font-size: 2.5em; letter-spacing: 1px; }
-        .tagline { font-size: 1.1em; font-weight: 300; margin-top: 10px; color: #bdc3c7; }
-        .container { max-width: 800px; margin: -30px auto 0; padding: 20px; position: relative; }
+        :root {
+            --primary: #003366; /* Biru Profesional/UNESCO style */
+            --accent: #007bff;
+            --bg-light: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-gray: #555;
+            --border: #e1e4e8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
         
-        /* Kartu Proyek */
-        .card { background: white; padding: 30px; margin-bottom: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .highlight { border-top: 5px solid #e74c3c; } /* Warna Merah untuk Game */
+        h1 { margin: 0; font-size: 2.5rem; color: var(--primary); letter-spacing: -0.5px; }
+        .subtitle { font-size: 1.2rem; color: var(--text-gray); margin-top: 10px; font-weight: 300; }
+        .contact-links { margin-top: 20px; }
+        .contact-links a { display: inline-block; margin: 0 10px; color: var(--accent); text-decoration: none; font-weight: 600; }
+        .contact-links a:hover { text-decoration: underline; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+        section { margin-bottom: 80px; }
         
-        /* Tombol Play */
-        .btn { display: inline-block; background: #e74c3c; color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 15px; transition: 0.3s; }
-        .btn:hover { background: #c0392b; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4); }
+        h2 {
+            font-size: 1.6rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            color: var(--primary);
+            display: inline-block;
+        }
+
+        /* --- EXPERTISE GRID --- */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .expert-card {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #cce5ff;
+        }
+        .expert-card i { font-size: 2rem; color: var(--accent); margin-bottom: 10px; display: block; }
+        .expert-card h3 { margin: 0 0 10px 0; font-size: 1.1rem; color: var(--primary); }
+        .expert-card p { font-size: 0.9rem; margin: 0; color: #444; }
+
+        /* --- EXPERIENCE TIMELINE --- */
+        .timeline { border-left: 3px solid var(--border); margin-left: 10px; padding-left: 30px; }
+        .job { position: relative; margin-bottom: 40px; }
+        .job::before {
+            content: ''; position: absolute; left: -39px; top: 5px;
+            width: 15px; height: 15px; background: var(--accent); border-radius: 50%;
+            border: 3px solid white; box-shadow: 0 0 0 1px var(--border);
+        }
+        .job-period { font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 5px; display: block; }
+        .job h3 { margin: 0; font-size: 1.3rem; color: var(--text-dark); }
+        .job-company { font-weight: 600; color: var(--primary); margin-bottom: 10px; display: block; }
+        .job ul { margin: 10px 0 0; padding-left: 20px; color: #555; font-size: 0.95rem; }
+        .job li { margin-bottom: 8px; }
+
+        /* --- TECH SHOWCASE --- */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card {
+            background: var(--bg-light); border: 1px solid var(--border); border-radius: 8px;
+            padding: 25px; transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--accent); }
+        .card h3 { margin-top: 0; font-size: 1.2rem; }
+        .tag { display: inline-block; background: #e3f2fd; color: #0d47a1; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; font-weight: 600; }
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-size: 0.9rem; margin-top: 15px; font-weight: 500; }
+        .btn:hover { background: #0056b3; }
+
+        /* --- PUBLICATIONS & TABLES --- */
+        h3.section-subtitle { font-size: 1.2rem; color: #444; margin: 40px 0 15px; border-left: 4px solid var(--accent); padding-left: 10px; }
+        .item-list { list-style: none; padding: 0; }
+        .item { margin-bottom: 25px; border-left: 3px solid var(--border); padding-left: 20px; }
+        .item h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
+        .meta { font-size: 0.9rem; color: #666; margin-bottom: 8px; display: block; }
+        .role-badge { background: #eee; padding: 2px 6px; border-radius: 3px; font-size: 0.8rem; font-weight: 600; color: #333; margin-right: 10px; }
+        .link-text { color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .link-text:hover { text-decoration: underline; }
         
-        h2 { margin-top: 0; color: #2c3e50; font-size: 1.5em; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        .label { background: #ecf0f1; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; color: #7f8c8d; }
-        
-        footer { text-align: center; padding: 30px; font-size: 0.9em; color: #95a5a6; }
+        .table-responsive { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; margin-top: 20px; }
+        .pub-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: white; }
+        .pub-table th { background-color: #f1f5f9; color: var(--primary); text-align: left; padding: 12px 15px; font-weight: 600; border-bottom: 2px solid var(--border); white-space: nowrap; }
+        .pub-table td { padding: 10px 15px; border-bottom: 1px solid #eee; vertical-align: top; }
+        .isbn-code { font-family: 'Courier New', monospace; color: #555; font-size: 0.85rem; background: #f0f0f0; padding: 2px 5px; border-radius: 3px; }
+
+        .grid-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; list-style: none; padding: 0; }
+        .grid-list li { background: #fff; border: 1px solid #eee; padding: 10px 15px; border-radius: 5px; font-size: 0.9rem; display: flex; align-items: center; }
+        .grid-list li::before { content: "•"; color: var(--accent); font-weight: bold; margin-right: 10px; }
+
+        footer { text-align: center; padding: 40px; color: #999; font-size: 0.9rem; border-top: 1px solid var(--border); }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .project-grid { grid-template-columns: 1fr; }
+            .timeline { margin-left: 0; padding-left: 20px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Angga Conni Saputra</h1>
-        <div class="tagline">Bridging Behavioral Science, Management & Interactive Tech</div>
+        <div class="subtitle">Change Management & Public Policy Specialist</div>
+        <p style="max-width: 700px; margin: 15px auto 0; color: #555; font-size: 0.95rem;">
+            Driving digital transformation and strategic reforms within United Nations agencies (UNESCO, UNDP) and Government Ministries. 
+            Expert in bridging policy & grassroots implementation in Low-and Middle-Income Countries.
+        </p>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/angga-conni/" target="_blank"><i class="ph ph-linkedin-logo"></i> LinkedIn</a> • 
+            <a href="mailto:conniezz.cool@gmail.com"><i class="ph ph-envelope"></i> Email Me</a>
+        </div>
     </header>
 
     <div class="container">
-        
-        <div class="card highlight">
-            <span class="label">LATEST PROJECT</span>
-            <h2>🎮 [Nama Game Anda Disini]</h2>
-            <p>
-                Sebuah eksperimen interaktif yang menggabungkan logika pemrograman dengan penceritaan. 
-                Game ini dikembangkan untuk mendemonstrasikan pemahaman teknis dalam simulasi sistem.
-            </p>
+
+        <!-- 1. KEY EXPERTISE -->
+        <section>
+            <h2>💡 Core Competencies</h2>
+            <div class="expertise-grid">
+                <div class="expert-card">
+                    <i class="ph ph-brain"></i>
+                    <h3>Behavioral Science</h3>
+                    <p>Applying "Nudge Theory" & social proof to drive digital adoption in public sectors (e.g. UNDP SMILE adoption).</p>
+                </div>
+                <div class="expert-card">
+                    <i class="ph ph-code"></i>
+                    <h3>Civic Tech & AI</h3>
+                    <p>Developing low-code systems, IoT integration, and "Gamified Policy" tools (WebGL/Three.js) for education.</p>
+                </div>
+                <div class="expert-card">
+                    <i class="ph ph-handshake"></i>
+                    <h3>Diplomacy & Policy</h3>
+                    <p>Managing complex stakeholders and bridging high-level policy with grassroots implementation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. WORK EXPERIENCE -->
+        <section>
+            <h2>💼 Professional Experience</h2>
+            <div class="timeline">
+                
+                <div class="job">
+                    <span class="job-period">May 2025 – Present</span>
+                    <h3>Independent Consultant (Public & Private Sector)</h3>
+                    <span class="job-company">Ministry of Health (Kemenkes) & Kemendikdasmen</span>
+                    <ul>
+                        <li><strong>Ocean Literacy Pilot:</strong> Co-developed "Toward a Blue School" at SMAN 8 Balikpapan using digital data tools.</li>
+                        <li><strong>Anti-Bullying System:</strong> Designed digital reporting system for specialist medical education (Kemenkes).</li>
+                        <li><strong>Policy Foresight:</strong> Delivered "Horizon Scanning" capacity building for Kemenko PMK.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <span class="job-period">Feb 2023 – Apr 2025</span>
+                    <h3>Project Assistant – Culture Unit</h3>
+                    <span class="job-company">UNESCO ASEAN Liaison Regional Office (Jakarta)</span>
+                    <ul>
+                        <li>Focal point for 2003 (Intangible Cultural Heritage) & 2001 (Underwater) Conventions.</li>
+                        <li><strong>Diplomacy:</strong> Managed informal diplomacy to unlock stalled cooperation with member states (e.g., Brunei).</li>
+                        <li><strong>Event Lead:</strong> Managed US Congress delegation visit & "Regional Workshop on World War Shipwrecks".</li>
+                        <li><strong>Innovation:</strong> Developed "Heritage Commons" 3D simulation to teach heritage safeguarding concepts.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <span class="job-period">Mar 2022 – Feb 2023</span>
+                    <h3>Provincial Assistant / Vaccine Cold Chain Manager (VCCM)</h3>
+                    <span class="job-company">UNDP (SMILE Project) – Jayapura</span>
+                    <ul>
+                        <li><strong>Impact:</strong> Increased vaccine reporting rates in Papua from 5% to 60% using behavioral nudging strategies.</li>
+                        <li>Mediated conflict between Malaria & Vaccine units to integrate digital drug recording systems.</li>
+                        <li>Standardized digital monitoring frameworks for health logistics in low-connectivity regions.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <span class="job-period">Jan 2016 – Jan 2020</span>
+                    <h3>Sub-Professional Staff – PIC Data & Information</h3>
+                    <span class="job-company">Ministry of Village (Kemendesa PDTT) – BALILATFO</span>
+                    <ul>
+                        <li>Coordinated national data collection linking technical units and field facilitators.</li>
+                        <li>Produced weekly Policy Briefs converting field data into actionable insights for leadership.</li>
+                        <li>Led development of SOPs for national village data sampling and reporting.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <span class="job-period">Oct 2009 – Dec 2015</span>
+                    <h3>Consultant Analyst / Project Liaison</h3>
+                    <span class="job-company">Freelance Tech Consultant</span>
+                    <ul>
+                        <li>Acted as intermediary between government/NGO clients and software developers.</li>
+                        <li>Requirements Analysis & Agile Design for public sector digital projects.</li>
+                        <li>Managed multiple mobile and web application projects ensuring strict confidentiality.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. EDUCATION -->
+        <section>
+            <h2>🎓 Education</h2>
+            <div class="timeline">
+                <div class="job">
+                    <span class="job-period">2016 – 2019</span>
+                    <h3>Master of Science in Public Policy Administration</h3>
+                    <span class="job-company">Prof. Dr. Moestopo (Beragama) University</span>
+                    <p style="font-size: 0.9rem; color: #555; margin-bottom: 5px;"><strong>GPA: 3.87 / 4.00</strong></p>
+                    <ul>
+                        <li>Thesis: "Analysis of Organizational Effectiveness at the Ministry of Village (Data Center Case Study)."</li>
+                        <li>Created a direct link between policy theory and data governance practice.</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <span class="job-period">2009 – 2013</span>
+                    <h3>Bachelor of Economics in Human Resources Management</h3>
+                    <span class="job-company">STIE YAPAN Surabaya</span>
+                    <p style="font-size: 0.9rem; color: #555;">Focus: Human Capacity Development.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. MULTIMEDIA STRATEGY (UPDATED COMPLETE LIST) -->
+        <section>
+            <h2>🎥 Multimedia Strategy</h2>
+            <p style="margin-bottom: 25px;">End-to-end content production and digital advocacy for UNESCO & UNDP.</p>
             
-            <div style="background: #eee; height: 180px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 20px 0; color: #7f8c8d; text-align: center; padding: 0 20px;">
-                <em>(Screenshot Gameplay akan muncul di sini)</em>
+            <div class="item-list">
+                <!-- Item 1 -->
+                <div class="item">
+                    <h3>UNESCO Global Network of Facilitators (Asia-Pacific)</h3>
+                    <span class="meta"><span class="role-badge">Videographer & Editor</span> UNESCO Beijing</span>
+                    <p>Produced high-quality video footage and interviews for the Living Heritage Secretariat.</p>
+                    <a href="https://www.unesco.org/en/articles/asia-and-pacific-chapter-2003-conventions-global-network-facilitators-strengthened-18-new-members" target="_blank" class="link-text"><i class="ph ph-article"></i> Read Article & Watch Coverage ↗</a>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="item">
+                    <h3>Regional Workshop on World War Shipwrecks</h3>
+                    <span class="meta"><span class="role-badge">Event Organizer & Comms Lead</span> UNESCO Jakarta</span>
+                    <p>Managed media visibility for high-level regional meeting regarding threats of marine pollution.</p>
+                    <a href="https://www.unesco.org/en/articles/world-war-shipwrecks-southeast-asia-threats-marine-pollution-and-looting" target="_blank" class="link-text"><i class="ph ph-newspaper"></i> Read Official UNESCO Article ↗</a>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="item">
+                    <h3>Capacity Building Workshop on ICH (CRIHAP)</h3>
+                    <span class="meta"><span class="role-badge">Webinar Organizer</span> UNESCO & CRIHAP</span>
+                    <p>Organized joint webinar for Indonesia & Malaysia addressing cross-border cultural claims.</p>
+                    <a href="https://en.crihap.cn/a/202311/28/WS656591b7a310decc1a222798.html" target="_blank" class="link-text"><i class="ph ph-monitor-play"></i> View Event Coverage ↗</a>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="item">
+                    <h3>UNDP SMILE Project Repository</h3>
+                    <span class="meta"><span class="role-badge">Web Designer</span> UNDP</span>
+                    <p>Designed digital repository to document SMILE digital health transformation (Script-to-Screen).</p>
+                    <a href="https://conniezzcool.wixsite.com/undp-meeting-smile-r" target="_blank" class="link-text"><i class="ph ph-globe"></i> Visit Repository Website ↗</a>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="item">
+                    <h3>UNESCO Jakarta Talkshow: Youth & Cultural Diversity</h3>
+                    <span class="meta"><span class="role-badge">Moderator</span> UN Day Talkshow</span>
+                    <p>Facilitated discussions on addressing misinformation among youth and cultural diversity.</p>
+                    <a href="https://www.instagram.com/reel/CzF6_9oLOiv/" target="_blank" class="link-text"><i class="ph ph-instagram-logo"></i> Watch Highlight Reel ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. GAMIFIED PROJECTS -->
+        <section>
+            <h2>🚀 Gamified Digital Learning</h2>
+            <p>Architecting interactive platforms using WebGL/Three.js to translate high-level UN mandates into engaging experiences.</p>
+            <div class="project-grid">
+                <div class="card">
+                    <span class="tag">Three.js / AI</span>
+                    <h3>Heritage Commons</h3>
+                    <p>Interactive board game revolutionizing capacity building for UNESCO’s ICH Convention.</p>
+                    <a href="https://ich-training-monopoly.netlify.app/" target="_blank" class="btn">Play Demo ▶</a>
+                </div>
+                <div class="card">
+                    <span class="tag">Climate Tech</span>
+                    <h3>Ocean Literacy (Eco-Jumanji)</h3>
+                    <p>3D platform teaching climate resilience and ocean literacy for youth.</p>
+                    <a href="https://belajar-oceanliteracy.netlify.app/" target="_blank" class="btn">Play Demo ▶</a>
+                </div>
+                <div class="card">
+                    <span class="tag">Low-Code</span>
+                    <h3>Heritage Museum</h3>
+                    <p>Virtual museum integrated with cloud databases (Google Sheets) for digital skills education.</p>
+                    <a href="https://heritagemuseum.netlify.app/" target="_blank" class="btn">View Project ▶</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. PUBLICATIONS -->
+        <section>
+            <h2>📚 Authored Publications</h2>
+            <h3 class="section-subtitle">Principal Author & Layout Designer</h3>
+            <div class="item-list">
+                <div class="item">
+                    <h3>Kawasan Perdesaan Agropolitan Rasau Jaya</h3>
+                    <span class="meta"><span class="role-badge">Author</span> 2019 • PUSDATIN KEMENDES</span>
+                    <p>Regional economic development strategies.<br><span class="isbn-code">ISBN: 978-623-7129-82-0</span></p>
+                </div>
+                <div class="item">
+                    <h3>Profil BUM Desa Payang Sejahtera</h3>
+                    <span class="meta"><span class="role-badge">Author</span> 2018 • PUSDATIN KEMENDES</span>
+                    <p>Analysis of community-led economic development.<br><span class="isbn-code">ISBN: 978-623-7129-25-7</span></p>
+                </div>
+                <!-- Menambahkan satu lagi sesuai data -->
+                <div class="item">
+                    <h3>Profil BUM Desa Cahaya Selo (Yogyakarta)</h3>
+                    <span class="meta"><span class="role-badge">Author</span> 2018 • PUSDATIN KEMENDES</span>
+                    <p>Documentation of sustainable rural business models.<br><span class="isbn-code">ISBN: 978-623-7129-31-8</span></p>
+                </div>
             </div>
 
-            <div style="text-align: center;">
-                <p>Klik tombol di bawah untuk mencoba langsung di browser:</p>
-                <a href="#" class="btn">▶ MAIN GAME SEKARANG</a>
+            <h3 class="section-subtitle">Editorial Works (Copy Editor)</h3>
+            <div class="table-responsive">
+                <table class="pub-table">
+                    <thead>
+                        <tr><th width="5%">No</th><th>Title / Province Scope</th><th width="20%">ISBN</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Manfaat Dana Desa di Provinsi <strong>Aceh</strong></td><td><span class="isbn-code">978-623-7129-38-7</span></td></tr>
+                        <tr><td>2</td><td>Manfaat Dana Desa di Provinsi <strong>Lampung</strong></td><td><span class="isbn-code">978-623-7129-39-4</span></td></tr>
+                        <tr><td>3</td><td>Manfaat Dana Desa di Provinsi <strong>Sumatera Selatan</strong></td><td><span class="isbn-code">978-623-7129-40-0</span></td></tr>
+                        <tr><td>4</td><td>Manfaat Dana Desa di Provinsi <strong>Kepulauan Riau</strong></td><td><span class="isbn-code">978-623-7129-41-7</span></td></tr>
+                        <tr><td>5</td><td>Manfaat Dana Desa di Provinsi <strong>Sumatera Utara</strong></td><td><span class="isbn-code">978-623-7129-42-4</span></td></tr>
+                        <tr><td>6</td><td>Manfaat Dana Desa di Provinsi <strong>Sumatera Barat</strong></td><td><span class="isbn-code">978-623-7129-43-1</span></td></tr>
+                        <tr><td>7</td><td>Manfaat Dana Desa di Provinsi <strong>Jambi</strong></td><td><span class="isbn-code">978-623-7129-44-8</span></td></tr>
+                        <tr><td>8</td><td>Manfaat Dana Desa di Provinsi <strong>Bengkulu</strong></td><td><span class="isbn-code">978-623-7129-45-5</span></td></tr>
+                        <tr><td>9</td><td>Manfaat Dana Desa di Provinsi <strong>Bangka Belitung</strong></td><td><span class="isbn-code">978-623-7129-46-2</span></td></tr>
+                        <tr><td>10</td><td>Manfaat Dana Desa di Provinsi <strong>Banten</strong></td><td><span class="isbn-code">978-623-7129-47-9</span></td></tr>
+                        <tr><td>11</td><td>Manfaat Dana Desa di Provinsi <strong>D.I. Yogyakarta</strong></td><td><span class="isbn-code">978-623-7129-48-6</span></td></tr>
+                        <tr><td>12</td><td>Manfaat Dana Desa di Provinsi <strong>Jawa Barat</strong></td><td><span class="isbn-code">978-623-7129-49-3</span></td></tr>
+                        <tr><td>13</td><td>Manfaat Dana Desa di Provinsi <strong>Jawa Tengah</strong></td><td><span class="isbn-code">978-623-7129-50-9</span></td></tr>
+                        <tr><td>14</td><td>Manfaat Dana Desa di Provinsi <strong>Jawa Timur</strong></td><td><span class="isbn-code">978-623-7129-51-6</span></td></tr>
+                        <tr><td>15</td><td>Manfaat Dana Desa di Provinsi <strong>Bali</strong></td><td><span class="isbn-code">978-623-7129-52-3</span></td></tr>
+                        <tr><td>16</td><td>Manfaat Dana Desa di Provinsi <strong>Nusa Tenggara Barat</strong></td><td><span class="isbn-code">978-623-7129-53-0</span></td></tr>
+                        <tr><td>17</td><td>Manfaat Dana Desa di Provinsi <strong>Nusa Tenggara Timur</strong></td><td><span class="isbn-code">978-623-7129-54-7</span></td></tr>
+                        <tr><td>18</td><td>Manfaat Dana Desa di Provinsi <strong>Kalimantan Barat</strong></td><td><span class="isbn-code">978-623-7129-55-4</span></td></tr>
+                        <tr><td>19</td><td>Manfaat Dana Desa di Provinsi <strong>Kalimantan Tengah</strong></td><td><span class="isbn-code">978-623-7129-56-1</span></td></tr>
+                        <tr><td>20</td><td>Manfaat Dana Desa di Provinsi <strong>Kalimantan Utara</strong></td><td><span class="isbn-code">978-623-7129-57-8</span></td></tr>
+                        <tr><td>21</td><td>Manfaat Dana Desa di Provinsi <strong>Sulawesi Utara</strong></td><td><span class="isbn-code">978-623-7129-58-5</span></td></tr>
+                        <tr><td>22</td><td>Manfaat Dana Desa di Provinsi <strong>Sulawesi Barat</strong></td><td><span class="isbn-code">978-623-7129-59-2</span></td></tr>
+                        <tr><td>23</td><td>Manfaat Dana Desa di Provinsi <strong>Sulawesi Tengah</strong></td><td><span class="isbn-code">978-623-7129-60-8</span></td></tr>
+                        <tr><td>24</td><td>Manfaat Dana Desa di Provinsi <strong>Sulawesi Selatan</strong></td><td><span class="isbn-code">978-623-7129-61-5</span></td></tr>
+                        <tr><td>25</td><td>Manfaat Dana Desa di Provinsi <strong>Kalimantan Timur</strong></td><td><span class="isbn-code">978-623-7129-62-2</span></td></tr>
+                        <tr><td>26</td><td>Manfaat Dana Desa di Provinsi <strong>Kalimantan Selatan</strong></td><td><span class="isbn-code">978-623-7129-63-9</span></td></tr>
+                        <tr><td>27</td><td>Manfaat Dana Desa di Provinsi <strong>Sulawesi Tenggara</strong></td><td><span class="isbn-code">978-623-7129-64-6</span></td></tr>
+                        <tr><td>28</td><td>Manfaat Dana Desa di Provinsi <strong>Gorontalo</strong></td><td><span class="isbn-code">978-623-7129-65-3</span></td></tr>
+                        <tr><td>29</td><td>Manfaat Dana Desa di Provinsi <strong>Maluku</strong></td><td><span class="isbn-code">978-623-7129-66-0</span></td></tr>
+                        <tr><td>30</td><td>Manfaat Dana Desa di Provinsi <strong>Maluku Utara</strong></td><td><span class="isbn-code">978-623-7129-67-7</span></td></tr>
+                        <tr><td>31</td><td>Manfaat Dana Desa di Provinsi <strong>Riau</strong></td><td><span class="isbn-code">978-623-7129-71-4</span></td></tr>
+                        <tr><td>32</td><td>Manfaat Dana Desa di Provinsi <strong>Papua Barat</strong></td><td><span class="isbn-code">978-623-7129-72-1</span></td></tr>
+                        <tr><td>33</td><td>Manfaat Dana Desa di Provinsi <strong>Papua</strong></td><td><span class="isbn-code">978-623-7129-70-7</span></td></tr>
+                        <tr><td>34</td><td>Dinamika Pembangunan Desa (7 Wilayah Pulau)</td><td><span class="isbn-code">978-623-7129-69-1</span></td></tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
 
-        <div class="card">
-            <h2>📚 Professional Background</h2>
-            <p>Memiliki latar belakang Manajemen dan pengalaman di organisasi internasional (UNESCO), saya kini memperluas keahlian ke ranah teknologi kreatif.</p>
-            
-            <h3>Experience</h3>
-            <ul>
-                <li><strong>Ex-UNESCO Staff</strong> – Project Assistant (Heritage Emergency Fund), 2023.</li>
-                <li><strong>Management & Behavioral Science</strong> – Analisis perilaku organisasi dan kebijakan publik.</li>
+            <h3 class="section-subtitle">Strategic Documents (Internal)</h3>
+            <ul class="grid-list">
+                <li>Bumdesa 2017</li>
+                <li>Dana Desa 2017</li>
+                <li>Survey Perkembangan Desa 2017</li>
+                <li>Kunjungan Kerja: Aceh - Yogyakarta (10 Provinces)</li>
             </ul>
+        </section>
 
-            <h3>Publications (ISBN)</h3>
-            <p>Penulis/Editor buku terbitan PUSDATIN BALILATFO KEMENDES PDTT:</p>
-            <ul>
-                <li>[Judul Buku 1 Anda]</li>
-                <li>[Judul Buku 2 Anda]</li>
-                <li>[Judul Buku 3 Anda]</li>
+        <!-- 7. NEWS -->
+        <section>
+            <h2>📰 Media Mentions</h2>
+            <ul style="color: #555; font-size: 0.95rem;">
+                <li><a href="https://dpmpd.kaltimprov.go.id/artikel/bumdes-payang-sejahtera-masuk-kriteria-bumdes-sukses-indonesia-2018" target="_blank" class="link-text">DPMPD Kaltim: BUMDes Payang Sejahtera Masuk Kriteria Sukses</a></li>
+                <li><a href="https://en.jamupedia.com/jamupedias-kaleidoscope-of-2024/" target="_blank" class="link-text">Jamupedia: Kaleidoscope of 2024</a></li>
+                <li><a href="https://philippines.icomos.org/2023/10/16/icomos-philippines-selected-as-the-implementing-partner-of-the-first-unesco-heritage-emergency-fund-project-for-the-republic-of-the-philippines/" target="_blank" class="link-text">ICOMOS Philippines: UNESCO Heritage Emergency Fund Project</a></li>
             </ul>
-        </div>
-
-        <div class="card" style="text-align: center;">
-            <h2>Let's Connect</h2>
-            <p>Hubungi saya untuk kolaborasi atau diskusi lebih lanjut.</p>
-            <p>
-                <a href="https://linkedin.com/in/username-anda" style="color: #2980b9; text-decoration: none; font-weight: bold;">LinkedIn Profile</a> • 
-                <a href="mailto:email@anda.com" style="color: #2980b9; text-decoration: none; font-weight: bold;">Kirim Email</a>
-            </p>
-        </div>
+        </section>
 
     </div>
 
     <footer>
-        &copy; 2026 Angga Conni Saputra. <br>Built with Code & Strategy.
+        <p>&copy; 2026 Angga Conni Saputra. <br>Based in Jakarta, Indonesia.</p>
     </footer>
 
 </body>
