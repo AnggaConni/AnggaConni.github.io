@@ -52,7 +52,7 @@
             display: inline-block;
         }
 
-        /* --- EXPERTISE GRID --- */
+        /* --- EXPERTISE GRID (INTERACTIVE) --- */
         .expertise-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -60,13 +60,92 @@
         }
         .expert-card {
             background: #f0f7ff;
-            padding: 20px;
+            padding: 25px;
             border-radius: 8px;
             border: 1px solid #cce5ff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
         }
-        .expert-card i { font-size: 2rem; color: var(--accent); margin-bottom: 10px; display: block; }
+        
+        /* Hover Effect */
+        .expert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,51,102,0.1);
+            background: white;
+            border-color: var(--accent);
+        }
+
+        .expert-card i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; display: block; }
         .expert-card h3 { margin: 0 0 10px 0; font-size: 1.1rem; color: var(--primary); }
         .expert-card p { font-size: 0.9rem; margin: 0; color: #444; }
+        
+        /* Indikator "Click for more" */
+        .expert-card::after {
+            content: "Click for details ↗";
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 0.75rem;
+            color: var(--accent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .expert-card:hover::after { opacity: 1; }
+
+
+        /* --- MODAL (POPUP) STYLES --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            background: none;
+            border: none;
+        }
+        .close-btn:hover { color: var(--text-dark); }
+
+        .modal-header h3 { margin-top: 0; color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .modal-body h4 { font-size: 1rem; color: var(--text-dark); margin-top: 20px; margin-bottom: 5px; }
+        .modal-body ul { padding-left: 20px; font-size: 0.95rem; color: #555; }
+        .modal-body li { margin-bottom: 8px; }
+
 
         /* --- EXPERIENCE TIMELINE --- */
         .timeline { border-left: 3px solid var(--border); margin-left: 10px; padding-left: 30px; }
@@ -140,24 +219,33 @@
 
     <div class="container">
 
-        <!-- 1. KEY EXPERTISE -->
+        <!-- 1. KEY EXPERTISE (Now Interactive) -->
         <section>
             <h2>💡 Core Competencies</h2>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">
+                <i class="ph ph-hand-tap"></i> Click on cards below to see detailed case studies.
+            </p>
             <div class="expertise-grid">
-                <div class="expert-card">
+                
+                <!-- Card 1 -->
+                <div class="expert-card" onclick="openModal('modal-behavioral')">
                     <i class="ph ph-brain"></i>
                     <h3>Behavioral Science</h3>
-                    <p>Applying "Nudge Theory" & social proof to drive digital adoption in public sectors (e.g. UNDP SMILE adoption).</p>
+                    <p>Applying "Nudge Theory" & social proof to drive digital adoption in public sectors.</p>
                 </div>
-                <div class="expert-card">
+
+                <!-- Card 2 -->
+                <div class="expert-card" onclick="openModal('modal-tech')">
                     <i class="ph ph-code"></i>
                     <h3>Civic Tech & AI</h3>
-                    <p>Developing low-code systems, IoT integration, and "Gamified Policy" tools (WebGL/Three.js) for education.</p>
+                    <p>Developing low-code systems, IoT integration, and "Gamified Policy" tools.</p>
                 </div>
-                <div class="expert-card">
+
+                <!-- Card 3 -->
+                <div class="expert-card" onclick="openModal('modal-diplomacy')">
                     <i class="ph ph-handshake"></i>
                     <h3>Diplomacy & Policy</h3>
-                    <p>Managing complex stakeholders and bridging high-level policy with grassroots implementation.</p>
+                    <p>Managing complex stakeholders and bridging policy with grassroots implementation.</p>
                 </div>
             </div>
         </section>
@@ -250,13 +338,12 @@
             </div>
         </section>
 
-        <!-- 4. MULTIMEDIA STRATEGY (UPDATED COMPLETE LIST) -->
+        <!-- 4. MULTIMEDIA STRATEGY -->
         <section>
             <h2>🎥 Multimedia Strategy</h2>
             <p style="margin-bottom: 25px;">End-to-end content production and digital advocacy for UNESCO & UNDP.</p>
             
             <div class="item-list">
-                <!-- Item 1 -->
                 <div class="item">
                     <h3>UNESCO Global Network of Facilitators (Asia-Pacific)</h3>
                     <span class="meta"><span class="role-badge">Videographer & Editor</span> UNESCO Beijing</span>
@@ -264,7 +351,6 @@
                     <a href="https://www.unesco.org/en/articles/asia-and-pacific-chapter-2003-conventions-global-network-facilitators-strengthened-18-new-members" target="_blank" class="link-text"><i class="ph ph-article"></i> Read Article & Watch Coverage ↗</a>
                 </div>
 
-                <!-- Item 2 -->
                 <div class="item">
                     <h3>Regional Workshop on World War Shipwrecks</h3>
                     <span class="meta"><span class="role-badge">Event Organizer & Comms Lead</span> UNESCO Jakarta</span>
@@ -272,7 +358,6 @@
                     <a href="https://www.unesco.org/en/articles/world-war-shipwrecks-southeast-asia-threats-marine-pollution-and-looting" target="_blank" class="link-text"><i class="ph ph-newspaper"></i> Read Official UNESCO Article ↗</a>
                 </div>
 
-                <!-- Item 3 -->
                 <div class="item">
                     <h3>Capacity Building Workshop on ICH (CRIHAP)</h3>
                     <span class="meta"><span class="role-badge">Webinar Organizer</span> UNESCO & CRIHAP</span>
@@ -280,7 +365,6 @@
                     <a href="https://en.crihap.cn/a/202311/28/WS656591b7a310decc1a222798.html" target="_blank" class="link-text"><i class="ph ph-monitor-play"></i> View Event Coverage ↗</a>
                 </div>
 
-                <!-- Item 4 -->
                 <div class="item">
                     <h3>UNDP SMILE Project Repository</h3>
                     <span class="meta"><span class="role-badge">Web Designer</span> UNDP</span>
@@ -288,7 +372,6 @@
                     <a href="https://conniezzcool.wixsite.com/undp-meeting-smile-r" target="_blank" class="link-text"><i class="ph ph-globe"></i> Visit Repository Website ↗</a>
                 </div>
 
-                <!-- Item 5 -->
                 <div class="item">
                     <h3>UNESCO Jakarta Talkshow: Youth & Cultural Diversity</h3>
                     <span class="meta"><span class="role-badge">Moderator</span> UN Day Talkshow</span>
@@ -339,7 +422,6 @@
                     <span class="meta"><span class="role-badge">Author</span> 2018 • PUSDATIN KEMENDES</span>
                     <p>Analysis of community-led economic development.<br><span class="isbn-code">ISBN: 978-623-7129-25-7</span></p>
                 </div>
-                <!-- Menambahkan satu lagi sesuai data -->
                 <div class="item">
                     <h3>Profil BUM Desa Cahaya Selo (Yogyakarta)</h3>
                     <span class="meta"><span class="role-badge">Author</span> 2018 • PUSDATIN KEMENDES</span>
@@ -416,6 +498,80 @@
     <footer>
         <p>&copy; 2026 Angga Conni Saputra. <br>Based in Jakarta, Indonesia.</p>
     </footer>
+
+    <!-- MODAL CONTAINERS -->
+    <div id="modal-behavioral" class="modal-overlay" onclick="closeModal(event, 'modal-behavioral')">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal(null, 'modal-behavioral')">&times;</button>
+            <div class="modal-header">
+                <h3>Behavioral Science in Action</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Social Proof & Digital Adoption (UNDP)</h4>
+                <p>Accelerated district-level adoption of a digital reporting system in Papua by strategically engaging a respected local officer ("Digital Pioneer"). This sparked peer adoption through social proof, overcoming initial resistance to new technology.</p>
+                
+                <h4>Cognitive Alignment</h4>
+                <p>Boosted compliance with vaccine reporting updates by framing the task not as "admin work" but as "protecting Papua's children," aligning the digital task with health workers' core values.</p>
+                
+                <h4>Loss-Aversion Framing</h4>
+                <p>Strengthened urgency among decision-makers for funding continuity by framing risks as "loss of partner trust" rather than just financial gaps.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-tech" class="modal-overlay" onclick="closeModal(event, 'modal-tech')">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal(null, 'modal-tech')">&times;</button>
+            <div class="modal-header">
+                <h3>Civic Tech & AI Innovation</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Heritage Commons (WebGL/Three.js)</h4>
+                <p>Developed a browser-based 3D board game to teach Intangible Cultural Heritage (ICH) safeguarding. Replaced competitive "Monopoly" mechanics with collaborative "Safeguarding" mechanics using AI-generated logic.</p>
+                
+                <h4>AI-Integrated Community Inventory</h4>
+                <p>Engineered a low-code digital ecosystem for a SIDS member nation using Google Stack + Gemini AI. Created a "Single Source of Truth" architecture that prevents database bloat while enabling automated reporting.</p>
+                
+                <h4>IoT for Cold Chain</h4>
+                <p>Integrated IoT sensors with rule-based AI in Papua to monitor vaccine temperatures. The system flagged anomalies automatically, reducing spoilage in remote areas.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-diplomacy" class="modal-overlay" onclick="closeModal(event, 'modal-diplomacy')">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal(null, 'modal-diplomacy')">&times;</button>
+            <div class="modal-header">
+                <h3>Diplomacy & Policy Strategy</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Informal Diplomacy (Brunei)</h4>
+                <p>Unlocked stalled cooperation by pivoting from formal meetings to informal relationship building (e.g., casual market visits) with the Director-General of Culture. This "Rapport-Building" approach re-opened communication channels.</p>
+                
+                <h4>Conflict De-escalation (UNESCO)</h4>
+                <p>Mediated a tense multi-country debate on "Rendang" nomination by reframing the issue from "Ownership" to "Shared Media Safeguarding," allowing all parties to save face and move forward.</p>
+                
+                <h4>US Congress Delegation</h4>
+                <p>Managed end-to-end coordination for a high-profile US Congress visit to Jakarta, navigating complex security (UNDSS) and protocol requirements while ensuring cultural heritage goals were met.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIMPLE JS SCRIPT -->
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal(event, modalId) {
+            // Close if clicked on overlay (event.target == overlay) OR if close button clicked (event == null)
+            if (event === null || event.target.id === modalId) {
+                document.getElementById(modalId).classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        }
+    </script>
 
 </body>
 </html>
