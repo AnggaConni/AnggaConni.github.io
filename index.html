@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angga Conni Saputra | Portfolio</title>
-     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <!-- Font Inter & Phosphor Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -53,6 +53,26 @@
         
         h1 { margin: 0; font-size: 2.2rem; color: var(--primary); letter-spacing: -0.5px; }
         .subtitle { font-size: 1.1rem; color: var(--text-gray); margin-top: 5px; font-weight: 300; }
+        
+        /* Tombol CV Utama */
+        .cv-button-container { margin: 20px 0; }
+        .btn-cv {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
+            transition: all 0.2s ease;
+        }
+        .btn-cv:hover {
+            background-color: #002244;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 51, 102, 0.3);
+        }
+
         .contact-links { margin-top: 15px; }
         .contact-links a { display: inline-block; margin: 0 10px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
         .contact-links a:hover { text-decoration: underline; }
@@ -70,7 +90,7 @@
             display: inline-block;
         }
 
-        /* --- CAROUSEL STYLES (NEW UI) --- */
+        /* --- CAROUSEL STYLES --- */
         .carousel-container {
             position: relative;
             display: flex;
@@ -230,6 +250,12 @@
             Driving digital transformation and strategic reforms within UNESCO, UNDP, and Government Ministries. 
             Bridging policy & grassroots implementation.
         </p>
+        
+        <!-- NEW BUTTON FULL CV -->
+        <div class="cv-button-container">
+            <a href="#" class="btn-cv"><i class="ph ph-file-text"></i> Click to Open FULL CV Interactive</a>
+        </div>
+
         <div class="contact-links">
             <a href="https://www.linkedin.com/in/anggaconni/" target="_blank"><i class="ph ph-linkedin-logo"></i> LinkedIn</a> • 
             <a href="mailto:conniezz.cool@gmail.com"><i class="ph ph-envelope"></i> Email Me</a>
@@ -250,7 +276,15 @@
                 
                 <div class="carousel-track" id="projectTrack">
                     
-                    <!-- 1. UN CALCULATOR (GREEN) -->
+                    <!-- 1. FOODWAYS (NEW - MAROON) -->
+                    <div class="carousel-card" style="border-top: 4px solid #800000;">
+                        <span class="tag" style="background:#ffebee; color:#b71c1c;">GIS & Data Science</span>
+                        <h3>Foodways: Shared Heritage</h3>
+                        <p>Serverless GIS platform mapping culinary history networks. Features Polygon Mapping & Node-Link Analysis built with Vanilla JS, Leaflet.js & Google Sheets.</p>
+                        <a href="https://anggaconni.github.io/Foodways/" target="_blank" class="btn" style="background:#800000;">View Map ▶</a>
+                    </div>
+
+                    <!-- 2. UN CALCULATOR (GREEN) -->
                     <div class="carousel-card" style="border-top: 4px solid #28a745;">
                         <span class="tag" style="background:#e6fffa; color:#28a745;">Productivity Tool</span>
                         <h3>UN Travel & DSA Calculator</h3>
@@ -258,15 +292,15 @@
                         <a href="https://anggaconni.github.io/un-travel-calculator/" target="_blank" class="btn" style="background:#28a745;">Open Tool ▶</a>
                     </div>
 
-                    <!-- 2. HERITAGE MUSEUM (LOW CODE) -->
+                    <!-- 3. HERITAGE MUSEUM (LOW CODE) -->
                     <div class="carousel-card">
                         <span class="tag">Low-Code</span>
                         <h3>Heritage Museum</h3>
                         <p>Virtual museum integrated with cloud databases (Google Sheets) to demonstrate scalable, low-code education platforms for resource-constrained areas.</p>
-                        <a href="https://anggaconni.github.io/3D-Museum/" target="_blank" class="btn">View Project ▶</a>
+                        <a href="https://heritagemuseum.netlify.app/" target="_blank" class="btn">View Project ▶</a>
                     </div>
 
-                    <!-- 3. OCEAN LITERACY -->
+                    <!-- 4. OCEAN LITERACY -->
                     <div class="carousel-card">
                         <span class="tag">Climate Tech</span>
                         <h3>Ocean Literacy</h3>
@@ -274,7 +308,7 @@
                         <a href="https://belajar-oceanliteracy.netlify.app/" target="_blank" class="btn">Play Demo ▶</a>
                     </div>
 
-                    <!-- 4. HERITAGE COMMONS (THREE JS) -->
+                    <!-- 5. HERITAGE COMMONS (THREE JS) -->
                     <div class="carousel-card">
                         <span class="tag">Three.js / AI</span>
                         <h3>Heritage Commons</h3>
