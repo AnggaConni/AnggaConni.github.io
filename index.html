@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!-- ================================================================ -->
-    <!-- MULAI KODE GOOGLE ANALYTICS (JANGAN DIHAPUS) --> 
+    <!-- MULAI KODE GOOGLE ANALYTICS (JANGAN DIHAPUS) -->
     <!-- ID SUDAH DIPERBARUI: G-FMPPSZV1V8 -->
     <!-- ================================================================ -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FMPPSZV1V8"></script>
@@ -53,9 +53,12 @@
         
         h1 { margin: 0; font-size: 2.2rem; color: var(--primary); letter-spacing: -0.5px; }
         .subtitle { font-size: 1.1rem; color: var(--text-gray); margin-top: 5px; font-weight: 300; }
-        
-        /* Tombol CV Utama */
-        .cv-button-container { margin: 20px 0; }
+        .contact-links { margin-top: 15px; }
+        .contact-links a { display: inline-block; margin: 0 10px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        .contact-links a:hover { text-decoration: underline; }
+
+        /* --- TOMBOL FULL CV (NEW) --- */
+        .cv-button-container { margin: 25px 0 15px 0; }
         .btn-cv {
             display: inline-block;
             background-color: var(--primary);
@@ -64,18 +67,17 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 1rem;
             box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
             transition: all 0.2s ease;
+            border: 2px solid transparent;
         }
         .btn-cv:hover {
             background-color: #002244;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 51, 102, 0.3);
         }
-
-        .contact-links { margin-top: 15px; }
-        .contact-links a { display: inline-block; margin: 0 10px; color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-        .contact-links a:hover { text-decoration: underline; }
+        .btn-cv i { margin-right: 8px; font-size: 1.1rem; vertical-align: middle; }
 
         .container { max-width: 960px; margin: 0 auto; padding: 30px 20px; }
         
@@ -253,7 +255,8 @@
         
         <!-- NEW BUTTON FULL CV -->
         <div class="cv-button-container">
-            <a href="https://anggaconni.github.io/Maintenance-Page/" class="btn-cv"><i class="ph ph-file-text"></i> Click to Open FULL CV Interactive</a>
+            <!-- NANTI EDIT LINK DI BAWAH INI (Ganti tanda # dengan link CV Anda) -->
+            <a href="https://anggaconni.github.io/Complete-Portofolio/" class="btn-cv"><i class="ph ph-file-text"></i> Click to Open FULL CV Interactive</a>
         </div>
 
         <div class="contact-links">
@@ -276,7 +279,7 @@
                 
                 <div class="carousel-track" id="projectTrack">
                     
-                    <!-- 1. FOODWAYS (NEW - MAROON) -->
+                    <!-- 1. FOODWAYS (MAROON) -->
                     <div class="carousel-card" style="border-top: 4px solid #800000;">
                         <span class="tag" style="background:#ffebee; color:#b71c1c;">GIS & Data Science</span>
                         <h3>Foodways: Shared Heritage</h3>
@@ -300,7 +303,15 @@
                         <a href="https://heritagemuseum.netlify.app/" target="_blank" class="btn">View Project ▶</a>
                     </div>
 
-                    <!-- 4. OCEAN LITERACY -->
+                    <!-- 4. E-PERSURATAN (NEW) -->
+                    <div class="carousel-card">
+                        <span class="tag">Gov-Tech</span>
+                        <h3>E-Persuratan (E-Correspondence)</h3>
+                        <p>Serverless, bilingual mail management system modernizing legacy government workflows. Eliminates "Stone Age" admin with real-time analytics.</p>
+                        <a href="https://anggaconni.github.io/E-Persuratan/" target="_blank" class="btn">View System ▶</a>
+                    </div>
+
+                    <!-- 5. OCEAN LITERACY -->
                     <div class="carousel-card">
                         <span class="tag">Climate Tech</span>
                         <h3>Ocean Literacy</h3>
@@ -308,7 +319,7 @@
                         <a href="https://belajar-oceanliteracy.netlify.app/" target="_blank" class="btn">Play Demo ▶</a>
                     </div>
 
-                    <!-- 5. HERITAGE COMMONS (THREE JS) -->
+                    <!-- 6. HERITAGE COMMONS (THREE JS) -->
                     <div class="carousel-card">
                         <span class="tag">Three.js / AI</span>
                         <h3>Heritage Commons</h3>
