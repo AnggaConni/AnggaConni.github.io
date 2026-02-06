@@ -161,12 +161,22 @@
 
         /* --- STANDARD STYLES --- */
         .tag { display: inline-block; background: #e3f2fd; color: #0d47a1; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; margin-bottom: 10px; font-weight: 600; width: fit-content; }
+        
         .btn { 
-            display: inline-block; background: var(--accent); color: white; padding: 8px 15px; 
-            text-decoration: none; border-radius: 4px; font-size: 0.85rem; 
-            text-align: center; font-weight: 500; transition: background 0.2s; width: 100%; box-sizing: border-box;
+            display: inline-block; background: var(--accent); color: white; padding: 10px 15px; 
+            text-decoration: none; border-radius: 6px; font-size: 0.85rem; 
+            text-align: center; font-weight: 600; transition: all 0.2s; width: 100%; box-sizing: border-box;
         }
-        .btn:hover { background: #0056b3; }
+        .btn:hover { background: #0056b3; opacity: 0.9; }
+
+        /* Secondary Button Style */
+        .btn-outline {
+            background: transparent;
+            border: 1px solid currentColor;
+        }
+        .btn-outline:hover {
+            background: rgba(0,0,0,0.05);
+        }
 
         /* --- EXPERTISE GRID --- */
         .expertise-grid {
@@ -278,52 +288,70 @@
                 
                 <div class="carousel-track" id="projectTrack">
                     
-                    <!-- 1. FOODWAYS (MAROON) -->
+                    <!-- 1. FOODWAYS (MAROON) - UPDATE: Added Mobile Button -->
                     <div class="carousel-card" style="border-top: 4px solid #800000;">
                         <span class="tag" style="background:#ffebee; color:#b71c1c;">GIS & Data Science</span>
                         <h3>Foodways: Shared Heritage</h3>
-                        <p>Serverless GIS platform mapping culinary history networks. Features Polygon Mapping & Node-Link Analysis built with Vanilla JS, Leaflet.js & Google Sheets.</p>
-                        <a href="https://anggaconni.github.io/Foodways/" target="_blank" class="btn" style="background:#800000;">View Map ▶</a>
+                        <p>Cultural Data Science platform. Serverless GIS mapping featuring Polygon Mapping & Node-Link Analysis. Built with Vanilla JS, Leaflet.js & Google Sheets for zero-cost infrastructure.</p>
+                        
+                        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+                            <!-- MOBILE VERSION BUTTON (New Request) -->
+                            <a href="https://anggaconni.github.io/Foodways-Mobile/" target="_blank" class="btn btn-outline" style="color: #800000; border-color: #800000;">
+                                <i class="ph ph-device-mobile"></i> Mobile Version
+                            </a>
+                            <!-- DESKTOP VERSION BUTTON -->
+                            <a href="https://anggaconni.github.io/Foodways/" target="_blank" class="btn" style="background:#800000;">
+                                <i class="ph ph-desktop"></i> View Map (Desktop) ▶
+                            </a>
+                        </div>
                     </div>
 
                     <!-- 2. UN CALCULATOR (GREEN) -->
                     <div class="carousel-card" style="border-top: 4px solid #28a745;">
-                        <span class="tag" style="background:#e6fffa; color:#28a745;">Productivity Tool</span>
+                        <span class="tag" style="background:#e6fffa; color:#28a745;">Process Automation</span>
                         <h3>UN Travel & DSA Calculator</h3>
-                        <p>Browser-based tool for transparent DSA calculations, partial meal logic, multi-currency support, and Excel export. Privacy-first (local execution).</p>
-                        <a href="https://anggaconni.github.io/un-travel-calculator/" target="_blank" class="btn" style="background:#28a745;">Open Tool ▶</a>
+                        <p>Open-source tool automating complex subsistence allowance calculations (ICSC rates). Reduces admin time and ensures audit compliance with privacy-first local execution.</p>
+                        <a href="https://anggaconni.github.io/un-travel-calculator/" target="_blank" class="btn" style="background:#28a745; margin-top: auto;">Open Tool ▶</a>
                     </div>
 
-                    <!-- 3. HERITAGE MUSEUM (LOW CODE) - UPDATED LINK & DESC -->
-                    <div class="carousel-card">
-                        <span class="tag">Low-Code</span>
-                        <h3>Heritage Museum</h3>
-                        <p>Architected and deployed gamified learning tools (HTML5/JS) integrated with cloud databases (Google Sheets) to demonstrate low-code/no-code possibilities for digital skills education in resource-constrained environments using AI.</p>
-                        <a href="https://anggaconni.github.io/3D-Museum/" target="_blank" class="btn">View Project ▶</a>
+                    <!-- 3. GeoJSON FIXER (NEW ADDITION) -->
+                    <div class="carousel-card" style="border-top: 4px solid #6610f2;">
+                        <span class="tag" style="background:#f2f0ff; color:#6610f2;">GIS Utility Tool</span>
+                        <h3>GeoJSON Fixer & OCR</h3>
+                        <p>Interoperability tool converting complex GeometryCollections for ArcGIS Online. Features AI-based OCR to recover geospatial data from screenshots/legacy docs.</p>
+                        <a href="https://anggaconni.github.io/GeoJSON-Fixer/" target="_blank" class="btn" style="background:#6610f2; margin-top: auto;">Open Utility ▶</a>
                     </div>
 
-                    <!-- 4. E-PERSURATAN (NEW) -->
+                    <!-- 4. E-PERSURATAN -->
                     <div class="carousel-card">
                         <span class="tag">Gov-Tech</span>
-                        <h3>E-Persuratan (E-Correspondence)</h3>
-                        <p>Serverless, bilingual mail management system modernizing legacy government workflows. Eliminates "Stone Age" admin with real-time analytics.</p>
-                        <a href="https://anggaconni.github.io/E-Persuratan/" target="_blank" class="btn">View System ▶</a>
+                        <h3>E-Persuratan (Correspondence)</h3>
+                        <p>Serverless, bilingual mail system modernizing government workflows. Replaces "Stone Age" administration with a scalable Google Ecosystem (Apps Script).</p>
+                        <a href="https://anggaconni.github.io/E-Persuratan/" target="_blank" class="btn" style="margin-top: auto;">View System ▶</a>
                     </div>
 
-                    <!-- 5. OCEAN LITERACY (UPDATED LINK) -->
+                    <!-- 5. HERITAGE COMMONS -->
+                    <div class="carousel-card">
+                        <span class="tag">Three.js / WebGL</span>
+                        <h3>Heritage Commons</h3>
+                        <p>Interactive 3D board game revolutionizing capacity building for UNESCO’s ICH Convention. Gamifying policy concepts: replacing "Monopoly" with "Safeguarding".</p>
+                        <a href="https://anggaconni.github.io/ICH-Games/" target="_blank" class="btn" style="margin-top: auto;">Play Demo ▶</a>
+                    </div>
+
+                    <!-- 6. OCEAN LITERACY -->
                     <div class="carousel-card">
                         <span class="tag">Climate Tech</span>
-                        <h3>Ocean Literacy</h3>
-                        <p>3D platform teaching climate resilience (Eco-Jumanji) for youth using interactive visualization. Gamifying complex policy concepts.</p>
-                        <a href="https://anggaconni.github.io/Ocean-Literacy-JUMANJI-ID-Ver/" target="_blank" class="btn">Play Demo ▶</a>
+                        <h3>Ocean Literacy (Eco-Jumanji)</h3>
+                        <p>3D educational platform teaching climate resilience. Translates high-level UN mandates into engaging, accessible digital experiences for youth.</p>
+                        <a href="https://anggaconni.github.io/Ocean-Literacy-JUMANJI-ID-Ver/" target="_blank" class="btn" style="margin-top: auto;">Play Demo ▶</a>
                     </div>
 
-                    <!-- 6. HERITAGE COMMONS (UPDATED LINK) -->
+                    <!-- 7. HERITAGE MUSEUM -->
                     <div class="carousel-card">
-                        <span class="tag">Three.js / AI</span>
-                        <h3>Heritage Commons</h3>
-                        <p>Interactive board game revolutionizing capacity building for UNESCO’s ICH Convention. Replacing "Monopoly" with "Safeguarding".</p>
-                        <a href="https://anggaconni.github.io/ICH-Games/" target="_blank" class="btn">Play Demo ▶</a>
+                        <span class="tag">Low-Code / EdTech</span>
+                        <h3>Heritage Museum</h3>
+                        <p>Gamified learning tool (HTML5/JS) integrated with cloud databases to demonstrate low-code possibilities for digital skills education in resource-constrained areas.</p>
+                        <a href="https://anggaconni.github.io/3D-Museum/" target="_blank" class="btn" style="margin-top: auto;">View Project ▶</a>
                     </div>
 
                 </div>
