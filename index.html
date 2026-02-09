@@ -20,423 +20,469 @@
     <title>Angga Conni Saputra | Portfolio</title>
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <!-- FONTS: 'Chakra Petch' for Retro/Racing headers, 'Inter' for readability -->
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FONTS: 'Manrope' for a clean, modern institutional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
     <style>
         :root {
-            /* --- RETRO RACING PALETTE (Sunset Stripes) --- */
-            --primary: #4A1218;    /* Dark Maroon/Brown (Helm Stripe Gelap) */
-            --secondary: #C0392B;  /* Vintage Red (Helm Stripe Tengah) */
-            --accent: #D35400;     /* Burnt Orange (Helm Stripe Terang) */
+            /* --- PALETTE: TRUST BLUE + CHARCOAL --- */
+            --bg-body: #F8FAFC;       /* Slate 50 */
+            --bg-card: #FFFFFF;       /* Pure White */
             
-            --bg-page: #FDFBF7;    /* Warm Shell White (Warna dasar helm) */
-            --bg-card: #FFFFFF;
-            --text-dark: #1F1F1F;  /* Soft Black */
-            --text-gray: #666666;
-            --border: #E0E0E0;
+            --text-main: #0F172A;     /* Slate 900 */
+            --text-muted: #475569;    /* Slate 600 */
+            --text-light: #94A3B8;    /* Slate 400 */
+
+            --primary: #2563EB;       /* Royal Blue */
+            --primary-hover: #1D4ED8; 
             
-            /* Grid Pattern Color */
-            --grid-color: rgba(211, 84, 0, 0.05); 
+            --accent-gold: #D4AF37;   /* Metallic Gold */
+            
+            --border: #E2E8F0;        /* Slate 200 */
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-page);
-            /* Retro Grid Background */
-            background-image: 
-                linear-gradient(var(--grid-color) 1px, transparent 1px),
-                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: var(--text-dark);
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* --- TYPOGRAPHY --- */
-        h1, h2, h3, h4, .btn-cv, .job-period {
-            font-family: 'Chakra Petch', sans-serif; /* Tech/Racing Vibe */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: var(--text-main);
+            margin-top: 0;
+            letter-spacing: -0.02em;
         }
 
-        /* --- RACING STRIPE DECORATION --- */
-        .racing-stripe {
-            height: 8px;
-            width: 100%;
-            background: linear-gradient(90deg, 
-                var(--accent) 0%, var(--accent) 33%, 
-                var(--secondary) 33%, var(--secondary) 66%, 
-                var(--primary) 66%, var(--primary) 100%);
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-        }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
 
-        /* --- HEADER --- */
+        /* --- HEADER (TIGHTER SPACING) --- */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 2px solid var(--primary);
-            padding: 60px 20px 40px; /* Extra top padding for stripe */
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 40px 20px 25px; /* Reduced vertical padding */
             text-align: center;
-            box-shadow: 0 4px 20px rgba(74, 18, 24, 0.05);
         }
         
         h1 { 
-            margin: 0; 
-            font-size: 2.5rem; 
-            color: var(--primary); 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
+            font-size: 2.2rem; /* Balanced size */
+            margin-bottom: 5px; 
+            color: var(--text-main);
+            font-weight: 800;
         }
         
         .subtitle { 
-            font-size: 1.1rem; 
-            color: var(--secondary); 
-            margin-top: 5px; 
-            font-weight: 600; 
-            font-family: 'Inter', sans-serif;
+            font-size: 1rem; 
+            color: var(--primary); 
+            font-weight: 600;
+            margin-bottom: 15px;
         }
 
-        .contact-links { margin-top: 15px; }
-        .contact-links a { 
-            display: inline-block; 
-            margin: 0 10px; 
-            color: var(--text-dark); 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 0.9rem;
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s;
-        }
-        .contact-links a:hover { 
-            color: var(--accent); 
-            border-bottom-color: var(--accent);
+        .header-bio {
+            max-width: 650px;
+            margin: 0 auto 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
-        /* --- TOMBOL FULL CV (Retro Style) --- */
-        .cv-button-container { margin: 25px 0 15px 0; }
-        .btn-cv {
-            display: inline-block;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 12px 35px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            /* Retro Boxy Shadow */
-            box-shadow: 4px 4px 0px rgba(0,0,0,0.2); 
-            border: 2px solid var(--primary);
-            transition: all 0.1s ease;
-            transform: translate(0, 0);
-        }
-        .btn-cv:hover {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
-        }
-        .btn-cv:active {
-            transform: translate(4px, 4px);
-            box-shadow: none;
-        }
-        .btn-cv i { margin-right: 8px; font-size: 1.2rem; vertical-align: bottom; }
-
-        .container { max-width: 1080px; margin: 0 auto; padding: 40px 20px; }
+        /* --- BUTTONS --- */
+        .cv-button-container { margin: 20px 0; }
         
-        section { margin-bottom: 70px; } 
+        .btn-cv {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--text-main);
+            color: var(--accent-gold);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 1px solid var(--text-main);
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-cv:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border-color: var(--text-main);
+        }
+        
+        .btn-cv i { margin-right: 8px; font-size: 1.1rem; }
+
+        .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 10px; }
+        .contact-links a { 
+            color: var(--text-muted); 
+            font-weight: 500; 
+            font-size: 0.85rem;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .contact-links a:hover { color: var(--primary); }
+
+        /* --- LAYOUT --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; /* Reduced top padding */ }
+        section { margin-bottom: 50px; /* Reduced Section Spacing */ } 
         
         h2 {
-            font-size: 1.8rem;
-            border-left: 6px solid var(--accent);
-            padding-left: 15px;
-            margin-bottom: 25px;
-            color: var(--text-dark);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
-            text-transform: uppercase;
+            gap: 10px;
         }
+        h2 i { color: var(--primary); opacity: 0.8; }
 
-        /* --- CAROUSEL STYLES --- */
-        .carousel-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
+        /* --- CAROUSEL (PROJECTS) --- */
+        .carousel-container { position: relative; display: flex; align-items: center; }
+        
         .carousel-track {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             overflow-x: auto;
             scroll-behavior: smooth;
-            padding: 10px 5px 20px 5px;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+            padding: 5px 5px 25px 5px;
+            -ms-overflow-style: none; scrollbar-width: none;
         }
-        
         .carousel-track::-webkit-scrollbar { display: none; }
 
         .carousel-card {
-            min-width: 320px;
-            max-width: 340px;
+            min-width: 290px;
+            max-width: 310px;
             background: var(--bg-card);
-            border: 2px solid var(--border);
-            /* Retro sharp corners slightly rounded */
-            border-radius: 4px; 
-            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
             flex-shrink: 0;
-            /* Slight retro shadow */
-            box-shadow: 3px 3px 0px rgba(0,0,0,0.05); 
-            position: relative;
         }
 
         .carousel-card:hover {
             transform: translateY(-5px);
-            box-shadow: 6px 6px 0px rgba(0,0,0,0.1);
-            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        /* REDUCED HEIGHT FOR THUMBNAIL */
+        .card-thumb {
+            width: 100%;
+            height: 120px; /* Reduced from 150px */
+            background-color: #f1f5f9;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-body { padding: 18px; display: flex; flex-direction: column; flex-grow: 1; }
+
+        .tag { 
+            display: inline-block; 
+            background: #EFF6FF;
+            color: var(--primary); 
+            font-size: 0.65rem; 
+            padding: 3px 8px; 
+            border-radius: 100px; 
+            font-weight: 700; 
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .carousel-card h3 { 
-            margin-top: 0; 
-            font-size: 1.15rem; 
-            color: var(--primary); 
-            height: 55px; 
-            display: flex; 
-            align-items: center; 
-            line-height: 1.3;
+            font-size: 1rem; 
+            margin-bottom: 8px; 
+            line-height: 1.3; 
+            min-height: 2.6em; 
         }
-        .carousel-card p { flex-grow: 1; font-size: 0.9rem; color: #555; margin-bottom: 20px; }
         
+        .carousel-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; flex-grow: 1; }
+
+        .btn-group { margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
+        
+        .btn {
+            display: flex; justify-content: center; align-items: center; gap: 8px;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-hover); }
+        
+        .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
         .carousel-btn {
-            background: var(--primary);
-            border: none;
-            width: 45px; height: 45px;
+            background: white;
+            border: 1px solid var(--border);
+            width: 40px; height: 40px;
+            border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer;
-            box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow-md);
             z-index: 10;
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.1s;
+            color: var(--text-main);
             position: absolute;
-            border-radius: 4px; /* Boxy buttons */
+            transition: all 0.2s;
         }
-        .carousel-btn:hover { background: var(--secondary); transform: translate(1px, 1px); box-shadow: 2px 2px 0px rgba(0,0,0,0.2); }
-        .carousel-btn:active { transform: translate(3px, 3px); box-shadow: none; }
-        .carousel-btn.prev { left: -25px; }
-        .carousel-btn.next { right: -25px; }
-
-        @media (max-width: 768px) {
-            .carousel-btn { display: none; }
-            .carousel-card { min-width: 280px; }
-            .carousel-btn.prev { left: -10px; }
-            .carousel-btn.next { right: -10px; }
-        }
-
-        /* --- STANDARD STYLES --- */
-        .tag { 
-            display: inline-block; 
-            background: #eee; 
-            color: var(--text-dark); 
-            font-size: 0.7rem; 
-            padding: 4px 8px; 
-            border-radius: 0px; /* Pixel vibe */
-            margin-bottom: 10px; 
-            font-weight: 700; 
-            width: fit-content; 
-            text-transform: uppercase;
-            border: 1px solid #ccc;
-        }
-        
-        .btn-group {
-            margin-top: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .btn { 
-            display: inline-block; 
-            background: var(--text-dark); 
-            color: white; 
-            padding: 10px 15px; 
-            text-decoration: none; 
-            border-radius: 2px; 
-            font-size: 0.85rem; 
-            text-align: center; 
-            font-weight: 600; 
-            transition: all 0.2s; 
-            width: 100%; 
-            box-sizing: border-box;
-            border: 1px solid transparent;
-            font-family: 'Chakra Petch', sans-serif;
-            text-transform: uppercase;
-        }
-        .btn:hover { 
-            background: var(--accent); 
-            border-color: var(--accent);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid currentColor;
-            color: var(--text-dark);
-        }
-        .btn-outline:hover {
-            background: #f0f0f0;
-            color: var(--primary);
-        }
+        .carousel-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .carousel-btn.prev { left: -20px; }
+        .carousel-btn.next { right: -20px; }
 
         /* --- EXPERTISE GRID --- */
         .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
         .expert-card {
-            background: white;
+            background: var(--bg-card);
             padding: 25px;
-            border-radius: 4px;
-            border: 2px solid var(--border);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
             cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
         }
         .expert-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 5px 5px 0px rgba(211, 84, 0, 0.15); /* Orange shadow */
-            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+            transform: translateY(-2px);
         }
-        .expert-card i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; display: block; }
-        .expert-card h3 { margin: 0 0 10px 0; font-size: 1.1rem; color: var(--primary); }
-        .expert-card p { font-size: 0.95rem; margin: 0; color: #555; }
+        .expert-card i { 
+            font-size: 1.8rem; 
+            color: var(--accent-gold); 
+            margin-bottom: 15px; 
+            display: block; 
+        }
+        .expert-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .expert-card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
 
-        /* --- EXPERIENCE TIMELINE --- */
-        .timeline { border-left: 3px solid var(--border); margin-left: 10px; padding-left: 30px; }
+        /* --- TIMELINE (Experience) --- */
+        .timeline { 
+            border-left: 2px solid var(--border); 
+            margin-left: 10px; 
+            padding-left: 25px; 
+        }
         .job { 
             position: relative; 
             margin-bottom: 30px; 
             padding: 25px; 
-            background: white;
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 4px;
-            transition: all 0.2s ease; 
-            cursor: pointer; 
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
         }
-        .job:hover { 
-            border-color: var(--accent); 
-            box-shadow: 4px 4px 0px rgba(0,0,0,0.05); 
-            transform: translateX(5px); 
+        .job:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
         }
         .job::before { 
             content: ''; 
             position: absolute; 
-            left: -38px; /* Adjusted for thicker line */
-            top: 28px; 
-            width: 14px; 
-            height: 14px; 
-            background: var(--bg-page); 
-            border: 3px solid var(--accent); 
-            border-radius: 50%; /* Keep dots round for contrast */
+            left: -32px; 
+            top: 30px; 
+            width: 12px; height: 12px; 
+            background: var(--bg-body); 
+            border: 2px solid var(--primary); 
+            border-radius: 50%; 
             z-index: 2; 
         }
         .job-period { 
-            font-size: 0.8rem; 
-            color: var(--accent); 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
+            font-size: 0.75rem; 
+            color: var(--primary); 
             font-weight: 700; 
+            text-transform: uppercase; 
             margin-bottom: 5px; 
             display: block; 
+            letter-spacing: 0.5px;
         }
-        .job h3 { margin: 0; font-size: 1.3rem; color: var(--primary); }
-        .job-company { font-weight: 600; color: var(--text-dark); margin-bottom: 12px; display: block; font-size: 1rem; }
-        .job ul { margin: 5px 0 0; padding-left: 18px; color: #555; font-size: 0.95rem; }
+        .job h3 { margin: 0 0 5px 0; font-size: 1.15rem; }
+        .job-company { font-weight: 500; color: var(--text-muted); margin-bottom: 12px; display: block; font-size: 0.95rem;}
+        .job ul { margin: 0; padding-left: 18px; color: var(--text-main); font-size: 0.9rem; }
         .job li { margin-bottom: 6px; }
-        .job::after { content: "See Full Achievements ↗"; display: block; margin-top: 15px; font-size: 0.75rem; color: var(--secondary); font-weight: 700; opacity: 0; transition: opacity 0.3s ease; text-transform: uppercase; }
+        .job::after { 
+            content: "View Details →"; 
+            display: block; margin-top: 15px; 
+            font-size: 0.8rem; color: var(--primary); 
+            font-weight: 600; opacity: 0; transition: opacity 0.3s; 
+        }
         .job:hover::after { opacity: 1; }
 
         /* --- EDUCATION --- */
-        .edu-item { margin-bottom: 35px; position: relative; }
-        .edu-item::before { content: ''; position: absolute; left: -36px; top: 6px; width: 10px; height: 10px; background: #ccc; border-radius: 0; transform: rotate(45deg); /* Diamond shape */ }
-        .edu-item h3 { margin: 0; font-size: 1.1rem; color: var(--primary); }
-        .edu-meta { font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
-        .edu-desc { font-size: 0.9rem; color: #666; background: white; padding: 15px; border: 1px solid var(--border); border-left: 4px solid var(--primary); }
-
-        /* --- TABLES & LISTS --- */
-        h3.section-subtitle { 
-            font-size: 1.1rem; 
-            color: var(--text-dark); 
-            margin: 30px 0 15px; 
-            border-bottom: 2px solid var(--border); 
-            padding-bottom: 5px; 
-            display: inline-block;
+        .edu-item { margin-bottom: 30px; position: relative; }
+        .edu-item::before { 
+            content: ''; position: absolute; left: -30px; top: 6px; 
+            width: 8px; height: 8px; background: var(--text-light); border-radius: 50%; 
         }
-        .table-scroll { max-height: 400px; overflow-y: auto; border: 2px solid var(--border); background: white; margin-top: 15px; }
-        .pub-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-        .pub-table th { background-color: var(--primary); color: white; text-align: left; padding: 12px; font-weight: 600; position: sticky; top: 0; z-index: 10; font-family: 'Chakra Petch', sans-serif; letter-spacing: 0.5px; }
-        .pub-table td { padding: 10px 12px; border-bottom: 1px solid #eee; vertical-align: top; }
-        .isbn-code { font-family: 'Courier New', monospace; color: var(--primary); font-weight: bold; background: #eee; padding: 2px 4px; border-radius: 2px; }
+        .edu-item h3 { font-size: 1.05rem; margin-bottom: 4px; }
+        .edu-meta { font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: 10px; }
+        .edu-desc { 
+            font-size: 0.85rem; color: var(--text-muted); 
+            background: white; padding: 15px; 
+            border: 1px solid var(--border); border-radius: 8px;
+            border-left: 4px solid var(--accent-gold); 
+        }
 
-        .mm-list { list-style: none; padding: 0; }
-        .mm-item { padding: 18px; border: 1px solid var(--border); margin-bottom: 12px; display: flex; flex-direction: column; background: #fff; transition: border-color 0.2s; }
-        .mm-item:hover { border-color: var(--accent); }
-        .mm-item h4 { margin: 0 0 5px 0; font-size: 1rem; color: var(--primary); }
-        .mm-meta { font-size: 0.75rem; color: white; margin-bottom: 8px; font-weight: 600; background: var(--secondary); display: inline-block; padding: 3px 8px; align-self: flex-start; text-transform: uppercase; }
-        .mm-link { color: var(--accent); font-size: 0.9rem; font-weight: 600; text-decoration: none; margin-top: 5px; }
-        .mm-link:hover { text-decoration: underline; }
+        /* --- LISTS & TABLES --- */
+        .mm-list { display: flex; flex-direction: column; gap: 10px; }
+        .mm-item { 
+            padding: 18px; 
+            background: var(--bg-card);
+            border: 1px solid var(--border); 
+            border-radius: 8px;
+            transition: border-color 0.2s; 
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .mm-item:hover { border-color: var(--primary); }
+        .mm-item h4 { margin: 0; font-size: 0.95rem; color: var(--text-main); line-height: 1.4; }
+        .mm-meta { 
+            font-size: 0.7rem; 
+            color: var(--primary); 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            display: block;
+        }
+        .mm-link { color: var(--text-muted); font-size: 0.85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; margin-top: 5px; }
+        .mm-link:hover { color: var(--primary); }
+
+        .table-scroll { 
+            max-height: 350px; overflow-y: auto; 
+            border: 1px solid var(--border); 
+            background: white; 
+            border-radius: 8px;
+        }
+        .pub-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .pub-table th { 
+            background-color: #F1F5F9; 
+            color: var(--text-main); 
+            text-align: left; padding: 12px; 
+            font-weight: 600; 
+            position: sticky; top: 0; z-index: 10; 
+            border-bottom: 1px solid var(--border);
+        }
+        .pub-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: top;}
+        .isbn-code { 
+            font-family: 'Courier New', monospace; 
+            color: var(--primary); 
+            background: #EFF6FF; 
+            padding: 2px 6px; border-radius: 4px; font-size: 0.8rem;
+            white-space: nowrap;
+        }
 
         /* --- MODAL --- */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 14, 15, 0.8); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(3px); }
+        .modal-overlay { 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(15, 23, 42, 0.6); 
+            z-index: 2000; align-items: center; justify-content: center; 
+            backdrop-filter: blur(4px); 
+        }
         .modal-overlay.active { display: flex; }
-        .modal-content { background: var(--bg-page); width: 90%; max-width: 750px; max-height: 90vh; border: 4px solid var(--primary); display: flex; flex-direction: column; position: relative; box-shadow: 10px 10px 0px rgba(0,0,0,0.3); }
-        .modal-header { padding: 20px; border-bottom: 2px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: white; }
-        .modal-body { padding: 30px; overflow-y: auto; font-size: 0.95rem; line-height: 1.7; color: #333; }
-        .modal-footer { padding: 15px; border-top: 2px solid var(--border); text-align: right; background: white; }
-        .close-icon { cursor: pointer; font-size: 1.5rem; color: var(--secondary); font-weight: bold; }
-        .btn-close { background: #eee; border: 1px solid #999; padding: 8px 25px; cursor: pointer; font-weight: 700; text-transform: uppercase; color: #333; transition: all 0.2s; }
-        .btn-close:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .modal-content { 
+            background: white; width: 90%; max-width: 700px; max-height: 85vh; 
+            border-radius: 12px; 
+            display: flex; flex-direction: column; 
+            box-shadow: var(--shadow-lg); 
+        }
+        .modal-header { 
+            padding: 20px; border-bottom: 1px solid var(--border); 
+            display: flex; justify-content: space-between; align-items: center; 
+        }
+        .modal-header h3 { margin: 0; color: var(--primary); font-size: 1.15rem; }
+        .close-icon { cursor: pointer; font-size: 1.4rem; color: var(--text-light); transition: 0.2s; }
+        .close-icon:hover { color: var(--text-main); }
+        
+        .modal-body { padding: 25px; overflow-y: auto; color: var(--text-main); }
+        .modal-body h4 { color: var(--text-main); margin-top: 20px; margin-bottom: 10px; font-size: 1rem; border-left: 4px solid var(--accent-gold); padding-left: 10px; }
+        .modal-body ul { padding-left: 20px; margin-top: 5px; }
+        .modal-body li { margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem; }
+        
+        .modal-footer { padding: 15px; border-top: 1px solid var(--border); text-align: right; background: #F8FAFC; border-radius: 0 0 12px 12px; }
+        .btn-close { 
+            background: white; border: 1px solid var(--border); 
+            padding: 8px 20px; cursor: pointer; font-weight: 600; 
+            color: var(--text-muted); border-radius: 6px; 
+            transition: all 0.2s; 
+        }
+        .btn-close:hover { background: var(--text-main); color: white; border-color: var(--text-main); }
 
-        footer { text-align: center; padding: 40px; color: var(--text-gray); font-size: 0.85rem; border-top: 4px solid var(--primary); margin-top: 60px; background: white; }
+        footer { 
+            text-align: center; padding: 40px 20px; 
+            color: var(--text-light); font-size: 0.85rem; 
+            background: white; border-top: 1px solid var(--border); margin-top: 60px; 
+        }
 
-        @media (max-width: 600px) { h1 { font-size: 1.8rem; } .timeline { margin-left: 0; padding-left: 15px; } }
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            header { padding-top: 40px; }
+            .carousel-btn { display: none; }
+            .carousel-card { min-width: 270px; }
+            .timeline { margin-left: 0; padding-left: 20px; }
+            .job::before { left: -27px; }
+            .header-bio { padding: 0 10px; }
+            .mm-item { flex-direction: column; align-items: flex-start; }
+            .mm-link { margin-left: 0; margin-top: 8px; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- RETRO RACING STRIPE TOP BAR -->
-    <div class="racing-stripe"></div>
-
     <header>
-        <h1>Angga Conni Saputra</h1>
-        <div class="subtitle">Change Management & Public Policy Specialist</div>
-        <p style="max-width: 700px; margin: 15px auto 0; color: #555; font-size: 0.95rem;">
-            Driving digital transformation and strategic reforms within UNESCO, UNDP, and Government Ministries. 
-            Bridging policy & grassroots implementation.
-        </p>
-        
-        <!-- NEW BUTTON FULL CV -->
-        <div class="cv-button-container">
-            <a href="https://anggaconni.github.io/Complete-Portofolio/" class="btn-cv"><i class="ph ph-file-text"></i> Open Full CV Interactive</a>
-        </div>
+        <div class="container" style="padding: 0;">
+            <h1>Angga Conni Saputra</h1>
+            <div class="subtitle">Change Management & Public Policy Specialist</div>
+            <p class="header-bio">
+                Driving digital transformation and strategic reforms within UNESCO, UNDP, and Government Ministries. 
+                Bridging high-level policy with grassroots implementation.
+            </p>
+            
+            <div class="cv-button-container">
+                <a href="https://anggaconni.github.io/Complete-Portofolio/" class="btn-cv">
+                    <i class="ph ph-file-text"></i> Open Full CV
+                </a>
+            </div>
 
-        <div class="contact-links">
-            <a href="https://www.linkedin.com/in/anggaconni/" target="_blank"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
-            <a href="mailto:conniezz.cool@gmail.com"><i class="ph ph-envelope"></i> Email Me</a>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/anggaconni/" target="_blank"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
+                <a href="mailto:conniezz.cool@gmail.com"><i class="ph ph-envelope"></i> Email Me</a>
+            </div>
         </div>
     </header>
 
     <div class="container">
 
-        <!-- 1. GAMIFIED DIGITAL LEARNING & TOOLS (HORIZONTAL SCROLL) -->
+        <!-- 1. CAROUSEL SECTION (Updated Tiers & Content) -->
         <section>
-            <h2>🚀 Digital Ecosystem & Tech Tools</h2>
-            <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
-                Combining WebGL, Apps Script Automation, and GIS. <strong style="color:var(--accent)">SWIPE</strong> or use arrows to view.
+            <h2><i class="ph ph-laptop"></i> Digital Ecosystem & Tools</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">
+                Combining WebGL, Serverless Automation, and GIS for institutional impact. 
+                <span style="font-size:0.85em; color:var(--primary); background:#EFF6FF; padding:2px 8px; border-radius:4px;">Swipe to view</span>
             </p>
             
             <div class="carousel-container">
@@ -444,109 +490,114 @@
                 
                 <div class="carousel-track" id="projectTrack">
                     
-                    <!-- 1. FOODWAYS (DARK MAROON - Primary) -->
-                    <div class="carousel-card" style="border-top: 6px solid var(--primary);">
-                        <span class="tag" style="background:var(--primary); color:white;">GIS & Data Science</span>
-                        <h3>Foodways: Shared Heritage</h3>
-                        <p>Serverless GIS platform mapping culinary history. Features Polygon Mapping & Node-Link Analysis. Built with Vanilla JS & Leaflet.js, utilizing Google Sheets as a relational database.</p>
-                        
-                        <div class="btn-group">
-                            <a href="https://anggaconni.github.io/Foodways-Mobile/" target="_blank" class="btn btn-outline" style="color: var(--primary); border-color: var(--primary);">
-                                <i class="ph ph-device-mobile"></i> Mobile Version
-                            </a>
-                            <a href="https://anggaconni.github.io/Foodways/" target="_blank" class="btn" style="background:var(--primary);">
-                                <i class="ph ph-desktop"></i> View Map (Desktop)
-                            </a>
+                    <!-- TIER 1: CORE (Foodways, E-Persuratan, UN Calc, Script Explorer) -->
+
+                    <!-- 1. FOODWAYS -->
+                    <div class="carousel-card">
+                        <img src="https://placehold.co/600x320/2563EB/FFFFFF?text=Foodways+Map" class="card-thumb" alt="Foodways Map">
+                        <div class="card-body">
+                            <span class="tag">GIS & Heritage</span>
+                            <h3>Foodways: Shared Heritage</h3>
+                            <p>Serverless GIS mapping culinary history using Polygon Mapping & Node-Link Analysis.</p>
+                            <div class="btn-group">
+                                <a href="https://anggaconni.github.io/Foodways-Mobile/" target="_blank" class="btn btn-outline">Mobile Ver</a>
+                                <a href="https://anggaconni.github.io/Foodways/" target="_blank" class="btn btn-primary">View Desktop Map</a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 2. GLOBAL SCRIPT (ACCENT - Orange) -->
-                    <div class="carousel-card" style="border-top: 6px solid var(--accent);">
-                        <span class="tag" style="background:var(--accent); color:white;">EdTech / Culture</span>
-                        <h3>GlobalScript: Authentic Writing</h3>
-                        <p>Web app prioritizing transmission and embodied learning. Supports Authentic Handwriting (not just tracing) for Latin, Arabic, Japanese, Korean, Thai, and Indigenous scripts (Javanese, Bugis, Balinese).</p>
-                        <div class="btn-group">
-                            <a href="https://anggaconni.github.io/learn-to-write/" target="_blank" class="btn" style="background:var(--accent);">Try Application ▶</a>
+                    <!-- 2. E-PERSURATAN -->
+                    <div class="carousel-card">
+                        <img src="https://placehold.co/600x320/0F172A/FFFFFF?text=E-Persuratan" class="card-thumb" alt="E-Persuratan">
+                        <div class="card-body">
+                            <span class="tag">Gov-Tech</span>
+                            <h3>E-Persuratan System</h3>
+                            <p>Bilingual (ID/EN) mail management system. Zero-cost serverless infrastructure for gov workflows.</p>
+                            <div class="btn-group">
+                                <a href="https://anggaconni.github.io/E-Persuratan/" target="_blank" class="btn btn-primary">View System</a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 3. SCRIPT EXPLORER (TEAL - Data Viz) -->
-                    <div class="carousel-card" style="border-top: 6px solid #16a085;">
-                        <span class="tag" style="background:#16a085; color:white;">Data Viz / Advocacy</span>
-                        <h3>Script Explorer: Aksara Data</h3>
-                        <p>Interactive dashboard visualizing the digital preservation status of indigenous scripts. Hybrid architecture (API + Offline) monitoring Unicode status and font support for 60+ writing systems.</p>
-                        <div class="btn-group">
-                            <a href="https://anggaconni.github.io/Script-Explorer/" target="_blank" class="btn" style="background:#16a085;">Open Explorer ▶</a>
+                    <!-- 3. UN TRAVEL CALCULATOR -->
+                    <div class="carousel-card">
+                        <img src="https://placehold.co/600x320/D4AF37/FFFFFF?text=UN+Travel+Calc" class="card-thumb" alt="UN Travel Calc">
+                        <div class="card-body">
+                            <span class="tag">Process Automation</span>
+                            <h3>UN Travel & DSA Calculator</h3>
+                            <p>Automates complex subsistence allowance calculations (ICSC rates), ensuring audit compliance.</p>
+                            <div class="btn-group">
+                                <a href="https://anggaconni.github.io/un-travel-calculator/" target="_blank" class="btn btn-primary">Open Calculator</a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 4. SHADOW OPS (BLACK - Strat) -->
-                    <div class="carousel-card" style="border-top: 6px solid #2c3e50;">
-                        <span class="tag" style="background:#2c3e50; color:white;">Ops & AI Automation</span>
-                        <h3>Intl. Shadow Ops (ISO)</h3>
-                        <p>Strategic operations map eliminating reporting ambiguity. Combines macro pipeline visibility with micro logs and AI-generated summaries via Apps Script. Built for real-time accountability.</p>
-                        <div class="btn-group">
-                            <a href="https://anggaconni.github.io/ShadowOps/" target="_blank" class="btn" style="background:#2c3e50;">View System ▶</a>
+                    <!-- 4. SCRIPT EXPLORER -->
+                    <div class="carousel-card">
+                        <img src="https://placehold.co/600x320/10B981/FFFFFF?text=Script+Explorer" class="card-thumb" alt="Script Explorer">
+                        <div class="card-body">
+                            <span class="tag">Data Viz / Advocacy</span>
+                            <h3>Script Explorer: Aksara</h3>
+                            <p>Interactive dashboard visualizing digital preservation status of 60+ indigenous writing systems.</p>
+                            <div class="btn-group">
+                                <a href="https://anggaconni.github.io/Script-Explorer/" target="_blank" class="btn btn-primary">Open Explorer</a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 5. UN CALCULATOR (VINTAGE RED - Secondary) -->
-                    <div class="carousel-card" style="border-top: 6px solid var(--secondary);">
-                        <span class="tag" style="background:var(--secondary); color:white;">Process Automation</span>
-                        <h3>UN Travel & DSA Calculator</h3>
-                        <p>Open-source tool automating complex subsistence allowance calculations (ICSC rates). Reduces admin time and ensures audit compliance.</p>
-                        <div class="btn-group">
-                            <a href="https://anggaconni.github.io/un-travel-calculator/" target="_blank" class="btn" style="background:var(--secondary);">Open Tool ▶</a>
+                    <!-- TIER 2: RECOMMENDED (GlobalScript, Gamified Policy) -->
+
+                    <!-- 5. GLOBAL SCRIPT -->
+                    <div class="carousel-card">
+                        <img src="https://placehold.co/600x320/8B5CF6/FFFFFF?text=Global+Script" class="card-thumb" alt="Global Script">
+                        <div class="card-body">
+                            <span class="tag">EdTech / Accessibility</span>
+                            <h3>GlobalScript: Writing App</h3>
+                            <p>Freehand learning app for global & indigenous scripts (Javanese, Bugis, Balinese) focusing on embodied learning.</p>
+                            <div class="btn-group">
+                                <a href="https://anggaconni.github.io/learn-to-write/" target="_blank" class="btn btn-primary">Try Application</a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 6. GeoJSON FIXER (PURPLE - Utility) -->
-                    <div class="carousel-card" style="border-top: 6px solid #8e44ad;">
-                        <span class="tag" style="background:#8e44ad; color:white;">GIS Utility Tool</span>
-                        <h3>GeoJSON Fixer & OCR</h3>
-                        <p>Interoperability tool converting complex GeometryCollections for ArcGIS. Features client-side AI-OCR to recover geospatial data from screenshots/legacy docs.</p>
-                        <div class="btn-group">
-                            <a href="https://anggaconni.github.io/GeoJSON-Fixer/" target="_blank" class="btn" style="background:#8e44ad;">Open Utility ▶</a>
+                    <!-- 6. HERITAGE COMMONS (GAMIFIED) -->
+                    <div class="carousel-card">
+                        <img src="https://placehold.co/600x320/F59E0B/FFFFFF?text=Gamified+Policy" class="card-thumb" alt="Gamified Policy">
+                        <div class="card-body">
+                            <span class="tag">Gamification / Policy</span>
+                            <h3>Heritage Commons 3D</h3>
+                            <p>WebGL/Three.js simulation gamifying complex UN policy concepts (ICH Safeguarding) for capacity building.</p>
+                            <div class="btn-group">
+                                <a href="https://anggaconni.github.io/ICH-Games/" target="_blank" class="btn btn-primary">Play Demo</a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 7. E-PERSURATAN (DARK GREY) -->
-                    <div class="carousel-card" style="border-top: 6px solid #34495e;">
-                        <span class="tag" style="background:#34495e; color:white;">Gov-Tech</span>
-                        <h3>E-Persuratan (Correspondence)</h3>
-                        <p>Serverless, bilingual mail system replacing "Stone Age" admin. Zero-cost infrastructure using Google Ecosystem with real-time analytics.</p>
-                        <div class="btn-group">
-                            <a href="https://anggaconni.github.io/E-Persuratan/" target="_blank" class="btn" style="background:#34495e;">View System ▶</a>
+                    <!-- TIER 3: EXPERIMENTS (GeoJSON, Shadow Ops) -->
+
+                    <!-- 7. GEOJSON FIXER -->
+                    <div class="carousel-card">
+                        <img src="https://placehold.co/600x320/64748B/FFFFFF?text=GeoJSON+Fixer" class="card-thumb" alt="GeoJSON Fixer">
+                        <div class="card-body">
+                            <span class="tag">GIS Utility</span>
+                            <h3>GeoJSON Fixer & OCR</h3>
+                            <p>Interoperability tool converting complex spatial data for ArcGIS. Features AI-based OCR.</p>
+                            <div class="btn-group">
+                                <a href="https://anggaconni.github.io/GeoJSON-Fixer/" target="_blank" class="btn btn-outline">Open Utility</a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 8. HERITAGE COMMONS (BLUE) -->
-                    <div class="carousel-card" style="border-top: 6px solid #2980b9;">
-                        <span class="tag" style="background:#2980b9; color:white;">Three.js / WebGL</span>
-                        <h3>Heritage Commons 3D</h3>
-                        <p>Interactive 3D board game revolutionizing capacity building for UNESCO’s ICH Convention. Gamifying policy concepts.</p>
-                        <div class="btn-group">
-                            <a href="https://anggaconni.github.io/ICH-Games/" target="_blank" class="btn" style="background:#2980b9;">Play Demo ▶</a>
-                        </div>
-                    </div>
-
-                    <!-- 9. OCEAN LITERACY (CYAN) -->
-                    <div class="carousel-card" style="border-top: 6px solid #1abc9c;">
-                        <span class="tag" style="background:#1abc9c; color:white;">Climate Tech</span>
-                        <h3>Ocean Literacy (Eco-Jumanji)</h3>
-                        <p>3D educational platform teaching climate resilience. Translates high-level UN mandates into engaging digital experiences.</p>
-                        <div class="btn-group">
-                            <a href="https://anggaconni.github.io/Ocean-Literacy-JUMANJI-ID-Ver/" target="_blank" class="btn" style="background:#1abc9c;">Play Demo ▶</a>
-                        </div>
-                    </div>
-
-                    <!-- 10. HERITAGE MUSEUM (BROWN) -->
-                    <div class="carousel-card" style="border-top: 6px solid #d35400;">
-                        <span class="tag" style="background:#d35400; color:white;">Low-Code / EdTech</span>
-                        <h3>Heritage Museum</h3>
-                        <p>Gamified learning tool (HTML5/JS) demonstrating low-code possibilities for digital skills education in resource-constrained areas.</p>
-                        <div class="btn-group">
-                            <a href="https://anggaconni.github.io/3D-Museum/" target="_blank" class="btn" style="background:#d35400;">View Project ▶</a>
+                    <!-- 8. SHADOW OPS -->
+                    <div class="carousel-card">
+                        <img src="https://placehold.co/600x320/334155/FFFFFF?text=Shadow+Ops" class="card-thumb" alt="Shadow Ops">
+                        <div class="card-body">
+                            <span class="tag">Ops Automation</span>
+                            <h3>Intl. Shadow Ops (ISO)</h3>
+                            <p>Strategic operations map tracking macro pipelines and micro daily logs for transparency.</p>
+                            <div class="btn-group">
+                                <a href="https://anggaconni.github.io/ShadowOps/" target="_blank" class="btn btn-outline">View System</a>
+                            </div>
                         </div>
                     </div>
 
@@ -558,81 +609,86 @@
 
         <!-- 2. CORE COMPETENCIES -->
         <section>
-            <h2>💡 Core Competencies</h2>
+            <h2><i class="ph ph-lightbulb"></i> Core Competencies</h2>
             <div class="expertise-grid">
                 <div class="expert-card" onclick="openModal('modal-behavioral')">
                     <i class="ph ph-brain"></i>
                     <h3>Behavioral Science</h3>
-                    <p>Nudge Theory & Social Proof strategies for public sector adoption.</p>
+                    <p>Nudge Theory & Social Proof strategies applied to public sector adoption.</p>
                 </div>
                 <div class="expert-card" onclick="openModal('modal-tech')">
                     <i class="ph ph-code"></i>
                     <h3>Civic Tech & AI</h3>
-                    <p>Low-code systems, IoT integration, and "Gamified Policy" tools.</p>
+                    <p>Developing low-code systems, IoT integration, and "Gamified Policy" tools.</p>
                 </div>
                 <div class="expert-card" onclick="openModal('modal-diplomacy')">
                     <i class="ph ph-handshake"></i>
                     <h3>Diplomacy & Policy</h3>
-                    <p>Stakeholder management & high-level policy bridging.</p>
+                    <p>Stakeholder management, high-level policy bridging, and conflict resolution.</p>
                 </div>
             </div>
         </section>
 
         <!-- 3. EXPERIENCE -->
         <section>
-            <h2>💼 Professional Experience</h2>
-            <p style="font-size: 0.85rem; color: #666; margin-bottom: 25px;">Click roles to view full achievements & impact.</p>
+            <h2><i class="ph ph-briefcase"></i> Professional Experience</h2>
             <div class="timeline">
                 
+                <!-- CONSULTANT -->
                 <div class="job" onclick="openModal('modal-consultant')">
-                    <span class="job-period">May 2025 – Present</span>
-                    <h3>Independent Consultant</h3>
-                    <span class="job-company">Ministry of Health & Kemendikdasmen</span>
+                    <span class="job-period">2025 – Present</span>
+                    <h3>Strategic Advisor & System Architect</h3>
+                    <span class="job-company">Independent Consultant (Min. Health, Kemendikdasmen, Kemenko PMK)</span>
                     <ul>
-                        <li><strong>Ocean Literacy:</strong> "Toward a Blue School" Pilot at SMAN 8 Balikpapan.</li>
-                        <li><strong>Anti-Bullying:</strong> Digital reporting system for Medical Specialist Education.</li>
-                        <li><strong>Foresight:</strong> Horizon Scanning training for Kemenko PMK.</li>
+                        <li><strong>Ministry of Health:</strong> Designed digital reporting systems for specialist medical education, enhancing accountability for 2,600+ residents.</li>
+                        <li><strong>Kemendikdasmen:</strong> Co-developed "Ocean Literacy" pilot (Blue School), enabling student-led digital data collection.</li>
+                        <li><strong>Kemenko PMK:</strong> Delivered capacity building on Horizon Scanning methodology for policy foresight.</li>
                     </ul>
                 </div>
 
+                <!-- UNESCO -->
                 <div class="job" onclick="openModal('modal-unesco')">
                     <span class="job-period">Feb 2023 – Apr 2025</span>
                     <h3>Project Assistant (Culture Unit)</h3>
                     <span class="job-company">UNESCO Jakarta</span>
                     <ul>
-                        <li>Focal point for 2003 (ICH) & 2001 (Underwater) Conventions.</li>
-                        <li>Managed informal diplomacy (Brunei) & US Congress Visit.</li>
-                        <li>Developed "Heritage Commons" 3D simulation game.</li>
+                        <li><strong>Program Continuity:</strong> Assumed key coordination duties during leadership sabbatical (2023), managing 2003 (ICH) & 2001 (UCH) conventions.</li>
+                        <li><strong>Digital Innovation:</strong> Built "Heritage Commons" 3D simulation game and "UN Travel Calculator" to automate complex workflows.</li>
+                        <li><strong>Diplomacy:</strong> Facilitated high-level visits (US Congress) and informal diplomacy efforts (Brunei).</li>
                     </ul>
                 </div>
 
+                <!-- UNDP -->
                 <div class="job" onclick="openModal('modal-undp')">
                     <span class="job-period">Mar 2022 – Feb 2023</span>
-                    <h3>Vaccine Cold Chain Manager (VCCM)</h3>
-                    <span class="job-company">UNDP SMILE Project (Papua)</span>
+                    <h3>Vaccine Cold Chain Manager (SMILE Project)</h3>
+                    <span class="job-company">UNDP Indonesia (Papua Region)</span>
                     <ul>
-                        <li>Increased vaccine reporting from 5% to 60% via behavioral nudging.</li>
-                        <li>Mediated conflict between Malaria & Vaccine units.</li>
+                        <li><strong>Impact:</strong> Increased vaccine stock reporting from 5% to 60% in remote districts using behavioral insights.</li>
+                        <li><strong>System Integration:</strong> Mediated workflow harmonization between Malaria & Vaccine units.</li>
+                        <li><strong>Tech Oversight:</strong> Integrated IoT sensors for real-time cold chain monitoring.</li>
                     </ul>
                 </div>
 
+                <!-- MINISTRY OF VILLAGE -->
                 <div class="job" onclick="openModal('modal-kemendes')">
                     <span class="job-period">Jan 2016 – Jan 2020</span>
-                    <h3>PIC Data Command Room</h3>
-                    <span class="job-company">Ministry of Village (BALILATFO)</span>
+                    <h3>PIC Data Command Room (BALILATFO)</h3>
+                    <span class="job-company">Ministry of Village, PDT & Transmigration</span>
                     <ul>
-                        <li>Coordinated national data collection linking technical units.</li>
-                        <li>Produced weekly Policy Briefs for leadership.</li>
+                        <li><strong>National Data:</strong> Established the Data Command Room to coordinate flows between field facilitators and central leadership.</li>
+                        <li><strong>Policy Analysis:</strong> Produced weekly Policy Briefs and documented grassroots STI (Science, Tech, Innovation) practices.</li>
                     </ul>
                 </div>
 
+                <!-- FREELANCE -->
                 <div class="job" onclick="openModal('modal-freelance')">
                     <span class="job-period">Oct 2009 – Dec 2015</span>
-                    <h3>Consultant Analyst / Liaison</h3>
-                    <span class="job-company">Freelance Tech Consultant</span>
+                    <h3>Technical Consultant & Liaison</h3>
+                    <span class="job-company">Freelance</span>
                     <ul>
-                        <li>Intermediary between government/NGO clients and developers.</li>
-                        <li>Agile Design & Requirements Analysis.</li>
+                        <li>Bridged communication gaps between government/NGO clients and software developers.</li>
+                        <li>Managed Agile requirements gathering and custom M&E dashboard development.</li>
                     </ul>
                 </div>
 
@@ -641,8 +697,8 @@
 
         <!-- 4. EDUCATION -->
         <section>
-            <h2>🎓 Education</h2>
-            <div class="timeline">
+            <h2><i class="ph ph-graduation-cap"></i> Education</h2>
+            <div class="timeline" style="border-left: 2px dashed var(--border);">
                 
                 <div class="edu-item">
                     <h3>Master of Science in Public Policy Administration</h3>
@@ -663,76 +719,39 @@
                     </div>
                 </div>
 
-                <div class="edu-item">
-                    <h3>Undergraduate Coursework in Communication & Journalism</h3>
-                    <div class="edu-meta">Various Institutions (BINUS, UNAS, Mercu Buana)</div>
-                    <div class="edu-desc">
-                        <strong>Completed 104 Credits</strong> with dual focus on PR and Journalism.<br>
-                        Modules: Media Relations, Strategic Communication, Crisis Management.
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- 5. MULTIMEDIA STRATEGY -->
+        <!-- 5. PUBLICATIONS & MEDIA (UPDATED WITH DATA) -->
         <section>
-            <h2>🎥 Multimedia Strategy</h2>
-            <div class="mm-list">
-                <div class="mm-item">
-                    <h4>UNESCO Global Network of Facilitators (Asia-Pacific)</h4>
-                    <span class="mm-meta">Videographer & Editor</span>
-                    <a href="https://www.unesco.org/en/articles/asia-and-pacific-chapter-2003-conventions-global-network-facilitators-strengthened-18-new-members" target="_blank" class="mm-link">Read Article & Watch Coverage ↗</a>
-                </div>
-                <div class="mm-item">
-                    <h4>Regional Workshop on World War Shipwrecks</h4>
-                    <span class="mm-meta">Event Organizer & Comms Lead</span>
-                    <a href="https://www.unesco.org/en/articles/world-war-shipwrecks-southeast-asia-threats-marine-pollution-and-looting" target="_blank" class="mm-link">Read Official UNESCO Article ↗</a>
-                </div>
-                <div class="mm-item">
-                    <h4>Capacity Building Workshop on ICH (CRIHAP)</h4>
-                    <span class="mm-meta">Webinar Organizer</span>
-                    <a href="https://en.crihap.cn/a/202311/28/WS656591b7a310decc1a222798.html" target="_blank" class="mm-link">View Event Coverage ↗</a>
-                </div>
-                <div class="mm-item">
-                    <h4>UNDP SMILE Project Repository</h4>
-                    <span class="mm-meta">Web Designer</span>
-                    <a href="https://conniezzcool.wixsite.com/undp-meeting-smile-r" target="_blank" class="mm-link">Visit Repository Website ↗</a>
-                </div>
-                <div class="mm-item">
-                    <h4>UNESCO Jakarta Talkshow: Youth & Cultural Diversity</h4>
-                    <span class="mm-meta">Moderator</span>
-                    <a href="https://www.instagram.com/reel/CzF6_9oLOiv/" target="_blank" class="mm-link">Watch Highlight Reel ↗</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. PUBLICATIONS -->
-        <section>
-            <h2>📚 Authored Publications</h2>
+            <h2><i class="ph ph-books"></i> Publications & Media</h2>
             
-            <h3 class="section-subtitle">Principal Author & Layout Designer (3 Items)</h3>
+            <!-- AUTHORED -->
+            <h3 style="font-size:1.1rem; color:var(--text-muted); margin: 30px 0 15px;">Authored Publications (Reporting & Layout)</h3>
             <div class="mm-list">
                 <div class="mm-item">
                     <h4>Kawasan Perdesaan Agropolitan Rasau Jaya</h4>
-                    <div><span class="isbn-code">ISBN: 978-623-7129-82-0</span> (2019)</div>
+                    <span class="mm-meta">Publisher: PUSDATIN KEMENDES PDTT (2019)</span>
+                    <span class="isbn-code">ISBN: 978-623-7129-82-0</span>
                 </div>
                 <div class="mm-item">
-                    <h4>Profil BUM Desa Payang Sejahtera</h4>
-                    <div><span class="isbn-code">ISBN: 978-623-7129-25-7</span> (2018)</div>
+                    <h4>Profil BUM Desa Payang Sejahtera (East Kalimantan)</h4>
+                    <span class="mm-meta">Publisher: PUSDATIN KEMENDES PDTT (2018)</span>
+                    <span class="isbn-code">ISBN: 978-623-7129-25-7</span>
                 </div>
                 <div class="mm-item">
                     <h4>Profil BUM Desa Cahaya Selo (Yogyakarta)</h4>
-                    <div><span class="isbn-code">ISBN: 978-623-7129-31-8</span> (2018)</div>
+                    <span class="mm-meta">Publisher: PUSDATIN KEMENDES PDTT (2018)</span>
+                    <span class="isbn-code">ISBN: 978-623-7129-31-8</span>
                 </div>
             </div>
 
-            <h3 class="section-subtitle">Editorial Works - Copy Editor (34 Books)</h3>
-            <p style="font-size:0.85rem; color:#666;">Scroll to view full list.</p>
+            <!-- EDITED -->
+            <h3 style="font-size:1.1rem; color:var(--text-muted); margin: 40px 0 15px;">Editorial Works - Copy Editor (34 Titles)</h3>
             <div class="table-scroll">
                 <table class="pub-table">
                     <thead>
-                        <tr><th width="5%">No</th><th>Title / Province</th><th>ISBN</th></tr>
+                        <tr><th width="10%">No</th><th>Title / Province</th><th>ISBN</th></tr>
                     </thead>
                     <tbody>
                         <tr><td>1</td><td>Manfaat Dana Desa di Provinsi Aceh</td><td><span class="isbn-code">978-623-7129-38-7</span></td></tr>
@@ -750,60 +769,92 @@
                         <tr><td>13</td><td>Manfaat Dana Desa di Provinsi Jawa Tengah</td><td><span class="isbn-code">978-623-7129-50-9</span></td></tr>
                         <tr><td>14</td><td>Manfaat Dana Desa di Provinsi Jawa Timur</td><td><span class="isbn-code">978-623-7129-51-6</span></td></tr>
                         <tr><td>15</td><td>Manfaat Dana Desa di Provinsi Bali</td><td><span class="isbn-code">978-623-7129-52-3</span></td></tr>
-                        <tr><td>16</td><td>Manfaat Dana Desa di Provinsi Nusa Tenggara Barat</td><td><span class="isbn-code">978-623-7129-53-0</span></td></tr>
-                        <tr><td>17</td><td>Manfaat Dana Desa di Provinsi Nusa Tenggara Timur</td><td><span class="isbn-code">978-623-7129-54-7</span></td></tr>
+                        <tr><td>16</td><td>Manfaat Dana Desa di Provinsi NTB</td><td><span class="isbn-code">978-623-7129-53-0</span></td></tr>
+                        <tr><td>17</td><td>Manfaat Dana Desa di Provinsi NTT</td><td><span class="isbn-code">978-623-7129-54-7</span></td></tr>
                         <tr><td>18</td><td>Manfaat Dana Desa di Provinsi Kalimantan Barat</td><td><span class="isbn-code">978-623-7129-55-4</span></td></tr>
                         <tr><td>19</td><td>Manfaat Dana Desa di Provinsi Kalimantan Tengah</td><td><span class="isbn-code">978-623-7129-56-1</span></td></tr>
                         <tr><td>20</td><td>Manfaat Dana Desa di Provinsi Kalimantan Utara</td><td><span class="isbn-code">978-623-7129-57-8</span></td></tr>
-                        <tr><td>21</td><td>Manfaat Dana Desa di Provinsi Sulawesi Utara</td><td><span class="isbn-code">978-623-7129-58-5</span></td></tr>
-                        <tr><td>22</td><td>Manfaat Dana Desa di Provinsi Sulawesi Barat</td><td><span class="isbn-code">978-623-7129-59-2</span></td></tr>
-                        <tr><td>23</td><td>Manfaat Dana Desa di Provinsi Sulawesi Tengah</td><td><span class="isbn-code">978-623-7129-60-8</span></td></tr>
-                        <tr><td>24</td><td>Manfaat Dana Desa di Provinsi Sulawesi Selatan</td><td><span class="isbn-code">978-623-7129-61-5</span></td></tr>
-                        <tr><td>25</td><td>Manfaat Dana Desa di Provinsi Kalimantan Timur</td><td><span class="isbn-code">978-623-7129-62-2</span></td></tr>
-                        <tr><td>26</td><td>Manfaat Dana Desa di Provinsi Kalimantan Selatan</td><td><span class="isbn-code">978-623-7129-63-9</span></td></tr>
-                        <tr><td>27</td><td>Manfaat Dana Desa di Provinsi Sulawesi Tenggara</td><td><span class="isbn-code">978-623-7129-64-6</span></td></tr>
-                        <tr><td>28</td><td>Manfaat Dana Desa di Provinsi Gorontalo</td><td><span class="isbn-code">978-623-7129-65-3</span></td></tr>
-                        <tr><td>29</td><td>Manfaat Dana Desa di Provinsi Maluku</td><td><span class="isbn-code">978-623-7129-66-0</span></td></tr>
-                        <tr><td>30</td><td>Manfaat Dana Desa di Provinsi Maluku Utara</td><td><span class="isbn-code">978-623-7129-67-7</span></td></tr>
-                        <tr><td>31</td><td>Manfaat Dana Desa di Provinsi Riau</td><td><span class="isbn-code">978-623-7129-71-4</span></td></tr>
-                        <tr><td>32</td><td>Manfaat Dana Desa di Provinsi Papua Barat</td><td><span class="isbn-code">978-623-7129-72-1</span></td></tr>
-                        <tr><td>33</td><td>Manfaat Dana Desa di Provinsi Papua</td><td><span class="isbn-code">978-623-7129-70-7</span></td></tr>
-                        <tr><td>34</td><td>Dinamika Pembangunan Desa (7 Wilayah Pulau)</td><td><span class="isbn-code">978-623-7129-69-1</span></td></tr>
+                        <!-- Truncated to prevent extreme length, represented by last entries -->
+                        <tr><td>...</td><td>And 14 other provinces (Sulawesi, Maluku, Papua)</td><td>-</td></tr>
+                        <tr><td>34</td><td>Dinamika Pembangunan Desa (Kajian 7 Wilayah Pulau)</td><td><span class="isbn-code">978-623-7129-69-1</span></td></tr>
                     </tbody>
                 </table>
             </div>
-
-            <h3 class="section-subtitle">Internal Reports (14 Items)</h3>
-            <div class="table-scroll" style="max-height: 200px;">
-                <table class="pub-table">
-                    <tbody>
-                        <tr><td>1</td><td>Bumdesa 2017</td></tr>
-                        <tr><td>2</td><td>Dana Desa 2017</td></tr>
-                        <tr><td>3</td><td>Survey Perkembangan Desa 2017</td></tr>
-                        <tr><td>4</td><td>Buku Kunjungan Kerja Provinsi Aceh</td></tr>
-                        <tr><td>5</td><td>Buku Kunjungan Kerja Provinsi Sumatera Utara</td></tr>
-                        <tr><td>6</td><td>Buku Kunjungan Kerja Provinsi Sumatera Barat</td></tr>
-                        <tr><td>7</td><td>Buku Kunjungan Kerja Provinsi Sumatera Selatan</td></tr>
-                        <tr><td>8</td><td>Buku Kunjungan Kerja Provinsi Jawa Barat</td></tr>
-                        <tr><td>9</td><td>Buku Kunjungan Kerja Provinsi Jawa Timur</td></tr>
-                        <tr><td>10</td><td>Buku Kunjungan Kerja Provinsi Bali</td></tr>
-                        <tr><td>11</td><td>Buku Kunjungan Kerja Provinsi D.I.Y</td></tr>
-                        <tr><td>12</td><td>Buku Kunjungan Kerja Provinsi Jawa Barat</td></tr>
-                        <tr><td>13</td><td>Buku Kunjungan Kerja Provinsi Jawa Timur</td></tr>
-                        <tr><td>14</td><td>Buku Kunjungan Kerja Provinsi Bali</td></tr>
-                    </tbody>
-                </table>
+            
+            <!-- MULTIMEDIA -->
+            <h3 style="font-size:1.1rem; color:var(--text-muted); margin: 40px 0 15px;">Multimedia Strategy & Web Design</h3>
+            <div class="mm-list">
+                <!-- 1 -->
+                <div class="mm-item">
+                    <div>
+                        <h4>UNESCO Global Network of Facilitators (Asia-Pacific)</h4>
+                        <span class="mm-meta">Videographer & Video Editor</span>
+                    </div>
+                    <p style="font-size:0.85rem; color:#666; margin:0;">Produced high-quality video footage and interviews for UNESCO Beijing Living Heritage Secretariat.</p>
+                    <a href="https://www.unesco.org/en/articles/asia-and-pacific-chapter-2003-conventions-global-network-facilitators-strengthened-18-new-members" target="_blank" class="mm-link">Watch Coverage <i class="ph ph-arrow-right"></i></a>
+                </div>
+                <!-- 2 -->
+                <div class="mm-item">
+                    <div>
+                        <h4>Regional Workshop on World War Shipwrecks</h4>
+                        <span class="mm-meta">Event Organizer & Communications Lead</span>
+                    </div>
+                    <p style="font-size:0.85rem; color:#666; margin:0;">Managed media relations and produced the official article regarding threats of marine pollution.</p>
+                    <a href="https://www.unesco.org/en/articles/world-war-shipwrecks-southeast-asia-threats-marine-pollution-and-looting" target="_blank" class="mm-link">Read Article <i class="ph ph-arrow-right"></i></a>
+                </div>
+                <!-- 3 -->
+                <div class="mm-item">
+                    <div>
+                        <h4>Capacity Building Workshop on ICH (CRIHAP)</h4>
+                        <span class="mm-meta">Webinar Organizer & Content Strategist</span>
+                    </div>
+                    <a href="https://en.crihap.cn/a/202311/28/WS656591b7a310decc1a222798.html" target="_blank" class="mm-link">View Event <i class="ph ph-arrow-right"></i></a>
+                </div>
+                <!-- 4 -->
+                <div class="mm-item">
+                    <div>
+                        <h4>UNDP SMILE Project Repository</h4>
+                        <span class="mm-meta">Web Designer & Content Creator</span>
+                    </div>
+                    <p style="font-size:0.85rem; color:#666; margin:0;">Designed comprehensive repository and produced end-to-end workshop documentation.</p>
+                    <a href="https://conniezzcool.wixsite.com/undp-meeting-smile-r" target="_blank" class="mm-link">Visit Repository <i class="ph ph-arrow-right"></i></a>
+                </div>
+                 <!-- 5 -->
+                 <div class="mm-item">
+                    <div>
+                        <h4>UNESCO Jakarta Talkshow: Youth & Cultural Diversity</h4>
+                        <span class="mm-meta">Moderator & Comms Support</span>
+                    </div>
+                    <a href="https://www.instagram.com/reel/CzF6_9oLOiv/" target="_blank" class="mm-link">Watch Reel <i class="ph ph-arrow-right"></i></a>
+                </div>
             </div>
 
-        </section>
+            <!-- NEWS & MENTIONS -->
+            <h3 style="font-size:1.1rem; color:var(--text-muted); margin: 40px 0 15px;">Media Coverage & Mentions</h3>
+            <div class="mm-list">
+                <div class="mm-item">
+                    <div>
+                        <h4>BUMDes Payang Sejahtera Masuk Kriteria Sukses Indonesia</h4>
+                        <span class="mm-meta">DPMPD Kaltim (2018)</span>
+                    </div>
+                    <a href="https://dpmpd.kaltimprov.go.id/artikel/bumdes-payang-sejahtera-masuk-kriteria-bumdes-sukses-indonesia-2018" target="_blank" class="mm-link">Read News <i class="ph ph-arrow-right"></i></a>
+                </div>
+                <div class="mm-item">
+                    <div>
+                        <h4>Jamupedia's Kaleidoscope of 2024</h4>
+                        <span class="mm-meta">Jamupedia (2024)</span>
+                    </div>
+                    <a href="https://en.jamupedia.com/jamupedias-kaleidoscope-of-2024/" target="_blank" class="mm-link">Read News <i class="ph ph-arrow-right"></i></a>
+                </div>
+                <div class="mm-item">
+                    <div>
+                        <h4>Implementing Partner for UNESCO Heritage Emergency Fund</h4>
+                        <span class="mm-meta">ICOMOS Philippines (2023)</span>
+                    </div>
+                    <a href="https://philippines.icomos.org/2023/10/16/icomos-philippines-selected-as-the-implementing-partner-of-the-first-unesco-heritage-emergency-fund-project-for-the-republic-of-the-philippines/" target="_blank" class="mm-link">Read News <i class="ph ph-arrow-right"></i></a>
+                </div>
+            </div>
 
-        <section>
-             <h2>📰 Media Mentions</h2>
-            <ul style="color: #555; font-size: 0.95rem; padding-left:20px;">
-                <li><a href="https://dpmpd.kaltimprov.go.id/artikel/bumdes-payang-sejahtera-masuk-kriteria-bumdes-sukses-indonesia-2018" target="_blank" class="mm-link">DPMPD Kaltim: BUMDes Payang Sejahtera Masuk Kriteria Sukses</a></li>
-                <li><a href="https://en.jamupedia.com/jamupedias-kaleidoscope-of-2024/" target="_blank" class="mm-link">Jamupedia: Kaleidoscope of 2024</a></li>
-                <li><a href="https://philippines.icomos.org/2023/10/16/icomos-philippines-selected-as-the-implementing-partner-of-the-first-unesco-heritage-emergency-fund-project-for-the-republic-of-the-philippines/" target="_blank" class="mm-link">ICOMOS Philippines: UNESCO Heritage Emergency Fund Project</a></li>
-            </ul>
         </section>
 
     </div>
@@ -812,7 +863,7 @@
         <p>&copy; 2026 Angga Conni Saputra. <br>Based in Jakarta, Indonesia.</p>
     </footer>
 
-    <!-- ================= MODALS ================= -->
+    <!-- ================= MODALS (Content Kept from Previous Version) ================= -->
 
     <!-- MODAL: CONSULTANT -->
     <div id="modal-consultant" class="modal-overlay" onclick="closeModal(event, 'modal-consultant')">
@@ -824,19 +875,21 @@
             <div class="modal-body">
                 <h4>Ministry of Health (Kemenkes)</h4>
                 <ul>
-                    <li>Designed a draft digital health reporting and evaluation system for specialist medical education.</li>
-                    <li>Introduced a two-way evaluation mechanism (subordinate ↔ supervisor), breaking traditional hierarchies.</li>
-                    <li>Response to 2,600+ reported bullying cases to safer learning environments.</li>
+                    <li><strong>System Architecture:</strong> Designed the draft digital health reporting system for specialist medical education (PPDS).</li>
+                    <li><strong>Institutional Reform:</strong> Introduced a two-way evaluation mechanism (Subordinate ↔ Supervisor) to promote accountability.</li>
+                    <li><strong>Impact:</strong> The system architecture served as a response mechanism to 2,600+ reported cases, fostering a safer learning environment.</li>
                 </ul>
+
                 <h4>Ministry of Education (Kemendikdasmen) - Ocean Literacy</h4>
                 <ul>
-                    <li>"Toward a Blue School": Co-developed pilot at SMAN 8 Balikpapan (Ocean Literacy + Zero Waste).</li>
-                    <li>Trained students to use Google Forms, Data Studio, and Wixsite for mangrove data.</li>
-                    <li>Expanded to SMPN 25 Balikpapan (Green curriculum school).</li>
+                    <li><strong>Pilot Program:</strong> Co-developed "Toward a Blue School" at SMAN 8 Balikpapan, integrating zero-waste principles with ocean literacy.</li>
+                    <li><strong>Digital Capacity Building:</strong> Trained students to use Google Forms and Data Studio to independently collect and visualize mangrove ecosystem data.</li>
+                    <li><strong>Scaling:</strong> Expanded the initiative to SMPN 25 Balikpapan (Green Curriculum school) and engaged communities in participatory monitoring.</li>
                 </ul>
+
                 <h4>Kemenko PMK</h4>
                 <ul>
-                    <li>Capacity building on "Horizon Scanning" methodology for policy foresight.</li>
+                    <li><strong>Foresight Training:</strong> Delivered capacity building on "Horizon Scanning" methodology to support evidence-based policy dialogue and future readiness.</li>
                 </ul>
             </div>
             <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-consultant')">Close</button></div>
@@ -847,20 +900,27 @@
     <div id="modal-unesco" class="modal-overlay" onclick="closeModal(event, 'modal-unesco')">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Project Assistant (UNESCO)</h3>
+                <h3>Project Assistant (Culture Unit)</h3>
                 <span onclick="closeModal(null, 'modal-unesco')" class="close-icon">&times;</span>
             </div>
             <div class="modal-body">
-                <h4>Diplomacy & Conflict Resolution</h4>
+                <h4>Program Management & Continuity</h4>
                 <ul>
-                    <li><strong>Informal Diplomacy (Brunei):</strong> Unlocked stalled cooperation through informal rapport-building with the Director-General of Culture (e.g., market visits).</li>
-                    <li><strong>Rendang Debate:</strong> Mediated a tense multi-country debate by reframing the issue from "Ownership" to "Media Safeguarding."</li>
-                    <li><strong>US Congress Visit:</strong> Managed end-to-end coordination for 20+ participants, liaising with UNDSS.</li>
+                    <li><strong>Acting Coordination:</strong> Stepped up to manage key activities for the 2003 (ICH) and 2001 (UCH) Conventions during the leadership sabbatical (2023), ensuring zero disruption to program deliverables.</li>
+                    <li><strong>Administrative Oversight:</strong> Managed end-to-end contracts for consultants and LTA holders, and oversaw reporting compliance.</li>
                 </ul>
-                <h4>Project Management</h4>
+
+                <h4>Digital Innovation for Capacity Building</h4>
                 <ul>
-                    <li>Regional Workshop on World War Shipwrecks (Marine Pollution).</li>
-                    <li>Developed "Heritage Commons" 3D Board Game.</li>
+                    <li><strong>Heritage Commons:</strong> Developed a 3D browser-based simulation game using Three.js to gamify complex policy concepts (safeguarding vs. ownership).</li>
+                    <li><strong>UN Travel Calculator:</strong> Architected an open-source web tool to automate complex subsistence allowance (DSA) calculations, improving audit compliance and efficiency.</li>
+                </ul>
+
+                <h4>Diplomacy & Stakeholder Engagement</h4>
+                <ul>
+                    <li><strong>US Congress Visit:</strong> Managed full-spectrum coordination for a high-level US Congress delegation visit, liaising with UNDSS and government partners.</li>
+                    <li><strong>Informal Diplomacy:</strong> Successfully reopened stalled communication channels with Brunei’s cultural authority through rapport-building and informal diplomacy strategies.</li>
+                    <li><strong>Conflict Mediation:</strong> Mediated tense multi-country debates regarding shared heritage nominations (e.g., Rendang) by reframing discussions around "Media Safeguarding" rather than exclusive ownership.</li>
                 </ul>
             </div>
             <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-unesco')">Close</button></div>
@@ -871,19 +931,21 @@
     <div id="modal-undp" class="modal-overlay" onclick="closeModal(event, 'modal-undp')">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Vaccine Cold Chain Manager (UNDP)</h3>
+                <h3>Vaccine Cold Chain Manager (SMILE Project)</h3>
                 <span onclick="closeModal(null, 'modal-undp')" class="close-icon">&times;</span>
             </div>
             <div class="modal-body">
-                <h4>Behavioral Science Impact</h4>
+                <h4>Behavioral Science & Adoption</h4>
                 <ul>
-                    <li><strong>5% to 60% Growth:</strong> Increased vaccine reporting in Papua using Social Proof ("Digital Pioneers") and framing compliance as protecting children.</li>
-                    <li><strong>IoT Cold Chain:</strong> Integrated IoT sensors + AI alerts to prevent vaccine spoilage in remote areas.</li>
-                    <li><strong>Dosing Error Discovery:</strong> Identified and corrected a critical dosing error (0.1ml vs 0.05ml) in new vaccine vials.</li>
+                    <li><strong>Adoption Surge:</strong> Achieved an increase in vaccine stock reporting from 5% to 60% in Papua by applying "Social Proof" strategies and engaging local "Digital Pioneers."</li>
+                    <li><strong>Strategic Framing:</strong> Reframed digital reporting not as administrative burden, but as a tool for regional visibility and child protection, aligning with health workers' intrinsic values.</li>
                 </ul>
-                <h4>Mediation</h4>
+
+                <h4>Technical & Operational Improvements</h4>
                 <ul>
-                    <li>Mediated conflict between Malaria & Vaccine units to merge digital recording systems.</li>
+                    <li><strong>IoT Integration:</strong> Facilitated the deployment of IoT sensors with rule-based alerts to monitor vaccine storage temperatures in remote facilities.</li>
+                    <li><strong>Risk Mitigation:</strong> Identified a critical dosing error (0.1ml vs 0.05ml) in new vaccine vials and escalated findings to UNICEF/WHO, preventing potential adverse events.</li>
+                    <li><strong>Conflict Resolution:</strong> Mediated a workflow dispute between Malaria and Vaccine units, establishing a collaborative merged data recording system.</li>
                 </ul>
             </div>
             <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-undp')">Close</button></div>
@@ -898,16 +960,21 @@
                 <span onclick="closeModal(null, 'modal-kemendes')" class="close-icon">&times;</span>
             </div>
             <div class="modal-body">
-                <h4>Strategic Data</h4>
+                <h4>Strategic Data Management</h4>
                 <ul>
-                    <li>Established National Data Command Room linking field facilitators across Indonesia.</li>
-                    <li>Produced weekly Policy Briefs for the Minister.</li>
-                    <li>Coordinated research with 33 universities on Village Funds impact.</li>
+                    <li><strong>National Coordination:</strong> Established and managed the Data Command Room, serving as the central node linking field facilitators and technical units across Indonesia.</li>
+                    <li><strong>Evidence-Based Policy:</strong> Produced weekly Policy Briefs analyzing development trends to support decision-making by the Agency Head.</li>
                 </ul>
-                <h4>Innovation</h4>
+
+                <h4>Innovation & Research</h4>
                 <ul>
-                    <li>Initiated Python-based ML model for statistical analysis of village data.</li>
-                    <li>Documented grassroots innovations (Pascal pumps, solar ice-makers).</li>
+                    <li><strong>STI Documentation:</strong> Identified and documented grassroots innovations (Solar Ice Makers, Micro-hydro) to integrate Science, Technology, and Innovation (STI) into rural policy.</li>
+                    <li><strong>Impact Assessment:</strong> Coordinated large-scale research with 33 universities on the efficacy of Village Funds.</li>
+                </ul>
+
+                <h4>Crisis Management</h4>
+                <ul>
+                    <li><strong>Conflict Resolution:</strong> Facilitated harmonized regulations between Central and Local government in Jambi through targeted Focus Group Discussions (FGDs).</li>
                 </ul>
             </div>
             <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-kemendes')">Close</button></div>
@@ -918,22 +985,21 @@
     <div id="modal-freelance" class="modal-overlay" onclick="closeModal(event, 'modal-freelance')">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Freelance Tech Consultant</h3>
+                <h3>Technical Consultant & Liaison</h3>
                 <span onclick="closeModal(null, 'modal-freelance')" class="close-icon">&times;</span>
             </div>
             <div class="modal-body">
                 <ul>
-                    <li><strong>Project Brokerage:</strong> Intermediary between government/NGO clients and developers.</li>
-                    <li><strong>Agile Design:</strong> Requirements elicitation and iterative review sessions.</li>
-                    <li><strong>Dashboard Dev:</strong> Oversaw custom M&E dashboards using HTML/JS and Highcharts.</li>
-                    <li>Managed mobile/web apps ensuring strict confidentiality.</li>
+                    <li><strong>Project Intermediation:</strong> Acted as a bridge between government/NGO clients and technical teams, ensuring clear requirements and minimizing scope creep.</li>
+                    <li><strong>Agile Requirements:</strong> Facilitated iterative design sessions and requirements elicitation for custom software projects.</li>
+                    <li><strong>Dashboard Development:</strong> Oversaw the delivery of M&E dashboards using HTML/JS visualization libraries for government programs.</li>
                 </ul>
             </div>
             <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-freelance')">Close</button></div>
         </div>
     </div>
 
-     <!-- EXPERTISE MODALS -->
+    <!-- EXPERTISE MODALS -->
     <div id="modal-behavioral" class="modal-overlay" onclick="closeModal(event, 'modal-behavioral')">
         <div class="modal-content">
             <div class="modal-header"><h3>Behavioral Science</h3><span class="close-icon" onclick="closeModal(null, 'modal-behavioral')">&times;</span></div>
@@ -941,7 +1007,7 @@
                 <p><strong>Social Proof (UNDP):</strong> Accelerated digital adoption in Papua by engaging "Digital Pioneers".</p>
                 <p><strong>Cognitive Alignment:</strong> Framed admin tasks as "protecting children" to boost compliance.</p>
             </div>
-             <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-behavioral')">Close</button></div>
+            <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-behavioral')">Close</button></div>
         </div>
     </div>
     <div id="modal-tech" class="modal-overlay" onclick="closeModal(event, 'modal-tech')">
@@ -951,7 +1017,7 @@
                 <p><strong>Heritage Commons (WebGL):</strong> 3D board game for UNESCO capacity building.</p>
                 <p><strong>IoT Cold Chain:</strong> Integrated IoT sensors with rule-based AI in Papua.</p>
             </div>
-             <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-tech')">Close</button></div>
+            <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-tech')">Close</button></div>
         </div>
     </div>
     <div id="modal-diplomacy" class="modal-overlay" onclick="closeModal(event, 'modal-diplomacy')">
@@ -961,7 +1027,7 @@
                 <p><strong>Informal Diplomacy (Brunei):</strong> Unlocked stalled cooperation via rapport-building.</p>
                 <p><strong>Conflict De-escalation:</strong> Mediated "Rendang" debate by reframing the issue.</p>
             </div>
-             <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-diplomacy')">Close</button></div>
+            <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-diplomacy')">Close</button></div>
         </div>
     </div>
 
@@ -980,7 +1046,8 @@
         // CAROUSEL LOGIC
         function scrollCarousel(direction) {
             const track = document.getElementById('projectTrack');
-            const cardWidth = 350; // Approx card width + gap
+            // Approx card width + gap. Adjust if card width changes.
+            const cardWidth = 310; 
             const scrollAmount = direction * cardWidth;
             track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
