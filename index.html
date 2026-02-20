@@ -1559,6 +1559,15 @@
                 document.body.style.overflow = 'auto';
             }
         }
+        // FUNGSI BARU UNTUK CAROUSEL
+        function scrollCarousel(direction) {
+            const track = document.getElementById('projectTrack');
+            const scrollAmount = 330; // Jarak geser per klik (dalam pixel)
+            track.scrollBy({ 
+                left: direction * scrollAmount, 
+                behavior: 'smooth' 
+            });
+        }
     </script>
 </body>
 </html>
