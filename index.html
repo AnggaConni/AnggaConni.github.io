@@ -24,7 +24,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
     
     <style>
         :root {
@@ -450,6 +452,42 @@
             .mm-link { margin-left: 0; margin-top: 8px; }
         }
     </style>
+
+    <style>
+        /* Menyembunyikan scrollbar standar tapi tetap bisa di-scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Animasi garis horizontal */
+        .timeline-line-grow {
+            animation: growRight 1.5s ease-out forwards;
+            transform-origin: left;
+        }
+        @keyframes growRight {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        /* Kelas untuk menyembunyikan item saat difilter */
+        .hide-item {
+            display: none !important;
+        }
+        
+        /* Animasi saat item muncul kembali */
+        .fade-in-card {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+
 </head>
 <body>
 
@@ -479,290 +517,49 @@
     <div class="container">
 
         <!-- 1. CAROUSEL SECTION (Updated Applications) -->
-        <section>
-            <h2><i class="ph ph-laptop"></i> Digital Ecosystem & Tools</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.9rem;">
-                Combining WebGL, Serverless Automation, and GIS for institutional impact. 
-                <span style="font-size:0.85em; color:var(--primary); background:#EFF6FF; padding:2px 8px; border-radius:4px;">Swipe to view</span>
+        <section class="py-12 w-full max-w-[1400px] mx-auto relative">
+        <div class="px-6 md:px-12 mb-8 text-center md:text-left">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">Footprint of Work and Innovation</h2>
+            <p class="text-slate-500 text-lg max-w-3xl mx-auto md:mx-0">
+                Scroll to the right to explore my *timeline* of applications. Use the filters to search by specific categories.
             </p>
-            
-            <div class="carousel-container">
-                <button class="carousel-btn prev" onclick="scrollCarousel(-1)"><i class="ph ph-caret-left"></i></button>
-                
-                <div class="carousel-track" id="projectTrack">
-                    
-                    <!-- 1. HORIZON SCANNING (Requested First) -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/8B5CF6/FFFFFF?text=Horizon+Scanning" class="card-thumb" alt="Horizon Scanning">
-                        <div class="card-body">
-                            <span class="tag">Foresight & AI</span>
-                            <h3>Horizon Scanning Matrices</h3>
-                            <p>Interactive analytical templates combined with AI-powered strategic synthesis for policy foresight & forecasting.</p>
-                            <div class="btn-group">
-                                <a href="https://horizon-scanning.org/" target="_blank" class="btn btn-primary">Open Matrices</a>
-                            </div>
-                        </div>
-                    </div>
+        </div>
 
-                    <!-- 2. FOODWAYS (Requested Second) -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/2563EB/FFFFFF?text=Foodways+Map" class="card-thumb" alt="Foodways Map">
-                        <div class="card-body">
-                            <span class="tag">GIS & Heritage</span>
-                            <h3>Foodways: Shared Heritage</h3>
-                            <p>Serverless GIS mapping culinary history using Polygon Mapping & Node-Link Analysis.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/Foodways-Mobile/" target="_blank" class="btn btn-outline">Mobile Ver</a>
-                                <a href="https://anggaconni.github.io/Foodways/" target="_blank" class="btn btn-primary">View Desktop Map</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. IMPACTARCHITECT -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/F59E0B/FFFFFF?text=ImpactArchitect" class="card-thumb" alt="ImpactArchitect">
-                        <div class="card-body">
-                            <span class="tag">Behavioral / MEL</span>
-                            <h3>ImpactArchitect v3.3</h3>
-                            <p>Lightweight digital canvas integrating Theory of Change with the COM-B behavioral model and AI diagnostics.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/TheoryofChange_COM-B/" target="_blank" class="btn btn-primary">Open Canvas</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4. S3 BUILDER -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/10B981/FFFFFF?text=S3+Builder" class="card-thumb" alt="S3 Builder">
-                        <div class="card-body">
-                            <span class="tag">Macro-Econ & AI</span>
-                            <h3>S3 AI Report Builder</h3>
-                            <p>Advanced quantitative intelligence platform integrating PODES logic & Google Gemini for regional economic planning.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/SmartSpecializationAIreport/" target="_blank" class="btn btn-primary">Build Report</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 5. STRUCTUREFLOW -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/3B82F6/FFFFFF?text=StructureFlow" class="card-thumb" alt="StructureFlow">
-                        <div class="card-body">
-                            <span class="tag">AI Writing</span>
-                            <h3>StructureFlow Framework</h3>
-                            <p>AI-assisted writing framework prioritizing structure before content for rigorous academic and policy writing.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/StructureFlow/" target="_blank" class="btn btn-primary">Start Writing</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 6. CITIZENSHIP DATA / BIODIVERSITY GIS -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/059669/FFFFFF?text=Biodiversity+GIS" class="card-thumb" alt="Biodiversity GIS">
-                        <div class="card-body">
-                            <span class="tag">Serverless GIS</span>
-                            <h3>Ecological Intersection</h3>
-                            <p>Lightweight geospatial dashboard mapping global biodiversity against biosphere reserves using GAS & Sheets.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/citizenship-data/" target="_blank" class="btn btn-primary">View Map</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 7. LEARN WEB DEV (HTML/JS) -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/F97316/FFFFFF?text=Code+Academy" class="card-thumb" alt="Learn Code">
-                        <div class="card-body">
-                            <span class="tag">EdTech / Web Dev</span>
-                            <h3>Retro Web Dev Labs</h3>
-                            <p>Nostalgic interactive learning platforms for mastering HTML, CSS, and vanilla JavaScript via live browser rendering.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/Learn-HTML/" target="_blank" class="btn btn-primary">Learn HTML</a>
-                                <a href="https://anggaconni.github.io/Learn-Javascript/" target="_blank" class="btn btn-outline">Learn JavaScript</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 8. LEARN DATA (SQL/NOSQL) -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/6366F1/FFFFFF?text=Data+Academy" class="card-thumb" alt="Learn Data">
-                        <div class="card-body">
-                            <span class="tag">EdTech / Gamification</span>
-                            <h3>SQL & NoSQL Academy</h3>
-                            <p>Browser-based mission environment for hands-on database querying utilizing the AlaSQL processing engine.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/Learn_SQL/" target="_blank" class="btn btn-primary">SQL World</a>
-                                <a href="https://anggaconni.github.io/Learn_NoSQL/" target="_blank" class="btn btn-outline">NoSQL World</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 9. GAMIFIED POLICY / 3D WEBSITES -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/F59E0B/FFFFFF?text=Gamified+Policy" class="card-thumb" alt="Gamified Policy">
-                        <div class="card-body">
-                            <span class="tag">WebGL / 3D EdTech</span>
-                            <h3>Gamified Policy & 3D Web</h3>
-                            <p>Interactive tools translating complex UN mandates (ICH Safeguarding, Climate Resilience) into accessible 3D experiences.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/ICH-Games/" target="_blank" class="btn btn-primary">Heritage Commons 3D</a>
-                                <a href="https://anggaconni.github.io/Ocean-Literacy-JUMANJI-ID-Ver/" target="_blank" class="btn btn-outline">Eco-Jumanji 3D</a>
-                                <a href="https://anggaconni.github.io/3D-Museum/" target="_blank" class="btn btn-outline">3D Museum Prototype</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 10. E-PERSURATAN -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/0F172A/FFFFFF?text=E-Persuratan" class="card-thumb" alt="E-Persuratan">
-                        <div class="card-body">
-                            <span class="tag">Gov-Tech</span>
-                            <h3>E-Persuratan System</h3>
-                            <p>Bilingual (ID/EN) mail management system. Zero-cost serverless infrastructure for gov workflows.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/E-Persuratan/" target="_blank" class="btn btn-primary">View System</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 11. UN TRAVEL CALCULATOR -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/D4AF37/FFFFFF?text=UN+Travel+Calc" class="card-thumb" alt="UN Travel Calc">
-                        <div class="card-body">
-                            <span class="tag">Process Automation</span>
-                            <h3>UN Travel & DSA Calculator</h3>
-                            <p>Automates complex subsistence allowance calculations (ICSC rates), ensuring audit compliance.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/un-travel-calculator/" target="_blank" class="btn btn-primary">Open Calculator</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 12. SCRIPT EXPLORER -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/10B981/FFFFFF?text=Script+Explorer" class="card-thumb" alt="Script Explorer">
-                        <div class="card-body">
-                            <span class="tag">Data Viz / Advocacy</span>
-                            <h3>Script Explorer: Aksara</h3>
-                            <p>Interactive dashboard visualizing digital preservation status of 60+ indigenous writing systems.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/Script-Explorer/" target="_blank" class="btn btn-primary">Open Explorer</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 13. GLOBAL SCRIPT -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/8B5CF6/FFFFFF?text=Global+Script" class="card-thumb" alt="Global Script">
-                        <div class="card-body">
-                            <span class="tag">EdTech / Accessibility</span>
-                            <h3>GlobalScript: Writing App</h3>
-                            <p>Freehand learning app for global & indigenous scripts (Javanese, Bugis, Balinese) focusing on embodied learning.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/learn-to-write/" target="_blank" class="btn btn-primary">Try Application</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 14. GEOJSON FIXER -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/64748B/FFFFFF?text=GeoJSON+Fixer" class="card-thumb" alt="GeoJSON Fixer">
-                        <div class="card-body">
-                            <span class="tag">GIS Utility</span>
-                            <h3>GeoJSON Fixer & OCR</h3>
-                            <p>Interoperability tool converting complex spatial data for ArcGIS. Features AI-based OCR.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/GeoJSON-Fixer/" target="_blank" class="btn btn-outline">Open Utility</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 15. SHADOW OPS -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/334155/FFFFFF?text=Shadow+Ops" class="card-thumb" alt="Shadow Ops">
-                        <div class="card-body">
-                            <span class="tag">Ops Automation</span>
-                            <h3>Intl. Shadow Ops (ISO)</h3>
-                            <p>Strategic operations map tracking macro pipelines and micro daily logs for transparency.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/ShadowOps/" target="_blank" class="btn btn-outline">View System</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 16. WEBPDF UTILITY -->
-                    <div class="carousel-card">
-                        <img src="https://placehold.co/600x320/EF4444/FFFFFF?text=WebPDF+Utility" class="card-thumb" alt="WebPDF">
-                        <div class="card-body">
-                            <span class="tag">Utility Tools</span>
-                            <h3>WebPDF Toolkit</h3>
-                            <p>Client-side PDF management utility designed for quick document operations without server uploads.</p>
-                            <div class="btn-group">
-                                <a href="https://anggaconni.github.io/WebPDF/" target="_blank" class="btn btn-outline">Open WebPDF</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 17. MAIN PORTFOLIO HUB -->
-                    <div class="carousel-card">
-                    <img src="https://placehold.co/600x320/111827/FFFFFF?text=Main+Portfolio" class="card-thumb" alt="Main Portfolio">
-                    <div class="card-body">
-                    <span class="tag">Portfolio Hub</span>
-                    <h3>Angga Saputra – Digital Architecture</h3>
-                    <p>Central hub showcasing full-stack, AI-augmented, and serverless public sector innovations across governance, GIS, EdTech, and policy automation.</p>
-                    <div class="btn-group">
-                    <a href="https://anggaconni.github.io/" target="_blank" class="btn btn-primary">Open Portfolio</a>
-                    <a href="https://anggaconni.github.io/Complete-Portofolio/" target="_blank" class="btn btn-outline">Complete Version</a>
-                    </div>
-                    </div>
-                    </div>
-
-                    <!-- 18. LEARNER ID TOOL -->
-                    <div class="carousel-card">
-                    <img src="https://placehold.co/600x320/7C3AED/FFFFFF?text=Learner+ID" class="card-thumb" alt="Learner ID Tool">
-                    <div class="card-body">
-                    <span class="tag">Behavioral Science</span>
-                    <h3>Learner Identification Tool</h3>
-                    <p>18-question behavioral diagnostic to identify instructional friction and adapt teaching strategies in real-time. Focused on action, not labels.</p>
-                    <div class="btn-group">
-                    <a href="https://anggaconni.github.io/Learner-Identification-Tools/" target="_blank" class="btn btn-primary">Open Tool</a>
-                    </div>
-                    </div>
-                    </div>
-
-                    <!-- 19. ATLAS OF ATMOSPHERE -->
-                    <div class="carousel-card">
-                    <img src="https://placehold.co/600x320/2563EB/FFFFFF?text=Atmosphere+Atlas" class="card-thumb" alt="Atlas of Atmosphere">
-                    <div class="card-body">
-                    <span class="tag">Environmental Design</span>
-                    <h3>Atlas of Atmosphere</h3>
-                    <p>Evidence-based environmental design engine translating peer-reviewed research into actionable lighting, temperature, color, scent, and sound configurations.</p>
-                    <div class="btn-group">
-                    <a href="https://anggaconni.github.io/atmosphere-atlas/" target="_blank" class="btn btn-primary">Explore Atlas</a>
-                    </div>
-                    </div>
-                    </div>
-
-                    <!-- 20. MAINTENANCE & PROTOTYPING -->
-                    <div class="carousel-card">
-                    <img src="https://placehold.co/600x320/475569/FFFFFF?text=Prototype+Lab" class="card-thumb" alt="Prototype Lab">
-                    <div class="card-body">
-                    <span class="tag">R&D / Testing</span>
-                    <h3>Prototype & Maintenance Lab</h3>
-                    <p>Rapid experimentation environment for UI concepts, deployment testing, and system staging before production rollout.</p>
-                    <div class="btn-group">
-                    <a href="https://anggaconni.github.io/Prototyping/" target="_blank" class="btn btn-primary">View Prototype</a>
-                    <a href="https://anggaconni.github.io/Maintenance-Page/" target="_blank" class="btn btn-outline">Maintenance Page</a>
-                    </div>
-                    </div>
-                    </div>
-
-                </div>
-
-                <button class="carousel-btn next" onclick="scrollCarousel(1)"><i class="ph ph-caret-right"></i></button>
+        <div class="px-6 md:px-12 mb-10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-wrap justify-center md:justify-start gap-2" id="filter-container">
+                <button class="filter-btn active bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md transition-all" data-filter="all">All Works</button>
+                <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="ai-data">AI & Data</button>
+                <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="edtech">EdTech & Game</button>
+                <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="gis">GIS & WebMap</button>
+                <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="tools">Sistem & Tools</button>
             </div>
-        </section>
+
+            <div class="flex gap-2 z-10 hidden sm:flex shrink-0">
+                <button id="scrollLeftBtn" class="bg-white border border-slate-200 text-slate-600 hover:text-indigo-600 hover:border-indigo-300 p-2.5 rounded-full shadow-sm transition-all focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+                <button id="scrollRightBtn" class="bg-indigo-600 text-white hover:bg-indigo-700 p-2.5 rounded-full shadow-md transition-all focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="relative w-full">
+            <div class="absolute top-[39px] left-0 w-full h-1 bg-slate-200 hidden md:block"></div>
+            <div class="absolute top-[39px] left-0 w-full h-1 bg-indigo-500 timeline-line-grow hidden md:block"></div>
+
+            <div id="timeline-scroll" class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory scroll-smooth pb-12 pt-4 px-6 md:px-12 gap-6 md:gap-10 items-stretch transition-all duration-300">
+                </div>
+            
+            <div id="empty-state" class="hidden text-center py-12 w-full text-slate-500">
+                Tidak ada proyek di kategori ini.
+            </div>
+        </div>
+    </section>
 
         <!-- 2. CORE COMPETENCIES -->
         <section>
@@ -1522,86 +1319,178 @@
     </div>
 
     <!-- EXPERTISE MODALS -->
-    <div id="modal-behavioral" class="modal-overlay" onclick="closeModal(event, 'modal-behavioral')">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Behavioral Science & Adoption</h3>
-                <span class="close-icon" onclick="closeModal(null, 'modal-behavioral')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">Social Proof & COM-B Application (UNDP):</strong> Accelerated district-level adoption of a digital vaccine reporting system in remote Papua by strategically engaging respected local "Digital Pioneers," sparking wider peer adoption. Addressed capability, opportunity, and motivation to achieve behavioral alignment.
-                    </li>
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">Strategic & Cognitive Framing:</strong> Boosted compliance and tool adoption by reframing administrative reporting not as a burden, but as a mechanism to "protect Papua's children" and showcase local achievements, aligning with health workers' intrinsic values.
-                    </li>
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">Nudge Design & Foot-in-the-Door:</strong> Increased reporting completion rates by designing pre-filled templates ("Save & Sync"). Secured district buy-in by initially requesting small, low-risk trial uploads before full system rollout.
-                    </li>
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">Intrinsic Motivation (Self-Determination Theory):</strong> Enhanced digital tool adoption by granting district officers ownership—inviting their input on features and positioning them as peer trainers (Pygmalion Effect).
-                    </li>
-                </ul>
-            </div>
-            <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-behavioral')">Close</button></div>
+    <!-- EXPERTISE MODALS -->
+<div id="modal-behavioral" class="modal-overlay" onclick="closeModal(event, 'modal-behavioral')">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Behavioral Science & Adoption</h3>
+            <span class="close-icon" onclick="closeModal(null, 'modal-behavioral')">&times;</span>
         </div>
+        <div class="modal-body">
+            <table style="width:100%; border-collapse: collapse; font-size: 0.9em; margin-bottom: 18px;">
+                <thead>
+                    <tr style="background: var(--primary); color: #fff;">
+                        <th style="padding: 8px 10px; text-align: left;">Technique</th>
+                        <th style="padding: 8px 10px; text-align: left;">Context</th>
+                        <th style="padding: 8px 10px; text-align: left;">Outcome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 8px 10px;"><strong>COM-B Application</strong></td>
+                        <td style="padding: 8px 10px;">UNDP Papua – SMILE digital vaccine reporting</td>
+                        <td style="padding: 8px 10px;">Increased reporting rates from 5% → 60% by addressing Capability, Opportunity & Motivation</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 8px 10px;"><strong>Social Proof</strong></td>
+                        <td style="padding: 8px 10px;">UNDP – Remote Papua district adoption</td>
+                        <td style="padding: 8px 10px;">Engaged respected "Digital Pioneers" to spark peer adoption and overcome connectivity barriers</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 8px 10px;"><strong>Strategic Framing</strong></td>
+                        <td style="padding: 8px 10px;">UNDP – Admin reporting compliance</td>
+                        <td style="padding: 8px 10px;">Reframed reporting as "protecting Papua's children," aligning with workers' intrinsic values</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 8px 10px;"><strong>Nudge Design</strong></td>
+                        <td style="padding: 8px 10px;">UNDP – SMILE form completion</td>
+                        <td style="padding: 8px 10px;">Pre-filled templates & "Save & Sync" prompts made correct behaviour the path of least resistance</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 8px 10px;"><strong>Foot-in-the-Door</strong></td>
+                        <td style="padding: 8px 10px;">UNDP – District system rollout</td>
+                        <td style="padding: 8px 10px;">Secured full integration buy-in by first requesting a small, low-risk trial upload</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 8px 10px;"><strong>Pygmalion Effect</strong></td>
+                        <td style="padding: 8px 10px;">UNDP – Officer motivation</td>
+                        <td style="padding: 8px 10px;">Publicly labelled a hesitant officer as "digital pioneer," inspiring broader participation</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 8px 10px;"><strong>Self-Determination Theory</strong></td>
+                        <td style="padding: 8px 10px;">UNDP – Tool ownership</td>
+                        <td style="padding: 8px 10px;">Granted district officers feature input and peer-trainer roles, boosting intrinsic motivation</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border);">
+                        <td style="padding: 8px 10px;"><strong>Cognitive Ownership Technique</strong></td>
+                        <td style="padding: 8px 10px;">UNESCO – CBI System pilot (SIDS)</td>
+                        <td style="padding: 8px 10px;">Overcame institutional resistance; secured official leadership endorsement for digital roadmap</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 10px;"><strong>Dual-Process Communication</strong></td>
+                        <td style="padding: 8px 10px;">UNDP – Papua digital transformation pitch</td>
+                        <td style="padding: 8px 10px;">Led with children's vaccination narrative before data, engaging both System 1 and System 2 thinking</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size:0.85em; color: var(--text-muted); margin-top: 4px;">
+                Applied frameworks include COM-B, Self-Determination Theory, Nudge Theory, and Social Proof across UN, government, and community contexts.
+            </p>
+        </div>
+        <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-behavioral')">Close</button></div>
     </div>
+</div>
 
-    <div id="modal-tech" class="modal-overlay" onclick="closeModal(event, 'modal-tech')">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Civic Tech & AI Architecture</h3>
-                <span class="close-icon" onclick="closeModal(null, 'modal-tech')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">1st Gen AI: IoT & Cold Chain (UNDP):</strong> Integrated IoT sensors with a rule-based AI alert system to automatically measure temperature/humidity in health facilities. AI logic flagged anomalies, triggering alerts to prevent vaccine spoilage and improve accountability.
-                    </li>
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">3rd Gen AI: Analytical Reasoning (Ministry of Village):</strong> Initiated a Python-based machine learning model to automate statistical analysis of village data. The prototype aimed to detect Type II errors (missed detections) and identify hidden socio-economic patterns by combining automated data cleaning and inferential validation.
-                    </li>
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">Gamified Learning (UNESCO):</strong> Conceptualized and developed "Heritage Commons," a 3D browser-based board game using WebGL/Three.js. Reversed traditional "Monopoly" mechanics into "Safeguarding" mechanics (collaboration/trust) to teach peacebuilding and shared heritage values.
-                    </li>
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">Strategic Data Command (Kemendesa):</strong> Appointed as PIC of the Data Command Room. Oversaw the national data collection system, evaluated multiple E-Government applications, and translated grassroots STI innovations (e.g., solar ice-makers, micro-hydro) into evidence-based policy briefs.
-                    </li>
-                </ul>
-            </div>
-            <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-tech')">Close</button></div>
+<div id="modal-tech" class="modal-overlay" onclick="closeModal(event, 'modal-tech')">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Civic Tech & AI Architecture</h3>
+            <span class="close-icon" onclick="closeModal(null, 'modal-tech')">&times;</span>
         </div>
+        <div class="modal-body">
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">Zero-Cost Serverless Architecture (UNESCO / Gov-Tech):</strong>
+                    Designed and deployed scalable digital ecosystems using the "Google Fullstack" — HTML5 + Vanilla JS + Tailwind CSS on the frontend, Google Sheets + Apps Script as serverless CRUD APIs, and GitHub Pages for static hosting — enabling ministries and NGOs to own sustainable, maintenance-free systems without IT teams or recurring server costs.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">1st Gen AI: IoT Cold Chain Monitoring (UNDP):</strong>
+                    Integrated IoT sensors with a rule-based AI alert system to measure temperature and humidity in health facilities across Papua. AI logic flagged cold-chain anomalies in real time, triggering corrective alerts to prevent vaccine spoilage and strengthen logistics accountability in resource-constrained settings.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">3rd Gen AI: Policy Data Validation Prototype (Ministry of Village):</strong>
+                    Initiated a Python-based machine learning prototype to automate statistical analysis of village development data. The model was designed to detect Type II errors and surface hidden socio-economic inequalities through automated cleaning, anomaly detection, and inferential validation — representing an early proof-of-concept for AI-assisted rural policy analytics.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">AI-Augmented Civic Tools (UNESCO / Independent):</strong>
+                    Built 20+ production-grade, single-file web applications using Generative AI as a development accelerator — including OSINT monitoring systems (ICH Radar, Artifact Radar), GIS platforms (Foodways, GeoJSON Fixer), foresight tools (Horizon Scanning), and E-Government solutions (E-Persuratan, S3 Builder).
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">Gamified Learning Architecture (UNESCO):</strong>
+                    Conceptualized and developed "Heritage Commons" — a 3D browser-based board game using WebGL/Three.js. Reversed traditional Monopoly mechanics (ownership/competition) into ICH Safeguarding mechanics (collaboration/trust), introducing Joint Nominations and Cultural Trust Points (CTP) to teach peacebuilding and shared heritage values for youth.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">Strategic Data Command (Ministry of Village):</strong>
+                    Appointed PIC of the national Data Command Room at BALILATFO. Oversaw data collection across provinces, evaluated 15 E-Government applications, and translated grassroots STI innovations (solar ice-makers, IoT micro-hydro, waste-to-fertilizer systems) into evidence-based policy briefs for the Secretary and Agency Head.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">Critical Health Data Finding (UNDP):</strong>
+                    Identified a systemic BCG vaccine dosing error through SMILE data analysis — health workers were administering 0.1 ml instead of the updated 0.05 ml following a vial size change. Escalated to UNICEF, WHO, and Ministry of Health, leading to a formal technical meeting, revised guidance, and the prevention of double-dosing in infants.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">Digital Health System Reform (Ministry of Health — Independent):</strong>
+                    Designed a draft two-way evaluation mechanism (subordinate ↔ supervisor) for specialist medical education, breaking from traditional UN and health governance models. The reform directly responded to 2,600+ documented bullying cases, promoting accountability in learning environments.
+                </li>
+            </ul>
+            <div style="background: var(--surface-alt, #f5f5f5); border-left: 3px solid var(--primary); padding: 10px 14px; border-radius: 4px; font-size: 0.85em; margin-top: 4px;">
+                <strong>Stack:</strong> HTML5 · Vanilla JS · Tailwind CSS · Google Apps Script · Google Sheets · GitHub Pages · Python · WebGL / Three.js · Gemini AI · Leaflet.js · AlaSQL · IoT Sensors
+            </div>
+        </div>
+        <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-tech')">Close</button></div>
     </div>
+</div>
 
-    <div id="modal-diplomacy" class="modal-overlay" onclick="closeModal(event, 'modal-diplomacy')">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Diplomacy, Policy & Mediation</h3>
-                <span class="close-icon" onclick="closeModal(null, 'modal-diplomacy')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">Informal Diplomacy & Rapport-Building (UNESCO):</strong> Unlocked stalled cooperation with Brunei’s Director-General of Culture. By sharing meals and casual activities during the Jeonju Workshop, transformed communication dynamics and established direct, responsive channels.
-                    </li>
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">Conflict De-escalation & Issue Reframing:</strong> Mediated a tense, multi-country debate over the "Rendang" ICH nomination. Successfully de-escalated tensions by rapidly redirecting the conversation away from exclusive ownership toward a neutral, constructive topic: "Media Safeguarding."
-                    </li>
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">High-Level Coordination:</strong> Managed full-spectrum coordination for a US Congress delegation visit, liaising with UNDSS, the UN Resident Coordinator's Office, and government partners to ensure seamless execution.
-                    </li>
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">Political Economy & Risk Analysis:</strong> Served as an internal advisor mapping stakeholder power-networks related to accredited NGOs. Assessed de facto influence over cultural narratives, advising senior leadership on risk-mitigation to preserve UNESCO’s non-partisanship during political transitions.
-                    </li>
-                    <li style="margin-bottom: 15px;">
-                        <strong style="color: var(--primary);">Strategic Negotiation Strategies:</strong> Employed high cultural intelligence, the "Door-in-the-Face" technique, and "Strategic Silence" in high-level meetings to secure agreements, interpret hierarchical deference respectfully, and prompt ministries to volunteer internal obstacles for collaborative problem-solving.
-                    </li>
-                </ul>
-            </div>
-            <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-diplomacy')">Close</button></div>
+<div id="modal-diplomacy" class="modal-overlay" onclick="closeModal(event, 'modal-diplomacy')">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Diplomacy, Policy & Mediation</h3>
+            <span class="close-icon" onclick="closeModal(null, 'modal-diplomacy')">&times;</span>
         </div>
+        <div class="modal-body">
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">Informal Diplomacy & Rapport-Building (UNESCO – Brunei):</strong>
+                    Unlocked stalled cooperation with Brunei's Director-General of Culture through informal engagement during the Jeonju Workshop — shared meals, market visits, and casual dialogue. Transformed previously inactive official channels into direct, responsive bilateral communication on cultural matters.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">Multi-Party Mediation — ICH Rendang Nomination Dispute:</strong>
+                    Mediated a heated multi-country dispute over the "Rendang" ICH nomination (Indonesia, Philippines, Malaysia, Singapore, Brunei) during a UNESCO Bangkok meeting in South Korea. Clarified legal precedent, drew parallels to multi-origin ICH cases (balafon, kolintang), and de-escalated tensions by pivoting the discussion toward media's role in safeguarding — restoring constructive momentum after UNESCO HQ staff disengaged.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">High-Level Coordination — U.S. Congress Delegation Visit:</strong>
+                    Served as primary UNESCO coordinator for ~20 participants including U.S. Congress representatives, UN Foundation, UN Resident Coordinator's Office, and UNDSS. Managed full-spectrum logistics, security protocols, inter-agency liaison, and on-site execution across restaurants, museums, and security teams in Kota Tua.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">Political Economy & Stakeholder Risk Analysis (UNESCO):</strong>
+                    Served as internal advisor mapping power networks of accredited NGOs and consultative groups. Assessed de facto influence over cultural narratives, monitored elite alliances and spoilers during presidential and ministerial cycles, and advised senior leadership on maintaining UNESCO's non-partisanship and multilateral credibility.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">Strategic Negotiation Techniques Applied:</strong>
+                    <ul style="margin-top: 8px; padding-left: 16px; list-style: disc;">
+                        <li style="margin-bottom: 6px;"><strong>Door-in-the-Face:</strong> Secured agreement for online ICH training by proposing a costlier offline event first, making the actual ask appear modest.</li>
+                        <li style="margin-bottom: 6px;"><strong>Strategic Silence:</strong> After presenting UNESCO's position in a consultative group meeting, a deliberate pause prompted the ministry side to volunteer their own internal obstacles — enabling collaborative problem-solving.</li>
+                        <li style="margin-bottom: 6px;"><strong>High Cultural Intelligence:</strong> Interpreted delayed government responses as hierarchical deference rather than resistance, enabling respectful follow-ups and smoother coordination.</li>
+                        <li style="margin-bottom: 6px;"><strong>Budget Anchoring:</strong> Influenced workshop budget deliberations by proposing a reasonable opening figure early, establishing a constructive anchor for negotiation.</li>
+                        <li style="margin-bottom: 6px;"><strong>Ben-Franklin Effect:</strong> Built rapport with a senior UNESCO HQ consultant by asking a small cultural clarification, creating positive interpersonal investment that improved ongoing collaboration.</li>
+                    </ul>
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">Just Transition — Coastal Livelihoods (Belitung):</strong>
+                    Coordinated a livelihoods pilot for coastal communities in Batu Itam, Belitung, in partnership with the Ministry of Marine Affairs and Flinders University — successfully redirecting local economies away from illicit underwater artifact looting toward sustainable ICH-based crafting enterprises.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: var(--primary);">Foresight & Policy Dialogue (Kemenko PMK / Independent):</strong>
+                    Delivered Horizon Scanning methodology workshops for inter-ministerial audiences, presenting international applications (UK, Italy) and adapting the framework for Indonesia's policy context. Supported institutionalization of foresight-based policymaking through Persatuan Profesi Kebijakan Publik.
+                </li>
+                <li style="margin-bottom: 0;">
+                    <strong style="color: var(--primary);">Conflict Resolution — Village Fund Policy Dispute (Kemendesa, Jambi):</strong>
+                    Resolved an urgent village-level policy conflict over Dana Desa (Village Fund) allocation mandates by organizing an ad-hoc FGD, engaging the Dean of Universitas Jambi as a trusted voice, and clarifying decentralization law — restoring stakeholder confidence and local government autonomy.
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer"><button class="btn-close" onclick="closeModal(null, 'modal-diplomacy')">Close</button></div>
     </div>
+</div>
 
     <script>
         function openModal(id) {
@@ -1624,5 +1513,277 @@
             });
         }
     </script>
+
+
+
+        <script>
+        // DATA APLIKASI
+       const projects = [
+    {
+        title: "ICH Radar", category: "ai-data",
+        desc: "AI-assisted cultural intelligence engine that autonomously scans blogs, local news, and community forums to discover, document, and analyze Intangible Cultural Heritage using Google Gemini with Search grounding.",
+        tags: ["AI", "Gemini", "OSINT"],
+        links: [{ url: "https://anggaconni.github.io/ICH-Radar/", text: "Launch App" }]
+    },
+    {
+        title: "Artifact Radar", category: "ai-data",
+        desc: "AI-assisted OSINT monitoring system combining web crawling, search-engine intelligence, and AI reasoning to detect and analyze the online trade of ancient artifacts and cultural heritage objects.",
+        tags: ["AI", "Web Crawling", "OSINT"],
+        links: [{ url: "https://anggaconni.github.io/artifact-radar/", text: "Launch App" }]
+    },
+    {
+        title: "DRR Builder's Journey", category: "edtech",
+        desc: "Educational block-building game where players construct bridges, seawalls, and evacuation paths to protect communities from floods, tsunamis, and volcanic threats — learning Disaster Risk Reduction through interactive missions.",
+        tags: ["Game", "Education", "DRR"],
+        links: [{ url: "https://anggaconni.github.io/DRR-Bricks/", text: "Play Game" }]
+    },
+    {
+        title: "Atlas of Atmosphere", category: "tools",
+        desc: "Evidence-based environmental design app that translates peer-reviewed research into actionable 'atmosphere recipes' — optimizing lighting, temperature, colour, and sensory elements for specific daily activities.",
+        tags: ["Env Design", "Web App"],
+        links: [{ url: "https://anggaconni.github.io/atmosphere-atlas/", text: "Explore Atlas" }]
+    },
+    {
+        title: "ImpactArchitect v3.3", category: "ai-data",
+        desc: "Lightweight digital canvas closing the 'last mile' gap in social programs by integrating Theory of Change (ToC) with the COM-B behavioral model, enhanced with Google Gemini AI as a strategic sparring partner.",
+        tags: ["Behavioral Sci", "Gemini AI"],
+        links: [{ url: "https://anggaconni.github.io/TheoryofChange_COM-B/", text: "Launch Canvas" }]
+    },
+    {
+        title: "S3 Builder", category: "ai-data",
+        desc: "Advanced quantitative intelligence platform integrating Indonesia's PODES logic with Gemini AI for Smart Specialization Strategy (S3), automating presentation-ready Word and PDF reports from rigorous data-driven policy analysis.",
+        tags: ["Data Analytics", "Policy"],
+        links: [{ url: "https://anggaconni.github.io/SmartSpecializationAIreport/", text: "Launch Builder" }]
+    },
+    {
+        title: "Horizon Scanning", category: "ai-data",
+        desc: "Interactive Scanning Matrices (6 analytical templates) with AI-Powered Strategic Synthesis via Gemini API, analyzing probability, impact, uncertainty, and time horizon relationships for foresight masterclass.",
+        tags: ["Foresight", "Matrix", "AI"],
+        links: [{ url: "https://horizon-scanning.org/", text: "Visit Site" }]
+    },
+    {
+        title: "GIS MEL: Citizenship Data", category: "gis",
+        desc: "Serverless GIS-based monitoring dashboard (GAS & Sheets) to visualize and manage Global Biodiversity and Biosphere Reserves overlap on an interactive map with real-time CRUD operations.",
+        tags: ["GIS", "Serverless", "Apps Script"],
+        links: [{ url: "https://anggaconni.github.io/citizenship-data/", text: "View Dashboard" }]
+    },
+    {
+        title: "Gamified Learning Architect", category: "edtech",
+        desc: "3D interactive educational platforms using WebGL/Three.js that gamify complex UNESCO policy concepts (ICH Safeguarding, Climate Resilience) into engaging digital experiences for youth in developing regions.",
+        tags: ["WebGL", "Three.js", "EdTech"],
+        links: [
+            { url: "https://anggaconni.github.io/Ocean-Literacy-JUMANJI-ID-Ver/", text: "Eco-Jumanji" },
+            { url: "https://anggaconni.github.io/ICH-Games/", text: "ICH Games" }
+        ]
+    },
+    {
+        title: "Foodways: Shared Heritage", category: "gis",
+        desc: "Serverless GIS platform mapping culinary history networks with Polygon Mapping and Node-Link Network Analysis. Built with Vanilla JS, Tailwind, and Leaflet.js on zero-cost Google Sheets infrastructure.",
+        tags: ["GIS", "Leaflet.js", "Serverless"],
+        links: [
+            { url: "https://anggaconni.github.io/Foodways/", text: "Desktop" },
+            { url: "https://anggaconni.github.io/Foodways-Mobile/", text: "Mobile" }
+        ]
+    },
+    {
+        title: "E-Persuratan", category: "tools",
+        desc: "Gov-Tech serverless bilingual (ID/EN) mail management system unifying legacy government workflows into a scalable full CRUD ecosystem with real-time analytics using Google Sheets + Apps Script.",
+        tags: ["Gov-Tech", "CRUD", "Apps Script"],
+        links: [{ url: "https://anggaconni.github.io/E-Persuratan/", text: "Launch App" }]
+    },
+    {
+        title: "StructureFlow", category: "tools",
+        desc: "Lightweight AI-assisted writing framework prioritizing structure before content. Integrates section-based guidance, auto-drafting, and AI feedback to support academic and policy writing with clarity and precision.",
+        tags: ["Writing Tool", "AI Framework"],
+        links: [{ url: "https://anggaconni.github.io/StructureFlow/", text: "Launch Flow" }]
+    },
+    {
+        title: "SQL & NoSQL Academy", category: "edtech",
+        desc: "Interactive browser-based gamified platform to master SQL/NoSQL using the AlaSQL engine for client-side processing. Features a split-screen editor, real-time query results, bilingual support (ID/EN), and level-based progression.",
+        tags: ["SQL", "Gamification", "AlaSQL"],
+        links: [
+            { url: "https://anggaconni.github.io/Learn_SQL/", text: "Learn SQL" },
+            { url: "https://anggaconni.github.io/Learn_NoSQL/", text: "Learn NoSQL" }
+        ]
+    },
+    {
+        title: "Gamified HTML/JS Learning", category: "edtech",
+        desc: "Two 90-level gamified learning experiences for HTML/CSS and JavaScript — designed as nostalgic interactive games with live browser rendering, AI guidance, guided/sandbox modes, and exportable standalone HTML files.",
+        tags: ["EdTech", "HTML/JS", "AI"],
+        links: [
+            { url: "https://anggaconni.github.io/Learn-HTML/", text: "Learn HTML" },
+            { url: "https://anggaconni.github.io/Learn-Javascript/", text: "Learn JS" }
+        ]
+    },
+    {
+        title: "GeoJSON Fixer", category: "gis",
+        desc: "GeoJSON interoperability tool that converts mixed GeometryCollections into ArcGIS-compatible FeatureCollections with zero-backend deployment. Integrates AI-based OCR to recover geospatial data from screenshots and legacy documentation.",
+        tags: ["GIS", "GeoJSON", "OCR AI"],
+        links: [{ url: "https://anggaconni.github.io/GeoJSON-Fixer/", text: "Launch Tool" }]
+    },
+    {
+        title: "GlobalScript & Explorer", category: "edtech",
+        desc: "A freehand writing app supporting global and indigenous scripts (Latin, Arabic, Japanese, Korean, Thai, Javanese, Balinese, and more), paired with an interactive map visualizing the digital preservation status of 60+ writing systems.",
+        tags: ["Linguistics", "Data Viz"],
+        links: [
+            { url: "https://anggaconni.github.io/learn-to-write/", text: "Learn Writing" },
+            { url: "https://anggaconni.github.io/Script-Explorer/", text: "Script Explorer" }
+        ]
+    },
+    {
+        title: "UN Travel Calculator", category: "tools",
+        desc: "Process automation tool that automates complex UN subsistence allowance calculations (ICSC rates, deductions), reducing administrative processing time and ensuring audit compliance.",
+        tags: ["Automation", "Finance"],
+        links: [{ url: "https://anggaconni.github.io/un-travel-calculator/", text: "Calculator" }]
+    },
+    {
+        title: "ShadowOps (ISO)", category: "tools",
+        desc: "Strategic operations map and activity tracker combining macro pipeline visibility with micro daily logs (username, timestamp, outcomes) and AI-generated summaries via Google Sheets + Apps Script for real-time accountability.",
+        tags: ["Management", "Tracking"],
+        links: [{ url: "https://anggaconni.github.io/ShadowOps/", text: "Launch ISO" }]
+    },
+    {
+        title: "Bayesian Tools", category: "ai-data",
+        desc: "Lightweight probabilistic reasoning tools using a Naive Bayes framework to evaluate hypotheses via Likelihood Ratios and structured evidence. Includes an attachment behavior calculator for relationship reflection.",
+        tags: ["Statistics", "Reasoning"],
+        links: [
+            { url: "https://anggaconni.github.io/Naive-Bayesian/", text: "Naive Bayes" },
+            { url: "https://anggaconni.github.io/Love-Attachment/", text: "Attachment Calc" }
+        ]
+    },
+    {
+        title: "Learner ID Tool", category: "edtech",
+        desc: "Behavioral science-based app using 18 targeted questions to identify instructional friction — the behavioral proxies shaping learning outcomes — providing rapid, actionable guidance for educators and trainers.",
+        tags: ["Behavioral Sci", "EdTech"],
+        links: [{ url: "https://anggaconni.github.io/Learner-Identification-Tools/", text: "Launch Tool" }]
+    },
+    {
+        title: "Misc / Prototypes", category: "tools",
+        desc: "Experimental setups and utility tools including a 3D Museum EdTech demonstration, WebPDF browser utility, and various prototyping environments.",
+        tags: ["Prototype", "Utility"],
+        links: [
+            { url: "https://anggaconni.github.io/3D-Museum/", text: "3D Museum" },
+            { url: "https://anggaconni.github.io/WebPDF/", text: "WebPDF" },
+            { url: "https://anggaconni.github.io/Prototyping/", text: "Prototyping" }
+        ]
+    }
+];
+        const timelineContainer = document.getElementById('timeline-scroll');
+
+        // Fungsi Screenshot
+        function getZoomedOutScreenshot(targetUrl) {
+            return `https://image.thum.io/get/width/1200/crop/800/${targetUrl}`;
+        }
+
+        // Fungsi Render Kartu ke Timeline
+        function renderCards() {
+            timelineContainer.innerHTML = ''; 
+
+            projects.forEach((proj, index) => {
+                const tagsHTML = proj.tags.map(tag => 
+                    `<span class="bg-indigo-50 text-indigo-700 border border-indigo-100 px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider whitespace-nowrap">${tag}</span>`
+                ).join('');
+
+                const linksHTML = proj.links.map(link => 
+                    `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1 group">
+                        ${link.text}
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </a>`
+                ).join('<span class="text-slate-300">|</span>');
+
+                const screenshotUrl = getZoomedOutScreenshot(proj.links[0].url);
+
+                const cardHTML = `
+                    <div class="portfolio-item snap-center shrink-0 w-[300px] md:w-[350px] flex flex-col relative pt-8 md:pt-14 group" data-category="${proj.category}">
+                        <div class="absolute top-[31px] left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-4 border-indigo-500 rounded-full z-10 hidden md:block group-hover:scale-125 group-hover:border-indigo-600 transition-transform"></div>
+                        
+                        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
+                            <div class="w-full h-44 bg-slate-100 overflow-hidden relative border-b border-slate-100 shrink-0 group-img">
+                                <div class="absolute inset-0 flex items-center justify-center bg-slate-100 -z-10">
+                                    <span class="text-slate-400 text-xs flex flex-col items-center gap-2">
+                                        <svg class="animate-spin h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                                        Loading...
+                                    </span>
+                                </div>
+                                <img src="${screenshotUrl}" alt="${proj.title}" loading="lazy" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700">
+                            </div>
+
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-slate-900 mb-2 leading-tight truncate" title="${proj.title}">${proj.title}</h3>
+                                <p class="text-slate-600 text-sm mb-4 line-clamp-3 flex-grow" title="${proj.desc}">
+                                    ${proj.desc}
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-5">
+                                    ${tagsHTML}
+                                </div>
+                                <div class="mt-auto pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3">
+                                    ${linksHTML}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                timelineContainer.innerHTML += cardHTML;
+            });
+        }
+
+        renderCards();
+
+        // Logika Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const emptyState = document.getElementById('empty-state');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-indigo-600', 'text-white');
+                    btn.classList.add('bg-white', 'text-slate-600');
+                });
+                
+                button.classList.remove('bg-white', 'text-slate-600');
+                button.classList.add('bg-indigo-600', 'text-white');
+
+                const filterValue = button.getAttribute('data-filter');
+                const allItems = document.querySelectorAll('.portfolio-item');
+                let visibleCount = 0;
+
+                allItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.classList.remove('hide-item');
+                        item.classList.add('fade-in-card');
+                        setTimeout(() => item.classList.remove('fade-in-card'), 400);
+                        visibleCount++;
+                    } else {
+                        item.classList.add('hide-item');
+                    }
+                });
+
+                if (visibleCount === 0) {
+                    emptyState.classList.remove('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                }
+
+                timelineContainer.scrollLeft = 0;
+            });
+        });
+
+        // Tombol Navigasi Kiri/Kanan
+        const scrollLeftBtn = document.getElementById('scrollLeftBtn');
+        const scrollRightBtn = document.getElementById('scrollRightBtn');
+        const scrollAmount = 380; 
+
+        if (scrollLeftBtn && scrollRightBtn) {
+            scrollLeftBtn.addEventListener('click', () => {
+                timelineContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+            scrollRightBtn.addEventListener('click', () => {
+                timelineContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+        }
+    </script>
+
+
+
 </body>
 </html>
