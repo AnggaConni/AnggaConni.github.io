@@ -137,8 +137,8 @@
         .contact-links a:hover { color: var(--primary); }
 
         /* --- LAYOUT --- */
-        .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; /* Reduced top padding */ }
-        section { margin-bottom: 50px; /* Reduced Section Spacing */ } 
+        .container { max-width: 1100px; margin: 0 auto; padding: 10px 20px; /* Reduced top padding */ }
+        section { margin-bottom: 20px; /* Reduced Section Spacing */ } 
         
         h2 {
             font-size: 1.4rem;
@@ -434,7 +434,7 @@
         .btn-close:hover { background: var(--text-main); color: white; border-color: var(--text-main); }
 
         footer { 
-            text-align: center; padding: 40px 20px; 
+            text-align: center; padding: 20px 20px; 
             color: var(--text-light); font-size: 0.85rem; 
             background: white; border-top: 1px solid var(--border); margin-top: 60px; 
         }
@@ -524,7 +524,7 @@
             </div>
         </nav>
 
-       <main class="relative w-full max-w-[1100px] mx-auto px-[20px] pt-4 pb-12 md:pt-8 md:pb-16 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 z-10 flex-grow"> 
+       <main class="relative w-full max-w-[1100px] mx-auto px-[20px] pt-2 pb-4 md:pt-4 md:pb-6 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 z-10"> 
             <div class="flex-1 text-center md:text-left flex flex-col items-center md:items-start w-full">
                 
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium mb-6 md:mb-8 shadow-sm hover:shadow-md transition-shadow cursor-default">
@@ -571,7 +571,7 @@
                 </div>
             </div>
 
-            <div class="w-full max-w-[400px] shrink-0 relative h-[450px] mt-10 md:mt-0" style="perspective: 1000px;">
+            <div class="w-full max-w-[400px] shrink-0 relative h-[450px] mt-4 md:mt-0" style="perspective: 1000px;">
                 
                 <div class="absolute -top-8 right-4 text-sm font-medium text-slate-400 flex items-center gap-2 animate-pulse">
                     Click cards to explore <i class="ph ph-arrow-right"></i>
@@ -1004,6 +1004,28 @@
         </section>
 
     </div>
+
+    <section class="container" style="margin-top: 0; margin-bottom: 0;">
+    <div class="bg-white border border-slate-200 rounded-3xl p-8 text-center overflow-hidden relative">
+        <h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-4">Innovation Lab: The Bureaucracy Dodger</h3>
+        
+        <div id="game-container" class="relative w-full h-48 bg-slate-50 rounded-2xl border-b-2 border-slate-200 cursor-pointer overflow-hidden group">
+            <div id="game-start-msg" class="absolute inset-0 flex flex-col items-center justify-center z-20 bg-slate-50/80 backdrop-blur-sm transition-opacity">
+                <i class="ph ph-rocket-launch text-4xl text-blue-600 animate-bounce"></i>
+                <p class="text-slate-600 font-bold mt-2">Click or Press Space to Start</p>
+                <p class="text-slate-400 text-xs mt-1">Jump over the Red Tape to create Impact</p>
+            </div>
+
+            <div id="player" class="absolute bottom-0 left-10 w-10 h-10 flex items-center justify-center text-3xl z-10" style="transition: bottom 0.1s;">🚀</div>
+            <div id="score" class="absolute top-4 right-6 text-slate-800 font-mono font-bold text-xl">000</div>
+        </div>
+        
+        <div class="mt-4 flex justify-center gap-6 text-slate-400 text-[10px] font-bold uppercase tracking-wider">
+            <span>High Score: <span id="high-score">0</span></span>
+            <span>Status: <span id="game-status" class="text-emerald-500">Ready</span></span>
+        </div>
+    </div>
+</section>
 
     <footer>
         <p>&copy; 2026 Angga Conni Saputra. <br>Based in Jakarta, Indonesia.</p>
@@ -1886,7 +1908,7 @@
                 const screenshotUrl = getZoomedOutScreenshot(proj.links[0].url);
 
                 const cardHTML = `
-                    <div class="portfolio-item snap-center shrink-0 w-[300px] md:w-[350px] flex flex-col relative pt-8 md:pt-14 group" data-category="${proj.category}">
+    <div class="portfolio-item snap-center shrink-0 w-[300px] md:w-[350px] flex flex-col relative pt-8 md:pt-16 group" data-category="${proj.category}">
                         <div class="absolute top-[31px] left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-4 border-indigo-500 rounded-full z-10 hidden md:block group-hover:scale-125 group-hover:border-indigo-600 transition-transform"></div>
                         
                         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
@@ -2022,6 +2044,119 @@
                 }
             }
         });
+    
+    
+    
+
+        let isJumping = false;
+let isGameOver = true;
+let score = 0;
+let highScore = 0;
+const player = document.getElementById('player');
+const container = document.getElementById('game-container');
+const scoreElement = document.getElementById('score');
+const startMsg = document.getElementById('game-start-msg');
+const statusMsg = document.getElementById('game-status');
+const highScoreElement = document.getElementById('high-score');
+
+function startGame() {
+    if (!isGameOver) return;
+    isGameOver = false;
+    score = 0;
+    startMsg.style.opacity = '0';
+    statusMsg.innerText = 'Running';
+    statusMsg.className = 'text-blue-500';
+    createObstacle();
+    updateScore();
+}
+
+function jump() {
+    if (isJumping || isGameOver) return;
+    isJumping = true;
+    let position = 0;
+    
+    let upInterval = setInterval(() => {
+        if (position >= 100) {
+            clearInterval(upInterval);
+            let downInterval = setInterval(() => {
+                if (position <= 0) {
+                    clearInterval(downInterval);
+                    isJumping = false;
+                }
+                position -= 5;
+                player.style.bottom = position + 'px';
+            }, 20);
+        }
+        position += 8;
+        player.style.bottom = position + 'px';
+    }, 20);
+}
+
+function createObstacle() {
+    if (isGameOver) return;
+    
+    const obstacle = document.createElement('div');
+    obstacle.classList.add('absolute', 'bottom-0', 'right-[-50px]', 'w-8', 'h-8', 'flex', 'items-center', 'justify-center', 'text-2xl');
+    obstacle.innerText = '📋'; // Simbol birokrasi/kertas
+    container.appendChild(obstacle);
+    
+    let obstaclePos = container.offsetWidth;
+    let moveInterval = setInterval(() => {
+        if (isGameOver) {
+            clearInterval(moveInterval);
+            obstacle.remove();
+            return;
+        }
+        
+        if (obstaclePos < -50) {
+            clearInterval(moveInterval);
+            obstacle.remove();
+            score += 10;
+            updateScore();
+        }
+        
+        // Collision detection
+        let playerBottom = parseInt(window.getComputedStyle(player).getPropertyValue('bottom'));
+        if (obstaclePos > 10 && obstaclePos < 50 && playerBottom < 30) {
+            endGame();
+        }
+        
+        obstaclePos -= 7 + (score / 100); // Bertambah cepat
+        obstacle.style.left = obstaclePos + 'px';
+    }, 20);
+    
+    // Spawn next obstacle with random delay
+    let nextSpawn = Math.random() * (2000 - 800) + 800;
+    setTimeout(createObstacle, nextSpawn);
+}
+
+function updateScore() {
+    scoreElement.innerText = score.toString().padStart(3, '0');
+}
+
+function endGame() {
+    isGameOver = true;
+    startMsg.style.opacity = '1';
+    statusMsg.innerText = 'Crashed by Bureaucracy';
+    statusMsg.className = 'text-red-500';
+    if (score > highScore) {
+        highScore = score;
+        highScoreElement.innerText = highScore;
+    }
+}
+
+// Controls
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') {
+        e.preventDefault();
+        isGameOver ? startGame() : jump();
+    }
+});
+
+container.addEventListener('click', () => {
+    isGameOver ? startGame() : jump();
+});
+    
     </script>
 
 </body>
