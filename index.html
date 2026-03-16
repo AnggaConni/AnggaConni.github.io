@@ -75,7 +75,7 @@
         header {
             background: var(--bg-card);
             border-bottom: 1px solid var(--border);
-            padding: 40px 20px 25px; /* Reduced vertical padding */
+            /* padding: 40px 20px 25px; /* Reduced vertical padding */
             text-align: center;
         }
         
@@ -451,6 +451,24 @@
             .mm-item { flex-direction: column; align-items: flex-start; }
             .mm-link { margin-left: 0; margin-top: 8px; }
         }
+
+        /* --- FULL BLEED CAROUSEL (TIMELINE BABLAS) --- */
+        body {
+            overflow-x: hidden; /* Mencegah munculnya scrollbar horizontal di browser */
+        }
+        
+        .full-bleed-wrapper {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            position: relative;
+        }
+        
+        .full-bleed-track {
+            /* Padding dinamis: Memastikan card pertama tetap sejajar dengan teks (batas 1100px) */
+            padding-left: max(20px, calc((100vw - 1100px) / 2 + 20px));
+            padding-right: max(20px, calc((100vw - 1100px) / 2 + 20px));
+        }
+
     </style>
 
     <style>
@@ -491,75 +509,249 @@
 </head>
 <body>
 
-    <header>
-        <div class="container" style="padding: 0;">
-            <h1>Angga Conni Saputra</h1>
-            <div class="subtitle">Change Management & Public Policy Specialist</div>
-            <p class="header-bio">
-                Architecting Sustainable Digital Public Infrastructure for Global Policy Reform.
-                 
-                Bridging High-Level Mandates with Zero-Cost, Serverless Execution for UNESCO, UNDP, and National Ministries.
-            </p>
-            
-            <div class="cv-button-container">
-                <a href="https://anggaconni.github.io/Complete-Portofolio/" class="btn-cv">
-                    <i class="ph ph-file-text"></i> Open Full CV
-                </a>
+    <header class="relative bg-slate-50 text-slate-900 font-sans overflow-hidden flex flex-col">       
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 pointer-events-none"></div>
+        <div class="absolute top-[20%] right-[-5%] w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 pointer-events-none"></div>
+
+        <nav class="relative w-full max-w-[1100px] mx-auto px-[20px] py-4 flex justify-between items-center z-20">
+            <div class="text-xl font-bold tracking-tighter text-slate-800">
+                Angga<span class="text-blue-600">.</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-6 text-sm font-medium text-slate-600">
+                <a href="#" class="hover:text-blue-600 transition-colors">Philosophy</a>
+                <a href="#timeline-scroll" class="hover:text-blue-600 transition-colors">Tech Portofolio</a>
+                <a href="mailto:conniezz.cool@gmail.com" class="hover:text-blue-600 transition-colors">Contact</a>
+            </div>
+        </nav>
+
+       <main class="relative w-full max-w-[1100px] mx-auto px-[20px] pt-4 pb-12 md:pt-8 md:pb-16 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 z-10 flex-grow"> 
+            <div class="flex-1 text-center md:text-left flex flex-col items-center md:items-start w-full">
+                
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium mb-6 md:mb-8 shadow-sm hover:shadow-md transition-shadow cursor-default">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
+                    </span>
+                    Available for Global Impact
+                </div>
+                
+                <h1 class="text-5xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-slate-900 leading-[1.1] md:mt-0">
+                    Angga Conni <br class="hidden md:block"/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+                        Saputra
+                    </span>
+                </h1>
+                
+                <h2 class="text-lg md:text-xl font-semibold text-slate-700 mb-5 border-none pb-0">
+                    Solutions Architect | Cultural Data Scientist | Gov-Tech Innovator
+                </h2>
+                
+                <p class="text-base md:text-lg text-slate-600 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">
+                    Architecting Sustainable Digital Public Infrastructure for Global Policy Reform. Bridging High-Level Mandates with Zero-Cost, Serverless Execution for UNESCO, UNDP, and National Ministries.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 w-full">
+                    <a href="https://anggaconni.github.io/Complete-Portofolio/" target="_blank" rel="noreferrer" class="group flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3.5 bg-slate-900 text-white rounded-full font-semibold transition-all duration-300 hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-200 hover:-translate-y-1">
+                        <i class="ph ph-file-text text-xl"></i>
+                        <span>View Full Portfolio</span>
+                        <i class="ph ph-arrow-right text-lg transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                    
+                    <div class="flex items-center gap-3 w-full sm:w-auto justify-center">
+                        <a href="https://anggaconni.github.io" target="_blank" rel="noreferrer" aria-label="Website" class="p-3.5 bg-white text-slate-600 rounded-full border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all duration-300 hover:shadow-md hover:-translate-y-1 flex items-center justify-center">
+                            <i class="ph ph-globe text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/anggaconni/" target="_blank" rel="noreferrer" aria-label="LinkedIn" class="p-3.5 bg-white text-slate-600 rounded-full border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all duration-300 hover:shadow-md hover:-translate-y-1 flex items-center justify-center">
+                            <i class="ph ph-linkedin-logo text-xl"></i>
+                        </a>
+                        <a href="https://github.com/AnggaConni" target="_blank" rel="noreferrer" aria-label="GitHub" class="p-3.5 bg-white text-slate-600 rounded-full border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-all duration-300 hover:shadow-md hover:-translate-y-1 flex items-center justify-center">
+                            <i class="ph ph-github-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="contact-links">
-                <a href="https://www.linkedin.com/in/anggaconni/" target="_blank"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
-                <a href="mailto:conniezz.cool@gmail.com"><i class="ph ph-envelope"></i> Email Me</a>
+            <div class="w-full max-w-[400px] shrink-0 relative h-[450px] mt-10 md:mt-0" style="perspective: 1000px;">
+                
+                <div class="absolute -top-8 right-4 text-sm font-medium text-slate-400 flex items-center gap-2 animate-pulse">
+                    Click cards to explore <i class="ph ph-arrow-right"></i>
+                </div>
+
+                <div id="card-stack-container" class="relative w-full h-full cursor-pointer">
+                    
+                    <div id="stack-card-0" class="absolute top-0 left-0 w-full bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 border border-white flex flex-col justify-between transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] translate-y-0 scale-100 z-30 opacity-100 shadow-2xl hover:-translate-y-2" style="height: 380px;">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 border border-blue-100 shadow-sm">
+                                <i class="ph ph-globe text-2xl"></i>
+                            </div>
+                            <div class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-lg flex items-center gap-1.5 border text-blue-700 bg-blue-50 border-blue-100">
+                                <i class="ph ph-check-circle fill text-lg" id="status-icon-0"></i> 
+                                UN Mandates
+                            </div>
+                        </div>
+                        <div class="space-y-3 flex-1">
+                            <div>
+                                <div class="text-[0.8rem] font-semibold text-slate-400 mb-1 uppercase tracking-wide">UNESCO & UNDP Initiatives</div>
+                                <h3 class="text-xl font-bold text-slate-800 leading-tight border-none pb-0">Global Policy & Digital Infra</h3>
+                            </div>
+                            <div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md text-[0.7rem] text-slate-600 font-bold uppercase tracking-wide">UNESCO</span>
+                                    <span class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md text-[0.7rem] text-slate-600 font-bold uppercase tracking-wide">UNDP</span>
+                                    <span class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md text-[0.7rem] text-slate-600 font-bold uppercase tracking-wide">Intl</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl border border-slate-700 text-white shadow-inner">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center gap-2 font-medium text-sm">
+                                    <i class="ph ph-hard-drives text-blue-400 text-lg"></i> Zero-Cost
+                                </div>
+                                <span class="text-[0.65rem] font-mono text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-2 py-0.5 rounded">Google Stack</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-1.5 mt-2 overflow-hidden">
+                                <div id="progress-0" class="bg-blue-500 h-1.5 rounded-full relative transition-all duration-1000 w-full">
+                                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+                                </div>
+                            </div>
+                            <div class="text-[0.7rem] text-slate-400 mt-2 font-mono">Cost: $0.00 Infrastructure</div>
+                        </div>
+                    </div>
+
+                    <div id="stack-card-1" class="absolute top-0 left-0 w-full bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 border border-white flex flex-col justify-between transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] translate-y-8 scale-95 z-20 opacity-80 shadow-lg" style="height: 380px;">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-emerald-600 border border-emerald-100 shadow-sm">
+                                <i class="ph ph-bank text-2xl"></i>
+                            </div>
+                            <div class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-lg flex items-center gap-1.5 border text-emerald-700 bg-emerald-50 border-emerald-100">
+                                <div class="w-2 h-2 rounded-full bg-current" id="status-icon-1"></div>
+                                Nationally
+                            </div>
+                        </div>
+                        <div class="space-y-3 flex-1">
+                            <div>
+                                <div class="text-[0.8rem] font-semibold text-slate-400 mb-1 uppercase tracking-wide">National Reform Mandate</div>
+                                <h3 class="text-xl font-bold text-slate-800 leading-tight border-none pb-0">Zero-Cost Bureaucracy</h3>
+                            </div>
+                            <div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md text-[0.7rem] text-slate-600 font-bold uppercase tracking-wide">Kemenkes</span>
+                                    <span class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md text-[0.7rem] text-slate-600 font-bold uppercase tracking-wide">Kemendesa</span>
+                                    <span class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md text-[0.7rem] text-slate-600 font-bold uppercase tracking-wide">PMK</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl border border-slate-700 text-white shadow-inner">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center gap-2 font-medium text-sm">
+                                    <i class="ph ph-code text-blue-400 text-lg"></i> AI-Augmented
+                                </div>
+                                <span class="text-[0.65rem] font-mono text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-2 py-0.5 rounded">HTML + JS</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-1.5 mt-2 overflow-hidden">
+                                <div id="progress-1" class="bg-blue-500 h-1.5 rounded-full relative transition-all duration-1000 w-0">
+                                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+                                </div>
+                            </div>
+                            <div class="text-[0.7rem] text-slate-400 mt-2 font-mono">Efficiency: Auto Workflows</div>
+                        </div>
+                    </div>
+
+                    <div id="stack-card-2" class="absolute top-0 left-0 w-full bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 border border-white flex flex-col justify-between transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] translate-y-16 scale-90 z-10 opacity-40 shadow-md" style="height: 380px;">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-amber-600 border border-amber-100 shadow-sm">
+                                <i class="ph ph-cpu text-2xl"></i>
+                            </div>
+                            <div class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-lg flex items-center gap-1.5 border text-amber-700 bg-amber-50 border-amber-100">
+                                <div class="w-2 h-2 rounded-full bg-current" id="status-icon-2"></div>
+                                Ecosystems
+                            </div>
+                        </div>
+                        <div class="space-y-3 flex-1">
+                            <div>
+                                <div class="text-[0.8rem] font-semibold text-slate-400 mb-1 uppercase tracking-wide">Gamification & Foresight</div>
+                                <h3 class="text-xl font-bold text-slate-800 leading-tight border-none pb-0">Gamified Policy Simulations</h3>
+                            </div>
+                            <div>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md text-[0.7rem] text-slate-600 font-bold uppercase tracking-wide">WebGL</span>
+                                    <span class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md text-[0.7rem] text-slate-600 font-bold uppercase tracking-wide">Three.js</span>
+                                    <span class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md text-[0.7rem] text-slate-600 font-bold uppercase tracking-wide">AI</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl border border-slate-700 text-white shadow-inner">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center gap-2 font-medium text-sm">
+                                    <i class="ph ph-cube text-blue-400 text-lg"></i> 3D & AI
+                                </div>
+                                <span class="text-[0.65rem] font-mono text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-2 py-0.5 rounded">Commons</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-1.5 mt-2 overflow-hidden">
+                                <div id="progress-2" class="bg-blue-500 h-1.5 rounded-full relative transition-all duration-1000 w-0">
+                                    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+                                </div>
+                            </div>
+                            <div class="text-[0.7rem] text-slate-400 mt-2 font-mono">Impact: High Engagement</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="absolute bottom-0 left-0 w-full flex justify-center gap-2 z-40">
+                    <div id="dot-0" class="h-2 rounded-full transition-all duration-300 w-6 bg-blue-600"></div>
+                    <div id="dot-1" class="h-2 rounded-full transition-all duration-300 w-2 bg-slate-300"></div>
+                    <div id="dot-2" class="h-2 rounded-full transition-all duration-300 w-2 bg-slate-300"></div>
+                </div>
+
             </div>
-        </div>
+        </main>
     </header>
 
     <div class="container">
 
         <!-- 1. CAROUSEL SECTION (Updated Applications) -->
-        <section class="py-12 w-full max-w-[1400px] mx-auto relative">
-        <div class="px-6 md:px-12 mb-8 text-center md:text-left">
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">Footprint of Work and Innovation</h2>
-            <p class="text-slate-500 text-lg max-w-3xl mx-auto md:mx-0">
-                Scroll to the right to explore my *timeline* of applications. Use the filters to search by specific categories.
+        <section style="margin-bottom: 50px;">
+            <h2><i class="ph ph-rocket-launch"></i> Footprint of Work and Innovation</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">
+                Scroll to the right to explore my <strong>timeline</strong> of applications. Use the filters to search by specific categories.
             </p>
-        </div>
 
-        <div class="px-6 md:px-12 mb-10 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex flex-wrap justify-center md:justify-start gap-2" id="filter-container">
-                <button class="filter-btn active bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md transition-all" data-filter="all">All Works</button>
-                <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="ai-data">AI & Data</button>
-                <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="edtech">EdTech & Game</button>
-                <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="gis">GIS & WebMap</button>
-                <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="tools">Sistem & Tools</button>
+            <div class="mb-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex flex-wrap justify-start gap-2" id="filter-container">
+                    <button class="filter-btn active bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md transition-all" data-filter="all">All Works</button>
+                    <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="ai-data">AI & Data</button>
+                    <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="edtech">EdTech & Game</button>
+                    <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="gis">GIS & WebMap</button>
+                    <button class="filter-btn bg-white text-slate-600 border border-slate-200 px-5 py-2 rounded-full text-sm font-semibold hover:bg-slate-100 transition-all" data-filter="tools">Sistem & Tools</button>
+                </div>
+
+                <div class="flex gap-2 z-10 hidden sm:flex shrink-0">
+                    <button id="scrollLeftBtn" class="bg-white border border-slate-200 text-slate-600 hover:text-indigo-600 hover:border-indigo-300 p-2.5 rounded-full shadow-sm transition-all focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+                    <button id="scrollRightBtn" class="bg-indigo-600 text-white hover:bg-indigo-700 p-2.5 rounded-full shadow-md transition-all focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
+                </div>
             </div>
 
-            <div class="flex gap-2 z-10 hidden sm:flex shrink-0">
-                <button id="scrollLeftBtn" class="bg-white border border-slate-200 text-slate-600 hover:text-indigo-600 hover:border-indigo-300 p-2.5 rounded-full shadow-sm transition-all focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                    </svg>
-                </button>
-                <button id="scrollRightBtn" class="bg-indigo-600 text-white hover:bg-indigo-700 p-2.5 rounded-full shadow-md transition-all focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                    </svg>
-                </button>
-            </div>
-        </div>
+            <div class="full-bleed-wrapper">
+                <div class="absolute top-[39px] left-0 w-full h-1 bg-slate-200 hidden md:block"></div>
+                <div class="absolute top-[39px] left-0 w-full h-1 bg-indigo-500 timeline-line-grow hidden md:block"></div>
 
-        <div class="relative w-full">
-            <div class="absolute top-[39px] left-0 w-full h-1 bg-slate-200 hidden md:block"></div>
-            <div class="absolute top-[39px] left-0 w-full h-1 bg-indigo-500 timeline-line-grow hidden md:block"></div>
-
-            <div id="timeline-scroll" class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory scroll-smooth pb-12 pt-4 px-6 md:px-12 gap-6 md:gap-10 items-stretch transition-all duration-300">
+                <div id="timeline-scroll" class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory scroll-smooth pb-4 pt-4 gap-6 md:gap-10 items-stretch transition-all duration-300 full-bleed-track">
                 </div>
             
-            <div id="empty-state" class="hidden text-center py-12 w-full text-slate-500">
-                Tidak ada proyek di kategori ini.
+                <div id="empty-state" class="hidden text-center py-12 w-full text-slate-500">
+                    Tidak ada proyek di kategori ini.
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- 2. CORE COMPETENCIES -->
         <section>
@@ -1318,7 +1510,7 @@
         </div>
     </div>
 
-    <!-- EXPERTISE MODALS -->
+    
     <!-- EXPERTISE MODALS -->
 <div id="modal-behavioral" class="modal-overlay" onclick="closeModal(event, 'modal-behavioral')">
     <div class="modal-content">
@@ -1783,7 +1975,54 @@
         }
     </script>
 
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cardContainer = document.getElementById('card-stack-container');
+            if(!cardContainer) return;
+            
+            let activeIndex = 0;
+            const totalCards = 3;
 
+            cardContainer.addEventListener('click', () => {
+                activeIndex = (activeIndex + 1) % totalCards;
+                updateCards();
+            });
+
+            function updateCards() {
+                for (let i = 0; i < totalCards; i++) {
+                    const relativeIndex = (i - activeIndex + totalCards) % totalCards;
+                    
+                    const card = document.getElementById(`stack-card-${i}`);
+                    const dot = document.getElementById(`dot-${i}`);
+                    const progress = document.getElementById(`progress-${i}`);
+                    const statusIcon = document.getElementById(`status-icon-${i}`);
+
+                    // Reset semua animasi kelas
+                    card.className = "absolute top-0 left-0 w-full bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 sm:p-10 border border-white flex flex-col justify-between transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]";
+                    
+                    if (relativeIndex === 0) {
+                        card.classList.add('translate-y-0', 'scale-100', 'z-30', 'opacity-100', 'shadow-2xl', 'hover:-translate-y-2');
+                        dot.className = "h-2 rounded-full transition-all duration-300 w-6 bg-blue-600";
+                        progress.style.width = "100%";
+                        statusIcon.className = "ph ph-check-circle fill text-lg";
+                    } else if (relativeIndex === 1) {
+                        card.classList.add('translate-y-8', 'scale-95', 'z-20', 'opacity-80', 'shadow-lg');
+                        dot.className = "h-2 rounded-full transition-all duration-300 w-2 bg-slate-300";
+                        progress.style.width = "0%";
+                        statusIcon.className = "w-2 h-2 rounded-full bg-current";
+                    } else if (relativeIndex === 2) {
+                        card.classList.add('translate-y-16', 'scale-90', 'z-10', 'opacity-40', 'shadow-md');
+                        dot.className = "h-2 rounded-full transition-all duration-300 w-2 bg-slate-300";
+                        progress.style.width = "0%";
+                        statusIcon.className = "w-2 h-2 rounded-full bg-current";
+                    } else {
+                        card.classList.add('translate-y-20', 'scale-85', 'z-0', 'opacity-0');
+                        progress.style.width = "0%";
+                    }
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
