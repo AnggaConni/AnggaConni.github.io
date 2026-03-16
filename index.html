@@ -874,23 +874,8 @@
             
             <!-- AUTHORED -->
             <h3 style="font-size:1.1rem; color:var(--text-muted); margin: 30px 0 15px;">Authored Publications (Reporting & Layout)</h3>
-            <div class="mm-list">
-                <div class="mm-item">
-                    <h4>Kawasan Perdesaan Agropolitan Rasau Jaya</h4>
-                    <span class="mm-meta">Publisher: PUSDATIN KEMENDES PDTT (2019)</span>
-                    <span class="isbn-code">ISBN: 978-623-7129-82-0</span>
+            <div id="publications-container" class="flex flex-col gap-4">
                 </div>
-                <div class="mm-item">
-                    <h4>Profil BUM Desa Payang Sejahtera (East Kalimantan)</h4>
-                    <span class="mm-meta">Publisher: PUSDATIN KEMENDES PDTT (2018)</span>
-                    <span class="isbn-code">ISBN: 978-623-7129-25-7</span>
-                </div>
-                <div class="mm-item">
-                    <h4>Profil BUM Desa Cahaya Selo (Yogyakarta)</h4>
-                    <span class="mm-meta">Publisher: PUSDATIN KEMENDES PDTT (2018)</span>
-                    <span class="isbn-code">ISBN: 978-623-7129-31-8</span>
-                </div>
-            </div>
 
             <!-- EDITED -->
             <h3 style="font-size:1.1rem; color:var(--text-muted); margin: 40px 0 15px;">Editorial Works - Copy Editor (34 Titles)</h3>
@@ -1032,6 +1017,57 @@
     </footer>
 
     <!-- ================= MODALS (Content Kept from Previous Version) ================= -->
+
+        <!-- MODAL: AUTHORED PUBLICATION -->
+    <div id="pdf-modal" class="fixed inset-0 z-[3000] hidden items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-slate-900/70 opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 cursor-pointer" onclick="closePdfModal()"></div>
+        
+        <div class="relative w-full max-w-6xl h-[90vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="pdf-modal-content">
+            
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50 shrink-0">
+                <div class="flex items-center gap-3">
+                    <i class="ph ph-book-open text-blue-600 text-2xl"></i>
+                    <h3 class="text-lg font-bold text-slate-800 m-0">Reading Mode</h3>
+                </div>
+                <button onclick="closePdfModal()" class="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors flex items-center justify-center">
+                    <i class="ph ph-x text-xl font-bold"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col lg:flex-row flex-1 overflow-hidden">
+                
+                <div class="w-full lg:w-1/3 bg-white p-6 border-b lg:border-b-0 lg:border-r border-slate-100 overflow-y-auto flex flex-col gap-6 shrink-0">
+                    <div class="rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 relative h-64">
+                        <iframe id="pdf-modal-cover" src="" class="absolute inset-0 w-full h-full border-0 pointer-events-none" scrolling="no"></iframe>
+                    </div>
+                    <div>
+                        <h2 id="pdf-modal-title" class="text-xl font-bold text-slate-800 mb-2 leading-tight"></h2>
+                        <div class="flex flex-col gap-3 mt-4">
+                            <div>
+                                <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Publisher</span>
+                                <span id="pdf-modal-publisher" class="text-sm font-medium text-slate-700"></span>
+                            </div>
+                            <div>
+                                <span class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">ISBN</span>
+                                <span id="pdf-modal-isbn" class="inline-block bg-slate-100 text-slate-600 text-xs font-mono px-2 py-1 rounded border border-slate-200"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-slate-100">
+                        <p class="text-xs text-slate-400 leading-relaxed">*Tampilan interaktif ini menggabungkan cover sampul dan pratinjau dokumen PDF A4.</p>
+                    </div>
+                </div>
+
+                <div class="flex-1 bg-slate-200 relative min-h-[50vh] lg:min-h-0">
+                    <div class="absolute inset-0 flex items-center justify-center text-slate-500 pointer-events-none gap-2">
+                        <i class="ph ph-spinner animate-spin text-xl"></i>
+                        Memuat Dokumen A4...
+                    </div>
+                    <iframe id="pdf-modal-iframe" src="" class="absolute inset-0 w-full h-full border-0 z-10 shadow-inner"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- MODAL: CONSULTANT -->
     <div id="modal-consultant" class="modal-overlay" onclick="closeModal(event, 'modal-consultant')">
@@ -2157,6 +2193,99 @@ container.addEventListener('click', () => {
     isGameOver ? startGame() : jump();
 });
     
+    </script>
+
+    <script>
+        const authoredPublications = [
+            {
+                title: "Kawasan Perdesaan Agropolitan Rasau Jaya",
+                publisher: "PUSDATIN KEMENDES PDTT (2019)",
+                isbn: "978-623-7129-82-0",
+                pdfUrl: "https://anggaconni.github.io/Buku%20Agropolitan%20Rasau%20Jaya%20PUSDATIN.pdf" 
+            },
+            {
+                title: "Profil BUM Desa Payang Sejahtera (East Kalimantan)",
+                publisher: "PUSDATIN KEMENDES PDTT (2018)",
+                isbn: "978-623-7129-25-7",
+                pdfUrl: "https://anggaconni.github.io/BUM%20DESA%20PAYANG%20SEJAHTERA.pdf"
+            },
+            {
+                title: "Profil BUM Desa Cahaya Selo (Yogyakarta)",
+                publisher: "PUSDATIN KEMENDES PDTT (2018)",
+                isbn: "978-623-7129-31-8",
+                pdfUrl: "https://anggaconni.github.io/BUM%20DESA%20CAHAYA%20SELO.pdf"
+            }
+        ];
+
+        const pubContainerNew = document.getElementById('publications-container');
+        const pdfModalBox = document.getElementById('pdf-modal');
+        const pdfModalContentBox = document.getElementById('pdf-modal-content');
+
+        // Render HTML ke dalam layar
+        function renderAuthoredPublications() {
+            if(!pubContainerNew) return;
+            let htmlContent = '';
+            
+            authoredPublications.forEach((pub, index) => {
+                const coverThumbnailUrl = pub.pdfUrl + "#page=1&toolbar=0&navpanes=0&scrollbar=0&view=FitH";
+
+                htmlContent += `
+                    <div onclick="openPdfModal(${index})" class="bg-white rounded-xl p-5 border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-md hover:border-blue-300 hover:-translate-y-1 group flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+                        <div class="w-full sm:w-48 h-32 rounded-lg overflow-hidden shrink-0 border border-slate-100 shadow-sm relative bg-slate-200">
+                            <iframe src="${coverThumbnailUrl}" class="absolute inset-0 w-full h-full border-0 pointer-events-none" scrolling="no"></iframe>
+                            <div class="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors z-10"></div>
+                        </div>
+                        <div class="flex-1 w-full">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-lg font-bold text-slate-800 group-hover:text-blue-600 transition-colors m-0">${pub.title}</h4>
+                                <i class="ph ph-arrow-right text-slate-400 text-xl opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                            </div>
+                            <div class="text-xs font-bold text-blue-600 uppercase tracking-wide mb-3">PUBLISHER: ${pub.publisher}</div>
+                            <div class="inline-block bg-blue-50 text-blue-500 text-xs font-mono px-3 py-1.5 rounded-md border border-blue-100">ISBN: ${pub.isbn}</div>
+                        </div>
+                    </div>
+                `;
+            });
+            pubContainerNew.innerHTML = htmlContent;
+        }
+
+        // Buka Modal PDF (Nama fungsi dibedakan agar tidak bentrok dengan modal lain)
+        function openPdfModal(index) {
+            const pub = authoredPublications[index];
+            document.getElementById('pdf-modal-cover').src = pub.pdfUrl + "#page=1&toolbar=0&navpanes=0&scrollbar=0&view=FitH";
+            document.getElementById('pdf-modal-title').textContent = pub.title;
+            document.getElementById('pdf-modal-publisher').textContent = pub.publisher;
+            document.getElementById('pdf-modal-isbn').textContent = pub.isbn;
+            document.getElementById('pdf-modal-iframe').src = pub.pdfUrl;
+
+            pdfModalBox.classList.remove('hidden');
+            pdfModalBox.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Kunci scroll layar utama
+            
+            setTimeout(() => {
+                pdfModalBox.classList.remove('opacity-0');
+                pdfModalContentBox.classList.remove('scale-95');
+                pdfModalContentBox.classList.add('scale-100');
+            }, 10);
+        }
+
+        // Tutup Modal PDF
+        function closePdfModal() {
+            pdfModalBox.classList.add('opacity-0');
+            pdfModalContentBox.classList.remove('scale-100');
+            pdfModalContentBox.classList.add('scale-95');
+            document.body.style.overflow = 'auto'; // Buka scroll layar utama
+            
+            setTimeout(() => {
+                pdfModalBox.classList.add('hidden');
+                pdfModalBox.classList.remove('flex');
+                document.getElementById('pdf-modal-iframe').src = ''; 
+                document.getElementById('pdf-modal-cover').src = ''; 
+            }, 300);
+        }
+
+        // Eksekusi render
+        document.addEventListener('DOMContentLoaded', renderAuthoredPublications);
     </script>
 
 </body>
