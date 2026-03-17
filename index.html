@@ -1019,7 +1019,7 @@
     <!-- ================= MODALS (Content Kept from Previous Version) ================= -->
 
         <!-- MODAL: AUTHORED PUBLICATION -->
-    <div id="pdf-modal" class="fixed inset-0 z-[3000] hidden items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-slate-900/70 opacity-0 transition-opacity duration-300">
+<div id="pdf-modal" class="fixed inset-0 z-[3000] hidden items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-slate-900/70 opacity-0 transition-opacity duration-300">
         <div class="absolute inset-0 cursor-pointer" onclick="closePdfModal()"></div>
         
         <div class="relative w-full max-w-6xl h-[90vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="pdf-modal-content">
@@ -1037,8 +1037,9 @@
             <div class="flex flex-col lg:flex-row flex-1 overflow-hidden">
                 
                 <div class="w-full lg:w-1/4 bg-white p-6 border-b lg:border-b-0 lg:border-r border-slate-100 overflow-y-auto flex flex-col gap-5 shrink-0">
-                    <div class="rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 relative h-56 shrink-0">
-                        <iframe id="pdf-modal-cover" src="" class="absolute inset-0 w-full h-full border-0 pointer-events-none" scrolling="no"></iframe>
+                    
+                    <div class="rounded-xl overflow-hidden shadow-md border border-slate-200 bg-slate-100 relative h-56 shrink-0 flex items-center justify-center p-2">
+                        <img id="pdf-modal-cover" src="" class="w-full h-full object-contain pointer-events-none" alt="Book Cover">
                     </div>
                     
                     <div class="flex flex-col gap-4 flex-grow">
@@ -2207,6 +2208,15 @@ container.addEventListener('click', () => {
     <script>
          // Data Publikasi yang Ditulis (UPDATED WITH RESUME)
         const authoredPublications = [
+            {
+                title: "The Invisible Architecture Of Diplomacy",
+                publisher: "Independent (Amazon Kindle, 2026)",
+                isbn: "979-825-2389-462",
+                coverUrl: "https://anggaconni.github.io/coveria.png",
+                pdfUrl: "https://anggaconni.github.io/contentia.pdf",
+                // Tambahkan field resume di sini
+                resume: "A concise exploration of diplomacy beyond formal negotiations—revealing the invisible human dynamics, trust-building mechanisms, and behavioral patterns that shape international relations in practice. Blending policy insight, communication strategy, and real-world experience, this book offers a fresh, actionable perspective on how diplomacy truly works."
+            },  
             {
                 title: "Kawasan Perdesaan Agropolitan Rasau Jaya",
                 publisher: "PUSDATIN KEMENDES PDTT (2019)",
