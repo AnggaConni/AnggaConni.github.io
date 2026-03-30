@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.github.anggaconni.twa",
+    "sha256_cert_fingerprints": ["2A:6E:9E:18:2C:53:8C:2A:D1:54:A9:CE:BF:47:A4:F3:5F:B1:3E:68:83:B5:A2:FC:BA:76:46:6F:5E:9A:F9:12"]
+  }
+}]
