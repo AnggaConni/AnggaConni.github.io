@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mas Angga | System Log</title>
+     
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' shape-rendering='crispEdges'><rect width='64' height='64' fill='white'/><rect x='8' y='14' width='48' height='36' rx='2' fill='%231e293b'/><rect x='14' y='22' width='6' height='4' fill='%2310b981'/><rect x='20' y='26' width='6' height='4' fill='%2310b981'/><rect x='14' y='30' width='6' height='4' fill='%2310b981'/><rect x='30' y='30' width='16' height='4' fill='%2310b981'/></svg>">
+        
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"Fira Code"', 'monospace'],
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    colors: {
+                        'term-bg': '#0B1120',
+                        'term-card': '#151e32',
+                        'term-green': '#10B981',
+                        'term-blue': '#3B82F6',
+                        'term-yellow': '#F59E0B',
+                        'term-purple': '#A855F7',
+                        'term-cyan': '#06B6D4',
+                        'term-orange': '#F97316',
+                        'term-rose': '#F43F5E',
+                        'term-gray': '#64748B',
+                        'term-border': '#1E293B'
+                    },
+                    animation: {
+                        'blink': 'blink 1s step-end infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blink: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0' } },
+                        fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-6px)' } },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0B1120;
+            background-image: linear-gradient(rgba(30, 41, 59, 0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(30, 41, 59, 0.3) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #e2e8f0;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B1120; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        .glass-panel {
+            background: rgba(21, 30, 50, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+        .glass-panel:hover { box-shadow: 0 8px 25px -5px rgba(16,185,129,0.08); }
+
+        .code-keyword { color: #c678dd; }
+        .code-func { color: #61afef; }
+        .code-string { color: #98c379; }
+        .code-comment { color: #5c6370; font-style: italic; }
+
+        /* Glow effects */
+        .glow-green { box-shadow: 0 0 20px rgba(16,185,129,0.15); }
+        .glow-blue { box-shadow: 0 0 20px rgba(59,130,246,0.15); }
+        .glow-purple { box-shadow: 0 0 20px rgba(168,85,247,0.15); }
+
+        /* Scanline overlay */
+        .scanlines::after {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+            pointer-events: none; border-radius: inherit;
+        }
+
+        /* Tag badge */
+        .tag-badge {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 2px 8px; border-radius: 4px; font-size: 10px; font-family: 'Fira Code', monospace;
+            font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+        }
+
+        /* Section header line */
+        .section-line {
+            display: flex; align-items: center; gap: 12px;
+        }
+        .section-line::after {
+            content: ''; flex: 1; height: 1px;
+            background: linear-gradient(90deg, rgba(100,116,139,0.4), transparent);
+        }
+
+        /* Skill bar */
+        .skill-bar-fill { transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+
+        /* Portfolio quick-card */
+        .portfolio-quick-card {
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        .portfolio-quick-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(16,185,129,0.4) !important;
+            box-shadow: 0 12px 30px -8px rgba(16,185,129,0.2);
+        }
+
+        /* Mobile nav */
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+
+        /* Sticky nav */
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px;
+            background: #10B981; transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Education card special */
+        .edu-card { border-left: 3px solid; position: relative; overflow: hidden; }
+        .edu-card::before {
+            content: ''; position: absolute; top: 0; right: 0; width: 60px; height: 60px;
+            background: radial-gradient(circle, rgba(255,255,255,0.03), transparent);
+        }
+
+        /* Typing cursor */
+        @keyframes typewriter { from { width: 0 } to { width: 100% } }
+        @keyframes blinkCaret { from, to { border-color: transparent } 50% { border-color: #10B981 } }
+
+        /* Media mention card */
+        .media-card { border-left: 2px solid; transition: all 0.2s; }
+        .media-card:hover { padding-left: 20px; }
+
+        /* Filter pill active */
+        .filter-btn.active {
+            background: #10B981 !important;
+            color: #0B1120 !important;
+            border-color: #10B981 !important;
+            font-weight: 700;
+        }
+
+        /* Tooltip */
+        [data-tooltip] { position: relative; }
+        [data-tooltip]:hover::before {
+            content: attr(data-tooltip);
+            position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%);
+            background: #1e293b; color: #e2e8f0; padding: 4px 8px; border-radius: 4px;
+            font-size: 11px; white-space: nowrap; font-family: 'Fira Code', monospace;
+            border: 1px solid #334155; z-index: 50;
+        }
+
+        /* Progress ring */
+        .progress-ring { transform: rotate(-90deg); }
+        .progress-ring-circle { transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+
+        /* Accordion */
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .accordion-content.open { max-height: 2000px; }
+        .accordion-arrow { transition: transform 0.3s ease; }
+        .accordion-arrow.open { transform: rotate(180deg); }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #10B981, #3B82F6, #A855F7);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Bureaucracy Breaker Game Styles */
+        .touch-none { touch-action: none; }
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-bounce-slow { animation: bounce-subtle 2s infinite; }
+        #gameCanvas rect, #gameCanvas circle { transition: fill 0.3s ease; }
+
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col">
+
+    <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-term-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-terminal text-term-green"></i>
+                    <span class="font-mono font-bold text-lg tracking-tight">mas_angga<span class="text-term-green">.exe</span></span>
+                    <span class="hidden sm:inline text-xs font-mono text-slate-500 bg-slate-800 px-2 py-0.5 rounded ml-2">v3.0.0</span>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-1 font-mono text-sm">
+                    <a href="#console" class="nav-link hover:text-term-green px-3 py-2 rounded-md transition">./home</a>
+                    <a href="#education" class="nav-link hover:text-term-green px-3 py-2 rounded-md transition">./education</a>
+                    <a href="#portfolio-grid" class="nav-link hover:text-term-green px-3 py-2 rounded-md transition">./apps</a>
+                    <a href="#projects" class="nav-link hover:text-term-green px-3 py-2 rounded-md transition">./database</a>
+                    <a href="#media" class="nav-link hover:text-term-green px-3 py-2 rounded-md transition">./media</a>
+                    <a href="#contact" class="nav-link hover:text-term-green px-3 py-2 rounded-md transition">./contact</a>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <a href="complete.html" target="_blank" class="hidden md:flex items-center gap-2 bg-term-green/10 hover:bg-term-green hover:text-slate-900 border border-term-green/30 text-term-green text-xs font-mono py-2 px-3 rounded transition-all">
+                        <i class="fas fa-th-large"></i> Full Index
+                    </a>
+                    <a href="https://anggaconni.github.io/#" target="_blank" class="hidden md:flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-xs font-mono py-2 px-3 rounded transition-all">
+                        <i class="fas fa-external-link-alt"></i> Simple CV
+                    </a>
+                    <button id="mobile-toggle" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden border-t border-term-border py-3 space-y-1 font-mono text-sm">
+                <a href="#console" class="block px-3 py-2 hover:text-term-green transition">./home</a>
+                <a href="#education" class="block px-3 py-2 hover:text-term-green transition">./education</a>
+                <a href="#portfolio-grid" class="block px-3 py-2 hover:text-term-green transition">./apps</a>
+                <a href="#projects" class="block px-3 py-2 hover:text-term-green transition">./database</a>
+                <a href="#media" class="block px-3 py-2 hover:text-term-green transition">./media</a>
+                <a href="#contact" class="block px-3 py-2 hover:text-term-green transition">./contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+    <section id="console" class="pt-32 pb-16 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- LEFT PANEL: Behavioral Research -->
+            <div class="lg:col-span-4 glass-panel rounded-lg p-6 border-l-4 border-term-purple animate-fade-in order-2 lg:order-1 glow-purple">
+                <div class="flex items-center gap-2 mb-4 text-term-purple">
+                    <i class="fas fa-brain text-xl animate-float"></i>
+                    <h3 class="font-bold text-lg">Why this "Hard" Font?</h3>
+                </div>
+                
+                <p class="mb-3 italic text-xs text-slate-400 font-mono">"Not the hardest one, but just enough to trigger your brain."</p>
+                
+                <h4 class="font-bold text-white text-sm mt-4 mb-2">📚 Research Spotlight: Disfluency</h4>
+                <p class="text-sm text-slate-300 mb-3">A study by <strong class="text-white">Princeton & Indiana University</strong> suggests that "hard-to-read" fonts enhance long-term memory recall.</p>
+                
+                <ul class="space-y-2 mb-4 text-xs text-slate-300">
+                    <li class="flex gap-2"><span class="text-term-purple flex-shrink-0">▸</span><span><strong class="text-white">Cognitive Engagement:</strong> Your brain works harder to decipher text, creating deeper processing pathways.</span></li>
+                    <li class="flex gap-2"><span class="text-term-purple flex-shrink-0">▸</span><span><strong class="text-white">Disfluency Hypothesis:</strong> Difficulty = increased attention = better retention.</span></li>
+                    <li class="flex gap-2"><span class="text-term-purple flex-shrink-0">▸</span><span><strong class="text-white">Focus:</strong> Forces you to minimize distractions and allocate more attention here.</span></li>
+                </ul>
+
+                <div class="bg-slate-900/50 p-3 rounded text-xs border border-term-border mt-4">
+                    <i class="fas fa-lightbulb text-term-yellow mr-1"></i> 
+                    Not about difficulty — leveraging cognitive processes to optimize your focus on this CV.
+                </div>
+
+                <!-- Quick social row -->
+                <div class="flex gap-3 mt-4 justify-center pt-4 border-t border-slate-800">
+                    <a href="https://linkedin.com/in/angga-conni/" target="_blank" class="text-slate-400 hover:text-blue-400 transition text-sm" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://anggaconni.github.io" target="_blank" class="text-slate-400 hover:text-white transition text-sm" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://wa.me/628998788909" target="_blank" class="text-slate-400 hover:text-green-400 transition text-sm" data-tooltip="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:conniezz.cool@gmail.com" class="text-slate-400 hover:text-term-yellow transition text-sm" data-tooltip="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+
+                <a href="https://anggaconni.github.io/#" class="block mt-3 text-center w-full py-2 border border-slate-600 rounded text-xs hover:bg-slate-700 transition font-mono">
+                    Give up? Easy-to-Read CV ➜
+                </a>
+            </div>
+
+            <!-- RIGHT PANEL: Terminal -->
+            <div class="lg:col-span-8 glass-panel rounded-lg overflow-hidden shadow-2xl border border-term-border order-1 lg:order-2 scanlines relative glow-green">
+                <div class="bg-slate-900 px-4 py-2 flex items-center justify-between border-b border-term-border">
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition cursor-pointer"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 transition cursor-pointer"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500 hover:bg-green-400 transition cursor-pointer"></div>
+                    </div>
+                    <div class="text-xs text-slate-400 font-mono flex items-center gap-2">
+                        <i class="fas fa-coffee text-term-yellow"></i>
+                        <span>admin@angga-portfolio:~</span>
+                        <span class="text-slate-600">|</span>
+                        <span class="text-term-green text-[10px]">● ONLINE</span>
+                    </div>
+                </div>
+                
+                <div class="p-6 md:p-10 font-mono text-sm leading-relaxed">
+                    <div class="mb-4">
+                        <span class="text-term-green">➜</span> <span class="text-blue-400">~</span> <span class="text-yellow-300">whoami</span>
+                    </div>
+                    <div class="mb-6 pl-4 border-l-2 border-term-border">
+                        <p class="mb-2 text-slate-400">Loading profile module... <span class="text-term-green">Done.</span></p>
+                        <p class="mb-2">Name: <span class="text-white font-bold">ANGGA CONNI SAPUTRA</span></p>
+                        <p class="mb-2">Role: <span class="text-term-blue">Change Management & Public Policy Specialist</span></p>
+                        <p class="mb-2">Status: <span class="text-term-green animate-pulse">● Online</span> <span class="text-slate-500">(Jakarta, ID — UTC+7)</span></p>
+                        <p class="mb-2">Open to: <span class="text-term-yellow">Gov-Tech · Policy Reform · Strategic Consultancy</span></p>
+                        <p class="text-slate-400 mt-4 max-w-2xl leading-relaxed space-y-1">
+                            <span class="code-comment">// 15+ years experience driving digital transformation & strategic reforms.</span>
+                            <br><span class="code-comment">// Expert in bridging high-level policy & grassroots implementation in LMICs.</span>
+                            <br><span class="code-comment">// Proven track record: UN Agencies (UNESCO, UNDP) & Gov Ministries.</span>
+                            <br><span class="code-comment">// Focus: Health Supply Chain, Education for Sustainable Development, Data-Driven Policy.</span>
+                            <br><span class="code-comment text-term-yellow">// BUILD_ORIGIN: Born from "Gabut" (Productive Boredom) & a desire to prove Policy folks can Code.</span>
+                        </p>
+                    </div>
+
+                    <div class="mb-4">
+                        <span class="text-term-green">➜</span> <span class="text-blue-400">~</span> <span class="text-yellow-300">cat current_stats.json</span>
+                    </div>
+                    <div class="mb-6 pl-4 text-slate-300 text-xs leading-relaxed bg-slate-900/50 p-4 rounded border border-slate-800">
+                        <span class="text-slate-500">{</span><br>
+                        &nbsp;&nbsp;<span class="code-func">"Gov_Tech_Solutions"</span>: <span class="code-string">"Deployed (E-Persuratan, Foodways, ShadowOps...)"</span>,<br>
+                        &nbsp;&nbsp;<span class="code-func">"AI_Powered_Apps"</span>: <span class="text-term-yellow">30+</span> <span class="code-comment">// horizon scanning, impact architecture, S3...</span><br>
+                        &nbsp;&nbsp;<span class="code-func">"Behavioral_Tactics"</span>: <span class="text-slate-400">[</span><span class="code-string">"Tit-for-Tat"</span>, <span class="code-string">"Ben Franklin Effect"</span>, <span class="code-string">"COM-B"</span>, <span class="code-string">"Social Proof"</span><span class="text-slate-400">]</span>,<br>
+                        &nbsp;&nbsp;<span class="code-func">"Diplomacy_Level"</span>: <span class="code-string">"Expert (Reframing/De-escalation/ASEAN)"</span>,<br>
+                        &nbsp;&nbsp;<span class="code-func">"Publications"</span>: <span class="text-term-yellow">48</span> <span class="code-comment">// Books (Author/Editor)</span><br>
+                        &nbsp;&nbsp;<span class="code-func">"Tech_Stack"</span>: <span class="code-string">"Vanilla JS · Python · GAS · Leaflet · Three.js · AI APIs"</span>,<br>
+                        &nbsp;&nbsp;<span class="code-func">"Coffee_Intake"</span>: <span class="code-string">"High"</span> <span class="code-comment">// estimated constant</span><br>
+                        <span class="text-slate-500">}</span>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <span class="text-term-green">➜</span> <span class="text-blue-400">~</span> <span class="text-yellow-300">ls ./portfolio/</span>
+                    </div>
+                    <div class="mb-6 pl-4 grid grid-cols-2 md:grid-cols-3 gap-1 text-xs text-slate-300">
+                        <span class="text-term-cyan">policy_tools/</span><span class="text-term-green">gov_tech/</span><span class="text-term-purple">cultural_gis/</span>
+                        <span class="text-term-yellow">edtech_games/</span><span class="text-blue-400">behavioral_sci/</span><span class="text-term-orange">publications/</span>
+                    </div>
+                    
+                    <div>
+                        <span class="text-term-green">➜</span> <span class="text-blue-400">~</span> <span class="animate-blink text-term-green">█</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ STATS GRID ═══════════════════════════════ -->
+    <section class="py-8 px-4">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            <div class="glass-panel p-4 rounded-lg border-l-4 border-term-green hover:translate-y-[-2px] transition duration-300 col-span-1">
+                <div class="text-slate-400 text-xs font-mono mb-1">EXPERIENCE</div>
+                <div class="text-2xl font-bold font-mono text-white">15+</div>
+                <div class="text-xs text-slate-500">Years (2009→)</div>
+            </div>
+            <div class="glass-panel p-4 rounded-lg border-l-4 border-term-blue hover:translate-y-[-2px] transition duration-300">
+                <div class="text-slate-400 text-xs font-mono mb-1">DELIVERABLES</div>
+                <div class="text-2xl font-bold font-mono text-white">70+</div>
+                <div class="text-xs text-slate-500">System Entries</div>
+            </div>
+            <div class="glass-panel p-4 rounded-lg border-l-4 border-term-yellow hover:translate-y-[-2px] transition duration-300">
+                <div class="text-slate-400 text-xs font-mono mb-1">LIVE APPS</div>
+                <div class="text-2xl font-bold font-mono text-white">30+</div>
+                <div class="text-xs text-slate-500">Zero-Cost Infra</div>
+            </div>
+            <div class="glass-panel p-4 rounded-lg border-l-4 border-term-purple hover:translate-y-[-2px] transition duration-300">
+                <div class="text-slate-400 text-xs font-mono mb-1">PUBLICATIONS</div>
+                <div class="text-2xl font-bold font-mono text-white">48</div>
+                <div class="text-xs text-slate-500">ISBNs Authored</div>
+            </div>
+            <div class="glass-panel p-4 rounded-lg border-l-4 border-term-cyan hover:translate-y-[-2px] transition duration-300">
+                <div class="text-slate-400 text-xs font-mono mb-1">TECH STACK</div>
+                <div class="text-xl font-bold font-mono text-white">JS/Py</div>
+                <div class="text-xs text-slate-500">Three.js · GAS · AI</div>
+            </div>
+            <div class="glass-panel p-4 rounded-lg border-l-4 border-term-orange hover:translate-y-[-2px] transition duration-300">
+                <div class="text-slate-400 text-xs font-mono mb-1">UN ORGS</div>
+                <div class="text-2xl font-bold font-mono text-white">2</div>
+                <div class="text-xs text-slate-500">UNESCO · UNDP</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ EDUCATION ═══════════════════════════════ -->
+    <section id="education" class="py-16 px-4 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto">
+            <div class="section-line mb-10">
+                <h2 class="text-3xl font-bold text-white whitespace-nowrap">
+                    <i class="fas fa-graduation-cap text-term-cyan mr-3"></i>Academic Log
+                </h2>
+            </div>
+            <p class="text-slate-400 font-mono text-sm mb-10">// Formal education records & key academic achievements</p>
+
+            <div class="space-y-6">
+                <!-- MSc -->
+                <div class="edu-card glass-panel rounded-lg p-6 border-term-cyan hover:border-term-cyan/60 transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="tag-badge bg-term-cyan/15 text-term-cyan border border-term-cyan/30">MSc</span>
+                                <span class="tag-badge bg-slate-800 text-slate-400 border border-slate-700">GPA: 3.87 / 4.00</span>
+                                <span class="tag-badge bg-term-green/15 text-term-green border border-term-green/30">Completed</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-1">Master of Science in Public Policy Administration</h3>
+                            <p class="text-term-blue font-mono text-sm mb-3">Prof. Dr. Moestopo (Beragama) University, Jakarta</p>
+                            <div class="bg-slate-900/60 p-4 rounded border border-slate-800 text-sm text-slate-300">
+                                <div class="flex items-start gap-2 mb-2">
+                                    <i class="fas fa-file-alt text-term-yellow mt-0.5 flex-shrink-0"></i>
+                                    <p><strong class="text-white">Thesis:</strong> "Analysis of Organizational Effectiveness at the Ministry of Village (Case Study: Data and Information Center)"</p>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <i class="fas fa-link text-term-green mt-0.5 flex-shrink-0"></i>
+                                    <p class="text-xs text-slate-400"><em>Strategic Relevance:</em> Academic evaluation of the national data center managed firsthand — creating a direct link between policy theory and data governance practice.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right flex-shrink-0">
+                            <div class="font-mono text-sm text-slate-400">May 2016</div>
+                            <div class="font-mono text-sm text-slate-400">↓</div>
+                            <div class="font-mono text-sm text-term-cyan">Mar 2019</div>
+                            <!-- GPA ring visual -->
+                            <div class="mt-3 flex items-center justify-end gap-2">
+                                <div class="w-12 h-12 relative">
+                                    <svg class="progress-ring" width="48" height="48">
+                                        <circle cx="24" cy="24" r="18" stroke="#1e293b" stroke-width="4" fill="none"/>
+                                        <circle class="progress-ring-circle" cx="24" cy="24" r="18" stroke="#06B6D4" stroke-width="4" fill="none" stroke-dasharray="113.1" stroke-dashoffset="15.7" stroke-linecap="round"/>
+                                    </svg>
+                                    <span class="absolute inset-0 flex items-center justify-center text-[9px] font-bold text-term-cyan">3.87</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BEc -->
+                <div class="edu-card glass-panel rounded-lg p-6 border-term-blue hover:border-term-blue/60 transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="tag-badge bg-term-blue/15 text-term-blue border border-term-blue/30">BEc</span>
+                                <span class="tag-badge bg-slate-800 text-slate-400 border border-slate-700">GPA: 3.13 / 4.00</span>
+                                <span class="tag-badge bg-term-green/15 text-term-green border border-term-green/30">Completed</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-1">Bachelor of Economics — Human Resources Management</h3>
+                            <p class="text-term-blue font-mono text-sm mb-3">STIE YAPAN Surabaya</p>
+                            <div class="bg-slate-900/60 p-4 rounded border border-slate-800 text-sm text-slate-300">
+                                <div class="flex items-start gap-2">
+                                    <i class="fas fa-users text-term-blue mt-0.5 flex-shrink-0"></i>
+                                    <p>Specialized focus on <strong class="text-white">Human Capacity Development</strong> — the foundation for later behavioral change work in remote Papua health programs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right flex-shrink-0">
+                            <div class="font-mono text-sm text-slate-400">Aug 2009</div>
+                            <div class="font-mono text-sm text-slate-400">↓</div>
+                            <div class="font-mono text-sm text-term-blue">Jun 2013</div>
+                            <div class="mt-3 flex items-center justify-end gap-2">
+                                <div class="w-12 h-12 relative">
+                                    <svg class="progress-ring" width="48" height="48">
+                                        <circle cx="24" cy="24" r="18" stroke="#1e293b" stroke-width="4" fill="none"/>
+                                        <circle class="progress-ring-circle" cx="24" cy="24" r="18" stroke="#3B82F6" stroke-width="4" fill="none" stroke-dasharray="113.1" stroke-dashoffset="28.3" stroke-linecap="round"/>
+                                    </svg>
+                                    <span class="absolute inset-0 flex items-center justify-center text-[9px] font-bold text-term-blue">3.13</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Communication Coursework -->
+                <div class="edu-card glass-panel rounded-lg p-6 border-term-purple hover:border-term-purple/60 transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="tag-badge bg-term-purple/15 text-term-purple border border-term-purple/30">Coursework</span>
+                                <span class="tag-badge bg-slate-800 text-slate-400 border border-slate-700">104 Credits</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-1">Undergraduate Coursework — Communication & Journalism</h3>
+                            <p class="text-term-blue font-mono text-sm mb-3">BINUS · UNAS · Mercu Buana (Various Institutions)</p>
+                            <div class="bg-slate-900/60 p-4 rounded border border-slate-800 text-sm text-slate-300">
+                                <div class="flex items-start gap-2 mb-2">
+                                    <i class="fas fa-broadcast-tower text-term-purple mt-0.5 flex-shrink-0"></i>
+                                    <p>Dual focus: <strong class="text-white">Public Relations</strong> and <strong class="text-white">Journalism</strong>. Key modules: Media Relations, Strategic Communication, Crisis Management.</p>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-2"><em>Applied outcome:</em> Foundation for high-level stakeholder diplomacy at UNESCO and multilateral reporting for UN agencies.</p>
+                            </div>
+                        </div>
+                        <div class="text-right flex-shrink-0">
+                            <div class="font-mono text-sm text-term-purple">Concurrent</div>
+                            <div class="mt-3">
+                                <div class="text-xs font-mono text-slate-500">PR · Media · Crisis</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ SKILLS ═══════════════════════════════ -->
+    <section class="py-12 px-4 bg-slate-900/30 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto">
+            <div class="section-line mb-8">
+                <h2 class="text-2xl font-bold text-white whitespace-nowrap">
+                    <i class="fas fa-microchip text-term-green mr-3"></i>Tech Stack & Competency Matrix
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Left: Skills bars -->
+                <div class="space-y-4" id="skills-container">
+                    <!-- Injected via JS -->
+                </div>
+                <!-- Right: Tags cloud -->
+                <div>
+                    <h3 class="font-mono text-sm text-slate-400 mb-4">// Methodologies & Frameworks</h3>
+                    <div class="flex flex-wrap gap-2" id="method-tags">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ PORTFOLIO QUICK GRID ═══════════════════════════════ -->
+    <section id="portfolio-grid" class="py-20 px-4 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <div class="section-line mb-3">
+                        <h2 class="text-3xl font-bold text-white whitespace-nowrap">
+                            <i class="fas fa-rocket text-term-green mr-3"></i>Live Applications
+                        </h2>
+                    </div>
+                    <p class="text-slate-400 font-mono text-sm">// All tools are serverless, zero-cost, and require no account registration</p>
+                </div>
+                <a href="https://anggaconni.github.io/Complete-Portofolio/" target="_blank" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-xs font-mono py-2 px-4 rounded transition-all self-start">
+                    <i class="fas fa-th-large text-term-green"></i> View Complete Index ↗
+                </a>
+            </div>
+
+            <!-- Category tabs -->
+            <div class="flex gap-2 flex-wrap mb-8" id="app-filter-tabs">
+                <button onclick="filterApps('all')" class="app-filter active px-4 py-1.5 rounded text-sm font-mono border border-term-border bg-term-card hover:bg-term-border transition">All</button>
+                <button onclick="filterApps('policy')" class="app-filter px-4 py-1.5 rounded text-sm font-mono border border-term-border bg-term-card hover:bg-term-border transition">🏛️ Policy AI</button>
+                <button onclick="filterApps('govtech')" class="app-filter px-4 py-1.5 rounded text-sm font-mono border border-term-border bg-term-card hover:bg-term-border transition">⚙️ Gov-Tech</button>
+                <button onclick="filterApps('gis')" class="app-filter px-4 py-1.5 rounded text-sm font-mono border border-term-border bg-term-card hover:bg-term-border transition">🗺️ GIS/Heritage</button>
+                <button onclick="filterApps('edtech')" class="app-filter px-4 py-1.5 rounded text-sm font-mono border border-term-border bg-term-card hover:bg-term-border transition">🎮 EdTech</button>
+                <button onclick="filterApps('behavioral')" class="app-filter px-4 py-1.5 rounded text-sm font-mono border border-term-border bg-term-card hover:bg-term-border transition text-term-purple border-term-purple/40">🧠 Behavioral</button>
+            </div>
+
+            <div id="app-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ KNOWLEDGE DATABASE ═══════════════════════════════ -->
+    <section id="projects" class="py-20 px-4 bg-slate-900/30 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-6">
+                <div>
+                    <div class="section-line mb-3">
+                        <h2 class="text-3xl font-bold text-white whitespace-nowrap">
+                            <i class="fas fa-database text-term-yellow mr-3"></i>Knowledge Database
+                        </h2>
+                    </div>
+                    <p class="text-slate-400 font-mono text-sm">// Filter logs by category to see specific data points. <span id="project-count" class="text-term-green"></span></p>
+                </div>
+                <div class="flex gap-2 flex-wrap">
+                    <button onclick="filterProjects('all')" class="filter-btn active px-4 py-1.5 rounded text-sm font-mono border border-term-border bg-term-card hover:bg-term-border transition">All</button>
+                    <button onclick="filterProjects('Tech Innovation')" class="filter-btn px-4 py-1.5 rounded text-sm font-mono border border-term-border bg-term-card hover:bg-term-border transition">Tech</button>
+                    <button onclick="filterProjects('Policy Reform')" class="filter-btn px-4 py-1.5 rounded text-sm font-mono border border-term-border bg-term-card hover:bg-term-border transition">Policy</button>
+                    <button onclick="filterProjects('Diplomacy')" class="filter-btn px-4 py-1.5 rounded text-sm font-mono border border-term-border bg-term-card hover:bg-term-border transition">Diplomacy</button>
+                    <button onclick="filterProjects('Behavioral Strategy')" class="filter-btn px-4 py-1.5 rounded text-sm font-mono border border-term-border bg-term-card hover:bg-term-border transition text-term-purple border-term-purple/40">Behavioral</button>
+                </div>
+            </div>
+
+            <div id="project-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- JS injected -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ MEDIA MENTIONS ═══════════════════════════════ -->
+    <section id="media-mentions" class="py-16 px-4 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto">
+            <div class="section-line mb-8">
+                <h2 class="text-2xl font-bold text-white whitespace-nowrap">
+                    <i class="fas fa-newspaper text-term-orange mr-3"></i>Media & External Mentions
+                </h2>
+            </div>
+            <p class="text-slate-400 font-mono text-sm mb-8">// Third-party references, press coverage & institutional citations</p>
+
+            <div class="space-y-3" id="mentions-container">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ DIPLOMACY PLAYBOOK ═══════════════════════════════ -->
+    <section id="diplomacy" class="py-16 px-4 bg-slate-900/30 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto">
+            <div class="section-line mb-8">
+                <h2 class="text-2xl font-bold text-white whitespace-nowrap">
+                    <i class="fas fa-chess text-term-purple mr-3"></i>Diplomacy & Behavioral Playbook
+                </h2>
+            </div>
+            <p class="text-slate-400 font-mono text-sm mb-8">// 30 documented behavioral and diplomatic techniques applied in practice</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="playbook-container">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ MULTIMEDIA & ARCHIVES ═══════════════════════════════ -->
+    <section id="media" class="py-20 px-4 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-line mb-10">
+                <h2 class="text-3xl font-bold text-white whitespace-nowrap">
+                    <i class="fas fa-book-journal-whills text-term-purple mr-3"></i>Multimedia & Archives
+                </h2>
+            </div>
+            
+            <!-- Multimedia Grid -->
+            <div class="mb-16">
+                <h3 class="text-xl font-mono text-term-blue mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-term-blue rounded-full"></span>
+                    A. Multimedia Portfolio (Selected Works)
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="multimedia-container"></div>
+            </div>
+
+            <!-- Authored Publications -->
+            <div class="mb-16">
+                <h3 class="text-xl font-mono text-term-green mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-term-green rounded-full"></span>
+                    B. Key Authored Publications
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-panel p-6 rounded-lg border-t-4 border-term-green hover:translate-y-[-2px] transition">
+                        <div class="text-xs font-mono text-slate-500 mb-2">2019 | ISBN: 978-623-7129-82-0</div>
+                        <h4 class="font-bold text-white text-lg mb-2">Kawasan Perdesaan Agropolitan Rasau Jaya</h4>
+                        <p class="text-sm text-slate-400 mb-4">Comprehensive analysis of agropolitan rural areas in West Kalimantan, focusing on regional economic strategies.</p>
+                        <span class="text-xs bg-slate-800 px-2 py-1 rounded text-term-green font-mono">Role: Author & Layout</span>
+                    </div>
+                    <div class="glass-panel p-6 rounded-lg border-t-4 border-term-green hover:translate-y-[-2px] transition">
+                        <div class="text-xs font-mono text-slate-500 mb-2">2018 | ISBN: 978-623-7129-25-7</div>
+                        <h4 class="font-bold text-white text-lg mb-2">Profil BUM Desa Payang Sejahtera (Kaltim)</h4>
+                        <p class="text-sm text-slate-400 mb-4">Profile of a successful rural enterprise, highlighting best practices in community-led economic development.</p>
+                        <span class="text-xs bg-slate-800 px-2 py-1 rounded text-term-green font-mono">Role: Author & Editor</span>
+                    </div>
+                    <div class="glass-panel p-6 rounded-lg border-t-4 border-term-green hover:translate-y-[-2px] transition">
+                        <div class="text-xs font-mono text-slate-500 mb-2">2018 | ISBN: 978-623-7129-31-8</div>
+                        <h4 class="font-bold text-white text-lg mb-2">Profil BUM Desa Cahaya Selo (Yogyakarta)</h4>
+                        <p class="text-sm text-slate-400 mb-4">Documentation of sustainable rural business models and their measurable impact on local economic resilience.</p>
+                        <span class="text-xs bg-slate-800 px-2 py-1 rounded text-term-green font-mono">Role: Author & Editor</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full Archive Table -->
+            <div>
+                <h3 class="text-xl font-mono text-slate-400 mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-slate-400 rounded-full"></span>
+                    C. Archive: Full Publication Records
+                </h3>
+                <div class="glass-panel rounded-lg overflow-hidden border border-term-border">
+                    <div class="bg-slate-900 px-4 py-2 flex justify-between items-center border-b border-term-border">
+                        <span class="text-xs font-mono text-term-yellow">database_dump.csv</span>
+                        <div class="flex gap-3 text-xs font-mono">
+                            <span class="text-slate-500">Rows: 48</span>
+                            <span class="text-term-green">Status: Verified</span>
+                        </div>
+                    </div>
+                    <div class="max-h-96 overflow-y-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead class="bg-slate-800/50 text-xs font-mono text-slate-400 sticky top-0 backdrop-blur-sm">
+                                <tr>
+                                    <th class="p-3 border-b border-slate-700">Type</th>
+                                    <th class="p-3 border-b border-slate-700">Title</th>
+                                    <th class="p-3 border-b border-slate-700">Details (ISBN/Auth)</th>
+                                    <th class="p-3 border-b border-slate-700">Year</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm font-mono text-slate-300 divide-y divide-slate-800" id="archive-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ EXPERIENCE LOG ═══════════════════════════════ -->
+    <section id="experience" class="py-20 bg-slate-900/50 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white"><i class="fas fa-history text-term-blue mr-3"></i>System Log <span class="text-term-blue">(Chronological)</span></h2>
+                <p class="text-slate-400 font-mono text-sm mt-2">// Career timeline with behavioral & technical highlights</p>
+            </div>
+            
+            <div class="relative border-l-2 border-slate-700 ml-4 md:ml-0 space-y-12">
+                <div id="timeline-container"></div>
+            </div>
+        </div>
+    </section>
+
+     <!-- ═══════════════════════════════ GAME BRICK BREAKER ═══════════════════════════════ -->
+    <section id="game-section" class="py-20 px-4 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto glass-panel rounded-lg p-6 lg:p-8 border border-term-border relative overflow-hidden glow-blue">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-white flex items-center gap-2 font-mono">
+                        <i class="fas fa-gamepad text-term-blue"></i> Bureaucracy_Breaker<span class="text-term-blue">.sh</span>
+                    </h3>
+                    <p class="text-sm text-slate-400 mt-1 font-mono">
+                        // Mission: Destroy the red tape. Use mouse/touch to move the platform.
+                    </p>
+                </div>
+                <div class="flex gap-4 text-xs font-mono font-bold">
+                    <div class="bg-slate-900/80 px-4 py-2 rounded border border-slate-700 text-slate-300">
+                        SCORE: <span id="score" class="text-term-blue text-lg">0</span>
+                    </div>
+                    <div class="bg-slate-900/80 px-4 py-2 rounded border border-slate-700 text-slate-300">
+                        HI_SCORE: <span id="highScore" class="text-term-green text-lg">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gameContainer" class="relative w-full aspect-video md:aspect-[21/9] bg-black/40 rounded-lg overflow-hidden cursor-crosshair touch-none shadow-inner border border-slate-800 select-none">
+                <svg id="gameCanvas" viewBox="0 0 800 400" class="w-full h-full block">
+                    <g id="bricksGroup"></g>
+                    <g id="paddle" transform="translate(340, 374)">
+                        <rect x="-4" y="-4" width="128" height="24" fill="#3B82F6" opacity="0.2" rx="10" />
+                        <rect x="0" y="0" width="120" height="16" fill="#3B82F6" rx="4" />
+                        <rect x="4" y="2" width="112" height="2" fill="#93C5FD" opacity="0.5" rx="1" />
+                    </g>
+                    <g id="ball" transform="translate(400, 360)">
+                        <circle cx="0" cy="0" r="10" fill="#10B981" opacity="0.2" />
+                        <circle cx="0" cy="0" r="7" fill="#10B981" />
+                    </g>
+                </svg>
+
+                <div id="overlayIdle" class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm flex flex-col items-center justify-center text-white z-20">
+                    <div class="w-16 h-16 bg-term-blue rounded-full flex items-center justify-center mb-4 animate-bounce shadow-lg cursor-pointer">
+                        <i class="fas fa-play ml-1"></i>
+                    </div>
+                    <h4 class="text-xl font-mono font-bold mb-2">Initialize Reform System?</h4>
+                    <p class="text-slate-400 text-sm font-mono">Click to execute</p>
+                </div>
+
+                <div id="overlayGameOver" class="absolute inset-0 bg-red-950/90 backdrop-blur-md hidden flex-col items-center justify-center text-white z-20">
+                    <h4 class="text-3xl font-black mb-2 font-mono text-red-500">BUREAUCRACY_WON</h4>
+                    <p id="finalScoreLoss" class="text-slate-300 mb-6 font-mono text-sm">System overload. Policies remained.</p>
+                    <button onclick="resetGame()" class="px-6 py-2 bg-white text-red-900 font-bold font-mono rounded hover:bg-red-100 transition">RETRY_INIT</button>
+                </div>
+
+                <div id="overlayWon" class="absolute inset-0 bg-slate-900/90 backdrop-blur-md hidden flex-col items-center justify-center text-white z-20">
+                    <i class="fas fa-trophy text-5xl text-term-yellow mb-4 animate-bounce-slow"></i>
+                    <h4 class="text-3xl font-black mb-2 font-mono text-term-green">SYSTEM_REFORMED</h4>
+                    <p id="finalScoreWin" class="text-slate-300 mb-6 font-mono text-sm">All red tape successfully cleared.</p>
+                    <button onclick="resetGame()" class="px-6 py-2 bg-term-green text-slate-900 font-bold font-mono rounded hover:bg-green-400 transition">RE-RUN</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ FOOTER / CONTACT ═══════════════════════════════ -->
+    <footer id="contact" class="py-16 border-t border-term-border bg-term-bg mt-auto">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <i class="fas fa-satellite-dish text-4xl text-term-green mb-4 animate-pulse block"></i>
+                <h3 class="text-2xl font-mono font-bold text-white">Establish Connection?</h3>
+                <p class="text-slate-400 mt-2 max-w-lg mx-auto">Open for collaboration on Gov-Tech, Policy Reform, Cultural Heritage Digital Transformation, and Strategic Consultancy.</p>
+                <div class="flex justify-center gap-3 mt-6">
+                    <a href="mailto:conniezz.cool@gmail.com" class="bg-term-green text-slate-900 font-bold px-6 py-2.5 rounded font-mono text-sm hover:bg-green-400 transition flex items-center gap-2">
+                        <i class="fas fa-envelope"></i> Send Message
+                    </a>
+                    <a href="https://linkedin.com/in/angga-conni/" target="_blank" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-6 py-2.5 rounded font-mono text-sm transition flex items-center gap-2">
+                        <i class="fab fa-linkedin text-blue-400"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-slate-800 pt-10">
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-3 text-term-yellow">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="font-mono font-bold text-sm">BASE_LOCATION</span>
+                    </div>
+                    <p class="text-slate-300">Jakarta, Indonesia — 13650</p>
+                    <p class="text-slate-500 text-sm mt-1 font-mono">UTC+7 · ASEAN Region</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="flex items-center justify-center gap-2 mb-3 text-term-blue">
+                        <i class="fas fa-address-card"></i>
+                        <span class="font-mono font-bold text-sm">CHANNELS</span>
+                    </div>
+                    <a href="mailto:conniezz.cool@gmail.com" class="text-slate-300 hover:text-term-green transition block">conniezz.cool@gmail.com</a>
+                    <p class="text-slate-300 font-mono mt-1">+62 8998 788 909</p>
+                </div>
+
+                <div class="text-center md:text-right">
+                    <div class="flex items-center justify-center md:justify-end gap-2 mb-3 text-term-purple">
+                        <i class="fas fa-network-wired"></i>
+                        <span class="font-mono font-bold text-sm">UPLINK_NODES</span>
+                    </div>
+                    <div class="flex justify-center md:justify-end gap-3 mt-2">
+                        <a href="https://linkedin.com/in/angga-conni/" target="_blank" class="bg-slate-800 p-2.5 rounded-full text-slate-400 hover:text-white hover:bg-blue-600 transition duration-300" data-tooltip="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://anggaconni.github.io" target="_blank" class="bg-slate-800 p-2.5 rounded-full text-slate-400 hover:text-white hover:bg-gray-700 transition duration-300" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://wa.me/628998788909" target="_blank" class="bg-slate-800 p-2.5 rounded-full text-slate-400 hover:text-white hover:bg-green-600 transition duration-300" data-tooltip="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://anggaconni.github.io/Complete-Portofolio/" target="_blank" class="bg-slate-800 p-2.5 rounded-full text-slate-400 hover:text-white hover:bg-term-green hover:text-slate-900 transition duration-300" data-tooltip="Full Portfolio"><i class="fas fa-th-large"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-xs font-mono text-slate-600 text-center mt-12 border-t border-slate-900 pt-6">
+                <p>&copy; 2026 Crafted with <i class="fas fa-coffee text-term-yellow"></i> Caffeine by Angga Conni Saputra.</p>
+                <p class="mt-1">System Status: <span class="text-term-green">● Operational</span> · Memory Usage: Optimal · Uptime: 100%</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════ JS LOGIC ═══════════════════════════════ -->
+    <script>
+    // ─── MOBILE NAV ────────────────────────────────────────────────
+    document.getElementById('mobile-toggle').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('open');
+    });
+
+    // ─── RAW DATA (ORIGINAL + NEW ENTRIES) ────────────────────────
+    const rawData = [
+        // ── INDEPENDENT CONSULTANT (2025-Present) ──
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Horizon Scanning Matrices", strategy: "AI Synthesis", desc: "Interactive analytical templates combined with AI for policy foresight & forecasting.", link: "https://anggaconni.github.io/HorizonScanning/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Behavioral Strategy", context: "ImpactArchitect v3.3", strategy: "COM-B Model", desc: "Lightweight digital canvas integrating Theory of Change with the COM-B behavioral model and AI diagnostics.", link: "https://anggaconni.github.io/TheoryofChange_COM-B/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Policy Reform", context: "S3 AI Report Builder", strategy: "Quantitative Intelligence", desc: "Advanced quantitative platform integrating PODES logic & Google Gemini for regional economic planning.", link: "https://anggaconni.github.io/SmartSpecializationAIreport/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "StructureFlow Framework", strategy: "AI Writing", desc: "AI-assisted writing framework prioritizing structure before content for rigorous academic writing.", link: "https://anggaconni.github.io/StructureFlow/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Ecological Intersection", strategy: "Serverless GIS", desc: "Lightweight geospatial dashboard mapping global biodiversity against biosphere reserves using GAS & Sheets.", link: "https://anggaconni.github.io/citizenship-data/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Retro Web Dev Labs", strategy: "EdTech Gamification", desc: "Nostalgic interactive learning platforms for mastering HTML, CSS, and JS via live browser rendering.", link: "https://anggaconni.github.io/Learn-HTML/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "SQL & NoSQL Academy", strategy: "Client-Side Processing", desc: "Browser-based mission environment for hands-on database querying utilizing the AlaSQL engine.", link: "https://anggaconni.github.io/Learn_SQL/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Script Explorer: Aksara", strategy: "Data Viz", desc: "Interactive dashboard visualizing digital preservation status of 60+ indigenous writing systems.", link: "https://anggaconni.github.io/Script-Explorer/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "GlobalScript: Writing App", strategy: "Embodied Learning", desc: "Freehand learning app for global & indigenous scripts focusing on accessibility.", link: "https://anggaconni.github.io/learn-to-write/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "GeoJSON Fixer & OCR", strategy: "GIS Interoperability", desc: "Utility converting complex spatial data for ArcGIS. Features AI-based OCR for legacy docs.", link: "https://anggaconni.github.io/GeoJSON-Fixer/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Intl. Shadow Ops (ISO)", strategy: "Ops Automation", desc: "Strategic operations map tracking macro pipelines and micro daily logs for transparency.", link: "https://anggaconni.github.io/ShadowOps/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "WebPDF Toolkit", strategy: "Client-Side Utility", desc: "Client-side PDF management utility designed for quick document operations without server uploads.", link: "https://anggaconni.github.io/WebPDF/"},
+        // NEW ENTRIES ↓
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "DRR Builder's Journey", strategy: "Gamified Policy Education", desc: "Block-building game introducing Disaster Risk Reduction concepts via Sendai Framework gameplay. Players construct structures (bridges, seawalls, evacuation paths) to protect communities from hazards.", link: "https://anggaconni.github.io/DRR-Bricks/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "ICH Shared Heritage Radar", strategy: "AI-OSINT Cultural Intelligence", desc: "AI-assisted engine using Google Gemini + Search to discover and document ICH practices from open web sources — transforming unstructured web info into structured heritage records.", link: "https://anggaconni.github.io/ICH-Radar/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Artifact Radar (OSINT)", strategy: "AI Heritage Protection", desc: "AI-assisted OSINT monitoring system detecting online trade of ancient artifacts and cultural heritage objects. Analyzes missing provenance, suspicious pricing, and high-risk categories.", link: "https://anggaconni.github.io/artifact-Radar/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Behavioral Strategy", context: "Relationship Behaviour Calculator", strategy: "Probabilistic Evidence Analysis", desc: "Evidence-based tool for probabilistic interpretation of relationship behaviors using Bayesian framing — counters oversimplification (zodiac, instant labeling). Designed to surface complexity.", link: "https://anggaconni.github.io/Love-Attachment/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Behavioral Strategy", context: "Naive Bayesian Reasoning Tool", strategy: "Decision Support / Epistemics", desc: "Lightweight Bayesian tool updating beliefs via Likelihood Ratios and structured evidence — designed for field assessments, policy evaluation, and decision support without statistical infrastructure.", link: "https://anggaconni.github.io/Naive-Bayesian/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Behavioral Strategy", context: "Learner Identification Tool", strategy: "Instructional Friction Analysis", desc: "18-question tool identifying instructional friction patterns. Translates behavioral science into real-time adaptive teaching guidance — designed for speed over labels.", link: "https://anggaconni.github.io/Learner-Identification-Tools/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Atlas of Atmosphere", strategy: "Evidence-Based Environmental Design", desc: "Translates peer-reviewed psychological research into actionable 'atmosphere recipes' — lighting, temperature, colour, and sensory optimization for specific daily activities.", link: "https://anggaconni.github.io/atmosphere-atlas/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Learn JavaScript Lab", strategy: "Gamified EdTech", desc: "90-level gamified JavaScript learning experience with live browser rendering, guided + sandbox modes, and standalone HTML export.", link: "https://anggaconni.github.io/Learn-Javascript/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "NoSQL Academy", strategy: "Client-Side Processing", desc: "Browser-based NoSQL mission environment — complementary to SQL Academy. Hands-on document querying without any server setup.", link: "https://anggaconni.github.io/Learn_NoSQL/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Foodways Mobile App", strategy: "Zero-Cost Infrastructure", desc: "Mobile-optimized version of the Foodways culinary heritage GIS platform — built for field access on low-bandwidth connections.", link: "https://anggaconni.github.io/Foodways-Mobile/"},
+        // ── NEWLY ADDED (MISSING FROM PREVIOUS LIST) ──
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "GSI Radar (OSINT)", strategy: "AI Intelligence Mapping", desc: "AI-powered intelligence system structuring grassroots innovations into policy-ready insights to highlight risks and high-impact opportunities.", link: "https://anggaconni.github.io/GSI-Radar/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Behavioral Strategy", context: "BATNA Analyzer", strategy: "Decision Support Strategy", desc: "Decision-support tool for structured negotiation. Maps alternatives, compares outcomes, and assesses leverage using evidence-based strategy.", link: "https://anggaconni.github.io/BATNA/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Variable Planner Canvas", strategy: "Scenario Planning", desc: "Serverless, browser-based canvas for dynamic scenario planning, providing flexible architecture for modular thinking and decision pathways.", link: "https://anggaconni.github.io/VariablePlanner/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Behavioral Strategy", context: "Leader's Compass", strategy: "HR & Leadership Diagnostic", desc: "AI-powered diagnostic platform transforming informal observations into actionable job enrichment strategies to optimize team engagement.", link: "https://anggaconni.github.io/Leader-Compass/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "PesisirKita EdTech App", strategy: "Offline-First Data Collection", desc: "Offline-first application empowering youth to conduct professional coastal ecological mapping, compiling field data into polished PDF portfolios.", link: "https://anggaconni.github.io/Pesisirkita/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "ICH Games: WebGL EdTech", strategy: "Policy Gamification", desc: "3D interactive educational platform built with WebGL/Three.js gamifying complex UNESCO Cultural Heritage mandates into accessible experiences.", link: "https://anggaconni.github.io/ICH-Games/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Behavioral Strategy", context: "Barnum Effect Demonstrator", strategy: "Cognitive Bias Education", desc: "Interactive psychology tool illustrating cognitive bias by showing how easily individuals accept vague statements as deeply personal.", link: "https://anggaconni.github.io/Barnum-eduLab/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Prototyping Sandbox", strategy: "Rapid Deployment Testing", desc: "Experimental setups and utility tools providing a flexible environment for prototyping and testing new application features.", link: "https://anggaconni.github.io/Prototyping/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Maintenance Template", strategy: "Utility Dashboard", desc: "Utility maintenance page template designed for testing, serverless redirects, and prototyping digital environments.", link: "https://anggaconni.github.io/Maintenance-Page/"},
+
+        // ── PREVIOUSLY EXISTING ──
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Policy Reform", context: "Ministry of Health (Kemenkes)", strategy: "Digital Transformation", desc: "Designed a draft digital health reporting and evaluation system for specialist medical education.", link: ""},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Policy Reform", context: "Ministry of Health (Kemenkes)", strategy: "Structural Reform", desc: "Introduced a two-way evaluation mechanism (subordinate ↔ supervisor), breaking traditional hierarchy.", link: ""},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Policy Reform", context: "Ministry of Health (Kemenkes)", strategy: "Crisis Response", desc: "Reform responded to 2,600+ reported bullying cases in specialist medical programs, promoting accountability.", link: ""},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Kemendikdasmen (Blue School)", strategy: "Citizen Science", desc: "Initiated 'Toward a Blue School' project, integrating ocean literacy and zero waste. Inspired by UNESCO Sandwatch.", link: ""},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Kemendikdasmen (Blue School)", strategy: "Capacity Building", desc: "Trained students to use Google Forms, Data Studio, and Wixsite to independently collect & manage mangrove data.", link: ""},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Kemendikdasmen (Blue School)", strategy: "Horizon Scanning", desc: "Conducted Horizon Scanning workshops with students/teachers to identify local priorities (waste, mangrove).", link: ""},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Kemendikdasmen (Blue School)", strategy: "Scaling Up", desc: "Expanded initiative to SMPN 25 Balikpapan (green-curriculum school above the sea) via digital storytelling.", link: ""},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Kemenko PMK", strategy: "Contextualization", desc: "Presented international foresight applications (UK/Italy) and developed a simplified version for Indonesia.", link: ""},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Policy Reform", context: "Kemenko PMK", strategy: "Institutionalization", desc: "Supported dissemination through Persatuan Profesi Kebijakan Publik to institutionalize foresight-based policymaking.", link: ""},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "EdTech / 3D Museum", strategy: "Low-Code/No-Code", desc: "Architected gamified learning tools (HTML5/JS) with Google Sheets backend to demonstrate digital skills.", link: "https://anggaconni.github.io/3D-Museum/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Foodways: Shared Heritage", strategy: "Zero-Cost Infrastructure", desc: "Developed serverless GIS platform mapping culinary history using Vanilla JS, Tailwind & Leaflet.js.", link: "https://anggaconni.github.io/Foodways/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Foodways: Network Analysis", strategy: "Network Analysis", desc: "Implemented Node-Link Network Analysis for cross-border cultural influences (Trade, Migration).", link: "https://anggaconni.github.io/Foodways/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "E-Persuratan (Gov-Tech)", strategy: "AI-Augmented Dev", desc: "Built serverless bilingual mail management system using Google Sheets + Apps Script + Gen AI.", link: "https://anggaconni.github.io/E-Persuratan/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "UN Travel Calculator", strategy: "Process Automation", desc: "Developed open-source Web-based tool automating subsistence allowance calculations (ICSC rates).", link: "https://anggaconni.github.io/un-travel-calculator/"},
+        {org: "Independent Consultant", period: "2025-Present", role: "Consultant", category: "Tech Innovation", context: "Ocean Literacy JUMANJI", strategy: "Gamified Systems Thinking", desc: "Built a 160-tile 'Source-to-Sea' digital board game in 24h using AI. Simulates ecosystem interconnectedness via policy trade-offs.", link: "https://anggaconni.github.io/Ocean-Literacy-JUMANJI-ID-Ver/"},
+
+        // ── UNESCO ──
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Tech Innovation", context: "Heritage Commons (3D)", strategy: "Philosophical Re-engineering", desc: "Reversed Monopoly mechanics (ownership) into Safeguarding mechanics (collaboration/Trust Points). Coded fully functional MVP in a single weekend using AI assistance (Three.js).", link: "https://anggaconni.github.io/ICH-Games/"},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Behavioral Strategy", context: "Inventory System (SIDS)", strategy: "Cognitive Ownership Technique", desc: "Applied Consistency Principle to overcome institutional resistance. Built 'Single Source of Truth' with automated logic to prevent database bloat.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "Brunei Relations", strategy: "Informal Diplomacy", desc: "Shared meals and casual activities to build rapport with Brunei DG Culture, opening blocked comms channels. Established direct responsive communication for the first time in months.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "Rendang Debate Mediation", strategy: "Issue Reframing / De-escalation", desc: "Mediated tense multi-country dispute on 'Rendang Minang'. While HQ staff disengaged, redirected conversation to Media's role in ICH safeguarding — restoring constructive momentum.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "Jeonju Workshop", strategy: "Relationship-Based / Liking Principle", desc: "Strengthened cooperation with international delegates through shared cultural stories and humor. Initiated NGO Consultative Group discussions.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "Funding Negotiation", strategy: "Loss-Aversion Framing", desc: "Strengthened urgency among decision-makers by framing funding risks as potential loss of partner trust.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "HQ Relations", strategy: "Ben Franklin Effect", desc: "Built rapport with senior consultant by asking for small cultural clarification creating positive investment.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "Policy Uptake", strategy: "Institutional Authority", desc: "Framed recommendations under UNESCO 2003 Operational Directives rather than personal notes.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "Budgeting", strategy: "Budget Anchoring", desc: "Influenced budget deliberations by proposing a reasonable starting figure early to establish constructive anchor.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "Partner Accountability", strategy: "Tit-for-Tat Strategy", desc: "Maintained balanced cooperation by proportionally adjusting support to partners who delayed deliverables.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "US Congress Visit", strategy: "Multi-Agency Coordination", desc: "Managed end-to-end coordination for US Congress delegation (Kota Tua); liaised with UNDSS and UNRC.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "ASEAN Relations", strategy: "Shared Identity / Mirror Neurons", desc: "Used inclusive language ('our region') and matched conversational pace with delegates for subconscious rapport.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "Govt Relations", strategy: "Cultural Intelligence + Power Distance", desc: "Interpreted delayed responses as hierarchical deference; acknowledged senior officials before juniors.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "Negotiation", strategy: "Door-in-the-Face", desc: "Secured online training agreement by first proposing resource-intensive offline event.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Diplomacy", context: "High-Level Meetings", strategy: "Strategic Silence", desc: "Paused after presenting position, allowing ministry side to fill silence with their internal obstacles — gaining insight to craft solutions they felt were theirs.", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Policy Reform", context: "CLT Output 1", strategy: "Capacity Building", desc: "Organized joint webinar with CRIHAP on ICH and World Heritage promoting sustainable development.", link: "https://en.crihap.cn/a/202311/28/WS656591b7a310decc1a222798.html"},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Policy Reform", context: "CLT Output 2: Shipwrecks", strategy: "Event Management", desc: "Managed Regional Workshop on World War Shipwrecks: budget, logistics, Ministry liaison.", link: "https://www.unesco.org/en/articles/world-war-shipwrecks-southeast-asia-threats-marine-pollution-and-looting"},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Policy Reform", context: "CLT Output 4: ICH Talkshow", strategy: "Public Communication", desc: "Moderator for UNESCO Jakarta Talkshow on ICH for UN Day; addressing misinformation among youth.", link: "https://www.instagram.com/reel/CzF6_9oLOiv/"},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Behavioral Strategy", context: "Sustainability Advocacy", strategy: "Green Nudge", desc: "Advocated for mechanical keyboards & modular PCs to reduce e-waste (adopted by Admin Unit).", link: ""},
+        {org: "UNESCO", period: "Feb 2023 - Apr 2025", role: "Programme Support", category: "Policy Reform", context: "Political Economy", strategy: "Network Mapping", desc: "Conducted power-network mapping of NGOs/policy actors; identified elite alliances and potential spoilers affecting ICH governance.", link: ""},
+
+        // ── UNDP ──
+        {org: "UNDP", period: "Mar 2022 - Feb 2023", role: "Health & Digital Analyst", category: "Tech Innovation", context: "SMILE App — IoT Cold Chain", strategy: "1st Gen AI + IoT", desc: "Integrated IoT sensors with rule-based AI to monitor vaccine cold chain temps and trigger alerts in real-time. Proposed IoT for facilities lacking infrastructure.", link: ""},
+        {org: "UNDP", period: "Mar 2022 - Feb 2023", role: "Health & Digital Analyst", category: "Behavioral Strategy", context: "SMILE App — Adoption", strategy: "Social Proof", desc: "Accelerated adoption by engaging respected local officer whose participation sparked peer adoption.", link: ""},
+        {org: "UNDP", period: "Mar 2022 - Feb 2023", role: "Health & Digital Analyst", category: "Behavioral Strategy", context: "SMILE App — COM-B", strategy: "COM-B Application", desc: "Addressed Capability, Opportunity, and Motivation to align health worker behavior in Papua.", link: ""},
+        {org: "UNDP", period: "Mar 2022 - Feb 2023", role: "Health & Digital Analyst", category: "Behavioral Strategy", context: "SMILE App — Framing", strategy: "Strategic Framing", desc: "Reframed system not as admin burden but as tool to showcase local achievements to central govt.", link: ""},
+        {org: "UNDP", period: "Mar 2022 - Feb 2023", role: "Health & Digital Analyst", category: "Behavioral Strategy", context: "SMILE App — Identity", strategy: "Cognitive Alignment", desc: "Boosted compliance by appealing to health workers' identity as 'protectors of Papua children'.", link: ""},
+        {org: "UNDP", period: "Mar 2022 - Feb 2023", role: "Health & Digital Analyst", category: "Behavioral Strategy", context: "SMILE App — Ownership", strategy: "Intrinsic Motivation", desc: "Gave district officers ownership by inviting input on features and positioning them as peer trainers.", link: ""},
+        {org: "UNDP", period: "Mar 2022 - Feb 2023", role: "Health & Digital Analyst", category: "Behavioral Strategy", context: "SMILE App — Rollout", strategy: "Foot-in-the-Door", desc: "Secured buy-in by first requesting a small low-risk trial upload.", link: ""},
+        {org: "UNDP", period: "Mar 2022 - Feb 2023", role: "Health & Digital Analyst", category: "Behavioral Strategy", context: "SMILE App — UX Design", strategy: "Nudge Design", desc: "Designed pre-filled templates and visible 'Save & Sync' buttons to make correct behavior easiest.", link: ""},
+        {org: "UNDP", period: "Mar 2022 - Feb 2023", role: "Health & Digital Analyst", category: "Behavioral Strategy", context: "SMILE App — Pygmalion", strategy: "Pygmalion Effect", desc: "Publicly acknowledged hesitant officer as 'digital pioneer' to inspire confidence.", link: ""},
+        {org: "UNDP", period: "Mar 2022 - Feb 2023", role: "Health & Digital Analyst", category: "Policy Reform", context: "BCG Dosing Error", strategy: "Data-Driven Incident Report", desc: "Identified critical dosing error (BCG vaccine vial change 10→20 dose) via data analysis preventing double-dosing in infants. Escalated to UNICEF, WHO, MoH → formal technical meeting + revised guidance.", link: ""},
+        {org: "UNDP", period: "Mar 2022 - Feb 2023", role: "Health & Digital Analyst", category: "Policy Reform", context: "Delivering as ONE", strategy: "UN Reform Advocacy", desc: "Convinced UNICEF and WHO to co-fund 8 SMILE capacity-building workshops in Papua under UN Reform 'Delivering as One'.", link: ""},
+
+        // ── MINISTRY OF VILLAGE ──
+        {org: "Ministry of Village", period: "Jan 2016 - Jan 2020", role: "PIC Data Command Room", category: "Tech Innovation", context: "3rd Gen AI Prototype", strategy: "Python ML / Anomaly Detection", desc: "Initiated Python-based ML model to detect Type II errors (missed inequalities) in village data. Automated statistical analysis replicating policy analyst reasoning.", link: ""},
+        {org: "Ministry of Village", period: "Jan 2016 - Jan 2020", role: "PIC Data Command Room", category: "Policy Reform", context: "Jambi Infrastructure Impact", strategy: "Inequality Analysis", desc: "Identified that improved road access in Jambi inadvertently increased Gini ratio (bypassing local stalls). Produced evidence-based policy recommendation to address unintended socio-economic impact.", link: ""},
+        {org: "Ministry of Village", period: "Jan 2016 - Jan 2020", role: "PIC Data Command Room", category: "Policy Reform", context: "Strategic Planning Tourism", strategy: "Evidence-Based", desc: "Facilitated strategic plans for tourism villages; authored book on Pujon Kidul success story.", link: ""},
+        {org: "Ministry of Village", period: "Jan 2016 - Jan 2020", role: "PIC Data Command Room", category: "Policy Reform", context: "Dana Desa Clarification FGD", strategy: "Decentralization / Trusted Voice", desc: "Clarified flexibility of Dana Desa usage (not just infrastructure) during impromptu FGDs. Brought Dean of Universitas Jambi as trusted voice to resolve community concerns.", link: ""},
+        {org: "Ministry of Village", period: "Jan 2016 - Jan 2020", role: "PIC Data Command Room", category: "Policy Reform", context: "Jambi Conflict Resolution", strategy: "Focus Group Discussion", desc: "Resolved Jambi Province policy conflict (infrastructure vs economic focus) via FGD, harmonizing central and local government regulations.", link: ""},
+
+        // ── FREELANCE ──
+        {org: "Freelance", period: "Oct 2009 - Dec 2015", role: "Tech Consultant", category: "Tech Innovation", context: "M&E Dashboards", strategy: "Web Dev (Highcharts/Chart.js)", desc: "Oversaw creation of custom M&E dashboards using Highcharts/Chart.js and HTML/CSS for government programs.", link: ""},
+        {org: "Freelance", period: "Oct 2009 - Dec 2015", role: "Tech Consultant", category: "Tech Innovation", context: "IoT Brokerage", strategy: "Technology Intermediation", desc: "Brokered IoT technology solutions connecting diverse suppliers with donors and client companies.", link: ""}
+    ];
+
+    // ─── PORTFOLIO APPS DATA ─────────────────────────────────────────
+    const appsData = [
+        { tag: "policy", icon: "fa-search", color: "term-cyan", title: "Horizon Scanning", sub: "AI Foresight Matrices", link: "https://anggaconni.github.io/HorizonScanning/" },
+        { tag: "policy", icon: "fa-project-diagram", color: "term-purple", title: "ImpactArchitect v3.3", sub: "ToC + COM-B + AI", link: "https://anggaconni.github.io/TheoryofChange_COM-B/" },
+        { tag: "policy", icon: "fa-chart-bar", color: "term-blue", title: "S3 AI Report Builder", sub: "Regional Economic Planning", link: "https://anggaconni.github.io/SmartSpecializationAIreport/" },
+        { tag: "policy", icon: "fa-pen-nib", color: "term-green", title: "StructureFlow", sub: "AI Writing Framework", link: "https://anggaconni.github.io/StructureFlow/" },
+        { tag: "govtech", icon: "fa-envelope-open-text", color: "term-yellow", title: "E-Persuratan", sub: "Gov-Tech Mail System", link: "https://anggaconni.github.io/E-Persuratan/" },
+        { tag: "govtech", icon: "fa-map-marked-alt", color: "term-orange", title: "Shadow Ops (ISO)", sub: "Strategic Ops Tracker", link: "https://anggaconni.github.io/ShadowOps/" },
+        { tag: "govtech", icon: "fa-calculator", color: "term-blue", title: "UN Travel Calculator", sub: "ICSC DSA Automation", link: "https://anggaconni.github.io/un-travel-calculator/" },
+        { tag: "govtech", icon: "fa-file-pdf", color: "term-rose", title: "WebPDF Toolkit", sub: "Client-Side PDF Ops", link: "https://anggaconni.github.io/WebPDF/" },
+        { tag: "gis", icon: "fa-globe-asia", color: "term-green", title: "Foodways: Heritage", sub: "Culinary GIS Network", link: "https://anggaconni.github.io/Foodways/" },
+        { tag: "gis", icon: "fa-leaf", color: "term-cyan", title: "Biodiversity Platform", sub: "Biosphere Geospatial", link: "https://anggaconni.github.io/citizenship-data/" },
+        { tag: "gis", icon: "fa-tools", color: "term-yellow", title: "GeoJSON Fixer + OCR", sub: "GIS Interoperability", link: "https://anggaconni.github.io/GeoJSON-Fixer/" },
+        { tag: "gis", icon: "fa-scroll", color: "term-purple", title: "Script Explorer", sub: "Indigenous Writing Systems", link: "https://anggaconni.github.io/Script-Explorer/" },
+        { tag: "gis", icon: "fa-binoculars", color: "term-orange", title: "ICH Heritage Radar", sub: "AI OSINT Cultural Intel", link: "https://anggaconni.github.io/ICH-Radar/" },
+        { tag: "gis", icon: "fa-search-location", color: "term-rose", title: "Artifact Radar", sub: "OSINT Antiquities Monitor", link: "https://anggaconni.github.io/artifact-Radar/" },
+        { tag: "edtech", icon: "fa-chess-board", color: "term-purple", title: "Heritage Commons 3D", sub: "WebGL ICH Game", link: "https://anggaconni.github.io/ICH-Games/" },
+        { tag: "edtech", icon: "fa-water", color: "term-blue", title: "Ocean JUMANJI", sub: "Source-to-Sea Board Game", link: "https://anggaconni.github.io/Ocean-Literacy-JUMANJI-ID-Ver/" },
+        { tag: "edtech", icon: "fa-hard-hat", color: "term-yellow", title: "DRR Builder's Journey", sub: "Disaster Risk Reduction", link: "https://anggaconni.github.io/DRR-Bricks/" },
+        { tag: "edtech", icon: "fa-database", color: "term-green", title: "SQL & NoSQL Academy", sub: "Live Query Missions", link: "https://anggaconni.github.io/Learn_SQL/" },
+        { tag: "edtech", icon: "fa-code", color: "term-cyan", title: "Retro Web Dev Lab", sub: "HTML/CSS/JS 90-Levels", link: "https://anggaconni.github.io/Learn-HTML/" },
+        { tag: "edtech", icon: "fa-cube", color: "term-orange", title: "3D Museum", sub: "EdTech Demonstration", link: "https://anggaconni.github.io/3D-Museum/" },
+        { tag: "edtech", icon: "fa-pen-alt", color: "term-purple", title: "GlobalScript", sub: "Indigenous Writing App", link: "https://anggaconni.github.io/learn-to-write/" },
+        { tag: "behavioral", icon: "fa-brain", color: "term-purple", title: "ImpactArchitect v3.3", sub: "COM-B Model Canvas", link: "https://anggaconni.github.io/TheoryofChange_COM-B/" },
+        { tag: "behavioral", icon: "fa-balance-scale", color: "term-blue", title: "Bayesian Reasoning", sub: "Evidence-Based Decisions", link: "https://anggaconni.github.io/Naive-Bayesian/" },
+        { tag: "behavioral", icon: "fa-heart", color: "term-rose", title: "Relationship Calculator", sub: "Probabilistic Behavior", link: "https://anggaconni.github.io/Love-Attachment/" },
+        { tag: "behavioral", icon: "fa-user-graduate", color: "term-yellow", title: "Learner Identification", sub: "Instructional Friction", link: "https://anggaconni.github.io/Learner-Identification-Tools/" },
+        { tag: "behavioral", icon: "fa-sun", color: "term-cyan", title: "Atlas of Atmosphere", sub: "Evidence-Based Env Design", link: "https://anggaconni.github.io/atmosphere-atlas/" },
+    ];
+
+    // ─── MEDIA MENTIONS ─────────────────────────────────────────────
+    const mentionsData = [
+        { source: "ICOMOS Philippines", date: "Oct 2023", title: "UNESCO Heritage Emergency Fund Project — Philippines", detail: "Referenced in implementation partnership for the first UNESCO Heritage Emergency Fund project in the Philippines.", link: "https://philippines.icomos.org/2023/10/16/icomos-philippines-selected-as-the-implementing-partner-of-the-first-unesco-heritage-emergency-fund-project-for-the-republic-of-the-philippines/", color: "term-blue" },
+        { source: "Jamupedia", date: "2024", title: "Jamupedia Kaleidoscope of 2024", detail: "Mentioned in annual cultural documentation and heritage knowledge-sharing review.", link: "https://en.jamupedia.com/jamupedias-kaleidoscope-of-2024/", color: "term-green" },
+        { source: "Diskominfo Kaltim (DPMPD)", date: "2018", title: "BUMDes Payang Sejahtera — Sukses Indonesia 2018", detail: "Authored publication cited in official provincial government record recognizing successful rural enterprise.", link: "https://dpmpd.kaltimprov.go.id/artikel/bumdes-payang-sejahtera-masuk-kriteria-bumdes-sukses-indonesia-2018", color: "term-yellow" },
+        { source: "UNESCO.org", date: "Dec 2023", title: "World War Shipwrecks Workshop — Southeast Asia", detail: "Managed and was cited in the official UNESCO publication on the Regional Workshop.", link: "https://www.unesco.org/en/articles/world-war-shipwrecks-southeast-asia-threats-marine-pollution-and-looting", color: "term-purple" },
+        { source: "CRIHAP (UNESCO Beijing)", date: "Nov 2023", title: "Asia-Pacific Global Network of Facilitators", detail: "Acknowledged for supporting documentation of video footage and interviews for the 2003 Convention's Global Network of Facilitators.", link: "https://en.crihap.cn/a/202311/28/WS656591b7a310decc1a222798.html", color: "term-cyan" },
+        { source: "UNESCO.org", date: "Nov 2023", title: "Asia-Pacific Chapter: Global Network of Facilitators Strengthened", detail: "Supported video production recognized on the UNESCO international platform.", link: "https://www.unesco.org/en/articles/asia-and-pacific-chapter-2003-conventions-global-network-facilitators-strengthened-18-new-members", color: "term-orange" },
+    ];
+
+    // ─── DIPLOMATIC PLAYBOOK ────────────────────────────────────────
+    const playbookData = [
+        { num: "01", org: "UNESCO", tactic: "Informal Diplomacy & Reciprocity", desc: "Reopened a months-inactive diplomatic channel with Brunei DG Culture through informal meals and rapport-building — no formal sessions required." },
+        { num: "02", org: "UNDP", tactic: "Social Proof for Digital Transformation", desc: "Accelerated Papua district adoption by engaging a respected local officer first — peer adoption followed organically." },
+        { num: "03", org: "UNESCO", tactic: "Liking Principle (Jeonju Workshop)", desc: "Transformed stalled bureaucratic exchanges into productive collaboration through shared cultural stories and humor." },
+        { num: "04", org: "UNDP", tactic: "COM-B Application", desc: "Achieved full behavioral alignment by addressing Capability (training), Opportunity (offline tools), and Motivation (professional pride) simultaneously." },
+        { num: "05", org: "UNDP", tactic: "Strategic Framing", desc: "Reframed digital reporting from 'admin burden' to 'tool to showcase achievements to central government' — adoption rates surged." },
+        { num: "06", org: "UNESCO", tactic: "Loss-Aversion Framing", desc: "Strengthened funding urgency by framing risks as potential loss of partner trust rather than missed opportunities." },
+        { num: "07", org: "UNESCO", tactic: "Ben Franklin Effect", desc: "Built HQ rapport by asking a senior consultant for a small cultural clarification — creating positive interpersonal investment." },
+        { num: "08", org: "UNESCO", tactic: "Budget Anchoring", desc: "Influenced budget deliberations by proposing a reasonable starting figure first — shaped subsequent negotiation range." },
+        { num: "09", org: "UNESCO", tactic: "Door-in-the-Face", desc: "Secured online ICH training by first proposing a more expensive offline event — made the actual request appear modest." },
+        { num: "10", org: "UNESCO", tactic: "Strategic Silence", desc: "Presented UNESCO's position, then paused. Ministry side filled silence with internal obstacles — key insight for crafting solutions they owned." },
+        { num: "11", org: "UNESCO", tactic: "Tit-for-Tat Accountability", desc: "Maintained cooperation balance by proportionally adjusting support to partners who delayed — restoring full assistance upon re-engagement." },
+        { num: "12", org: "UNDP", tactic: "Foot-in-the-Door", desc: "Secured full digital integration buy-in by first requesting a small, low-risk trial upload from hesitant district offices." },
+        { num: "13", org: "UNDP", tactic: "Pygmalion Effect", desc: "Publicly labeled a hesitant officer a 'digital pioneer' — confidence and participation of others followed." },
+        { num: "14", org: "UNDP", tactic: "Dual-Process Communication", desc: "Led with an emotional narrative about Papua children before presenting data — engaged both intuitive and analytical decision-making." },
+        { num: "15", org: "UNESCO", tactic: "Issue Reframing (Rendang Debate)", desc: "De-escalated multi-country ICH dispute by redirecting to Media's overlooked role in safeguarding — restored momentum when HQ disengaged." },
+    ];
+
+    // ─── MULTIMEDIA DATA ─────────────────────────────────────────────
+    const multimediaData = [
+        {role: "Videographer & Editor", title: "UNESCO Global Network of Facilitators", desc: "Produced video footage/interviews for Living Heritage Secretariat (Beijing). Recognized for broadcast standards.", link: "https://www.unesco.org/en/articles/asia-and-pacific-chapter-2003-conventions-global-network-facilitators-strengthened-18-new-members"},
+        {role: "Event Organizer & Comms", title: "World War Shipwrecks Workshop", desc: "Managed organization, media relations, and drafted press releases for this regional meeting.", link: "https://www.unesco.org/en/articles/world-war-shipwrecks-southeast-asia-threats-marine-pollution-and-looting"},
+        {role: "Webinar Organizer", title: "CRIHAP Capacity Building (ID-MY)", desc: "Organized joint webinar addressing sensitive cross-border cultural claims between Indonesia and Malaysia.", link: "https://en.crihap.cn/a/202311/28/WS656591b7a310decc1a222798.html"},
+        {role: "Web Designer", title: "UNDP SMILE Repository", desc: "Designed comprehensive repository website documenting SMILE digital health transformation in Papua.", link: "https://conniezzcool.wixsite.com/undp-meeting-smile-r"},
+        {role: "Moderator", title: "UNESCO Jakarta ICH Talkshow", desc: "Moderated discussions on cultural diversity and misinformation among youth for UN Day.", link: "https://www.instagram.com/reel/CzF6_9oLOiv/"}
+    ];
+
+    // ─── ARCHIVE DATA ──────────────────────────────────────────────
+    const archiveData = [
+        {type: "Writer", title: "Bumdesa 2017", detail: "Internal Org", year: "2017"},
+        {type: "Writer", title: "Dana Desa 2017", detail: "Internal Org", year: "2017"},
+        {type: "Writer", title: "Survey Perkembangan Desa 2017", detail: "Internal Org", year: "2017"},
+        {type: "Writer", title: "Buku Kunjungan Kerja Prov. Aceh", detail: "Internal Org", year: "2017"},
+        {type: "Writer", title: "Buku Kunjungan Kerja Prov. Sumut", detail: "Internal Org", year: "2017"},
+        {type: "Writer", title: "Buku Kunjungan Kerja Prov. Sumbar", detail: "Internal Org", year: "2017"},
+        {type: "Writer", title: "Buku Kunjungan Kerja Prov. Sumsel", detail: "Internal Org", year: "2017"},
+        {type: "Writer", title: "Buku Kunjungan Kerja Prov. Jabar", detail: "Internal Org", year: "2017"},
+        {type: "Writer", title: "Buku Kunjungan Kerja Prov. Jatim", detail: "Internal Org", year: "2017"},
+        {type: "Writer", title: "Buku Kunjungan Kerja Prov. Bali", detail: "Internal Org", year: "2017"},
+        {type: "Writer", title: "Buku Kunjungan Kerja Prov. DIY", detail: "Internal Org", year: "2017"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Aceh", detail: "ISBN: 978-623-7129-38-7", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Lampung", detail: "ISBN: 978-623-7129-39-4", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Sumsel", detail: "ISBN: 978-623-7129-40-0", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Kepri", detail: "ISBN: 978-623-7129-41-7", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Sumut", detail: "ISBN: 978-623-7129-42-4", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Sumbar", detail: "ISBN: 978-623-7129-43-1", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Jambi", detail: "ISBN: 978-623-7129-44-8", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Bengkulu", detail: "ISBN: 978-623-7129-45-5", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Babel", detail: "ISBN: 978-623-7129-46-2", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Banten", detail: "ISBN: 978-623-7129-47-9", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. DIY", detail: "ISBN: 978-623-7129-48-6", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Jabar", detail: "ISBN: 978-623-7129-49-3", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Jateng", detail: "ISBN: 978-623-7129-50-9", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Jatim", detail: "ISBN: 978-623-7129-51-6", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Bali", detail: "ISBN: 978-623-7129-52-3", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. NTB", detail: "ISBN: 978-623-7129-53-0", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. NTT", detail: "ISBN: 978-623-7129-54-7", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Kalbar", detail: "ISBN: 978-623-7129-55-4", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Kalteng", detail: "ISBN: 978-623-7129-56-1", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Kaltara", detail: "ISBN: 978-623-7129-57-8", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Sulut", detail: "ISBN: 978-623-7129-58-5", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Sulbar", detail: "ISBN: 978-623-7129-59-2", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Sulteng", detail: "ISBN: 978-623-7129-60-8", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Sulsel", detail: "ISBN: 978-623-7129-61-5", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Kaltim", detail: "ISBN: 978-623-7129-62-2", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Kalsel", detail: "ISBN: 978-623-7129-63-9", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Sultra", detail: "ISBN: 978-623-7129-64-6", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Gorontalo", detail: "ISBN: 978-623-7129-65-3", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Maluku", detail: "ISBN: 978-623-7129-66-0", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Malut", detail: "ISBN: 978-623-7129-67-7", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Riau", detail: "ISBN: 978-623-7129-71-4", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Papua Barat", detail: "ISBN: 978-623-7129-72-1", year: "2018"},
+        {type: "Editor", title: "Manfaat Dana Desa Prov. Papua", detail: "ISBN: 978-623-7129-70-7", year: "2018"},
+        {type: "Editor", title: "Dinamika Pembangunan Desa (7 Pulau)", detail: "ISBN: 978-623-7129-69-1", year: "2018"},
+    ];
+
+    // ─── SKILLS DATA ────────────────────────────────────────────────
+    const skillsData = [
+        { label: "Change Management & Policy", pct: 95, color: "#10B981" },
+        { label: "Behavioral Science Application", pct: 90, color: "#A855F7" },
+        { label: "Full-Stack Web Dev (Vanilla JS)", pct: 82, color: "#3B82F6" },
+        { label: "Data Analysis & GIS (Leaflet/QGIS)", pct: 78, color: "#06B6D4" },
+        { label: "Multilateral Diplomacy", pct: 88, color: "#F59E0B" },
+        { label: "AI-Augmented Development", pct: 85, color: "#F97316" },
+    ];
+
+    const methodTags = [
+        "COM-B Model","Theory of Change","Tit-for-Tat","Foot-in-the-Door","Door-in-the-Face",
+        "Ben Franklin Effect","Social Proof","Loss Aversion","Strategic Silence","Budget Anchoring",
+        "Horizon Scanning","Agile Methodology","Political Economy Analysis","Network Mapping",
+        "FGD Facilitation","Nudge Design","Bayesian Reasoning","ICSC Standards","UNESCO 2003 Convention",
+        "Sendai Framework DRR","PODES-S3 Crosswalk","Google Full-Stack","Serverless Architecture",
+        "Zero-Cost Infrastructure","Gamification","WebGL/Three.js","Leaflet.js","Apps Script CRUD"
+    ];
+
+    // ─── RENDER: SKILLS ──────────────────────────────────────────────
+    function renderSkills() {
+        const c = document.getElementById('skills-container');
+        skillsData.forEach(s => {
+            c.innerHTML += `
+            <div>
+                <div class="flex justify-between text-xs font-mono text-slate-400 mb-1">
+                    <span>${s.label}</span><span style="color:${s.color}">${s.pct}%</span>
+                </div>
+                <div class="w-full bg-slate-800 rounded-full h-2">
+                    <div class="skill-bar-fill h-2 rounded-full" style="width:0;background:${s.color}" data-target="${s.pct}%"></div>
+                </div>
+            </div>`;
+        });
+
+        const tagC = document.getElementById('method-tags');
+        methodTags.forEach(t => {
+            tagC.innerHTML += `<span class="tag-badge bg-slate-800 text-slate-300 border border-slate-700 hover:border-term-green hover:text-term-green transition cursor-default">${t}</span>`;
+        });
+
+        // Animate bars on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    document.querySelectorAll('.skill-bar-fill').forEach(b => {
+                        b.style.width = b.dataset.target;
+                    });
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+        observer.observe(c);
+    }
+
+    // ─── RENDER: APP GRID ────────────────────────────────────────────
+    function renderAppGrid(filter) {
+        const grid = document.getElementById('app-grid');
+        grid.innerHTML = '';
+        const filtered = filter === 'all' ? appsData : appsData.filter(a => a.tag === filter);
+
+        const tagColors = {
+            policy: 'term-cyan', govtech: 'term-yellow', gis: 'term-green',
+            edtech: 'term-purple', behavioral: 'term-rose'
+        };
+
+        filtered.forEach(app => {
+            const colorVar = app.color.replace('term-', '');
+            const card = document.createElement('a');
+            card.href = app.link;
+            card.target = '_blank';
+            card.className = 'portfolio-quick-card glass-panel rounded-lg p-4 border border-term-border flex flex-col gap-3';
+            card.innerHTML = `
+                <div class="flex items-start justify-between">
+                    <div class="p-2.5 rounded-lg bg-slate-800">
+                        <i class="fas ${app.icon} text-${app.color} text-lg"></i>
+                    </div>
+                    <i class="fas fa-external-link-alt text-xs text-slate-600 mt-1"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-sm leading-tight">${app.title}</h4>
+                    <p class="text-xs text-slate-500 mt-0.5 font-mono">${app.sub}</p>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function filterApps(tag) {
+        document.querySelectorAll('.app-filter').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+        renderAppGrid(tag);
+    }
+
+    // ─── RENDER: PROJECT CARDS ───────────────────────────────────────
+    function renderProjects(filter) {
+        const container = document.getElementById('project-container');
+        container.innerHTML = '';
+        const filtered = filter === 'all' ? rawData : rawData.filter(d => d.category.includes(filter));
+        document.getElementById('project-count').textContent = `${filtered.length} records found`;
+
+        filtered.forEach(item => {
+            const hasLink = item.link && item.link.length > 5;
+            const card = document.createElement('div');
+            card.className = "glass-panel p-6 rounded-lg group hover:border-term-green transition-colors duration-300 flex flex-col h-full";
+            
+            let iconClass = 'fa-code';
+            if(item.category.includes('Policy')) iconClass = 'fa-balance-scale';
+            if(item.category.includes('Diplomacy')) iconClass = 'fa-handshake';
+            if(item.category.includes('Behavioral')) iconClass = 'fa-brain';
+
+            let strategyColor = 'code-string';
+            if(item.category.includes('Behavioral') || item.category.includes('Diplomacy')) strategyColor = 'text-term-purple';
+
+            card.innerHTML = `
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-2 bg-slate-800 rounded text-term-blue"><i class="fas ${iconClass}"></i></div>
+                    <span class="text-xs font-mono text-slate-500 py-1 px-2 border border-slate-700 rounded">${item.period.replace("Feb 2023 - Apr 2025","23-25").replace("Mar 2022 - Feb 2023","22-23").replace("Jan 2016 - Jan 2020","16-20").replace("Oct 2009 - Dec 2015","09-15")}</span>
+                </div>
+                <h3 class="text-base font-bold text-white mb-1 group-hover:text-term-green transition">${item.context}</h3>
+                <div class="text-xs font-mono text-term-yellow mb-3">${item.role} @ ${item.org}</div>
+                <div class="bg-slate-900/80 p-3 rounded mb-4 font-mono text-xs text-slate-300 border border-slate-800 flex-grow">
+                    <span class="code-keyword">const</span> strategy = <span class="${strategyColor}">"${item.strategy}"</span>;
+                    <br><span class="code-comment">// ${item.desc}</span>
+                </div>
+                <div class="mt-auto pt-3 border-t border-slate-800 flex gap-2">
+                    ${hasLink ? `<a href="${item.link}" target="_blank" class="text-xs font-bold text-term-green hover:underline flex items-center gap-1"><i class="fas fa-external-link-alt"></i> DEMO / REPO</a>` : '<span class="text-xs text-slate-600 cursor-not-allowed"><i class="fas fa-lock mr-1"></i>NO PUBLIC REPO</span>'}
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function filterProjects(category) {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            const match = category === 'all' ? btn.innerText === 'All' : btn.innerText.trim().startsWith(category.slice(0,4));
+            btn.classList.toggle('active', match);
+        });
+        renderProjects(category);
+    }
+
+    // ─── RENDER: TIMELINE ────────────────────────────────────────────
+    function renderTimeline() {
+        const container = document.getElementById('timeline-container');
+        const grouped = {};
+        rawData.forEach(item => {
+            const key = `${item.org}|||${item.period}`;
+            if(!grouped[key]) grouped[key] = { org: item.org, period: item.period, roles: [] };
+            grouped[key].roles.push(item);
+        });
+
+        const orgColors = { 'Independent Consultant': 'bg-term-green', 'UNESCO': 'bg-term-blue', 'UNDP': 'bg-term-cyan', 'Ministry of Village': 'bg-term-yellow', 'Freelance': 'bg-slate-500' };
+        const orgBorders = { 'Independent Consultant': 'border-term-green', 'UNESCO': 'border-term-blue', 'UNDP': 'border-term-cyan', 'Ministry of Village': 'border-term-yellow', 'Freelance': 'border-slate-500' };
+
+        Object.values(grouped).forEach((group, index) => {
+            const dotColor = orgColors[group.org] || 'bg-slate-600';
+            const borderColor = orgBorders[group.org] || 'border-slate-600';
+            const glow = index === 0 ? 'shadow-[0_0_12px_rgba(16,185,129,0.4)]' : '';
+
+            const node = document.createElement('div');
+            node.className = "relative pl-8 md:pl-12";
+            node.innerHTML = `
+                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full ${dotColor} ${glow} border-2 border-slate-900"></div>
+                <div class="mb-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:gap-3 mb-3">
+                        <h3 class="text-xl font-bold text-white">${group.org}</h3>
+                        <span class="text-xs font-mono text-term-blue bg-blue-900/20 px-2 py-0.5 rounded">${group.period}</span>
+                        <span class="text-xs font-mono text-slate-500">${group.roles.length} log entries</span>
+                    </div>
+                    <div class="space-y-2 mt-3">
+                        ${group.roles.slice(0, 5).map(role => `
+                            <div class="glass-panel p-3 rounded border-l-2 ${borderColor} hover:border-term-yellow transition">
+                                <div class="flex justify-between items-baseline gap-2">
+                                    <h4 class="text-sm font-bold text-slate-200">${role.context}</h4>
+                                    <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider flex-shrink-0">${role.category}</span>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-1">${role.desc}</p>
+                                <div class="mt-1.5 flex items-center gap-3">
+                                    <span class="text-[10px] text-term-purple font-mono"><i class="fas fa-microchip mr-1"></i>${role.strategy}</span>
+                                    ${role.link ? `<a href="${role.link}" target="_blank" class="text-[10px] text-term-green hover:underline"><i class="fas fa-link mr-0.5"></i>demo</a>` : ''}
+                                </div>
+                            </div>
+                        `).join('')}
+                        ${group.roles.length > 5 ? `<button onclick="this.closest('.mb-8').querySelector('.extra-logs').classList.toggle('hidden');this.textContent=this.textContent.includes('Show')?'▲ Collapse':'▼ Show +${group.roles.length-5} more entries'" class="text-xs text-slate-500 hover:text-term-green font-mono px-2 pt-1 border-t border-slate-800 w-full text-left transition">▼ Show +${group.roles.length - 5} more entries</button>
+                        <div class="extra-logs hidden space-y-2">${group.roles.slice(5).map(role => `
+                            <div class="glass-panel p-3 rounded border-l-2 ${borderColor} hover:border-term-yellow transition opacity-75">
+                                <div class="flex justify-between items-baseline gap-2">
+                                    <h4 class="text-sm font-bold text-slate-200">${role.context}</h4>
+                                    <span class="text-[10px] font-mono text-slate-500 uppercase">${role.category}</span>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-1">${role.desc}</p>
+                                <div class="mt-1.5"><span class="text-[10px] text-term-purple font-mono"><i class="fas fa-microchip mr-1"></i>${role.strategy}</span></div>
+                            </div>`).join('')}</div>` : ''}
+                    </div>
+                </div>
+            `;
+            container.appendChild(node);
+        });
+    }
+
+    // ─── RENDER: MULTIMEDIA ──────────────────────────────────────────
+    function renderMultimedia() {
+        const container = document.getElementById('multimedia-container');
+        const roleColors = { 'Videographer & Editor': 'term-purple', 'Event Organizer & Comms': 'term-orange', 'Webinar Organizer': 'term-blue', 'Web Designer': 'term-cyan', 'Moderator': 'term-yellow' };
+        multimediaData.forEach(item => {
+            const color = roleColors[item.role] || 'term-green';
+            const card = document.createElement('div');
+            card.className = `glass-panel p-5 rounded-lg border-b-2 border-${color} hover:bg-slate-800/50 transition duration-300`;
+            card.innerHTML = `
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-xs font-mono bg-${color}/20 text-${color} border border-${color}/30 px-2 py-0.5 rounded font-bold uppercase">${item.role}</span>
+                </div>
+                <h4 class="font-bold text-white mb-2 leading-tight">${item.title}</h4>
+                <p class="text-xs text-slate-400 mb-4">${item.desc}</p>
+                <a href="${item.link}" target="_blank" class="text-xs text-term-green hover:underline flex items-center gap-1 font-mono"><i class="fas fa-link"></i> VIEW SOURCE</a>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // ─── RENDER: ARCHIVE TABLE ───────────────────────────────────────
+    function renderArchive() {
+        const tbody = document.getElementById('archive-table-body');
+        archiveData.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.className = "hover:bg-slate-800/50 transition";
+            const typeClass = row.type === 'Author' ? 'text-term-green' : row.type === 'Writer' ? 'text-term-yellow' : 'text-slate-500';
+            tr.innerHTML = `
+                <td class="p-3 border-b border-slate-800 ${typeClass} font-mono text-xs">${row.type}</td>
+                <td class="p-3 border-b border-slate-800 text-white font-semibold text-sm">${row.title}</td>
+                <td class="p-3 border-b border-slate-800 text-slate-400 text-xs font-mono">${row.detail}</td>
+                <td class="p-3 border-b border-slate-800 text-slate-400 text-xs font-mono">${row.year}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    // ─── RENDER: MEDIA MENTIONS ──────────────────────────────────────
+    function renderMentions() {
+        const c = document.getElementById('mentions-container');
+        mentionsData.forEach(m => {
+            c.innerHTML += `
+            <a href="${m.link}" target="_blank" class="media-card glass-panel p-4 rounded-lg pl-4 border-${m.color} flex flex-col sm:flex-row sm:items-center gap-3 hover:pl-5 transition-all duration-200">
+                <div class="flex-shrink-0">
+                    <span class="tag-badge bg-${m.color}/15 text-${m.color} border border-${m.color}/30">${m.source}</span>
+                </div>
+                <div class="flex-1">
+                    <div class="flex items-start justify-between gap-2">
+                        <h4 class="font-bold text-white text-sm">${m.title}</h4>
+                        <span class="text-xs font-mono text-slate-500 flex-shrink-0">${m.date}</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">${m.detail}</p>
+                </div>
+                <i class="fas fa-external-link-alt text-xs text-slate-600 flex-shrink-0"></i>
+            </a>`;
+        });
+    }
+
+    // ─── RENDER: DIPLOMACY PLAYBOOK ──────────────────────────────────
+    function renderPlaybook() {
+        const c = document.getElementById('playbook-container');
+        const orgColors = { 'UNESCO': 'text-term-blue border-term-blue/30 bg-term-blue/10', 'UNDP': 'text-term-cyan border-term-cyan/30 bg-term-cyan/10' };
+        playbookData.forEach(p => {
+            c.innerHTML += `
+            <div class="glass-panel p-4 rounded-lg border border-term-border hover:border-term-purple/40 transition group">
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl font-bold font-mono text-slate-700 group-hover:text-term-purple transition leading-none">${p.num}</span>
+                    <div>
+                        <div class="flex items-center gap-2 mb-1 flex-wrap">
+                            <h4 class="font-bold text-white text-sm">${p.tactic}</h4>
+                            <span class="tag-badge ${orgColors[p.org] || 'text-slate-400 border-slate-600 bg-slate-800'}">${p.org}</span>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">${p.desc}</p>
+                    </div>
+                </div>
+            </div>`;
+        });
+    }
+
+    // ─── INIT ────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+        renderSkills();
+        renderAppGrid('all');
+        renderProjects('all');
+        renderTimeline();
+        renderMultimedia();
+        renderArchive();
+        renderMentions();
+        renderPlaybook();
+
+        // Active filter buttons for projects
+        document.querySelectorAll('.filter-btn')[0].classList.add('active');
+    });
+
+    // ─── BUREAUCRACY BREAKER LOGIC ──────────────────────────────────
+    const G_WIDTH = 800, G_HEIGHT = 400, P_WIDTH = 120, P_HEIGHT = 16, B_RAD = 7;
+    let gStatus = 'idle', gScore = 0, gHighScore = 0;
+    let ball = { x: 400, y: 360, dx: 5, dy: -5 }, paddleX = 340, bricks = [], gLoop;
+
+    const gCanvas = document.getElementById('gameCanvas'), gContainer = document.getElementById('gameContainer');
+    const bGroup = document.getElementById('bricksGroup'), ballEl = document.getElementById('ball'), padEl = document.getElementById('paddle');
+
+    function initBricks() {
+        bricks = []; bGroup.innerHTML = '';
+        const rows = 5, cols = 9, padding = 10, w = 74, h = 24, offT = 40, offL = 28;
+        const colors = ['#F43F5E', '#F97316', '#F59E0B', '#10B981', '#3B82F6'];
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const bx = c * (w + padding) + offL, by = r * (h + padding) + offT;
+                const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                rect.setAttribute("x", bx); rect.setAttribute("y", by); rect.setAttribute("width", w); rect.setAttribute("height", h);
+                rect.setAttribute("fill", colors[r]); rect.setAttribute("rx", "2"); rect.setAttribute("id", `b-${bricks.length}`);
+                bGroup.appendChild(rect);
+                bricks.push({ x: bx, y: by, status: 1 });
+            }
+        }
+    }
+
+    function resetGame() {
+        gStatus = 'playing'; gScore = 0; document.getElementById('score').innerText = '0';
+        ball = { x: 400, y: 340, dx: (Math.random() - 0.5) * 8, dy: -6 };
+        initBricks();
+        document.getElementById('overlayIdle').classList.add('hidden');
+        document.getElementById('overlayIdle').classList.remove('flex');
+        document.getElementById('overlayGameOver').classList.add('hidden');
+        document.getElementById('overlayGameOver').classList.remove('flex');
+        document.getElementById('overlayWon').classList.add('hidden');
+        document.getElementById('overlayWon').classList.remove('flex');
+        if (gLoop) clearInterval(gLoop);
+        gLoop = setInterval(updateGame, 16);
+    }
+
+    function updateGame() {
+        ball.x += ball.dx; ball.y += ball.dy;
+        if (ball.x + B_RAD > G_WIDTH || ball.x - B_RAD < 0) ball.dx *= -1;
+        if (ball.y - B_RAD < 0) ball.dy *= -1;
+        else if (ball.y + B_RAD > G_HEIGHT - P_HEIGHT - 10) {
+            if (ball.x > paddleX && ball.x < paddleX + P_WIDTH) {
+                ball.dy = -Math.abs(ball.dy);
+                ball.dx = (ball.x - (paddleX + P_WIDTH / 2)) * 0.2;
+            } else if (ball.y > G_HEIGHT) endGame(false);
+        }
+        let brokenCount = 0;
+        bricks.forEach((b, i) => {
+            if (b.status === 1) {
+                if (ball.x > b.x && ball.x < b.x + 74 && ball.y > b.y && ball.y < b.y + 24) {
+                    ball.dy *= -1; b.status = 0;
+                    document.getElementById(`b-${i}`).style.opacity = '0';
+                    gScore += 10; document.getElementById('score').innerText = gScore;
+                }
+            } else brokenCount++;
+        });
+        if (brokenCount === bricks.length) endGame(true);
+        ballEl.setAttribute("transform", `translate(${ball.x}, ${ball.y})`);
+        padEl.setAttribute("transform", `translate(${paddleX}, ${G_HEIGHT - P_HEIGHT - 10})`);
+    }
+
+    function endGame(win) {
+        clearInterval(gLoop); gStatus = 'finished';
+        if (gScore > gHighScore) { gHighScore = gScore; document.getElementById('highScore').innerText = gHighScore; }
+        const screen = win ? 'overlayWon' : 'overlayGameOver';
+        document.getElementById(screen).classList.remove('hidden');
+        document.getElementById(screen).classList.add('flex');
+    }
+
+    gContainer.addEventListener('mousemove', e => {
+        const rect = gContainer.getBoundingClientRect();
+        paddleX = Math.max(0, Math.min(((e.clientX - rect.left) * (G_WIDTH / rect.width)) - P_WIDTH / 2, G_WIDTH - P_WIDTH));
+    });
+
+    gContainer.addEventListener('click', () => { if (gStatus === 'idle') resetGame(); });
+
+    </script>
+</body>
+</html>
