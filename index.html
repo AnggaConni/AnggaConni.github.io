@@ -990,6 +990,46 @@
 
     </div>
 
+<!-- Official References & Recommendations -->
+
+<section>
+   <div class="w-full lg:w-3/4 mx-auto">
+    <h2><i class="ph ph-certificate"></i> Official References & Recommendations</h2>
+    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">
+        Collection of official letters, government recommendations, and certificates of appreciation.
+    </p>
+</div>
+    
+    <div id="references-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full lg:w-3/4 mx-auto">
+        </div>
+</section>
+
+<div id="doc-modal" class="fixed inset-0 z-[4000] hidden items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-slate-900/70 opacity-0 transition-opacity duration-300">
+    <div class="absolute inset-0 cursor-pointer" onclick="closeDocModal()"></div>
+    
+    <div class="relative w-full max-w-5xl h-[90vh] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="doc-modal-content">
+        
+        <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50 shrink-0">
+            <div class="flex items-center gap-3">
+                <i class="ph ph-file-pdf text-red-500 text-2xl"></i>
+                <h3 id="doc-modal-title" class="text-lg font-bold text-slate-800 m-0">Document Viewer</h3>
+            </div>
+            <button onclick="closeDocModal()" class="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors flex items-center justify-center">
+                <i class="ph ph-x text-xl font-bold"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 bg-slate-200 relative">
+            <div class="absolute inset-0 flex items-center justify-center text-slate-500 pointer-events-none gap-2">
+                <i class="ph ph-spinner animate-spin text-xl"></i>
+                Memuat Dokumen...
+            </div>
+            <iframe id="doc-modal-iframe" src="" class="absolute inset-0 w-full h-full border-0 z-10 shadow-inner"></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- MINI GAME -->
     <section class="container" style="margin-top: 0; margin-bottom: 0;">
     <div class="bg-white border border-slate-200 rounded-3xl p-8 text-center overflow-hidden relative">
         <h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-4">Innovation Lab: The Bureaucracy Dodger</h3>
@@ -2361,6 +2401,107 @@ container.addEventListener('click', () => {
         // Eksekusi render
         document.addEventListener('DOMContentLoaded', renderAuthoredPublications);
     </script>
+
+    <script>
+    // DATA REFERENSI / REKOMENDASI
+    // Ganti 'files/nama-file.pdf' sesuai dengan nama file asli di folder Anda
+    const referenceDocuments = [
+        {
+            title: "Communication Course Certificate",
+            category: "Professional Development",
+            year: "2026",
+            pdfUrl: "files/Communication Course - ANGGA CONNI SAPUTRA - MercuBuana.pdf"
+        },
+        {
+            title: "Data and Information Officer Appointment Letter",
+            category: "International",
+            year: "2017",
+            pdfUrl: "files/Data and Information Officer Appointment Letter - Angga.pdf"
+        },
+        {
+            title: "Indonesian National Commission for UNESCO Recommendation",
+            category: "Government",
+            year: "2025",
+            pdfUrl: "files/Indonesian National Commission for UNESCO Recommendation - Angga Saputra.pdf"
+        },
+        {
+            title: "Reference - Decree No 3362017 to Standardize Data Ingestion Protocols",
+            category: "Government",
+            year: "2017",
+            pdfUrl: "files/Reference - Decree No 3362017 to standardize data ingestion protocols.pdf"
+        },
+        {
+            title: "Supervision World Bank IBRD LOAN 8217",
+            category: "International",
+            year: "2019",
+            pdfUrl: "files/Supervision World Bank IBRD LOAN 8217.pdf"
+        }
+        // Tambahkan file lainnya di sini
+    ];
+
+    const refContainer = document.getElementById('references-container');
+    const docModalBox = document.getElementById('doc-modal');
+    const docModalContentBox = document.getElementById('doc-modal-content');
+
+    // Fungsi Render Card ke Layar
+    function renderReferences() {
+        if (!refContainer) return;
+        let htmlContent = '';
+
+        referenceDocuments.forEach((doc, index) => {
+            htmlContent += `
+                <div onclick="openDocModal(${index})" class="bg-white rounded-xl p-5 border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-md hover:border-blue-400 hover:-translate-y-1 group flex flex-col gap-4">
+                    <div class="flex items-start justify-between">
+                        <div class="w-12 h-12 rounded-lg bg-slate-50 border border-slate-100 text-red-500 flex items-center justify-center group-hover:bg-red-500 group-hover:text-white group-hover:border-red-500 transition-all">
+                            <i class="ph ph-file-pdf text-2xl"></i>
+                        </div>
+                        <span class="text-[10px] font-bold px-2.5 py-1 bg-slate-100 text-slate-500 rounded-md border border-slate-200 uppercase tracking-wider">${doc.category}</span>
+                    </div>
+                    <div>
+                        <h4 class="text-[1rem] font-bold text-slate-800 group-hover:text-blue-600 transition-colors leading-snug mb-1">${doc.title}</h4>
+                        <p class="text-xs text-slate-400 font-medium flex items-center gap-1"><i class="ph ph-calendar-blank"></i> ${doc.year}</p>
+                    </div>
+                </div>
+            `;
+        });
+        refContainer.innerHTML = htmlContent;
+    }
+
+    // Fungsi Buka Modal Document
+    function openDocModal(index) {
+        const doc = referenceDocuments[index];
+        document.getElementById('doc-modal-title').textContent = doc.title;
+        document.getElementById('doc-modal-iframe').src = doc.pdfUrl;
+
+        docModalBox.classList.remove('hidden');
+        docModalBox.classList.add('flex');
+        document.body.style.overflow = 'hidden'; // Kunci scroll layar utama
+        
+        setTimeout(() => {
+            docModalBox.classList.remove('opacity-0');
+            docModalContentBox.classList.remove('scale-95');
+            docModalContentBox.classList.add('scale-100');
+        }, 10);
+    }
+
+    // Fungsi Tutup Modal Document
+    function closeDocModal() {
+        docModalBox.classList.add('opacity-0');
+        docModalContentBox.classList.remove('scale-100');
+        docModalContentBox.classList.add('scale-95');
+        document.body.style.overflow = 'auto'; // Buka scroll layar utama
+        
+        setTimeout(() => {
+            docModalBox.classList.add('hidden');
+            docModalBox.classList.remove('flex');
+            document.getElementById('doc-modal-iframe').src = ''; // Clear iframe memori
+        }, 300);
+    }
+
+    // Eksekusi render saat DOM siap
+    document.addEventListener('DOMContentLoaded', renderReferences);
+</script>
+
 
 </body>
 </html>
