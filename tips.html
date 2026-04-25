@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angga Conni · Job Search Guide 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sun: #FFD93D;
+  --coral: #FF6B6B;
+  --teal: #06D6A0;
+  --sky: #74C7EC;
+  --ink: #1A1A2E;
+  --plum: #16213E;
+  --warm: #FFF8EE;
+  --mist: #F0FAF6;
+  --rose: #FFF0F0;
+  --slate: #6B7A99;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--warm);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: var(--ink);
+  padding: 3.5rem 2rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(255,217,61,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: 10%;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(6,214,160,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 2; }
+.pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(255,217,61,0.15);
+  border: 1px solid rgba(255,217,61,0.35);
+  color: var(--sun);
+  padding: 0.35rem 1rem;
+  border-radius: 40px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+.hero h1 em { color: var(--sun); font-style: normal; }
+.hero-sub { color: rgba(255,255,255,0.6); font-size: 1rem; max-width: 560px; margin-bottom: 1.8rem; }
+
+.toefl-banner {
+  background: linear-gradient(135deg, rgba(255,107,107,0.15), rgba(255,217,61,0.1));
+  border: 1px solid rgba(255,107,107,0.4);
+  border-radius: 1rem;
+  padding: 1rem 1.4rem;
+  color: #FFCCD2;
+  font-size: 0.9rem;
+  display: flex; gap: 0.8rem; align-items: flex-start;
+}
+.toefl-banner strong { color: var(--coral); }
+.toefl-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+/* ─── LAYOUT ─── */
+.page { max-width: 960px; margin: 0 auto; padding: 2rem 1.2rem 4rem; }
+
+/* ─── SECTION HEADERS ─── */
+.section-label {
+  display: flex; align-items: center; gap: 0.7rem;
+  margin: 2.8rem 0 1.2rem;
+}
+.section-label .num {
+  background: var(--ink);
+  color: var(--sun);
+  font-family: 'Fraunces', serif;
+  font-size: 0.85rem;
+  width: 2rem; height: 2rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.section-label h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  color: var(--ink);
+}
+
+/* ─── SKILL STARS ─── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.skill-card {
+  background: white;
+  border-radius: 1.2rem;
+  padding: 1.3rem 1.4rem;
+  border: 1px solid #E8EEF7;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.skill-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.07); }
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 1.2rem 1.2rem 0 0;
+}
+.skill-card.green::before { background: var(--teal); }
+.skill-card.yellow::before { background: var(--sun); }
+.skill-card.red::before { background: var(--coral); }
+.skill-card.blue::before { background: var(--sky); }
+
+.skill-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.skill-title { font-weight: 700; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.4rem; }
+.skill-desc { font-size: 0.82rem; color: var(--slate); line-height: 1.5; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.7rem; }
+.stag {
+  background: var(--mist);
+  color: #187A55;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 30px;
+}
+.stag.y { background: #FFF9E0; color: #8A6B00; }
+.stag.r { background: #FFF2F2; color: #B03030; }
+.stag.b { background: #EFF8FF; color: #1565A8; }
+
+/* ─── ORGS TABLE ─── */
+.org-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1rem;
+}
+.org-card {
+  background: white;
+  border-radius: 1.2rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid #E8EEF7;
+  transition: transform 0.18s;
+}
+.org-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.06); }
+.org-header {
+  display: flex; align-items: center; gap: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+.org-emoji { font-size: 1.5rem; }
+.org-name { font-weight: 700; font-size: 0.95rem; }
+.org-bar {
+  font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.05em; padding: 0.2rem 0.7rem;
+  border-radius: 30px; margin-bottom: 0.8rem; display: inline-block;
+}
+.bar-hot { background: #FFF2E0; color: #C26600; }
+.bar-ok  { background: #E8FFF4; color: #0E7A4A; }
+.bar-flex{ background: #EEF3FF; color: #2245A0; }
+.org-list { list-style: none; font-size: 0.82rem; color: var(--slate); }
+.org-list li::before { content: '→ '; color: var(--teal); font-weight: 700; }
+.org-list li { margin-bottom: 0.3rem; }
+
+/* ─── JOB TITLES ─── */
+.titles-wrap {
+  background: white;
+  border-radius: 1.4rem;
+  padding: 1.6rem;
+  border: 1px solid #E8EEF7;
+}
+.titles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+.title-item {
+  background: var(--mist);
+  border-radius: 0.8rem;
+  padding: 0.8rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--plum);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.title-item .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%; flex-shrink: 0;
+}
+.dot-t { background: var(--teal); }
+.dot-y { background: var(--sun); }
+.dot-r { background: var(--coral); }
+
+/* ─── KEYWORDS ─── */
+.kw-box {
+  background: var(--ink);
+  border-radius: 1.4rem;
+  padding: 1.8rem;
+  color: white;
+}
+.kw-box h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  color: var(--sun);
+  margin-bottom: 1rem;
+}
+.kw-mono {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 0.8rem;
+  padding: 1rem 1.2rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  color: #A8D8EA;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  word-break: break-word;
+}
+.kw-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.kwtag {
+  background: rgba(255,217,61,0.12);
+  border: 1px solid rgba(255,217,61,0.25);
+  color: var(--sun);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 30px;
+}
+
+/* ─── TOEFL PLAN ─── */
+.toefl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media(max-width: 600px) { .toefl-grid { grid-template-columns: 1fr; } }
+.tplan {
+  background: white;
+  border-radius: 1.2rem;
+  padding: 1.3rem;
+  border: 1px solid #E8EEF7;
+}
+.tplan h4 { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.8rem; }
+.tplan ul { list-style: none; font-size: 0.83rem; color: var(--slate); }
+.tplan ul li { padding: 0.25rem 0; padding-left: 1.2rem; position: relative; }
+.tplan ul li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+
+/* ─── SITES ─── */
+.sites-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+.site-pill {
+  background: white;
+  border: 1px solid #E8EEF7;
+  border-radius: 0.9rem;
+  padding: 0.8rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex; align-items: center; gap: 0.5rem;
+  transition: 0.15s;
+}
+.site-pill:hover { background: var(--ink); color: var(--sun); }
+.site-pill .freq {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--teal);
+}
+.site-pill:hover .freq { color: var(--sun); }
+
+/* ─── COVER LETTER ─── */
+.cl-card {
+  background: linear-gradient(135deg, #0F3460, #16213E);
+  border-radius: 1.4rem;
+  padding: 1.8rem;
+  color: white;
+}
+.cl-card h3 { font-family: 'Fraunces', serif; color: var(--sky); margin-bottom: 1rem; font-size: 1.1rem; }
+.cl-point {
+  background: rgba(255,255,255,0.06);
+  border-left: 3px solid var(--teal);
+  border-radius: 0.5rem;
+  padding: 0.7rem 1rem;
+  font-size: 0.83rem;
+  margin-bottom: 0.6rem;
+  color: rgba(255,255,255,0.85);
+  font-style: italic;
+}
+.cl-point strong { color: var(--teal); font-style: normal; }
+
+/* ─── ACTION PLAN ─── */
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+@media(max-width: 700px) { .action-grid { grid-template-columns: 1fr; } }
+.action-month {
+  background: white;
+  border-radius: 1.2rem;
+  padding: 1.3rem;
+  border: 1px solid #E8EEF7;
+  position: relative;
+}
+.month-label {
+  font-family: 'Fraunces', serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.8rem;
+  border-radius: 30px;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-style: italic;
+}
+.ml-1 { background: #FFF2E0; color: #C26600; }
+.ml-2 { background: #E8FFF4; color: #0E7A4A; }
+.ml-3 { background: #EEF3FF; color: #2245A0; }
+.action-month ul { list-style: none; font-size: 0.81rem; color: var(--slate); }
+.action-month ul li { padding: 0.3rem 0; padding-left: 1.3rem; position: relative; border-bottom: 1px dashed #F0F0F0; }
+.action-month ul li:last-child { border-bottom: none; }
+.action-month ul li::before { position: absolute; left: 0; font-weight: 700; }
+.m1 li::before { content: '🔥'; font-size: 0.7rem; }
+.m2 li::before { content: '⚡'; font-size: 0.7rem; }
+.m3 li::before { content: '🚀'; font-size: 0.7rem; }
+
+/* ─── STRENGTH BANNER ─── */
+.strength-banner {
+  background: linear-gradient(135deg, var(--teal), #04A87B);
+  border-radius: 1.4rem;
+  padding: 1.8rem;
+  color: white;
+  text-align: center;
+}
+.strength-banner h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.strength-banner p { font-size: 0.9rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+.strength-banner .metrics {
+  display: flex; justify-content: center; gap: 2rem;
+  margin-top: 1.4rem; flex-wrap: wrap;
+}
+.metric { text-align: center; }
+.metric-num { font-family: 'Fraunces', serif; font-size: 2rem; display: block; }
+.metric-label { font-size: 0.72rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  text-align: center;
+  padding: 1.5rem;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.75rem;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-inner > * {
+  animation: fadeUp 0.5s ease both;
+}
+.hero-inner > :nth-child(1) { animation-delay: 0.05s; }
+.hero-inner > :nth-child(2) { animation-delay: 0.15s; }
+.hero-inner > :nth-child(3) { animation-delay: 0.25s; }
+.hero-inner > :nth-child(4) { animation-delay: 0.35s; }
+
+@media(max-width: 600px) {
+  .skills-grid, .org-grid, .sites-wrap { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="pill">🌏 Job Search Guide · April 2026</div>
+    <h1>Angga Conni Saputra<br><em>Panduan Melamar Kerja</em><br>ke Luar Negeri</h1>
+    <p class="hero-sub">Berdasarkan CV lengkap Anda — UNESCO, UNDP Papua, Kemendesa, dan portofolio tech zero-cost. Tidak hanya UN.</p>
+    <div class="toefl-banner">
+      <span class="toefl-icon">⚠️</span>
+      <span>TOEFL Anda <strong>547 PBT ≈ 60–70 iBT</strong>. Kebanyakan UN butuh <strong>iBT 90+</strong>.
+      Strategi: apply dulu ke NGO/konsultan yang lebih fleksibel, <strong>sambil tingkatkan ke iBT 80+ dalam 4 bulan</strong>.
+      Cantumkan di CV: <em>"TOEFL 547 PBT, currently preparing iBT 90"</em>.</span>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ① KEKUATAN UTAMA ANDA -->
+  <div class="section-label">
+    <div class="num">1</div>
+    <h2>Kekuatan Anda yang Perlu Ditonjolkan</h2>
+  </div>
+
+  <div class="skills-grid">
+
+    <div class="skill-card green">
+      <div class="skill-icon">🏗️</div>
+      <div class="skill-title">Zero-Cost Architecture</div>
+      <div class="skill-desc">Anda bisa bangun sistem digital skala nasional tanpa server berbayar. Ini sangat langka dan relevan untuk NGO/UN yang budgetnya ketat.</div>
+      <div class="skill-tags">
+        <span class="stag">Google Sheets API</span>
+        <span class="stag">Apps Script</span>
+        <span class="stag">GitHub Pages</span>
+        <span class="stag">Serverless</span>
+      </div>
+    </div>
+
+    <div class="skill-card yellow">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-title">AI-Augmented Development</div>
+      <div class="skill-desc">Bukan hanya pakai AI — Anda pakai AI untuk bikin tools policy yang digunakan di UNESCO dan Kementerian. Heritage Commons, ICH Radar, Artifact Radar semuanya production-grade.</div>
+      <div class="skill-tags">
+        <span class="stag y">Gemini API</span>
+        <span class="stag y">Three.js WebGL</span>
+        <span class="stag y">ICT4D</span>
+      </div>
+    </div>
+
+    <div class="skill-card red">
+      <div class="skill-icon">🧠</div>
+      <div class="skill-title">Behavioral Science Terapan</div>
+      <div class="skill-desc">Dari meningkatkan reporting vaksin 5%→60% di Papua, hingga mengubah resistensi institusi lewat "Cognitive Ownership Technique." Ini bukan teori — ini field-tested.</div>
+      <div class="skill-tags">
+        <span class="stag r">COM-B</span>
+        <span class="stag r">Social Proof</span>
+        <span class="stag r">Nudge Design</span>
+        <span class="stag r">Loss Aversion</span>
+      </div>
+    </div>
+
+    <div class="skill-card blue">
+      <div class="skill-icon">🌊</div>
+      <div class="skill-title">Cultural Heritage & Policy</div>
+      <div class="skill-desc">2 tahun di UNESCO dengan 2003 & 2001 Convention. Mediasi sengketa multi-nominasi ICH, diplomasi informal dengan Brunei, advokasi ICH Foodways. Sangat niche dan dibutuhkan.</div>
+      <div class="skill-tags">
+        <span class="stag b">ICH 2003 Convention</span>
+        <span class="stag b">UCH 2001</span>
+        <span class="stag b">ASEAN Diplomacy</span>
+      </div>
+    </div>
+
+    <div class="skill-card green">
+      <div class="skill-icon">📊</div>
+      <div class="skill-title">M&E & Data Analysis</div>
+      <div class="skill-desc">Dari deteksi dosing error BCG di Papua, analisis dampak infrastruktur terhadap Gini ratio di Jambi, hingga Learning Needs Assessment ICH regional. Data Anda pernah selamatkan nyawa bayi.</div>
+      <div class="skill-tags">
+        <span class="stag">SMILE App</span>
+        <span class="stag">Qualitative Analysis</span>
+        <span class="stag">Learning Needs Assessment</span>
+      </div>
+    </div>
+
+    <div class="skill-card yellow">
+      <div class="skill-icon">🔭</div>
+      <div class="skill-title">Foresight & Strategic Planning</div>
+      <div class="skill-desc">Horizon Scanning tool Anda sudah jalan di horizon-scanning.org dan dipakai Kemenko PMK. Ini skill yang jarang dimiliki orang di bidang development.</div>
+      <div class="skill-tags">
+        <span class="stag y">Horizon Scanning</span>
+        <span class="stag y">Theory of Change</span>
+        <span class="stag y">PESTLE</span>
+      </div>
+    </div>
+
+    <div class="skill-card red">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-title">Stakeholder Diplomacy</div>
+      <div class="skill-desc">Koordinasi delegasi Kongres AS, mediasi sengketa ICH multi-negara, advokasi "Delivering as One" UNICEF-WHO-UNDP. Anda bisa navigasi politik multilateral.</div>
+      <div class="skill-tags">
+        <span class="stag r">UN System</span>
+        <span class="stag r">Political Economy</span>
+        <span class="stag r">Risk Analysis</span>
+      </div>
+    </div>
+
+    <div class="skill-card blue">
+      <div class="skill-icon">📚</div>
+      <div class="skill-title">Knowledge Management & Publikasi</div>
+      <div class="skill-desc">4+ buku ber-ISBN, 30+ pocket book nasional, penulis panduan BUMDesa 33 provinsi. Ditambah blog, video produksi, dan training material dari nol.</div>
+      <div class="skill-tags">
+        <span class="stag b">ISBN Publications</span>
+        <span class="stag b">Capacity Building</span>
+        <span class="stag b">Knowledge Products</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ② KALIMAT KUAT UNTUK CV & COVER LETTER -->
+  <div class="section-label">
+    <div class="num">2</div>
+    <h2>Kalimat Wajib di Cover Letter Anda</h2>
+  </div>
+  <div class="cl-card">
+    <h3>💬 Bullet Points yang Langsung Menarik Perhatian HRD</h3>
+    <div class="cl-point">"Increased vaccine utilization reporting rates from <strong>5% to 60%</strong> in remote Papua districts by applying behavioral change frameworks (COM-B, social proof) under UNDP."</div>
+    <div class="cl-point">"Designed and deployed a <strong>zero-cost, serverless digital ecosystem</strong> for UNESCO using Google Stack + AI — eliminating recurring server costs for under-resourced ministries."</div>
+    <div class="cl-point">"Mediated a <strong>multi-country ICH nomination dispute</strong> (Indonesia, Philippines, Malaysia, Singapore, Brunei) at a UNESCO Bangkok meeting, de-escalating tension through strategic issue reframing."</div>
+    <div class="cl-point">"Identified a <strong>critical BCG vaccine dosing error</strong> (double-dosing risk) through SMILE data analysis; escalated to UNICEF, WHO, and MoH — preventing potential harm to infants across Papua."</div>
+    <div class="cl-point">"Built and deployed <strong>production-grade AI-powered tools</strong> (ICH Radar, Artifact Radar, Horizon Scanning) currently used by government ministries and international organizations."</div>
+    <div class="cl-point">"Authored <strong>4 ISBN-registered national publications</strong> and over 90 knowledge products on rural development, cultural heritage, and institutional policy."</div>
+  </div>
+
+  <!-- ③ TARGET ORGANISASI -->
+  <div class="section-label">
+    <div class="num">3</div>
+    <h2>Target Organisasi (Bukan Hanya UN!)</h2>
+  </div>
+  <div class="org-grid">
+
+    <div class="org-card">
+      <div class="org-header"><span class="org-emoji">🏛️</span><span class="org-name">UN System</span></div>
+      <span class="org-bar bar-hot">TOEFL iBT 90+ diperlukan</span>
+      <ul class="org-list">
+        <li>UNESCO HQ Paris / Bangkok</li>
+        <li>UNDP Regional Bangkok / NYC</li>
+        <li>UNOPS (kontrak lebih fleksibel)</li>
+        <li>UNV — persyaratan bahasa longgar ✅</li>
+        <li>UN Women, UNICEF (Health/Education)</li>
+      </ul>
+    </div>
+
+    <div class="org-card">
+      <div class="org-header"><span class="org-emoji">🏦</span><span class="org-name">Development Finance</span></div>
+      <span class="org-bar bar-ok">Portofolio tech sangat dihargai</span>
+      <ul class="org-list">
+        <li>World Bank (ICT/Rural Dev stream)</li>
+        <li>Asian Development Bank – Manila</li>
+        <li>IFAD (Rural & Agriculture)</li>
+        <li>GIZ – German Development Agency</li>
+        <li>USAID (via implementer)</li>
+      </ul>
+    </div>
+
+    <div class="org-card">
+      <div class="org-header"><span class="org-emoji">🌱</span><span class="org-name">NGO Internasional</span></div>
+      <span class="org-bar bar-ok">TOEFL 550 PBT sering diterima ✅</span>
+      <ul class="org-list">
+        <li>Save the Children (Regional Asia)</li>
+        <li>CARE International</li>
+        <li>WWF / IUCN (Heritage + Ocean)</li>
+        <li>ICOMOS (Cultural Heritage)</li>
+        <li>World Vision International</li>
+      </ul>
+    </div>
+
+    <div class="org-card">
+      <div class="org-header"><span class="org-emoji">🔬</span><span class="org-name">Think Tank & Konsultan</span></div>
+      <span class="org-bar bar-flex">Fokus ke portofolio, bukan TOEFL</span>
+      <ul class="org-list">
+        <li>Palladium / DAI / Chemonics</li>
+        <li>Deloitte Public Sector</li>
+        <li>ODI London (research)</li>
+        <li>Mercy Corps (Pacific/Asia)</li>
+        <li>Search for Common Ground</li>
+      </ul>
+    </div>
+
+    <div class="org-card">
+      <div class="org-header"><span class="org-emoji">🌏</span><span class="org-name">Lokasi Paling Strategis</span></div>
+      <span class="org-bar bar-flex">Entry point terbaik dari Indonesia</span>
+      <ul class="org-list">
+        <li>🇹🇭 Bangkok — banyak UN regional office</li>
+        <li>🇵🇭 Manila — ADB, UN, NGO cluster</li>
+        <li>🇸🇬 Singapura — konsultan + think tank</li>
+        <li>🇰🇭 Phnom Penh — NGO syarat longgar</li>
+        <li>🇮🇩 Jakarta — build track record dulu</li>
+      </ul>
+    </div>
+
+    <div class="org-card">
+      <div class="org-header"><span class="org-emoji">🎓</span><span class="org-name">Jalur Beasiswa (Sambil TOEFL)</span></div>
+      <span class="org-bar bar-hot">Nilai ganda: gelar + networking</span>
+      <ul class="org-list">
+        <li>LPDP S2 luar negeri (prioritas)</li>
+        <li>Erasmus+ Mundus</li>
+        <li>Fulbright — Indonesia programme</li>
+        <li>Australia Awards (AAS)</li>
+        <li>Chevening (UK)</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ④ JOB TITLES -->
+  <div class="section-label">
+    <div class="num">4</div>
+    <h2>Job Titles yang Paling Cocok</h2>
+  </div>
+  <div class="titles-wrap">
+    <p style="font-size:0.85rem; color: var(--slate);">Gunakan title-title ini persis saat mencari di LinkedIn, Devex, dan Reliefweb.</p>
+    <div class="titles-grid">
+      <div class="title-item"><span class="dot dot-t"></span>Project / Program Officer</div>
+      <div class="title-item"><span class="dot dot-t"></span>M&E Officer / Specialist</div>
+      <div class="title-item"><span class="dot dot-t"></span>Knowledge Management Specialist</div>
+      <div class="title-item"><span class="dot dot-t"></span>Digital Transformation Officer</div>
+      <div class="title-item"><span class="dot dot-y"></span>ICT4D Specialist</div>
+      <div class="title-item"><span class="dot dot-y"></span>Policy Analyst (Digital/Culture)</div>
+      <div class="title-item"><span class="dot dot-y"></span>Capacity Building Specialist</div>
+      <div class="title-item"><span class="dot dot-y"></span>GovTech Consultant</div>
+      <div class="title-item"><span class="dot dot-r"></span>Cultural Heritage Officer</div>
+      <div class="title-item"><span class="dot dot-r"></span>Programme Analyst (UNDP/UNOPS)</div>
+      <div class="title-item"><span class="dot dot-r"></span>Partnerships & Liaison Officer</div>
+      <div class="title-item"><span class="dot dot-r"></span>Data Analyst (Development)</div>
+    </div>
+  </div>
+
+  <!-- ⑤ KATA KUNCI PENCARIAN -->
+  <div class="section-label">
+    <div class="num">5</div>
+    <h2>Kata Kunci Pencarian (Boolean Search)</h2>
+  </div>
+  <div class="kw-box">
+    <h3>📋 Copy-paste ke LinkedIn / Google Jobs / Devex</h3>
+    <div class="kw-mono">
+      ("Project Officer" OR "Program Officer" OR "M&E Officer" OR "Digital Transformation" OR "Knowledge Management Specialist") AND ("UNESCO" OR "UNDP" OR "World Bank" OR "GIZ" OR "NGO") AND ("ICT4D" OR "capacity building" OR "cultural heritage" OR "serverless")<br><br>
+      ("Capacity Building" OR "Policy Analyst" OR "Cultural Heritage" OR "GovTech") AND ("remote" OR "Bangkok" OR "Manila" OR "Jakarta") AND ("UN" OR "development")
+    </div>
+    <h3>🏷️ Kata kunci dari CV Anda yang sangat niche (tambahkan di profil LinkedIn!)</h3>
+    <div class="kw-tags">
+      <span class="kwtag">Intangible Cultural Heritage</span>
+      <span class="kwtag">2003 ICH Convention</span>
+      <span class="kwtag">Zero-Cost Architecture</span>
+      <span class="kwtag">Serverless Gov-Tech</span>
+      <span class="kwtag">Horizon Scanning</span>
+      <span class="kwtag">COM-B Behavioral Model</span>
+      <span class="kwtag">Theory of Change</span>
+      <span class="kwtag">Google Apps Script</span>
+      <span class="kwtag">AI Augmented Development</span>
+      <span class="kwtag">Cold Chain Monitoring</span>
+      <span class="kwtag">SMILE Application</span>
+      <span class="kwtag">BUMDesa</span>
+      <span class="kwtag">Underwater Cultural Heritage</span>
+      <span class="kwtag">Gemini API</span>
+      <span class="kwtag">WebGL Three.js</span>
+      <span class="kwtag">ICH Periodic Reporting</span>
+    </div>
+  </div>
+
+  <!-- ⑥ TOEFL PLAN -->
+  <div class="section-label">
+    <div class="num">6</div>
+    <h2>Rencana TOEFL (Target 4 Bulan)</h2>
+  </div>
+  <div class="toefl-grid">
+    <div class="tplan">
+      <h4>📚 Resource Belajar (Gratis & Berbayar)</h4>
+      <ul>
+        <li>Magoosh TOEFL iBT — paling efektif</li>
+        <li>ETS TOEFL Official Practice Tests</li>
+        <li>TOEFL Prep by ETS (app gratis)</li>
+        <li>EnglishScore (British Council)</li>
+        <li>YouTube: Noteful TOEFL channel</li>
+        <li>Practice writing dengan ChatGPT/Claude sebagai reviewer</li>
+      </ul>
+    </div>
+    <div class="tplan">
+      <h4>🎯 Target Realistis Tiap Bulan</h4>
+      <ul>
+        <li>Bulan 1: Baseline test + fokus Reading & Listening</li>
+        <li>Bulan 2: Speaking & Writing (paling krusial)</li>
+        <li>Bulan 3: Full mock test, minimal 2× seminggu</li>
+        <li>Bulan 4: Test resmi — target iBT 80+</li>
+        <li>Parallel: Apply ke organisasi yg terima 550 PBT</li>
+        <li>Akhir tahun: Kejar iBT 90 untuk UN Staff</li>
+      </ul>
+    </div>
+    <div class="tplan">
+      <h4>✉️ Yang Ditulis di Aplikasi Sekarang</h4>
+      <ul>
+        <li>Cantumkan: "TOEFL 547 PBT (≈ IBT 63)"</li>
+        <li>Tambahkan: "Currently preparing for TOEFL iBT 90"</li>
+        <li>Minta waiver via interview jika portofolio kuat</li>
+        <li>Beberapa NGO menerima "English proficiency via interview"</li>
+        <li>Tonjolkan bahwa semua portofolio dalam English</li>
+      </ul>
+    </div>
+    <div class="tplan">
+      <h4>🔑 Jalur Alternatif (Tanpa TOEFL Tinggi)</h4>
+      <ul>
+        <li>UNV (unv.org) — TOEFL bukan syarat utama</li>
+        <li>UNOPS kontrak jangka pendek</li>
+        <li>Posisi remote consultant (portofolio > TOEFL)</li>
+        <li>NGO kecil via reliefweb.int</li>
+        <li>Ikut beasiswa LPDP sambil naikkan TOEFL</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ⑦ SITUS LOWONGAN -->
+  <div class="section-label">
+    <div class="num">7</div>
+    <h2>Situs Wajib Dicek Tiap Minggu</h2>
+  </div>
+  <div class="sites-wrap">
+    <div class="site-pill">🌐 careers.un.org <span class="freq">2× seminggu</span></div>
+    <div class="site-pill">💼 devex.com <span class="freq">tiap hari</span></div>
+    <div class="site-pill">📋 reliefweb.int <span class="freq">tiap hari</span></div>
+    <div class="site-pill">🔍 impactpool.org <span class="freq">2× seminggu</span></div>
+    <div class="site-pill">🏗️ unops.org/jobs <span class="freq">2× seminggu</span></div>
+    <div class="site-pill">🤝 linkedin.com/jobs <span class="freq">tiap hari</span></div>
+    <div class="site-pill">🌏 unv.org/node/12 <span class="freq">seminggu</span></div>
+    <div class="site-pill">💡 idealist.org <span class="freq">seminggu</span></div>
+  </div>
+
+  <!-- ⑧ ACTION PLAN 3 BULAN -->
+  <div class="section-label">
+    <div class="num">8</div>
+    <h2>Action Plan 3 Bulan ke Depan</h2>
+  </div>
+  <div class="action-grid">
+    <div class="action-month">
+      <span class="month-label ml-1">Bulan 1 · Fondasi</span>
+      <ul class="m1">
+        <li>Update LinkedIn ke English, tambah semua keyword niche</li>
+        <li>Buat 1 halaman CV ATS-friendly dalam bahasa Inggris</li>
+        <li>Daftar UNV online — segera, tidak butuh TOEFL tinggi</li>
+        <li>Mulai kursus TOEFL iBT (Magoosh atau ETS)</li>
+        <li>Apply 5–10 posisi NGO/konsultan</li>
+        <li>Hubungi mantan kolega UNESCO/UNDP untuk referral internal</li>
+      </ul>
+    </div>
+    <div class="action-month">
+      <span class="month-label ml-2">Bulan 2 · Momentum</span>
+      <ul class="m2">
+        <li>Target 15 aplikasi dikirim, track semuanya</li>
+        <li>Buat cover letter template per jenis organisasi (UN/NGO/Think Tank)</li>
+        <li>Mock interview dalam bahasa Inggris (dengan Claude atau teman)</li>
+        <li>Ikut 1 webinar/konferensi internasional untuk networking</li>
+        <li>Daftar LPDP S2 luar negeri jika batch terbuka</li>
+        <li>Publish 1 artikel English di LinkedIn tentang portofolio</li>
+      </ul>
+    </div>
+    <div class="action-month">
+      <span class="month-label ml-3">Bulan 3 · Launch</span>
+      <ul class="m3">
+        <li>Ikut TOEFL iBT resmi — target minimal 80</li>
+        <li>Update semua aplikasi dengan skor TOEFL baru</li>
+        <li>Apply ke posisi UN/World Bank yang minta iBT 80+</li>
+        <li>Follow up semua lamaran yang belum direspons</li>
+        <li>Negosiasikan posisi remote consultant jika ada tawaran</li>
+        <li>Evaluasi: pivot ke beasiswa atau terus apply?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STRENGTH BANNER -->
+  <div style="margin-top: 2.5rem;">
+    <div class="strength-banner">
+      <h3>💪 Kekuatan Kompetitif Angga vs Kandidat Lain</h3>
+      <p>Mayoritas kandidat punya salah satu — kebijakan publik, atau teknis, atau lapangan. Anda punya ketiganya, ditambah AI tools production-grade yang langsung bisa dipakai oleh organisasi.</p>
+      <div class="metrics">
+        <div class="metric">
+          <span class="metric-num">15+</span>
+          <span class="metric-label">Tahun pengalaman relevan</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">4</span>
+          <span class="metric-label">Buku ber-ISBN</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">20+</span>
+          <span class="metric-label">Tools digital aktif</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">3</span>
+          <span class="metric-label">Konteks UN/Pemerintah</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Panduan ini dibuat berdasarkan CV & portofolio Angga Conni Saputra · April 2026 · Perbarui setiap bulan sesuai perkembangan lamaran
+</footer>
+
+</body>
+</html>
