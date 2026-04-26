@@ -1057,13 +1057,28 @@
             </button>
         </div>
 
-        <div class="flex-1 bg-slate-200 relative">
-            <div class="absolute inset-0 flex items-center justify-center text-slate-500 pointer-events-none gap-2">
-                <i class="ph ph-spinner animate-spin text-xl"></i>
-                Memuat Dokumen...
-            </div>
-            <iframe id="doc-modal-iframe" src="" class="absolute inset-0 w-full h-full border-0 z-10 shadow-inner"></iframe>
-        </div>
+            <div class="flex-1 bg-slate-200 relative">
+                <div class="absolute inset-0 flex items-center justify-center text-slate-500 pointer-events-none gap-2 z-0">
+                    <i class="ph ph-spinner animate-spin text-xl"></i>
+                    Memuat Dokumen...
+                </div>
+
+                <div id="doc-modal-fallback" class="hidden absolute inset-0 flex-col items-center justify-center bg-slate-50 z-20 text-center p-8">
+                    <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mb-4 border border-red-100">
+                        <i class="ph ph-warning-octagon text-red-500 text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Document Unavailable</h3>
+                    <p class="text-slate-500 text-sm mb-6 max-w-sm">
+                        The requested PDF file could not be found or has been restricted. Please contact Angga via email to request access to the original document.
+                    </p>
+                    <a href="mailto:conniezz.cool@gmail.com?subject=Requesting Original Document Access" class="px-6 py-2.5 bg-blue-600 text-white rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg flex items-center gap-2">
+                        <i class="ph ph-envelope-simple"></i> Contact Angga
+                    </a>
+                </div>
+
+                <iframe id="doc-modal-iframe" src="" class="hidden absolute inset-0 w-full h-full border-0 z-10 shadow-inner bg-white"></iframe>
+            </div> 
+
     </div>
 </div>
 
@@ -1146,13 +1161,28 @@
                     </div>
                 </div>
 
-                <div class="flex-1 bg-slate-200 relative min-h-[50vh] lg:min-h-0">
-                    <div class="absolute inset-0 flex items-center justify-center text-slate-500 pointer-events-none gap-2">
-                        <i class="ph ph-spinner animate-spin text-xl"></i>
-                        Memuat Dokumen A4...
-                    </div>
-                    <iframe id="pdf-modal-iframe" src="" class="absolute inset-0 w-full h-full border-0 z-10 shadow-inner"></iframe>
+            <div class="flex-1 bg-slate-200 relative min-h-[50vh] lg:min-h-0">
+                <div class="absolute inset-0 flex items-center justify-center text-slate-500 pointer-events-none gap-2 z-0">
+                    <i class="ph ph-spinner animate-spin text-xl"></i>
+                    Memuat Dokumen A4...
                 </div>
+                
+                <div id="pdf-modal-fallback" class="hidden absolute inset-0 flex-col items-center justify-center bg-slate-50 z-20 text-center p-8 border-l border-slate-200">
+                    <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mb-4 border border-red-100">
+                        <i class="ph ph-warning-octagon text-red-500 text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Document Unavailable</h3>
+                    <p class="text-slate-500 text-sm mb-6 max-w-sm">
+                        The requested PDF file could not be found or has been restricted. Please contact Angga via email to request access to the original document.
+                    </p>
+                    <a href="mailto:conniezz.cool@gmail.com?subject=Requesting Original Document Access" class="px-6 py-2.5 bg-blue-600 text-white rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg flex items-center gap-2">
+                        <i class="ph ph-envelope-simple"></i> Contact Angga
+                    </a>
+                </div>
+
+                <iframe id="pdf-modal-iframe" src="" class="hidden absolute inset-0 w-full h-full border-0 z-10 shadow-inner bg-white"></iframe>
+            </div>
+
             </div>
         </div>
     </div>
@@ -2452,11 +2482,38 @@ container.addEventListener('click', () => {
             document.getElementById('pdf-modal-publisher').textContent = pub.publisher;
             document.getElementById('pdf-modal-isbn').textContent = pub.isbn;
             document.getElementById('pdf-modal-resume').textContent = pub.resume || "Resume tidak tersedia.";
-            document.getElementById('pdf-modal-iframe').src = pub.pdfUrl;
+            
+            const iframe = document.getElementById('pdf-modal-iframe');
+            const fallback = document.getElementById('pdf-modal-fallback');
+
+            // Sembunyikan keduanya dulu saat loading awal
+            iframe.classList.add('hidden');
+            fallback.classList.add('hidden');
+            fallback.classList.remove('flex');
+            iframe.src = '';
+
+            // Cek apakah file ada menggunakan Fetch API
+            fetch(pub.pdfUrl, { method: 'HEAD' })
+                .then(response => {
+                    if (response.ok) {
+                        // File ditemukan, tampilkan PDF
+                        iframe.src = pub.pdfUrl;
+                        iframe.classList.remove('hidden');
+                    } else {
+                        // File 404 Not Found, tampilkan peringatan
+                        fallback.classList.remove('hidden');
+                        fallback.classList.add('flex');
+                    }
+                })
+                .catch(error => {
+                    // Error jaringan atau terblokir, tetap tampilkan peringatan amannya
+                    fallback.classList.remove('hidden');
+                    fallback.classList.add('flex');
+                });
 
             pdfModalBox.classList.remove('hidden');
             pdfModalBox.classList.add('flex');
-            document.body.style.overflow = 'hidden'; // Kunci scroll layar utama
+            document.body.style.overflow = 'hidden'; 
             
             setTimeout(() => {
                 pdfModalBox.classList.remove('opacity-0');
@@ -2553,11 +2610,38 @@ container.addEventListener('click', () => {
     function openDocModal(index) {
         const doc = referenceDocuments[index];
         document.getElementById('doc-modal-title').textContent = doc.title;
-        document.getElementById('doc-modal-iframe').src = doc.pdfUrl;
+        
+        const iframe = document.getElementById('doc-modal-iframe');
+        const fallback = document.getElementById('doc-modal-fallback');
+
+        // Sembunyikan keduanya dulu saat loading awal
+        iframe.classList.add('hidden');
+        fallback.classList.add('hidden');
+        fallback.classList.remove('flex');
+        iframe.src = '';
+
+        // Cek apakah file ada menggunakan Fetch API
+        fetch(doc.pdfUrl, { method: 'HEAD' })
+            .then(response => {
+                if (response.ok) {
+                    // File ditemukan, tampilkan PDF
+                    iframe.src = doc.pdfUrl;
+                    iframe.classList.remove('hidden');
+                } else {
+                    // File 404 Not Found, tampilkan peringatan
+                    fallback.classList.remove('hidden');
+                    fallback.classList.add('flex');
+                }
+            })
+            .catch(error => {
+                // Error jaringan atau terblokir, tetap tampilkan peringatan amannya
+                fallback.classList.remove('hidden');
+                fallback.classList.add('flex');
+            });
 
         docModalBox.classList.remove('hidden');
         docModalBox.classList.add('flex');
-        document.body.style.overflow = 'hidden'; // Kunci scroll layar utama
+        document.body.style.overflow = 'hidden'; 
         
         setTimeout(() => {
             docModalBox.classList.remove('opacity-0');
