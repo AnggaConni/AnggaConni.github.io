@@ -1906,13 +1906,17 @@
         tags: ["Foresight", "Matrix", "AI"],
         links: [{ url: "https://horizon-scanning.org/", text: "Visit Site" }]
     },
-    {
+{
         title: "PesisirKita", 
         category: "edtech",
         desc: "An offline-first EdTech app empowering youth to conduct professional-level coastal ecological mapping. With one click, field data is compiled into a polished PDF portfolio.",
         tags: ["EdTech", "Ecology", "Offline-First"],
+        badge: { text: "Closing Test", colorClass: "bg-amber-100/90 text-amber-700 border-amber-300" },
         links:[
-            { url: "https://anggaconni.github.io/Pesisirkita/", text: '<i class="ph ph-google-play-logo text-lg"></i> Playstore <span class="text-[9px] font-bold bg-amber-100 text-amber-600 px-1.5 py-0.5 rounded-full ml-0.5">Closing Test</span>' },
+            { 
+                url: "https://anggaconni.github.io/Pesisirkita/", 
+                text: '<span class="flex items-center gap-1.5 bg-slate-900 text-white px-2.5 py-1.5 rounded-lg shadow-md hover:bg-slate-800 transition-colors border border-slate-700"><i class="ph-fill ph-google-play-logo text-xl text-emerald-400"></i><span class="flex flex-col items-start leading-none"><span class="text-[7px] text-slate-300 uppercase tracking-widest mb-0.5">Get it on</span><span class="text-[11px] font-bold tracking-wide">Google Play</span></span></span>' 
+            },
             { url: "https://anggaconni.github.io/PesisirKita-Dashboard/index.html", text: "Dashboard" }
         ]
     },
@@ -1931,6 +1935,22 @@
             { url: "https://anggaconni.github.io/Foodways-Mobile/", text: "Mobile" }
         ]
     },
+
+{
+        title: "GlobalScript", 
+        category: "edtech",
+        desc: "A freehand writing app supporting global and indigenous scripts including Latin, Arabic, Japanese, Korean, Thai, Javanese, Balinese, and more.",
+        tags: ["Linguistics", "EdTech"],
+        badge: { text: "Coming Soon", colorClass: "bg-slate-200/90 text-slate-600 border-slate-300" },
+        links: [
+            { url: "https://anggaconni.github.io/learn-to-write/", text: "Web App" },
+            { 
+                url: "#", 
+                text: '<span class="flex items-center gap-1.5 bg-slate-50 text-slate-400 px-2.5 py-1.5 rounded-lg border border-slate-200 shadow-sm cursor-not-allowed"><i class="ph-fill ph-google-play-logo text-xl opacity-50"></i><span class="flex flex-col items-start leading-none"><span class="text-[7px] uppercase tracking-widest mb-0.5">Get it on</span><span class="text-[11px] font-bold tracking-wide">Google Play</span></span></span>' 
+            }
+        ]
+    },
+
     {
         title: "Artifact Radar", category: "ai-data",
         desc: "AI-assisted OSINT monitoring system combining web crawling, search-engine intelligence, and AI reasoning to detect and analyze the online trade of ancient artifacts and cultural heritage objects.",
@@ -1983,6 +2003,15 @@
         links: [{ url: "https://anggaconni.github.io/citizenship-data/", text: "View Dashboard" }]
     },
     {
+        title: "Script Explorer", 
+        category: "edtech",
+        desc: "An interactive map visualizing the digital preservation status and geographic distribution of 60+ global and indigenous writing systems.",
+        tags: ["Linguistics", "Data Viz"],
+        links: [
+            { url: "https://anggaconni.github.io/Script-Explorer/", text: "Launch Explorer" }
+        ]
+    },
+    {
         title: "Barnum Effect Demonstrator", 
         category: "edtech",
         desc: "An interactive psychology tool illustrating cognitive bias by demonstrating how easily individuals accept vague, general statements as deeply personal.",
@@ -2033,16 +2062,6 @@
         desc: "GeoJSON interoperability tool that converts mixed GeometryCollections into ArcGIS-compatible FeatureCollections with zero-backend deployment. Integrates AI-based OCR to recover geospatial data from screenshots and legacy documentation.",
         tags: ["GIS", "GeoJSON", "OCR AI"],
         links: [{ url: "https://anggaconni.github.io/GeoJSON-Fixer/", text: "Launch Tool" }]
-    },
-{
-        title: "GlobalScript & Explorer", category: "edtech",
-        desc: "A freehand writing app supporting global and indigenous scripts (Latin, Arabic, Japanese, Korean, Thai, Javanese, Balinese, and more), paired with an interactive map visualizing the digital preservation status of 60+ writing systems.",
-        tags: ["Linguistics", "Data Viz"],
-        links: [
-            { url: "https://anggaconni.github.io/learn-to-write/", text: "Learn Writing" },
-            { url: "https://anggaconni.github.io/Script-Explorer/", text: "Script Explorer" },
-            { url: "#", text: '<i class="ph ph-google-play-logo text-lg text-slate-400"></i> Playstore <span class="text-[9px] font-bold bg-slate-200 text-slate-500 px-1.5 py-0.5 rounded-full ml-0.5">Coming Soon</span>' }
-        ]
     },
     {
         title: "UN Travel Calculator", category: "tools",
@@ -2123,12 +2142,20 @@
                     `<span class="bg-indigo-50 text-indigo-700 border border-indigo-100 px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider whitespace-nowrap">${tag}</span>`
                 ).join('');
 
+
                 const linksHTML = proj.links.map(link => 
                     `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1 group">
                         ${link.text}
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                     </a>`
                 ).join('<span class="text-slate-300">|</span>');
+
+                // LOGIKA UNTUK BADGE DI ATAS GAMBAR
+                const badgeHTML = proj.badge 
+                    ? `<div class="absolute top-3 right-3 z-30"><span class="text-[10px] font-bold px-2.5 py-1 rounded-full border shadow-sm backdrop-blur-sm ${proj.badge.colorClass}">${proj.badge.text}</span></div>` 
+                    : '';
+
+                // --- AWAL LOGIKA 4-LAYER FALLBACK ---
 
                 // --- AWAL LOGIKA 4-LAYER FALLBACK ---
                 const targetUrl = proj.links[0].url;
@@ -2152,6 +2179,7 @@
                         
                         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">
                             <div class="w-full h-44 bg-slate-100 overflow-hidden relative border-b border-slate-100 shrink-0 group-img">
+                                ${badgeHTML}
                                 <div class="absolute inset-0 flex items-center justify-center bg-slate-100 -z-10">
                                     <span class="text-slate-400 text-xs flex flex-col items-center gap-2">
                                         <svg class="animate-spin h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
