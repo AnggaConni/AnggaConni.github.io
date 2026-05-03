@@ -384,6 +384,193 @@ footer {
   font-size: 0.75rem;
 }
 
+/* ─── ACCORDION ─── */
+.accordion-wrap { display: flex; flex-direction: column; gap: 0.8rem; }
+.acc-item {
+  background: white;
+  border-radius: 1.2rem;
+  border: 1px solid #E8EEF7;
+  overflow: hidden;
+}
+.acc-header {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 1rem 1.4rem;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+  user-select: none;
+  transition: background 0.15s;
+}
+.acc-header:hover { background: var(--mist); }
+.acc-count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #EEF4FF;
+  color: #1E50A0;
+  padding: 0.2rem 0.7rem;
+  border-radius: 30px;
+}
+.acc-arrow { font-size: 0.7rem; color: var(--slate); transition: transform 0.2s; }
+.acc-header.open .acc-arrow { transform: rotate(180deg); }
+.acc-body { display: none; padding: 0 1rem 1.2rem; }
+.acc-body.open { display: block; }
+.big-org-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+.borg {
+  background: #FAFCFF;
+  border: 1px solid #E2EDF7;
+  border-radius: 0.9rem;
+  padding: 0.9rem 1rem;
+}
+.borg-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--plum);
+}
+.borg-fit {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 30px;
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+.fit-hot { background: #FFF2E0; color: #B35000; }
+.fit-ok  { background: #E8FFF4; color: #0C6E43; }
+.fit-easy{ background: #E8F5FF; color: #0A66A0; }
+.fit-flex{ background: #F5F0FF; color: #5D3DA0; }
+.borg-roles { font-size: 0.75rem; font-weight: 600; color: #3A5A8A; margin-bottom: 0.3rem; }
+.borg-note { font-size: 0.75rem; color: var(--slate); line-height: 1.45; }
+
+/* ─── XYZ FORMULA ─── */
+.xyz-intro {
+  background: var(--ink);
+  border-radius: 1.4rem;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.xyz-formula {
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+.xyz-x, .xyz-y, .xyz-z {
+  width: 3.5rem; height: 3.5rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+.xyz-x { background: var(--coral); color: white; }
+.xyz-y { background: var(--sun); color: var(--ink); }
+.xyz-z { background: var(--teal); color: white; }
+.xyz-op { color: rgba(255,255,255,0.4); font-size: 1.3rem; }
+.xyz-labels {
+  display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+.xyz-lx { color: var(--coral); font-size: 0.82rem; font-weight: 600; }
+.xyz-ly { color: var(--sun); font-size: 0.82rem; font-weight: 600; }
+.xyz-lz { color: var(--teal); font-size: 0.82rem; font-weight: 600; }
+.xyz-tagline { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+
+.xyz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.xyz-card {
+  background: white;
+  border-radius: 1.2rem;
+  border: 1px solid #E8EEF7;
+  padding: 1.2rem;
+  overflow: hidden;
+}
+.xyz-badge {
+  font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--ink); color: var(--sun);
+  display: inline-block; padding: 0.2rem 0.7rem;
+  border-radius: 30px; margin-bottom: 0.8rem;
+}
+.xyz-before {
+  background: #FFF5F5;
+  border-radius: 0.7rem;
+  padding: 0.7rem;
+  margin-bottom: 0.6rem;
+}
+.xyz-label-b { font-size: 0.7rem; font-weight: 700; color: var(--coral); display: block; margin-bottom: 0.3rem; }
+.xyz-before p { font-size: 0.8rem; color: #888; font-style: italic; }
+.xyz-after {
+  background: var(--mist);
+  border-radius: 0.7rem;
+  padding: 0.7rem;
+  margin-bottom: 0.6rem;
+}
+.xyz-label-a { font-size: 0.7rem; font-weight: 700; color: var(--teal); display: block; margin-bottom: 0.3rem; }
+.xyz-after p { font-size: 0.82rem; color: var(--ink); line-height: 1.6; }
+.x-word { color: var(--coral); }
+.y-word { color: #B07700; }
+.z-word { color: #0A6A50; }
+.xyz-breakdown { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.bd {
+  font-size: 0.68rem; font-weight: 600;
+  padding: 0.15rem 0.55rem; border-radius: 30px;
+}
+.x-bd { background: #FFE8E8; color: var(--coral); }
+.y-bd { background: #FFF3CC; color: #8A6000; }
+.z-bd { background: #D8FFF3; color: #0A6A50; }
+
+.xyz-tips-box {
+  background: linear-gradient(135deg, #0F3460, #16213E);
+  border-radius: 1.4rem;
+  padding: 1.8rem;
+  color: white;
+  margin-top: 1.2rem;
+}
+.xyz-tips-box h3 {
+  font-family: 'Fraunces', serif;
+  color: var(--sun);
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.tip-item {
+  display: flex; gap: 0.8rem; align-items: flex-start;
+}
+.tip-num {
+  background: var(--sun);
+  color: var(--ink);
+  width: 1.6rem; height: 1.6rem;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 0.8rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.tip-item strong { display: block; font-size: 0.85rem; color: white; margin-bottom: 0.2rem; }
+.tip-item p { font-size: 0.78rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
+@media(max-width: 600px) {
+  .xyz-formula { gap: 0.6rem; }
+  .xyz-x, .xyz-y, .xyz-z { width: 2.8rem; height: 2.8rem; font-size: 1.2rem; }
+  .big-org-grid { grid-template-columns: 1fr; }
+}
+
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
@@ -805,11 +992,352 @@ footer {
     </div>
   </div>
 
+  <!-- ⑨ DIREKTORI ORGANISASI LENGKAP -->
+  <div class="section-label">
+    <div class="num">9</div>
+    <h2>Direktori Organisasi Lengkap (80+ Target)</h2>
+  </div>
+  <p style="font-size:0.85rem;color:var(--slate);margin-bottom:1.2rem;">Dikategorikan berdasarkan relevansi dengan CV Anda. Buka semua tab di bawah — klik kategori untuk expand.</p>
+
+  <div class="accordion-wrap">
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <span>🏛️ UN System & Specialized Agencies</span>
+        <span class="acc-count">18 organisasi</span>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="big-org-grid">
+          <div class="borg"><span class="borg-name">UNESCO</span><span class="borg-fit fit-hot">⭐ Sangat Match</span><div class="borg-roles">Cultural Heritage Officer · Programme Specialist · M&E Analyst</div><div class="borg-note">Pengalaman langsung 2+ tahun ICH/UCH. Apply ke Bangkok, Paris, atau regional office Asia.</div></div>
+          <div class="borg"><span class="borg-name">UNDP</span><span class="borg-fit fit-hot">⭐ Sangat Match</span><div class="borg-roles">Programme Analyst · Digital Transformation · M&E Officer</div><div class="borg-note">Track record Papua + Delivering as One. Cek UNDP Bangkok, Pacific, dan HQ NY.</div></div>
+          <div class="borg"><span class="borg-name">UNOPS</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Project Manager · Infrastructure Officer · Procurement</div><div class="borg-note">Kontrak lebih fleksibel dari UN Staff. Syarat bahasa lebih longgar. Kantor di Kopenhagen, Bangkok.</div></div>
+          <div class="borg"><span class="borg-name">UNICEF</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Health Specialist · Digital Innovation · KM Officer</div><div class="borg-note">Pengalaman Papua BCG + SMILE sangat relevan untuk program kesehatan anak.</div></div>
+          <div class="borg"><span class="borg-name">WHO</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Health Information Specialist · Digital Health Officer</div><div class="borg-note">Relevan karena analisis vaksin Papua. Kantor regional SEARO di New Delhi.</div></div>
+          <div class="borg"><span class="borg-name">UNV</span><span class="borg-fit fit-easy">🟢 Entry Point</span><div class="borg-roles">Online/Onsite Volunteer · Specialist roles</div><div class="borg-note">Tidak butuh TOEFL resmi. Pintu masuk terbaik ke sistem UN. Daftar di unv.org sekarang.</div></div>
+          <div class="borg"><span class="borg-name">World Bank Group</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Rural Development Specialist · Digital Dev · KM</div><div class="borg-note">Pengalaman BUMDesa & dana desa sangat relevan. Cek posisi di Indonesia dan regional.</div></div>
+          <div class="borg"><span class="borg-name">FAO</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Rural Livelihoods Officer · Digital Agriculture</div><div class="borg-note">Relevan dengan pengalaman BUMDesa dan program desa.</div></div>
+          <div class="borg"><span class="borg-name">ILO</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Skills Dev Officer · Capacity Building</div><div class="borg-note">Kantor Jakarta aktif. Relevan dengan capacity building dan CSR experience.</div></div>
+          <div class="borg"><span class="borg-name">UN Women</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">M&E Officer · Programme Support</div><div class="borg-note">Minta gender lens dalam semua program. Bisa match jika ada component gender di proposal.</div></div>
+          <div class="borg"><span class="borg-name">IFAD</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Rural Dev Specialist · KM & Communications</div><div class="borg-note">Sangat relevan dengan pengalaman BUMDesa dan circular economy rural.</div></div>
+          <div class="borg"><span class="borg-name">UNESCAP</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Policy Analyst · Sustainable Dev</div><div class="borg-note">Kantor di Bangkok. Banyak posisi untuk Southeast Asia.</div></div>
+          <div class="borg"><span class="borg-name">UNODC</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Cultural Property Protection · OSINT Analyst</div><div class="borg-note">Artifact Radar OSINT tool Anda sangat relevan untuk unit anti-trafficking warisan budaya.</div></div>
+          <div class="borg"><span class="borg-name">ICOMOS</span><span class="borg-fit fit-hot">⭐ Sangat Match</span><div class="borg-roles">Heritage Advisor · Technical Expert</div><div class="borg-note">Sudah ada media mention Anda di ICOMOS Philippines. Modal sosial kuat.</div></div>
+          <div class="borg"><span class="borg-name">IMO</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Marine Environment Officer</div><div class="borg-note">Relevan dengan ocean literacy dan UCH experience.</div></div>
+          <div class="borg"><span class="borg-name">UNEP</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Environmental Communication · Ocean Programme</div><div class="borg-note">Blue School initiative sangat aligned dengan UNEP ocean mandates.</div></div>
+          <div class="borg"><span class="borg-name">UN Habitat</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Urban/Rural Dev Analyst · Digital Solutions</div><div class="borg-note">Pengalaman desa dan GIS tools cocok untuk rural-urban continuum programmes.</div></div>
+          <div class="borg"><span class="borg-name">UNESCO ICHCAP</span><span class="borg-fit fit-hot">⭐ Sangat Match</span><div class="borg-roles">ICH Programme Officer · Capacity Building</div><div class="borg-note">Pusat ICH di Jeonju Korea — Anda sudah workshop di sana! Ini koneksi langsung.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <span>🏦 Development Finance & Bilateral Agencies</span>
+        <span class="acc-count">14 organisasi</span>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="big-org-grid">
+          <div class="borg"><span class="borg-name">GIZ (Germany)</span><span class="borg-fit fit-hot">⭐ Sangat Match</span><div class="borg-roles">Advisor · Digital Transformation · Governance</div><div class="borg-note">Fokus ke technical expertise, bukan TOEFL. Banyak program di Indonesia & Asia Tenggara.</div></div>
+          <div class="borg"><span class="borg-name">JICA (Japan)</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Project Expert · Technical Advisor</div><div class="borg-note">Banyak program rural development. Bahasa Jepang nilai plus tapi tidak wajib.</div></div>
+          <div class="borg"><span class="borg-name">USAID</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Program Officer · COP · Digital Dev</div><div class="borg-note">Biasanya hire via implementer (Chemonics, DAI, Palladium). Apply ke keduanya sekaligus.</div></div>
+          <div class="borg"><span class="borg-name">DFAT Australia (AAS)</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Program Analyst · Technical Advisor</div><div class="borg-note">Flinders University partner sudah kenal Anda (Belitung). Manfaatkan koneksi ini!</div></div>
+          <div class="borg"><span class="borg-name">ADB (Asian Dev Bank)</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Rural Dev Specialist · Digital Solutions</div><div class="borg-note">Kantor di Manila. Banyak posisi untuk Southeast Asia regional programmes.</div></div>
+          <div class="borg"><span class="borg-name">EU Delegation</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Project Manager · Technical Advisor</div><div class="borg-note">Smart Specialization S3 tool Anda langsung relevan untuk EU-funded programmes!</div></div>
+          <div class="borg"><span class="borg-name">KfW (Germany)</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Project Coordinator</div><div class="borg-note">Development finance, banyak bekerja sama dengan GIZ.</div></div>
+          <div class="borg"><span class="borg-name">AFD (France)</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Programme Officer · Cultural Heritage</div><div class="borg-note">Terkait UNESCO Paris — koneksi Anda bisa berguna.</div></div>
+          <div class="borg"><span class="borg-name">British Council</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Education Advisor · Digital Learning</div><div class="borg-note">Sangat relevan dengan gamified learning platform dan ocean literacy school project.</div></div>
+          <div class="borg"><span class="borg-name">Korea Foundation (KF)</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Cultural Exchange Officer</div><div class="borg-note">Koneksi Jeonju Workshop bisa menjadi referral. Korea sangat aktif di ICH.</div></div>
+          <div class="borg"><span class="borg-name">KOICA (Korea)</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">ODA Project Officer</div><div class="borg-note">Banyak program digital transformation di Asia Tenggara.</div></div>
+          <div class="borg"><span class="borg-name">AIIB</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Infrastructure · Digital Dev</div><div class="borg-note">Bank infrastruktur Asia berbasis Beijing.</div></div>
+          <div class="borg"><span class="borg-name">Flinders University</span><span class="borg-fit fit-hot">⭐ Sangat Match</span><div class="borg-roles">Research Associate · Pacific Heritage</div><div class="borg-note">Anda sudah berkolaborasi di Belitung! Ini koneksi riil yang bisa jadi posisi.</div></div>
+          <div class="borg"><span class="borg-name">CRIHAP</span><span class="borg-fit fit-hot">⭐ Sangat Match</span><div class="borg-roles">ICH Training Officer · Facilitator</div><div class="borg-note">Anda sudah bekerja sama dengan CRIHAP di Jeonju dan kapasitas ICH. Koneksi langsung!</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <span>🌱 NGO Internasional & Sipil</span>
+        <span class="acc-count">18 organisasi</span>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="big-org-grid">
+          <div class="borg"><span class="borg-name">Save the Children</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Programme Officer · Education · Health</div><div class="borg-note">Kantor regional Asia. TOEFL 550 PBT biasanya diterima jika pengalaman kuat.</div></div>
+          <div class="borg"><span class="borg-name">CARE International</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Livelihoods Officer · M&E</div><div class="borg-note">Fokus community empowerment — sangat selaras dengan BUMDesa experience.</div></div>
+          <div class="borg"><span class="borg-name">WWF Indonesia/Regional</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Marine Programme Officer · Data Analyst</div><div class="borg-note">Blue School + ocean literacy initiative sangat relevan dengan mandate WWF.</div></div>
+          <div class="borg"><span class="borg-name">IUCN</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Marine Biodiversity · Heritage Sites</div><div class="borg-note">Biodiversity platform Anda (citizenship-data) cocok sebagai portofolio konkret.</div></div>
+          <div class="borg"><span class="borg-name">Mercy Corps</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Programme Officer · Digital Inclusion</div><div class="borg-note">Aktif di Indonesia dan Pacific. Fokus ke resilience dan economic empowerment.</div></div>
+          <div class="borg"><span class="borg-name">World Vision</span><span class="borg-fit fit-easy">🟢 Entry Point</span><div class="borg-roles">Programme Officer · Health · Education</div><div class="borg-note">Dikenal lebih fleksibel soal TOEFL. Banyak program di Indonesia Timur.</div></div>
+          <div class="borg"><span class="borg-name">ICRC</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Field Officer · Digital Operations</div><div class="borg-note">Fokus ke pengalaman lapangan. Pengalaman Papua dan conflict-affected area jadi nilai plus.</div></div>
+          <div class="borg"><span class="borg-name">Search for Common Ground</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Peacebuilding Officer · Communications</div><div class="borg-note">Heritage Commons game untuk peacebuilding sangat aligned!</div></div>
+          <div class="borg"><span class="borg-name">Oxfam</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Policy Officer · Livelihoods</div><div class="borg-note">Banyak program di Indonesia. Fokus inequality — relevan dengan Gini ratio research.</div></div>
+          <div class="borg"><span class="borg-name">ActionAid</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Programme Manager · CSR Interface</div><div class="borg-note">Relevan dengan CSR strategy development experience.</div></div>
+          <div class="borg"><span class="borg-name">Wetlands International</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Marine/Coastal Programme</div><div class="borg-note">Mangrove monitoring dan Blue School initiative sangat selaras.</div></div>
+          <div class="borg"><span class="borg-name">Ocean Conservancy</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Ocean Literacy · Policy</div><div class="borg-note">Ocean Literacy Based on Zero Waste programme bisa jadi pintu masuk langsung.</div></div>
+          <div class="borg"><span class="borg-name">Blue Ventures</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Marine Programme · Community Dev</div><div class="borg-note">Fokus coastal community livelihoods — persis dengan Belitung Just Transition pilot.</div></div>
+          <div class="borg"><span class="borg-name">Rare (Conservation)</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Behavior Change Specialist</div><div class="borg-note">Rare fokus ke behavioral change untuk konservasi — COM-B expertise Anda sangat relevan!</div></div>
+          <div class="borg"><span class="borg-name">Practical Action</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Technology for Dev · Rural Livelihoods</div><div class="borg-note">IoT dan zero-cost tech Anda sangat selaras dengan "practical tech for poor people".</div></div>
+          <div class="borg"><span class="borg-name">Digital Frontiers (USAID)</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">ICT4D Specialist · Digital Advisor</div><div class="borg-note">Semua portofolio digital Anda bisa dijual di sini.</div></div>
+          <div class="borg"><span class="borg-name">Internews</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Media & Communications</div><div class="borg-note">Background jurnalistik Anda (104 kredit) bisa dipakai di sini.</div></div>
+          <div class="borg"><span class="borg-name">People in Need</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Programme Officer</div><div class="borg-note">NGO Eropa aktif di Asia. Persyaratan lebih fleksibel.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <span>🔬 Think Tank, Konsultan & Implementer</span>
+        <span class="acc-count">16 organisasi</span>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="big-org-grid">
+          <div class="borg"><span class="borg-name">Palladium</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Programme Manager · MEL Specialist</div><div class="borg-note">Implementer besar USAID/DFID. Fokus portofolio lebih dari TOEFL. Kantor di Sydney, Jakarta.</div></div>
+          <div class="borg"><span class="borg-name">DAI Global</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Digital Development · Governance</div><div class="borg-note">Banyak program ICT4D dan digital transformation. Cek site devjobs.dai.com.</div></div>
+          <div class="borg"><span class="borg-name">Chemonics</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Technical Specialist · Programme Officer</div><div class="borg-note">Implementer USAID terbesar. Cek posisi di Asia Pasifik.</div></div>
+          <div class="borg"><span class="borg-name">Abt Associates</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Health Systems · M&E</div><div class="borg-note">Pengalaman SMILE dan health data sangat relevan untuk health programmes mereka.</div></div>
+          <div class="borg"><span class="borg-name">Deloitte Public Sector</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Gov-Tech Consultant · Digital Advisor</div><div class="borg-note">Zero-cost architecture dan AI tools bisa jadi pembeda kuat dalam interview.</div></div>
+          <div class="borg"><span class="borg-name">McKinsey Global Institute</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Analyst · Public Sector</div><div class="borg-note">Kompetitif tapi portofolio Anda unik. Coba social impact division.</div></div>
+          <div class="borg"><span class="borg-name">ODI London</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Research Officer · Policy Analyst</div><div class="borg-note">Think tank development terkemuka di UK. Cek posisi Research Associate.</div></div>
+          <div class="borg"><span class="borg-name">RAND Corporation</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Policy Analyst</div><div class="borg-note">Cek RAND Asia Pacific division.</div></div>
+          <div class="borg"><span class="borg-name">Asia Foundation</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Programme Officer · Governance</div><div class="borg-note">Aktif di Indonesia. Fokus democracy, governance, dan digital.</div></div>
+          <div class="borg"><span class="borg-name">ISEAS Singapore</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Research Fellow · ASEAN Studies</div><div class="borg-note">Pengalaman ASEAN ICH sangat relevan. Cek Visiting Research Fellowship.</div></div>
+          <div class="borg"><span class="borg-name">Nathan Associates</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Economic Analyst · Rural Dev</div><div class="borg-note">Relevan dengan pengalaman ekonomi desa dan analisis kebijakan.</div></div>
+          <div class="borg"><span class="borg-name">ICF International</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Health/Digital Consultant</div><div class="borg-note">Kesehatan dan digital — dua bidang yang Anda kuasai.</div></div>
+          <div class="borg"><span class="borg-name">Social Impact Inc.</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">MEL Specialist · Evaluator</div><div class="borg-note">Spesialis M&E untuk USAID. ImpactArchitect tool Anda bisa jadi demo langsung.</div></div>
+          <div class="borg"><span class="borg-name">AECOM Dev</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Community Dev · Infrastructure</div><div class="borg-note">Ada divisi social/development.</div></div>
+          <div class="borg"><span class="borg-name">Mott MacDonald</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Dev Advisor · Rural Livelihoods</div><div class="borg-note">Aktif di Asia. Banyak posisi untuk Asia Pacific.</div></div>
+          <div class="borg"><span class="borg-name">Crown Agents</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Programme Manager · Governance</div><div class="borg-note">Sering mengelola programme FCDO UK di Asia.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">
+        <span>🎓 Akademik, Riset & Foundation</span>
+        <span class="acc-count">10 organisasi</span>
+        <span class="acc-arrow">▼</span>
+      </div>
+      <div class="acc-body">
+        <div class="big-org-grid">
+          <div class="borg"><span class="borg-name">Ford Foundation</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Programme Officer · Governance</div><div class="borg-note">Banyak hibah untuk Indonesia. Tapi juga buka posisi staff.</div></div>
+          <div class="borg"><span class="borg-name">Rockefeller Foundation</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Digital Innovation · Health Systems</div><div class="borg-note">Fokus health dan digital transformation — dua kekuatan utama Anda.</div></div>
+          <div class="borg"><span class="borg-name">Gates Foundation (BMGF)</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Health Programme Officer</div><div class="borg-note">Kompetitif, tapi pengalaman vaksin Papua sangat relevan untuk Global Health division.</div></div>
+          <div class="borg"><span class="borg-name">Wellcome Trust</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Global Health Research</div><div class="borg-note">Funding riset kesehatan. Cek posisi programme roles.</div></div>
+          <div class="borg"><span class="borg-name">Ritsumeikan University</span><span class="borg-fit fit-hot">⭐ Koneksi Langsung</span><div class="borg-roles">Research Associate · Visiting Fellow</div><div class="borg-note">Anda sudah bertemu dengan mereka di ICH discussion! Hubungi langsung kontak tersebut.</div></div>
+          <div class="borg"><span class="borg-name">Universitas Gadjah Mada</span><span class="borg-fit fit-hot">⭐ Koneksi Langsung</span><div class="borg-roles">Peneliti Tamu · Dosen Praktisi</div><div class="borg-note">Pernah kolaborasi publikasi. Cek program Dosen Praktisi Kemdikbud atau peneliti tamu.</div></div>
+          <div class="borg"><span class="borg-name">LIPI / BRIN</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Peneliti · Kolaborator Riset</div><div class="borg-note">Untuk jalur riset nasional sebelum go international.</div></div>
+          <div class="borg"><span class="borg-name">NUS (National Univ Singapore)</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Research Associate · ASEAN Studies</div><div class="borg-note">Cek Lee Kuan Yew School of Public Policy — relevan dengan kebijakan publik Anda.</div></div>
+          <div class="borg"><span class="borg-name">ANU (Australia)</span><span class="borg-fit fit-flex">💡 Possible</span><div class="borg-roles">Research · Indonesia Programme</div><div class="borg-note">Banyak riset tentang Indonesia. Cek Crawford School of Public Policy.</div></div>
+          <div class="borg"><span class="borg-name">Nesta (UK Innovation)</span><span class="borg-fit fit-ok">✅ Match</span><div class="borg-roles">Innovation Specialist · Gov-Tech</div><div class="borg-note">Think tank inovasi kebijakan. Zero-cost tech approach Anda sangat selaras.</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end accordion-wrap -->
+
+  <!-- ⑩ RUMUS XYZ GOOGLE -->
+  <div class="section-label">
+    <div class="num">10</div>
+    <h2>Rumus XYZ Google — Cara Menulis Achievement yang Memikat</h2>
+  </div>
+
+  <div class="xyz-intro">
+    <div class="xyz-formula">
+      <span class="xyz-x">X</span>
+      <span class="xyz-op">+</span>
+      <span class="xyz-y">Y</span>
+      <span class="xyz-op">+</span>
+      <span class="xyz-z">Z</span>
+    </div>
+    <div class="xyz-labels">
+      <span class="xyz-lx">Accomplished [X]</span>
+      <span class="xyz-ly">as measured by [Y]</span>
+      <span class="xyz-lz">by doing [Z]</span>
+    </div>
+    <p class="xyz-tagline">Formula dari Google HR — ubah deskripsi tugas menjadi bukti dampak yang terukur.</p>
+  </div>
+
+  <div class="xyz-grid">
+
+    <div class="xyz-card">
+      <div class="xyz-badge">UNDP Papua</div>
+      <div class="xyz-before">
+        <span class="xyz-label-b">❌ Sebelum (lemah):</span>
+        <p>"Supported vaccine reporting in Papua health districts."</p>
+      </div>
+      <div class="xyz-after">
+        <span class="xyz-label-a">✅ Sesudah (XYZ):</span>
+        <p><strong class="x-word">Increased vaccine utilization reporting rates</strong> <span class="y-word">from 5% to 60% across remote Papua districts</span> <span class="z-word">by applying COM-B behavioral framework, social proof engagement, and offline-first digital tools under UNDP's SMILE programme.</span></p>
+      </div>
+      <div class="xyz-breakdown">
+        <span class="bd x-bd">X: Increased reporting rates</span>
+        <span class="bd y-bd">Y: 5% → 60%</span>
+        <span class="bd z-bd">Z: COM-B + social proof + UNDP SMILE</span>
+      </div>
+    </div>
+
+    <div class="xyz-card">
+      <div class="xyz-badge">UNDP Papua</div>
+      <div class="xyz-before">
+        <span class="xyz-label-b">❌ Sebelum (lemah):</span>
+        <p>"Analyzed SMILE data and found a dosing issue."</p>
+      </div>
+      <div class="xyz-after">
+        <span class="xyz-label-a">✅ Sesudah (XYZ):</span>
+        <p><strong class="x-word">Prevented double-dosing risk for infants across Papua</strong> <span class="y-word">affecting thousands of BCG vaccinations</span> <span class="z-word">by detecting a critical 0.1ml→0.05ml dosage discrepancy in SMILE data, escalating to UNICEF, WHO, and MoH, resulting in formal revised guidance.</span></p>
+      </div>
+      <div class="xyz-breakdown">
+        <span class="bd x-bd">X: Prevented infant double-dosing</span>
+        <span class="bd y-bd">Y: Thousands of vaccinations</span>
+        <span class="bd z-bd">Z: Data analysis + UNICEF/WHO escalation</span>
+      </div>
+    </div>
+
+    <div class="xyz-card">
+      <div class="xyz-badge">UNESCO Jakarta</div>
+      <div class="xyz-before">
+        <span class="xyz-label-b">❌ Sebelum (lemah):</span>
+        <p>"Helped mediate a discussion about cultural heritage."</p>
+      </div>
+      <div class="xyz-after">
+        <span class="xyz-label-a">✅ Sesudah (XYZ):</span>
+        <p><strong class="x-word">De-escalated a multi-country ICH nomination dispute</strong> <span class="y-word">involving 5 ASEAN delegations (Indonesia, Philippines, Malaysia, Singapore, Brunei)</span> <span class="z-word">by reframing the debate toward media's role in safeguarding — an angle all parties had overlooked — restoring constructive dialogue at a UNESCO Bangkok meeting.</span></p>
+      </div>
+      <div class="xyz-breakdown">
+        <span class="bd x-bd">X: De-escalated dispute</span>
+        <span class="bd y-bd">Y: 5 ASEAN nations</span>
+        <span class="bd z-bd">Z: Strategic issue reframing</span>
+      </div>
+    </div>
+
+    <div class="xyz-card">
+      <div class="xyz-badge">UNESCO Jakarta</div>
+      <div class="xyz-before">
+        <span class="xyz-label-b">❌ Sebelum (lemah):</span>
+        <p>"Convinced UNICEF and WHO to join UNDP workshops."</p>
+      </div>
+      <div class="xyz-after">
+        <span class="xyz-label-a">✅ Sesudah (XYZ):</span>
+        <p><strong class="x-word">Secured co-funding from UNICEF and WHO</strong> <span class="y-word">for 8 capacity-building events</span> <span class="z-word">by reframing UNDP's SMILE workshops as a UN Reform "Delivering as One" initiative, aligning all three agencies' mandates under a shared health resilience narrative in Papua.</span></p>
+      </div>
+      <div class="xyz-breakdown">
+        <span class="bd x-bd">X: Secured co-funding</span>
+        <span class="bd y-bd">Y: 8 workshops funded</span>
+        <span class="bd z-bd">Z: UN Reform framing + mandate alignment</span>
+      </div>
+    </div>
+
+    <div class="xyz-card">
+      <div class="xyz-badge">Kemendesa PDTT</div>
+      <div class="xyz-before">
+        <span class="xyz-label-b">❌ Sebelum (lemah):</span>
+        <p>"Conducted data analysis and provided policy recommendations."</p>
+      </div>
+      <div class="xyz-after">
+        <span class="xyz-label-a">✅ Sesudah (XYZ):</span>
+        <p><strong class="x-word">Identified unintended inequality consequences of infrastructure investment</strong> <span class="y-word">evidenced by measurable Gini ratio increase in Jambi Province</span> <span class="z-word">by conducting qualitative field analysis revealing that road time reduction (1–2 hrs → 30 min) was diverting local economic activity to urban centers, bypassing village food stalls.</span></p>
+      </div>
+      <div class="xyz-breakdown">
+        <span class="bd x-bd">X: Identified policy blind spot</span>
+        <span class="bd y-bd">Y: Gini ratio increase — Jambi</span>
+        <span class="bd z-bd">Z: Qualitative field analysis</span>
+      </div>
+    </div>
+
+    <div class="xyz-card">
+      <div class="xyz-badge">Independent / UNESCO</div>
+      <div class="xyz-before">
+        <span class="xyz-label-b">❌ Sebelum (lemah):</span>
+        <p>"Built digital tools for government and UNESCO projects."</p>
+      </div>
+      <div class="xyz-after">
+        <span class="xyz-label-a">✅ Sesudah (XYZ):</span>
+        <p><strong class="x-word">Designed and deployed 20+ production-grade digital tools</strong> <span class="y-word">at zero recurring infrastructure cost, currently used by government ministries and international organizations</span> <span class="z-word">by engineering a serverless "Google Fullstack" architecture (Sheets + Apps Script + GitHub Pages) accelerated with Gemini AI — replacing costly enterprise systems.</span></p>
+      </div>
+      <div class="xyz-breakdown">
+        <span class="bd x-bd">X: 20+ digital tools deployed</span>
+        <span class="bd y-bd">Y: Zero cost, live in production</span>
+        <span class="bd z-bd">Z: Google Fullstack + AI augmented</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="xyz-tips-box">
+    <h3>📝 Tips Cepat Menulis XYZ</h3>
+    <div class="tips-grid">
+      <div class="tip-item">
+        <span class="tip-num">1</span>
+        <div>
+          <strong>Mulai dari kata kerja aksi</strong>
+          <p>Increased · Reduced · Secured · Designed · Prevented · Mediated · Identified · Delivered · Launched · Negotiated</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-num">2</span>
+        <div>
+          <strong>Y harus angka atau spesifik</strong>
+          <p>Bukan "significantly improved" → tapi "from 5% to 60%", "8 events", "5 ASEAN countries", "20+ tools", "3 ministries"</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-num">3</span>
+        <div>
+          <strong>Z adalah "cara" Anda yang unik</strong>
+          <p>Ini yang membedakan Anda. Sebutkan metode spesifik: COM-B, social proof, Delivering as One, AI-augmented, zero-cost architecture.</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-num">4</span>
+        <div>
+          <strong>Satu baris = satu pencapaian</strong>
+          <p>Ideal: 1.5–2 baris di CV. Jangan campurkan dua achievement dalam satu bullet. Fokus = kuat.</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-num">5</span>
+        <div>
+          <strong>Bahasa cover letter lebih panjang</strong>
+          <p>Di CV: XYZ dikompres jadi 1–2 kalimat. Di cover letter: bisa diperluas menjadi 3–4 kalimat dengan konteks tambahan.</p>
+        </div>
+      </div>
+      <div class="tip-item">
+        <span class="tip-num">6</span>
+        <div>
+          <strong>Sesuaikan Y dengan job desc</strong>
+          <p>Jika lowongan minta "data-driven", tonjolkan angka di Y. Jika minta "partnership", tonjolkan jumlah stakeholder di Y.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <footer>
   Panduan ini dibuat berdasarkan CV & portofolio Angga Conni Saputra · April 2026 · Perbarui setiap bulan sesuai perkembangan lamaran
 </footer>
 
+<script>
+function toggleAcc(header) {
+  const body = header.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  // close all
+  document.querySelectorAll('.acc-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.acc-header').forEach(h => h.classList.remove('open'));
+  if (!isOpen) {
+    body.classList.add('open');
+    header.classList.add('open');
+  }
+}
+// Open first accordion by default
+document.addEventListener('DOMContentLoaded', () => {
+  const first = document.querySelector('.acc-header');
+  if (first) toggleAcc(first);
+});
+</script>
 </body>
 </html>
