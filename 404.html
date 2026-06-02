@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance - Mas Angga</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #e2e8f0;
+            overflow: hidden;
+        }
+
+        .code-font {
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Animasi Uap Kopi */
+        .steam-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .steam {
+            position: absolute;
+            height: 50px;
+            width: 15px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin-top: -20px;
+            opacity: 0;
+            filter: blur(8px);
+            animation: rise 3s infinite;
+        }
+
+        .steam:nth-child(1) { animation-delay: 0.2s; left: -10px; }
+        .steam:nth-child(2) { animation-delay: 1.2s; left: 15px; }
+        .steam:nth-child(3) { animation-delay: 2.2s; left: 40px; }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-80px) scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Background Grid Animation */
+        .bg-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* Cursor berkedip */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            background-color: #4ade80; /* Green 400 */
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen relative selection:bg-green-500 selection:text-slate-900">
+
+    <!-- Latar Belakang Grid -->
+    <div class="bg-grid"></div>
+
+    <div class="max-w-2xl w-full px-6 text-center relative z-10">
+        
+        <!-- Ikon Kopi & Laptop -->
+        <div class="mb-8 relative inline-block">
+            <div class="steam-container mb-2">
+                <span class="steam"></span>
+                <span class="steam"></span>
+                <span class="steam"></span>
+            </div>
+            <div class="text-7xl text-yellow-500 drop-shadow-lg">
+                <i class="fas fa-mug-hot"></i>
+            </div>
+            <div class="text-4xl text-slate-500 absolute -bottom-2 -right-6 transform -rotate-12">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+
+        <!-- Judul Utama -->
+        <div class="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 shadow-2xl">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 mb-4 tracking-tight">
+                UNDER MAINTENANCE
+            </h1>
+
+            <!-- Pesan Mas Angga (Typing Effect) -->
+            <div class="min-h-[60px] flex items-center justify-center mb-6">
+                <p class="code-font text-green-400 text-lg md:text-xl font-semibold">
+                    <span class="text-slate-400">$ status: </span>
+                    <span id="typing-text"></span><span class="cursor">&nbsp;</span>
+                </p>
+            </div>
+
+            <hr class="border-slate-700 mb-6">
+
+            <!-- Quote Begadang -->
+            <div class="bg-slate-900/80 rounded-lg p-4 border-l-4 border-yellow-500 inline-block">
+                <p class="italic text-slate-300 text-md md:text-lg">
+                    <i class="fas fa-music text-yellow-500 mr-2"></i>
+                    "Begadang jangan begadang, <br class="md:hidden"> kalau tiada kopinya..."
+                </p>
+            </div>
+
+            <!-- Progress Bar (Fake) -->
+            <div class="mt-8">
+                <div class="flex justify-between text-xs text-slate-400 mb-1">
+                    <span>Compiling...</span>
+                    <span id="progress-text">0%</span>
+                </div>
+                <div class="w-full bg-slate-700 rounded-full h-2.5 overflow-hidden">
+                    <div id="progress-bar" class="bg-gradient-to-r from-green-400 to-blue-500 h-2.5 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-xs text-slate-500 mt-2 animate-pulse">
+                    Estimasi selesai: Tergantung stok kopi Mas Angga ☕
+                </p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <p class="mt-8 text-slate-500 text-sm">
+            &copy; <script>document.write(new Date().getFullYear())</script> Crafted with Caffeine by Mas Angga.
+        </p>
+
+    </div>
+
+    <script>
+        // Efek Mengetik
+        const textToType = "Tenang, Mas Angga lagi benerin codenya sambil begadang...";
+        const typingElement = document.getElementById('typing-text');
+        let index = 0;
+
+        function typeWriter() {
+            if (index < textToType.length) {
+                typingElement.innerHTML += textToType.charAt(index);
+                index++;
+                setTimeout(typeWriter, 50); // Kecepatan mengetik
+            }
+        }
+
+        // Efek Progress Bar Jalan Pelan-pelan
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        let width = 0;
+
+        function moveProgress() {
+            if (width >= 90) {
+                // Mentok di 90% biar realistis (coding gak pernah 100% selesai haha)
+            } else {
+                // Random increment
+                width += Math.random() * 2; 
+                if(width > 90) width = 90;
+                
+                progressBar.style.width = width + '%';
+                progressText.innerText = Math.floor(width) + '%';
+                
+                // Random delay biar kayak lagi loading beneran
+                setTimeout(moveProgress, Math.random() * 1000);
+            }
+        }
+
+        // Jalankan saat load
+        window.onload = function() {
+            setTimeout(typeWriter, 500);
+            setTimeout(moveProgress, 1000);
+        };
+    </script>
+</body>
+</html>
