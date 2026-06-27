@@ -11,5 +11,17 @@
         "27:A8:B9:C6:F6:66:76:60:81:45:D5:02:C0:2C:83:76:14:B1:D7:50:1C:E1:97:2A:F9:A3:B3:2F:51:E2:61:99"
       ]
     }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.anggaconni.globalscript",
+      "sha256_cert_fingerprints": [
+        "D7:51:FF:3A:32:7B:05:14:0D:ED:95:D8:AD:7D:8D:B6:67:FF:95:EF:02:52:76:1A:1E:04:7F:FB:99:E6:C6:95"
+      ]
+    }
   }
 ]
