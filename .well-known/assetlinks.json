@@ -37,11 +37,15 @@
     }
   },
   {
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "id.anggasaputra.ourheritage.twa",
-        "sha256_cert_fingerprints": ["27:5C:88:A4:1F:50:FB:B7:71:59:38:2B:8A:F6:6B:CD:EC:DC:C5:70:A1:8A:60:60:3A:53:86:7A:8D:59:AF:C1"]
-      }
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "id.anggasaputra.ourheritage.twa",
+      "sha256_cert_fingerprints": [
+        "27:5C:88:A4:1F:50:FB:B7:71:59:38:2B:8A:F6:6B:CD:EC:DC:C5:70:A1:8A:60:60:3A:53:86:7A:8D:59:AF:C1"
+      ]
     }
+  }
 ]
