@@ -23,5 +23,17 @@
         "D7:51:FF:3A:32:7B:05:14:0D:ED:95:D8:AD:7D:8D:B6:67:FF:95:EF:02:52:76:1A:1E:04:7F:FB:99:E6:C6:95"
       ]
     }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "id.anggasaputra.gizikita.twa",
+      "sha256_cert_fingerprints": [
+        "08:C2:B0:01:B1:17:72:03:34:8E:96:16:33:B3:80:5B:6D:E9:77:83:60:4A:CA:8C:46:7E:57:FF:F9:35:11:CE"
+      ]
+    }
   }
 ]
