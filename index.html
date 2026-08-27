@@ -18,6 +18,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angga Conni Saputra | Portfolio</title>
+    
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- ================================================================ -->
@@ -507,6 +508,99 @@
             padding-right: max(20px, calc((100vw - 1100px) / 2 + 20px));
         }
 
+        /* ============================================
+        PRINT TO PDF STYLESHEET (FULL / FINAL)
+        ============================================ */
+        @media print {
+
+        /* 1. Sembunyikan semua elemen non-esensial */
+        .no-print,
+        #doc-modal,
+        #pdf-modal,
+        nav,
+        #filter-container,
+        #scrollLeftBtn,
+        #scrollRightBtn,
+        #printPdfBtn {
+            display: none !important;
+        }
+
+        /* 2. Reset warna biar hemat tinta & konsisten hitam-putih */
+        body { background: #fff !important; color: #000 !important; }
+        * { box-shadow: none !important; text-shadow: none !important; }
+
+        /* 3. Ubah carousel proyek jadi grid yang wrap ke bawah */
+        #timeline-scroll {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            overflow: visible !important;
+            padding: 0 !important;
+        }
+        .full-bleed-wrapper { width: 100% !important; margin-left: 0 !important; }
+        .full-bleed-track   { padding-left: 0 !important; padding-right: 0 !important; }
+        .hide-item { display: flex !important; } /* filter jangan sembunyikan apapun saat print */
+
+        /* --- KARTU PROYEK: KOMPAK, TANPA FOTO, 3 PER BARIS --- */
+        .portfolio-item {
+            width: 31% !important;
+            margin: 0 1% 14px 0 !important;
+            padding-top: 0 !important;
+            flex: 0 0 auto;
+            page-break-inside: avoid;
+        }
+        .portfolio-item .absolute.top-\[31px\] { display: none !important; } /* titik timeline */
+        .portfolio-item .group-img { display: none !important; }             /* screenshot besar */
+        .portfolio-item .bg-white {
+            border: 1px solid #ddd !important;
+            border-radius: 6px !important;
+        }
+        .portfolio-item .p-6 { padding: 10px !important; }
+        .portfolio-item h3 {
+            font-size: 0.8rem !important;
+            margin-bottom: 4px !important;
+            white-space: normal !important;
+        }
+        .portfolio-item p {
+            font-size: 0.68rem !important;
+            -webkit-line-clamp: 2 !important;
+            margin-bottom: 6px !important;
+        }
+        .portfolio-item .flex-wrap.gap-1\.5 { display: none !important; } /* tag AI/GEMINI/OSINT */
+        .portfolio-item a {
+            font-size: 0.7rem !important;
+            text-decoration: underline !important;
+            color: #2563EB !important;
+        }
+        .portfolio-item a svg { display: none !important; }
+
+        /* 4. PAKSA semua modal tercetak walau tidak "active" */
+        .modal-overlay {
+            display: block !important;
+            position: static !important;
+            background: none !important;
+            backdrop-filter: none !important;
+            padding: 0 !important;
+            margin: 0 0 24px 0 !important;
+        }
+        .modal-content {
+            width: 100% !important;
+            max-width: 100% !important;
+            max-height: none !important;
+            box-shadow: none !important;
+            border: 1px solid #ccc !important;
+        }
+        .modal-body { overflow: visible !important; max-height: none !important; }
+        .modal-footer, .close-icon { display: none !important; }
+
+        /* 5. Tabel panjang (34 ISBN) jangan terpotong scroll */
+        .table-scroll { max-height: none !important; overflow: visible !important; }
+
+        /* 6. Cegah kartu/kotak lain terpotong di tengah halaman */
+        .job, .expert-card, .edu-item, .mm-item, .carousel-card {
+            page-break-inside: avoid;
+        }
+        }
+
     </style>
 
     <style>
@@ -547,9 +641,20 @@
 </head>
 <body>
 
+    <button id="printPdfBtn" onclick="printPortfolioToPDF()" class="no-print"
+    style="position:fixed; bottom:24px; right:24px; z-index:5000;
+            background:#0F172A; color:#D4AF37; border:none;
+            padding:14px 22px; border-radius:50px; font-weight:700;
+            font-family:'Manrope',sans-serif; font-size:0.9rem;
+            box-shadow:0 10px 15px -3px rgba(0,0,0,0.2);
+            cursor:pointer; display:flex; align-items:center; gap:8px;">
+    <i class="ph ph-printer" style="font-size:1.2rem;"></i>
+    Print to PDF
+    </button>
+
     <header class="relative bg-slate-50 text-slate-900 font-sans overflow-hidden flex flex-col">       
-        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 pointer-events-none"></div>
-        <div class="absolute top-[20%] right-[-5%] w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 pointer-events-none"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 pointer-events-none no-print"></div>
+        <div class="absolute top-[20%] right-[-5%] w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 pointer-events-none no-print"></div>
 
         <nav class="relative w-full max-w-[1100px] mx-auto px-[20px] py-4 flex justify-between items-center z-20">
             <div class="text-xl font-bold tracking-tighter text-slate-800">
@@ -611,11 +716,11 @@
 
             <div class="w-full max-w-[400px] shrink-0 relative h-[450px] mt-4 md:mt-0" style="perspective: 1000px;">
                 
-                <div class="absolute -top-8 right-4 text-sm font-medium text-slate-400 flex items-center gap-2 animate-pulse">
+                <div class="absolute -top-8 right-4 text-sm font-medium text-slate-400 flex items-center gap-2 animate-pulse no-print">
                     Click cards to explore <i class="ph ph-arrow-right"></i>
                 </div>
 
-                <div id="card-stack-container" class="relative w-full h-full cursor-pointer">
+                <div id="card-stack-container" class="relative w-full h-full cursor-pointer no-print">
                     
                     <div id="stack-card-0" class="absolute top-0 left-0 w-full bg-white/90 backdrop-blur-xl rounded-[2.5rem] p-8 border border-white flex flex-col justify-between transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] translate-y-0 scale-100 z-30 opacity-100 shadow-2xl hover:-translate-y-2" style="height: 380px;">
                         <div class="flex justify-between items-start mb-4">
@@ -736,7 +841,7 @@
 
                 </div>
 
-                <div class="absolute bottom-0 left-0 w-full flex justify-center gap-2 z-40">
+                <div class="absolute bottom-0 left-0 w-full flex justify-center gap-2 z-40 no-print">
                     <div id="dot-0" class="h-2 rounded-full transition-all duration-300 w-6 bg-blue-600"></div>
                     <div id="dot-1" class="h-2 rounded-full transition-all duration-300 w-2 bg-slate-300"></div>
                     <div id="dot-2" class="h-2 rounded-full transition-all duration-300 w-2 bg-slate-300"></div>
@@ -1083,7 +1188,7 @@
 </div>
 
 <!-- MINI GAME -->
-    <section class="container" style="margin-top: 0; margin-bottom: 0;">
+    <section class="container no-print" style="margin-top: 0; margin-bottom: 0;">
     <div class="bg-white border border-slate-200 rounded-3xl p-8 text-center overflow-hidden relative">
         <h3 class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-4">Innovation Lab: The Bureaucracy Dodger</h3>
         
@@ -2696,6 +2801,20 @@ container.addEventListener('click', () => {
 
     // Eksekusi render saat DOM siap
     document.addEventListener('DOMContentLoaded', renderReferences);
+</script>
+
+<script>
+function printPortfolioToPDF() {
+  // Paksa semua gambar lazy-load termuat dulu, biar ikut tercetak
+  document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+    img.loading = 'eager';
+  });
+
+  // Beri jeda sedikit supaya gambar sempat termuat sebelum dialog print muncul
+  setTimeout(() => {
+    window.print();
+  }, 300);
+}
 </script>
 
 
