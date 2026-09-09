@@ -63,5 +63,13 @@
         "package_name": "io.github.anggaconni.HazeGuard.twa",
         "sha256_cert_fingerprints": ["B5:4A:5D:B8:A6:3B:07:4A:36:EB:11:18:67:92:8D:E7:18:EA:31:57:D4:A5:9E:76:B7:DF:B9:96:3C:47:23:6B"]
       }
+    },
+  {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.anggaconni.ScienceHUB.twa",
+        "sha256_cert_fingerprints": ["A6:FB:28:6B:96:56:27:0F:FE:37:8B:9B:F5:BD:FC:35:71:F5:7B:B7:16:3C:DE:4C:E2:6D:3D:AB:5B:2F:06:04"]
+      }
     }
 ]
