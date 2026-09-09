@@ -55,5 +55,13 @@
         "package_name": "id.anggasaputra.pantauiklim.twa",
         "sha256_cert_fingerprints": ["AB:7C:BF:96:AA:A5:19:DC:EA:D1:AF:45:24:D7:93:0C:75:A2:A2:D0:97:48:36:A3:75:4A:9D:79:A1:F2:72:F0"]
       }
+    },
+  {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.anggaconni.HazeGuard.twa",
+        "sha256_cert_fingerprints": ["B5:4A:5D:B8:A6:3B:07:4A:36:EB:11:18:67:92:8D:E7:18:EA:31:57:D4:A5:9E:76:B7:DF:B9:96:3C:47:23:6B"]
+      }
     }
 ]
