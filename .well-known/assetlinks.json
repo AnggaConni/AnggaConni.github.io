@@ -71,5 +71,13 @@
         "package_name": "io.github.anggaconni.ScienceHUB.twa",
         "sha256_cert_fingerprints": ["A6:FB:28:6B:96:56:27:0F:FE:37:8B:9B:F5:BD:FC:35:71:F5:7B:B7:16:3C:DE:4C:E2:6D:3D:AB:5B:2F:06:04"]
       }
+    },
+  {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.anggaconni.smartrecorder.twa",
+        "sha256_cert_fingerprints": ["FE:A6:AA:3B:31:F4:C2:61:DE:22:E6:D6:95:E6:E4:27:B5:83:C9:28:C1:E4:52:F6:4C:6A:DF:5B:97:0A:15:84"]
+      }
     }
 ]
