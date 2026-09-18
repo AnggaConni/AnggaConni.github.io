@@ -79,5 +79,13 @@
         "package_name": "io.github.anggaconni.smartrecorder.twa",
         "sha256_cert_fingerprints": ["FE:A6:AA:3B:31:F4:C2:61:DE:22:E6:D6:95:E6:E4:27:B5:83:C9:28:C1:E4:52:F6:4C:6A:DF:5B:97:0A:15:84"]
       }
+    },
+  {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.anggaconni.ICHedu.twa",
+        "sha256_cert_fingerprints": ["FC:75:28:76:86:07:1D:B9:D7:5A:F5:CB:E4:88:A8:6E:AC:5B:00:62:F2:1D:5A:CC:EE:FB:CF:71:D6:BD:BF:4B"]
+      }
     }
 ]
