@@ -87,5 +87,13 @@
         "package_name": "io.github.anggaconni.ICHedu.twa",
         "sha256_cert_fingerprints": ["FC:75:28:76:86:07:1D:B9:D7:5A:F5:CB:E4:88:A8:6E:AC:5B:00:62:F2:1D:5A:CC:EE:FB:CF:71:D6:BD:BF:4B"]
       }
+    },
+  {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.anggaconni.aegis.twa",
+        "sha256_cert_fingerprints": ["CF:EB:73:56:0E:AB:09:94:FC:D8:8B:11:65:37:B2:68:B6:38:EC:81:DC:38:6B:40:8B:7C:AB:AB:70:B4:3B:09"]
+      }
     }
 ]
