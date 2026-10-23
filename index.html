@@ -326,6 +326,20 @@
             margin-left: 10px; 
             padding-left: 25px; 
         }
+        .experience-json-card { padding: 20px; margin-bottom: 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow-sm); }
+        .experience-json-card h3 { margin: 4px 0 5px; font-size: 1.05rem; line-height: 1.45; }
+        .experience-json-card .job-period { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+        .experience-json-card .job-company { display: block; color: var(--text-muted); font-size: .86rem; font-weight: 600; margin-bottom: 10px; }
+        .experience-json-card p { color: var(--text-muted); font-size: .88rem; line-height: 1.65; margin: 8px 0 12px; }
+        .experience-highlight-list { padding-left: 19px; margin: 12px 0; }
+        .experience-highlight-list li { margin-bottom: 10px; color: var(--text-muted); font-size: .85rem; line-height: 1.6; }
+        .experience-highlight-list strong { color: var(--text-main); }
+        .experience-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+        .experience-tag { font-size: .72rem; border: 1px solid var(--border); background: #F8FAFC; color: var(--text-muted); border-radius: 999px; padding: 4px 9px; }
+        .experience-json-card details { border-top: 1px solid var(--border); margin-top: 12px; padding-top: 10px; }
+        .experience-json-card summary { cursor: pointer; color: var(--primary); font-size: .82rem; font-weight: 700; }
+        .experience-evidence-link { display: inline-block; margin-top: 7px; color: var(--primary); font-size: .8rem; font-weight: 700; text-decoration: underline; }
+        .experience-subheading { margin: 22px 0 10px; font-size: .95rem; font-weight: 800; color: var(--text-main); }
         .job { 
             position: relative; 
             margin-bottom: 30px; 
@@ -930,9 +944,10 @@
         </section>
 
         <!-- 3. EXPERIENCE -->
-        <section>
+        <section data-json-source="experience">
             <h2><i class="ph ph-briefcase"></i> Professional Experience</h2>
-            <div class="timeline">
+            <div class="timeline" data-experience-timeline>
+
                 
                 <!-- CONSULTANT -->
                 <div class="job" onclick="openModal('modal-consultant')">
@@ -991,6 +1006,7 @@
                         <li>Managed Agile requirements gathering and custom M&E dashboard development.</li>
                     </ul>
                 </div>
+
 
             </div>
         </section>
