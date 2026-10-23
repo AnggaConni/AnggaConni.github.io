@@ -331,6 +331,20 @@
         [data-editorial-table] .pub-table td:first-child { color: var(--text-muted); font-weight: 700; }
         .editorial-title { font-weight: 600; }
         .editorial-meta { display: block; color: var(--text-muted); font-size: .75rem; margin-top: 4px; }
+        .competencies-intro { color: var(--text-muted); font-size: .9rem; margin: -8px 0 18px; }
+        .competency-card { cursor: default; display: flex; flex-direction: column; }
+        .competency-card > i { margin-bottom: 12px; }
+        .competency-card h3 { line-height: 1.4; }
+        .competency-card p { line-height: 1.6; }
+        .competency-card details { margin-top: auto; padding-top: 12px; }
+        .competency-card summary { cursor: pointer; color: var(--primary); font-size: .82rem; font-weight: 700; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+        .competency-card summary::-webkit-details-marker { display: none; }
+        .competency-card summary::after { content: "+"; font-size: 1.1rem; line-height: 1; }
+        .competency-card details[open] summary::after { content: "−"; }
+        .competency-details { border-top: 1px solid var(--border); margin-top: 10px; padding-top: 12px; }
+        .competency-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .competency-tag { display: inline-block; background: #EFF6FF; color: #1D4ED8; border: 1px solid #DBEAFE; border-radius: 999px; padding: 4px 8px; font-size: .68rem; font-weight: 700; }
+        .competency-evidence-link { color: var(--primary); font-weight: 700; font-size: .8rem; display: inline-block; margin-top: 10px; }
         .experience-json-card { padding: 20px; margin-bottom: 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow-sm); }
         .experience-json-card h3 { margin: 4px 0 5px; font-size: 1.05rem; line-height: 1.45; }
         .experience-json-card .job-period { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
@@ -929,22 +943,10 @@
         <!-- 2. CORE COMPETENCIES -->
         <section>
             <h2><i class="ph ph-lightbulb"></i> Core Competencies</h2>
-            <div class="expertise-grid">
-                <div class="expert-card" onclick="openModal('modal-behavioral')">
-                    <i class="ph ph-brain"></i>
-                    <h3>Behavioral Science</h3>
-                    <p>Nudge Theory & Social Proof strategies applied to public sector adoption.</p>
-                </div>
-                <div class="expert-card" onclick="openModal('modal-tech')">
-                    <i class="ph ph-code"></i>
-                    <h3>Civic Tech & AI</h3>
-                    <p>Developing low-code systems, IoT integration, and "Gamified Policy" tools.</p>
-                </div>
-                <div class="expert-card" onclick="openModal('modal-diplomacy')">
-                    <i class="ph ph-handshake"></i>
-                    <h3>Diplomacy & Policy</h3>
-                    <p>Stakeholder management, high-level policy bridging, and conflict resolution.</p>
-                </div>
+            <p class="competencies-intro">Explore the capabilities behind my policy, programme, research, and digital innovation work. Expand any card to see its focus areas.</p>
+            <div class="expertise-grid" data-json-competencies>
+                <!-- Populated from data/core-competencies.json -->
+                <article class="expert-card competency-card"><p>Loading competencies…</p></article>
             </div>
         </section>
 
