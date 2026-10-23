@@ -120,6 +120,27 @@
     return true;
   }
 
+  function renderEditorialWorks(dataset) {
+    const tbody = document.querySelector("[data-json-editorial-works]");
+    const works = dataset?.editorialWorks?.items;
+    if (!tbody || !Array.isArray(works)) return false;
+
+    const rows = [...works]
+      .sort((a, b) => Number(a.number) - Number(b.number))
+      .map(item => {
+        const title = text(item.title || "Untitled publication");
+        const isbn = item.isbn ? '<span class="isbn-code">' + text(item.isbn) + "</span>" : "—";
+        const metadata = [item.year, item.authors].filter(Boolean).map(text).join(" · ");
+        const metaHtml = metadata ? '<span class="editorial-meta">' + metadata + "</span>" : "";
+        return "<tr><td>" + text(item.number) + '</td><td><span class="editorial-title">' + title + "</span>" + metaHtml + "</td><td>" + isbn + "</td></tr>";
+      }).join("");
+
+    tbody.innerHTML = rows || '<tr><td colspan="3">No editorial works are available.</td></tr>';
+    const heading = document.querySelector('[data-editorial-heading]');
+    if (heading) heading.textContent = "Editorial Works - Copy Editor (" + works.length + " Titles)";
+    return true;
+  }
+
   function renderEducation(dataset) {
     const section = document.querySelector('[data-json-source="education"]');
     const timeline = section?.querySelector(".timeline");
@@ -178,6 +199,7 @@
       if (!report.errors.length) {
         renderEducation(data.education);
         renderExperience(data.experience);
+        renderEditorialWorks(data.publications);
       }
     } catch (error) {
       console.warn("[Portfolio JSON] Loader failed; existing static HTML remains active.", error);
