@@ -146,9 +146,15 @@
       const modal = item.modalId && document.getElementById(item.modalId)
         ? '<a class="competency-evidence-link" href="#" onclick="event.preventDefault(); event.stopPropagation(); openModal(\'' + text(item.modalId) + '\')">View detailed case examples ↗</a>'
         : "";
-      const expanded = '<details><summary>Explore this competency</summary><div class="competency-details">' +
-        (tags ? '<div class="competency-tags">' + tags + '</div>' : '<p>More structured focus areas can be added to this competency in the JSON dataset.</p>') +
-        modal + '</div></details>';
+      const evidence = Array.isArray(item.evidence) ? item.evidence : [];
+      const evidenceHtml = evidence.length
+        ? '<div class="competency-evidence-list"><h4>Selected achievements</h4>' + evidence.map(entry =>
+            '<article class="competency-evidence-item"><strong>' + text(entry.title || "Achievement") + '</strong><p>' + text(entry.detail || "") + '</p></article>'
+          ).join("") + '</div>'
+        : '<p>More structured focus areas can be added to this competency in the JSON dataset.</p>';
+      const expanded = '<details><summary>Explore this competency (' + (evidence.length || (Array.isArray(item.tags) ? item.tags.length : 0)) + ' items)</summary><div class="competency-details">' +
+        (tags ? '<div class="competency-tags">' + tags + '</div>' : '') +
+        evidenceHtml + modal + '</div></details>';
       return '<article class="expert-card competency-card">' +
         '<i class="' + iconClass(item.icon) + '" aria-hidden="true"></i>' +
         category +
