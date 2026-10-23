@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "language": "en",
+  "competencies": [
+    {
+      "id": "behavioral-science",
+      "title": "Behavioral Science",
+      "icon": "ph-brain",
+      "description": "Nudge Theory and Social Proof strategies applied to public-sector adoption.",
+      "modalId": "modal-behavioral"
+    },
+    {
+      "id": "civic-tech-ai",
+      "title": "Civic Tech & AI",
+      "icon": "ph-code",
+      "description": "Developing low-code systems, IoT integration, and gamified policy tools.",
+      "modalId": "modal-tech"
+    },
+    {
+      "id": "diplomacy-policy",
+      "title": "Diplomacy & Policy",
+      "icon": "ph-handshake",
+      "description": "Stakeholder management, high-level policy bridging, and conflict resolution.",
+      "modalId": "modal-diplomacy"
+    }
+  ]
+}
