@@ -40,9 +40,12 @@
       },
       "focus": "Human Capacity Development",
       "sourceEvidence": [
-        "Bachelor Degree.pdf"
+        "Bachelor Degree.pdf",
+        "Bachelor thesis cover photo supplied by the user on 2026-10-23"
       ],
-      "verificationNote": "Diploma confirms the degree programme and 1 July 2013 graduation date; GPA is from the earlier portfolio source."
+      "verificationNote": "Degree programme and 1 July 2013 graduation date are confirmed by the diploma. Thesis title is transcribed from the supplied thesis cover; GPA is from the earlier portfolio source.",
+      "thesis": "Analisis Insentif terhadap Produktivitas pada PT. Sepakat Maju Sukses",
+      "thesisLanguage": "Indonesian"
     }
   ],
   "coursework": [
