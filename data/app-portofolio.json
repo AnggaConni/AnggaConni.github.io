@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "language": "en",
   "lastReviewed": "2026-10-23",
   "categories": [
@@ -485,10 +485,6 @@
         {
           "label": "Naive Bayes",
           "url": "https://anggaconni.github.io/Naive-Bayesian/"
-        },
-        {
-          "label": "Attachment Calculator",
-          "url": "https://anggaconni.github.io/Love-Attachment/"
         }
       ]
     },
@@ -875,12 +871,54 @@
           "url": "https://anggaconni.github.io/Download/"
         }
       ]
+    },
+    {
+      "id": "geojson-interoperability-tool",
+      "title": "GeoJSON Interoperability Tool",
+      "category": "gis",
+      "description": "Client-side geospatial conversion tool that converts mixed GeometryCollections into standard FeatureCollections for GIS interoperability. The source document also describes AI-based OCR to recover geospatial data from screenshots and legacy documents.",
+      "tags": [
+        "GeoJSON",
+        "GIS",
+        "Interoperability",
+        "OCR",
+        "Client-Side"
+      ],
+      "links": [
+        {
+          "label": "Open GeoJSON Fixer",
+          "url": "https://anggaconni.github.io/GeoJSON-Fixer/"
+        }
+      ],
+      "evidenceLevel": "documented in supplied portfolio source",
+      "status": "listed"
+    },
+    {
+      "id": "relationship-behaviour-calculator",
+      "title": "Relationship Behaviour Calculator",
+      "category": "tools",
+      "description": "Experimental probabilistic reasoning tool for reflecting on relationship behaviour without relying on simplistic compatibility frameworks or treating observations as diagnosis. It is designed to surface uncertainty rather than claim objective truth about a relationship.",
+      "tags": [
+        "Behavioural Science",
+        "Probabilistic Reasoning",
+        "Reflection"
+      ],
+      "links": [
+        {
+          "label": "Open Calculator",
+          "url": "https://anggaconni.github.io/Love-Attachment/"
+        }
+      ],
+      "evidenceLevel": "documented in supplied portfolio source",
+      "status": "experimental"
     }
   ],
   "changeNotes": [
     "Expanded from the initial index.html project array using the owner's supplied portfolio directory on 2026-10-23.",
     "Entries with feature descriptions are based on supplied descriptions; entries with limited evidence are explicitly marked as not yet verified.",
     "Potential URL typo preserved as supplied: Science-HUB link contains /ScieScience-HUBnce-HUB/; verify before changing.",
-    "Main portfolio, tips, email contact, and cover letter are profile/navigation resources rather than standalone applications; the download page is included as a utility entry."
+    "Main portfolio, tips, email contact, and cover letter are profile/navigation resources rather than standalone applications; the download page is included as a utility entry.",
+    "Added GeoJSON Interoperability Tool and Relationship Behaviour Calculator as separate documented projects; separated Love-Attachment from the Bayesian Tools entry.",
+    "Science-HUB URL remains unverified because the supplied path appears malformed; verify the live URL before changing it."
   ]
 }
