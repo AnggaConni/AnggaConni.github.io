@@ -331,6 +331,22 @@
         [data-editorial-table] .pub-table td:first-child { color: var(--text-muted); font-weight: 700; }
         .editorial-title { font-weight: 600; }
         .editorial-meta { display: block; color: var(--text-muted); font-size: .75rem; margin-top: 4px; }
+
+        .competency-carousel-wrap { position: relative; }
+        .competency-carousel { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 5px 4px 18px; scrollbar-width: thin; scrollbar-color: #CBD5E1 transparent; }
+        .competency-carousel::-webkit-scrollbar { height: 7px; }
+        .competency-carousel::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; }
+        .competency-carousel .competency-card { flex: 0 0 290px; width: 290px; min-height: 290px; scroll-snap-align: start; }
+        .competency-scroll-btn { position: absolute; top: 44%; transform: translateY(-50%); z-index: 5; width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 50%; background: white; color: var(--text-main); box-shadow: var(--shadow-md); cursor: pointer; font-size: 1.8rem; line-height: 1; display: flex; align-items: center; justify-content: center; }
+        .competency-scroll-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+        .competency-prev { left: -14px; }
+        .competency-next { right: -14px; }
+        .competency-carousel-hint { text-align: center; color: var(--text-muted); font-size: .75rem; margin-top: 2px; }
+        @media (max-width: 640px) {
+          .competency-carousel .competency-card { flex-basis: min(82vw, 290px); width: min(82vw, 290px); }
+          .competency-scroll-btn { display: none; }
+          .competency-carousel { margin-right: -10px; }
+        }
         .competencies-intro { color: var(--text-muted); font-size: .9rem; margin: -8px 0 18px; }
         .competency-card { cursor: default; display: flex; flex-direction: column; }
         .competency-card > i { margin-bottom: 12px; }
@@ -943,11 +959,16 @@
         <!-- 2. CORE COMPETENCIES -->
         <section>
             <h2><i class="ph ph-lightbulb"></i> Core Competencies</h2>
-            <p class="competencies-intro">Explore the capabilities behind my policy, programme, research, and digital innovation work. Expand any card to see its focus areas.</p>
-            <div class="expertise-grid" data-json-competencies>
-                <!-- Populated from data/core-competencies.json -->
-                <article class="expert-card competency-card"><p>Loading competencies…</p></article>
+            <p class="competencies-intro">Explore the capabilities behind my policy, programme, research, and digital innovation work. Scroll horizontally to browse the competencies.</p>
+            <div class="competency-carousel-wrap">
+                <button type="button" class="competency-scroll-btn competency-prev" aria-label="Scroll competencies left" onclick="scrollCompetencies(-1)">‹</button>
+                <div class="competency-carousel" data-json-competencies tabindex="0" aria-label="Core competencies carousel">
+                    <!-- Populated from data/core-competencies.json -->
+                    <article class="expert-card competency-card"><p>Loading competencies…</p></article>
+                </div>
+                <button type="button" class="competency-scroll-btn competency-next" aria-label="Scroll competencies right" onclick="scrollCompetencies(1)">›</button>
             </div>
+            <div class="competency-carousel-hint">← Scroll or swipe to explore →</div>
         </section>
 
         <!-- 3. EXPERIENCE -->
@@ -1983,7 +2004,15 @@
 </div>
 
     <script>
-        function openModal(id) {
+        function scrollCompetencies(direction) {
+        const track = document.querySelector("[data-json-competencies]");
+        if (!track) return;
+        const card = track.querySelector(".competency-card");
+        const step = card ? card.getBoundingClientRect().width + 16 : 306;
+        track.scrollBy({ left: direction * step * 2, behavior: "smooth" });
+    }
+
+    function openModal(id) {
             document.getElementById(id).classList.add('active');
             document.body.style.overflow = 'hidden';
         }
