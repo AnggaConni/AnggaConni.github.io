@@ -76,6 +76,50 @@
     return { ok: errors.length === 0, errors, warnings, counts: Object.fromEntries(Object.entries(collections).map(([key, value]) => [key, Array.isArray(value) ? value.length : 0])) };
   }
 
+  function renderExperience(dataset) {
+    const section = document.querySelector('[data-json-source="experience"]');
+    const timeline = section?.querySelector("[data-experience-timeline]");
+    if (!timeline || !Array.isArray(dataset.experiences)) return false;
+
+    const roles = dataset.experiences.filter(item => item && item.experienceType !== "cross-cutting");
+    const crossCutting = dataset.experiences.filter(item => item && item.experienceType === "cross-cutting");
+
+    const renderHighlight = item => {
+      const area = item.area ? "<strong>" + text(item.area) + ":</strong> " : "";
+      const link = item.url ? ' <a class="experience-evidence-link" href="' + text(item.url) + '" target="_blank" rel="noopener noreferrer">Explore related resource ↗</a>' : "";
+      return "<li>" + area + text(item.detail || "") + link + "</li>";
+    };
+
+    const renderCard = (item, isCrossCutting = false) => {
+      const highlights = Array.isArray(item.highlights) ? item.highlights : [];
+      const visibleCount = isCrossCutting ? 4 : 3;
+      const visible = highlights.slice(0, visibleCount);
+      const remaining = highlights.slice(visibleCount);
+      const tags = [...(Array.isArray(item.themes) ? item.themes : []), ...(Array.isArray(item.competencies) ? item.competencies : [])].filter((value, index, all) => value && all.indexOf(value) === index).slice(0, 8);
+      const clients = Array.isArray(item.clients) && item.clients.length ? '<p><strong>Stakeholders:</strong> ' + text(item.clients.join(" · ")) + "</p>" : "";
+      const moreHighlights = remaining.length ? '<details><summary>View ' + text(remaining.length) + ' more achievements</summary><ul class="experience-highlight-list">' + remaining.map(renderHighlight).join("") + "</ul></details>" : "";
+      const competencyDetails = Array.isArray(item.competencies) && item.competencies.length ? '<details><summary>View competencies (' + text(item.competencies.length) + ')</summary><ul class="experience-highlight-list">' + item.competencies.map(value => "<li>" + text(value) + "</li>").join("") + "</ul></details>" : "";
+      const period = item.period?.label || "";
+      const heading = item.role || item.title || "Experience";
+      let html = '<article class="experience-json-card' + (isCrossCutting ? " experience-cross-cutting" : "") + '">';
+      html += '<span class="job-period">' + text(period) + "</span>";
+      html += "<h3>" + text(heading) + "</h3>";
+      html += '<span class="job-company">' + text(item.organisation || "") + (item.location ? " · " + text(item.location) : "") + "</span>";
+      if (item.overview) html += "<p>" + text(item.overview) + "</p>";
+      html += clients;
+      if (visible.length) html += '<ul class="experience-highlight-list">' + visible.map(renderHighlight).join("") + "</ul>";
+      html += moreHighlights + competencyDetails;
+      if (tags.length) html += '<div class="experience-tags">' + tags.map(tag => '<span class="experience-tag">' + text(tag) + "</span>").join("") + "</div>";
+      html += "</article>";
+      return html;
+    };
+
+    const rolesHtml = roles.map(item => renderCard(item)).join("");
+    const crossHtml = crossCutting.map(item => renderCard(item, true)).join("");
+    timeline.innerHTML = rolesHtml + (crossHtml ? '<h3 class="experience-subheading">Cross-cutting Achievements</h3>' + crossHtml : "");
+    return true;
+  }
+
   function renderEducation(dataset) {
     const section = document.querySelector('[data-json-source="education"]');
     const timeline = section?.querySelector(".timeline");
@@ -131,7 +175,10 @@
       console.info("[Portfolio JSON] Loaded datasets:", report.counts);
 
       // Keep the static Education section as a graceful fallback if the dataset fails validation.
-      if (!report.errors.length) renderEducation(data.education);
+      if (!report.errors.length) {
+        renderEducation(data.education);
+        renderExperience(data.experience);
+      }
     } catch (error) {
       console.warn("[Portfolio JSON] Loader failed; existing static HTML remains active.", error);
       document.dispatchEvent(new CustomEvent("portfolio:data-error", { detail: { message: error.message } }));
