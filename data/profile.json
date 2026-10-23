@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "language": "en",
   "name": "Angga Conni Saputra",
-  "headline": "Solutions Architect | Cultural Data Scientist | Gov-Tech Innovator",
-  "summary": "Architecting Sustainable Digital Public Infrastructure for Global Policy Reform. Bridging high-level mandates with zero-cost, serverless execution for UNESCO, UNDP, and national ministries.",
+  "headline": "Policy-Tech Architect | Digital Transformation & Foresight | Cultural Data & Public Innovation",
+  "summary": "Designing practical digital systems that connect policy intent, data, and human behaviour. Combines public-sector programme experience with AI-augmented development, low-cost serverless architecture, GIS, foresight, and stakeholder coordination to turn complex institutional challenges into usable tools and actionable evidence.",
   "availabilityLabel": "Available for Global Impact",
   "links": [
     {
@@ -26,6 +26,389 @@
       "id": "contact",
       "label": "Email",
       "url": "mailto:angga.conni@horizon-scanning.org"
+    }
+  ],
+  "summaryFilters": {
+    "description": "Use tags, audiences, and themes to filter profile summaries in the future HTML interface.",
+    "availableFields": [
+      "id",
+      "title",
+      "category",
+      "audiences",
+      "themes",
+      "tags",
+      "featured"
+    ]
+  },
+  "summaries": [
+    {
+      "id": "executive-profile",
+      "title": "Executive Profile",
+      "category": "overview",
+      "featured": true,
+      "audiences": [
+        "international organisations",
+        "government",
+        "development partners",
+        "recruiters"
+      ],
+      "themes": [
+        "policy",
+        "digital transformation",
+        "institutional innovation"
+      ],
+      "tags": [
+        "overview",
+        "leadership",
+        "strategy"
+      ],
+      "text": "A policy and technology practitioner working across public-sector delivery, cultural heritage, public health, rural development, and education. Experienced in translating institutional mandates into practical workflows, structured data systems, capacity-building activities, and digital prototypes."
+    },
+    {
+      "id": "policy-tech-architecture",
+      "title": "Policy-Tech Architecture",
+      "category": "professional-focus",
+      "featured": true,
+      "audiences": [
+        "government",
+        "UN agencies",
+        "public-sector innovation teams"
+      ],
+      "themes": [
+        "systems architecture",
+        "GovTech",
+        "digital public infrastructure"
+      ],
+      "tags": [
+        "architecture",
+        "GovTech",
+        "serverless",
+        "workflow"
+      ],
+      "text": "Designs low-cost, browser-based and serverless digital systems that connect institutional workflows, structured data, reporting, and decision support. Focuses on practical adoption, auditability, maintainability, and implementation under resource constraints."
+    },
+    {
+      "id": "foresight-strategic-intelligence",
+      "title": "Foresight & Strategic Intelligence",
+      "category": "professional-focus",
+      "featured": true,
+      "audiences": [
+        "policy teams",
+        "scenario planners",
+        "research organisations",
+        "development programmes"
+      ],
+      "themes": [
+        "horizon scanning",
+        "foresight",
+        "OSINT",
+        "strategic planning"
+      ],
+      "tags": [
+        "foresight",
+        "horizon scanning",
+        "radar",
+        "signals"
+      ],
+      "text": "Builds horizon-scanning workflows and AI-assisted radar tools to discover emerging signals, organise evidence, map relationships, and support anticipatory policy thinking. Facilitates workshops that turn observations from communities and practitioners into potential innovation pathways."
+    },
+    {
+      "id": "cultural-heritage-data",
+      "title": "Cultural Heritage & Cultural Data Science",
+      "category": "sector-expertise",
+      "featured": true,
+      "audiences": [
+        "UNESCO-related programmes",
+        "heritage institutions",
+        "museums",
+        "researchers",
+        "communities"
+      ],
+      "themes": [
+        "ICH",
+        "underwater cultural heritage",
+        "GIS",
+        "living heritage",
+        "digital preservation"
+      ],
+      "tags": [
+        "UNESCO",
+        "heritage",
+        "ICH",
+        "GIS",
+        "culture"
+      ],
+      "text": "Combines experience supporting UNESCO's 2003 Intangible Cultural Heritage and 2001 Underwater Cultural Heritage conventions with digital mapping, heritage knowledge products, stakeholder coordination, and experimental tools for documenting and safeguarding living heritage."
+    },
+    {
+      "id": "behavioural-policy-delivery",
+      "title": "Behavioural Science for Policy Delivery",
+      "category": "methodology",
+      "featured": false,
+      "audiences": [
+        "programme designers",
+        "M&E practitioners",
+        "capacity-building teams",
+        "public institutions"
+      ],
+      "themes": [
+        "COM-B",
+        "Theory of Change",
+        "behaviour change",
+        "stakeholder adoption"
+      ],
+      "tags": [
+        "COM-B",
+        "behavioural science",
+        "adoption",
+        "M&E"
+      ],
+      "text": "Uses behavioural framing, peer influence, local ownership, and practical workflow design to address the gap between formal programme outputs and real-world adoption. Experience includes supporting digital-reporting uptake in remote health districts and applying stakeholder-sensitive approaches in multilateral settings."
+    },
+    {
+      "id": "data-governance-evidence",
+      "title": "Data Governance, Analytics & Evidence",
+      "category": "methodology",
+      "featured": false,
+      "audiences": [
+        "policy analysts",
+        "M&E teams",
+        "data offices",
+        "public administration"
+      ],
+      "themes": [
+        "data standards",
+        "data quality",
+        "policy analysis",
+        "monitoring and evaluation"
+      ],
+      "tags": [
+        "data governance",
+        "MEL",
+        "evidence",
+        "analytics"
+      ],
+      "text": "Experience ranges from national data collection guidelines and metadata standards to policy briefs, dashboard oversight, qualitative analysis, anomaly-detection prototypes, and operational data quality improvements. Emphasises traceable evidence and the policy implications of data, not only visualisation."
+    },
+    {
+      "id": "coastal-climate-education",
+      "title": "Coastal Resilience, Ocean Literacy & Citizen Science",
+      "category": "sector-expertise",
+      "featured": false,
+      "audiences": [
+        "schools",
+        "coastal communities",
+        "local governments",
+        "environmental programmes"
+      ],
+      "themes": [
+        "mangroves",
+        "ocean literacy",
+        "zero waste",
+        "offline-first GIS",
+        "citizen science"
+      ],
+      "tags": [
+        "coastal",
+        "mangrove",
+        "education",
+        "climate"
+      ],
+      "text": "Develops and supports digital tools and learning pilots that help students and communities map coastal environments, monitor mangrove ecosystems, and connect environmental education with field evidence and local resilience priorities."
+    },
+    {
+      "id": "ai-augmented-builder",
+      "title": "AI-Augmented Digital Product Development",
+      "category": "technical-focus",
+      "featured": true,
+      "audiences": [
+        "innovation labs",
+        "public-sector digital teams",
+        "NGOs",
+        "educators"
+      ],
+      "themes": [
+        "AI-assisted development",
+        "prototyping",
+        "open-source",
+        "low-cost architecture"
+      ],
+      "tags": [
+        "AI",
+        "prototyping",
+        "JavaScript",
+        "GIS",
+        "serverless"
+      ],
+      "text": "Uses AI-augmented development to prototype and deliver browser-based tools across policy, education, GIS, document processing, and public-sector workflows. Favors accessible technologies and transparent architectures that can be maintained without expensive infrastructure."
+    },
+    {
+      "id": "capacity-building-learning-design",
+      "title": "Capacity Building & Learning Design",
+      "category": "professional-focus",
+      "featured": false,
+      "audiences": [
+        "UN programmes",
+        "education teams",
+        "government agencies",
+        "trainers"
+      ],
+      "themes": [
+        "learning needs assessment",
+        "adult learning",
+        "training content",
+        "digital learning"
+      ],
+      "tags": [
+        "capacity building",
+        "LNA",
+        "ADDIE",
+        "learning design"
+      ],
+      "text": "Supports capacity development through learning-needs analysis, training materials, digital learning experiences, workshops, and practical tools. Experience spans cultural heritage reporting, health logistics, digital-government systems, and school-based environmental learning."
+    },
+    {
+      "id": "multilateral-diplomacy",
+      "title": "Multilateral Coordination & Stakeholder Diplomacy",
+      "category": "professional-focus",
+      "featured": false,
+      "audiences": [
+        "international organisations",
+        "ministries",
+        "regional programmes",
+        "multi-stakeholder partnerships"
+      ],
+      "themes": [
+        "ASEAN",
+        "stakeholder engagement",
+        "event coordination",
+        "conflict de-escalation"
+      ],
+      "tags": [
+        "diplomacy",
+        "partnerships",
+        "coordination",
+        "ASEAN"
+      ],
+      "text": "Experience coordinating government, UN, academic, NGO, and community stakeholders; supporting regional workshops and delegations; facilitating cross-institutional cooperation; and analysing political-economy and stakeholder risks in culturally sensitive policy environments."
+    },
+    {
+      "id": "rural-development-innovation",
+      "title": "Rural Development & Local Economic Systems",
+      "category": "sector-expertise",
+      "featured": false,
+      "audiences": [
+        "rural-development programmes",
+        "local governments",
+        "village enterprises",
+        "research partners"
+      ],
+      "themes": [
+        "village funds",
+        "BUMDesa",
+        "circular economy",
+        "local innovation"
+      ],
+      "tags": [
+        "rural development",
+        "BUMDesa",
+        "policy analysis",
+        "local economy"
+      ],
+      "text": "Worked with national village-development data and policy processes, including innovation documentation, Village-Owned Enterprises, national research coordination, and analysis of unintended local economic consequences of infrastructure investments."
+    },
+    {
+      "id": "knowledge-publications",
+      "title": "Knowledge Products, Publications & Communication",
+      "category": "outputs",
+      "featured": false,
+      "audiences": [
+        "policy teams",
+        "researchers",
+        "publishers",
+        "public institutions"
+      ],
+      "themes": [
+        "authorship",
+        "editing",
+        "layout design",
+        "multimedia"
+      ],
+      "tags": [
+        "publications",
+        "policy briefs",
+        "video",
+        "communication"
+      ],
+      "text": "Produces policy briefs, books, training materials, reporting guidance, multimedia documentation, and publication layouts. Authored and edited rural-development knowledge products and published The Invisible Architecture of Diplomacy in 2026."
+    }
+  ],
+  "credentials": [
+    {
+      "id": "msc-public-policy",
+      "title": "M.Si. / Master of Science in Public Policy Administration",
+      "institution": "Prof. Dr. Moestopo (Beragama) University",
+      "period": "May 2016 – March 2019",
+      "result": "GPA 3.87 / 4.00",
+      "tags": [
+        "public policy",
+        "governance",
+        "data"
+      ]
+    },
+    {
+      "id": "bachelor-economics",
+      "title": "Bachelor of Economics in Human Resources Management",
+      "institution": "STIE YAPAN Surabaya",
+      "period": "August 2009 – June 2013",
+      "result": "GPA 3.13 / 4.00",
+      "tags": [
+        "economics",
+        "human resources"
+      ]
+    },
+    {
+      "id": "toefl-itp",
+      "title": "TOEFL ITP",
+      "institution": "ETS / ILP Cikini",
+      "date": "15 September 2022",
+      "result": "547",
+      "tags": [
+        "English",
+        "language test"
+      ]
+    }
+  ],
+  "profileMetrics": [
+    {
+      "id": "years-digital-projects",
+      "label": "Technology and project work",
+      "value": "Since 2009",
+      "description": "Freelance technology consulting began in October 2009; later experience includes UN, government, and independent consulting roles."
+    },
+    {
+      "id": "vaccine-reporting-improvement",
+      "label": "Vaccine utilisation reporting",
+      "value": "5% → 60%",
+      "description": "Reporting improvement recorded during UNDP SMILE work in Papua."
+    },
+    {
+      "id": "capacity-building-workshops",
+      "label": "SMILE capacity-building events",
+      "value": "8",
+      "description": "Workshops supported through UNICEF and WHO co-funding under Delivering as One."
+    },
+    {
+      "id": "national-research-network",
+      "label": "Public universities in village-fund research",
+      "value": "33",
+      "description": "Research coordination across Indonesian provinces."
+    },
+    {
+      "id": "digital-government-systems",
+      "label": "E-government systems monitored",
+      "value": "15",
+      "description": "10 internal and 5 external applications/systems during Ministry of Village work."
     }
   ]
 }
