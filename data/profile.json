@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "language": "en",
+  "name": "Angga Conni Saputra",
+  "headline": "Solutions Architect | Cultural Data Scientist | Gov-Tech Innovator",
+  "summary": "Architecting Sustainable Digital Public Infrastructure for Global Policy Reform. Bridging high-level mandates with zero-cost, serverless execution for UNESCO, UNDP, and national ministries.",
+  "availabilityLabel": "Available for Global Impact",
+  "links": [
+    {
+      "id": "website",
+      "label": "Website",
+      "url": "https://anggaconni.github.io"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/anggaconni/"
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "url": "https://github.com/AnggaConni"
+    },
+    {
+      "id": "contact",
+      "label": "Email",
+      "url": "mailto:angga.conni@horizon-scanning.org"
+    }
+  ]
+}
