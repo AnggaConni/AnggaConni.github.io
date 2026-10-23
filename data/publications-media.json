@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "language": "en",
+  "authoredPublications": [
+    {
+      "id": "invisible-architecture-diplomacy",
+      "title": "The Invisible Architecture Of Diplomacy",
+      "publisher": "Independent (Amazon Kindle)",
+      "year": 2026,
+      "isbn": "979-825-2389-462",
+      "coverUrl": "https://anggaconni.github.io/coveria.png",
+      "documentUrl": "https://anggaconni.github.io/contentia.pdf",
+      "summary": "A concise exploration of diplomacy beyond formal negotiations, focusing on human dynamics, trust-building mechanisms, and behavioural patterns shaping international relations."
+    },
+    {
+      "id": "agropolitan-rasau-jaya",
+      "title": "Kawasan Perdesaan Agropolitan Rasau Jaya",
+      "publisher": "PUSDATIN KEMENDES PDTT",
+      "year": 2019,
+      "isbn": "978-623-7129-82-0",
+      "coverUrl": "https://anggaconni.github.io/coverrj.png",
+      "documentUrl": "https://anggaconni.github.io/contentrj.pdf",
+      "summary": "A study of agropolitan development in Rasau Jaya, including infrastructure potential, inter-village economic synergies, and priority commodity mapping."
+    },
+    {
+      "id": "bumdes-payang-sejahtera",
+      "title": "Profil BUM Desa Payang Sejahtera (East Kalimantan)",
+      "publisher": "PUSDATIN KEMENDES PDTT",
+      "year": 2018,
+      "isbn": "978-623-7129-25-7",
+      "coverUrl": "https://anggaconni.github.io/coverpy.png",
+      "documentUrl": "https://anggaconni.github.io/contentpy.pdf",
+      "summary": "Documentation of BUM Desa Payang Sejahtera, highlighting its business model, governance, and contribution to village income and employment."
+    },
+    {
+      "id": "bumdes-cahaya-selo",
+      "title": "Profil BUM Desa Cahaya Selo (Yogyakarta)",
+      "publisher": "PUSDATIN KEMENDES PDTT",
+      "year": 2018,
+      "isbn": "978-623-7129-31-8",
+      "coverUrl": "https://anggaconni.github.io/covercs.png",
+      "documentUrl": "https://anggaconni.github.io/contentcs.pdf",
+      "summary": "An analysis of BUM Desa Cahaya Selo, including integration of business units, community participation, regulatory adaptation, and public trust."
+    }
+  ],
+  "editorialWorks": {
+    "title": "Manfaat Dana Desa and related village development publications",
+    "role": "Copy Editor",
+    "reportedVolumeCount": 34,
+    "items": [
+      {
+        "number": 1,
+        "title": "Manfaat Dana Desa di Provinsi Aceh",
+        "isbn": "978-623-7129-38-7"
+      },
+      {
+        "number": 2,
+        "title": "Manfaat Dana Desa di Provinsi Lampung",
+        "isbn": "978-623-7129-39-4"
+      },
+      {
+        "number": 3,
+        "title": "Manfaat Dana Desa di Provinsi Sumatera Selatan",
+        "isbn": "978-623-7129-40-0"
+      },
+      {
+        "number": 4,
+        "title": "Manfaat Dana Desa di Provinsi Kepulauan Riau",
+        "isbn": "978-623-7129-41-7"
+      },
+      {
+        "number": 5,
+        "title": "Manfaat Dana Desa di Provinsi Sumatera Utara",
+        "isbn": "978-623-7129-42-4"
+      },
+      {
+        "number": 6,
+        "title": "Manfaat Dana Desa di Provinsi Sumatera Barat",
+        "isbn": "978-623-7129-43-1"
+      },
+      {
+        "number": 7,
+        "title": "Manfaat Dana Desa di Provinsi Jambi",
+        "isbn": "978-623-7129-44-8"
+      },
+      {
+        "number": 8,
+        "title": "Manfaat Dana Desa di Provinsi Bengkulu",
+        "isbn": "978-623-7129-45-5"
+      },
+      {
+        "number": 9,
+        "title": "Manfaat Dana Desa di Provinsi Bangka Belitung",
+        "isbn": "978-623-7129-46-2"
+      },
+      {
+        "number": 10,
+        "title": "Manfaat Dana Desa di Provinsi Banten",
+        "isbn": "978-623-7129-47-9"
+      },
+      {
+        "number": 11,
+        "title": "Manfaat Dana Desa di Provinsi D.I. Yogyakarta",
+        "isbn": "978-623-7129-48-6"
+      },
+      {
+        "number": 12,
+        "title": "Manfaat Dana Desa di Provinsi Jawa Barat",
+        "isbn": "978-623-7129-49-3"
+      },
+      {
+        "number": 13,
+        "title": "Manfaat Dana Desa di Provinsi Jawa Tengah",
+        "isbn": "978-623-7129-50-9"
+      },
+      {
+        "number": 14,
+        "title": "Manfaat Dana Desa di Provinsi Jawa Timur",
+        "isbn": "978-623-7129-51-6"
+      },
+      {
+        "number": 15,
+        "title": "Manfaat Dana Desa di Provinsi Bali",
+        "isbn": "978-623-7129-52-3"
+      },
+      {
+        "number": 16,
+        "title": "Manfaat Dana Desa di Provinsi NTB",
+        "isbn": "978-623-7129-53-0"
+      },
+      {
+        "number": 17,
+        "title": "Manfaat Dana Desa di Provinsi NTT",
+        "isbn": "978-623-7129-54-7"
+      },
+      {
+        "number": 18,
+        "title": "Manfaat Dana Desa di Provinsi Kalimantan Barat",
+        "isbn": "978-623-7129-55-4"
+      },
+      {
+        "number": 19,
+        "title": "Manfaat Dana Desa di Provinsi Kalimantan Tengah",
+        "isbn": "978-623-7129-56-1"
+      },
+      {
+        "number": 20,
+        "title": "Manfaat Dana Desa di Provinsi Kalimantan Utara",
+        "isbn": "978-623-7129-57-8"
+      },
+      {
+        "number": 34,
+        "title": "Dinamika Pembangunan Desa (Kajian 7 Wilayah Pulau)",
+        "isbn": "978-623-7129-69-1"
+      }
+    ],
+    "dataCompleteness": "The current HTML visibly lists items 1–20 and item 34, with an ellipsis for items 21–33. Complete ISBN data for the omitted titles should be added only after verifying source material."
+  },
+  "multimedia": [
+    {
+      "id": "unesco-facilitators-asia-pacific",
+      "title": "UNESCO Global Network of Facilitators (Asia-Pacific)",
+      "role": "Videographer & Video Editor",
+      "description": "Produced video footage and interviews for UNESCO Beijing Living Heritage Secretariat.",
+      "linkLabel": "Watch Coverage",
+      "url": "https://www.unesco.org/en/articles/asia-and-pacific-chapter-2003-conventions-global-network-facilitators-strengthened-18-new-members"
+    },
+    {
+      "id": "world-war-shipwrecks-workshop",
+      "title": "Regional Workshop on World War Shipwrecks",
+      "role": "Event Organizer & Communications Lead",
+      "description": "Coordinated an ASEAN regional programme on marine pollution, including invitations, HQ funding, partnerships for field visits, logistics, guest management, and drafting the official publication.",
+      "linkLabel": "Read Article",
+      "url": "https://www.unesco.org/en/articles/world-war-shipwrecks-southeast-asia-threats-marine-pollution-and-looting"
+    },
+    {
+      "id": "crihap-ich-workshop",
+      "title": "Capacity Building Workshop on ICH (CRIHAP)",
+      "role": "Webinar Organizer & Content Strategist",
+      "linkLabel": "View Event",
+      "url": "https://en.crihap.cn/a/202311/28/WS656591b7a310decc1a222798.html"
+    },
+    {
+      "id": "undp-smile-repository",
+      "title": "UNDP SMILE Project Repository",
+      "role": "Web Designer & Content Creator",
+      "description": "Designed a project repository and produced end-to-end workshop documentation.",
+      "linkLabel": "Visit Repository",
+      "url": "https://conniezzcool.wixsite.com/undp-meeting-smile-r"
+    },
+    {
+      "id": "unesco-jakarta-talkshow",
+      "title": "UNESCO Jakarta Talkshow: Youth & Cultural Diversity",
+      "role": "Moderator & Communications Support",
+      "linkLabel": "Watch Reel",
+      "url": "https://www.instagram.com/reel/CzF6_9oLOiv/"
+    }
+  ],
+  "mediaCoverage": [
+    {
+      "id": "bumdes-payang-dpmpd",
+      "title": "BUMDes Payang Sejahtera Masuk Kriteria Sukses Indonesia",
+      "publisher": "DPMPD Kaltim",
+      "year": 2018,
+      "linkLabel": "Read News",
+      "url": "https://dpmpd.kaltimprov.go.id/artikel/bumdes-payang-sejahtera-masuk-kriteria-bumdes-sukses-indonesia-2018"
+    },
+    {
+      "id": "jamupedia-kaleidoscope",
+      "title": "Jamupedia's Kaleidoscope of 2024",
+      "publisher": "Jamupedia",
+      "year": 2024,
+      "linkLabel": "Read News",
+      "url": "https://en.jamupedia.com/jamupedias-kaleidoscope-of-2024/"
+    },
+    {
+      "id": "unesco-heritage-emergency-fund",
+      "title": "Implementing Partner for UNESCO Heritage Emergency Fund",
+      "publisher": "ICOMOS Philippines",
+      "year": 2023,
+      "linkLabel": "Read News",
+      "url": "https://philippines.icomos.org/2023/10/16/icomos-philippines-selected-as-the-implementing-partner-of-the-first-unesco-heritage-emergency-fund-project-for-the-republic-of-the-philippines/"
+    }
+  ]
+}
