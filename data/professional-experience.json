@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "language": "en",
   "dataNotes": {
     "purpose": "Structured professional experience and achievement database for future HTML filtering and detail views.",
@@ -16,7 +16,8 @@
       "evidenceLevel"
     ],
     "source": "Angga Conni Saputra - All Achievements document supplied in this conversation, reconciled with the existing portfolio experience data.",
-    "editorialPolicy": "Preserve source claims and distinctions. Items described as prototypes, pilots, drafts, or ongoing work are labelled accordingly; no external verification implied."
+    "editorialPolicy": "Preserve source claims and distinctions. Items described as prototypes, pilots, drafts, or ongoing work are labelled accordingly; no external verification implied.",
+    "reconciliation": "2026-10-23: sourceDetailSections were added by extracting the existing legacy HTML experience modals, preserving headings, paragraphs, and list items that are more detailed than concise filterable highlights. Existing highlights and filter metadata are preserved. HTML remains unchanged."
   },
   "filterOptions": {
     "experienceType": [
@@ -378,6 +379,117 @@
             "AI-augmented development"
           ]
         }
+      ],
+      "sourceDetailSections": [
+        {
+          "title": "Independent Consultant",
+          "items": [
+            {
+              "text": "Supporting government ministries, schools, and private organizations in piloting innovations, developing digital systems, and creating sustainable solutions that empower communities and institutions."
+            }
+          ]
+        },
+        {
+          "title": "Ministry of Health (Kemenkes)",
+          "items": [
+            {
+              "text": "System Architecture: Designed a draft digital health reporting and evaluation system for specialist medical education (PPDS)."
+            },
+            {
+              "text": "Institutional Reform: Introduced a two-way evaluation mechanism (subordinate ↔ supervisor), breaking from traditional UN and health governance models."
+            },
+            {
+              "text": "Impact: This reform responded to 2,600+ reported bullying cases in specialist medical programs, promoting accountability and safer learning environments."
+            }
+          ]
+        },
+        {
+          "title": "Ministry of Education (Kemendikdasmen) - Ocean Literacy",
+          "items": [
+            {
+              "text": "Pilot Program: Initiated and co-developed the \"Toward a Blue School\" project at SMAN 8 Balikpapan, integrating ocean literacy, zero waste, and digital learning into school activities."
+            },
+            {
+              "text": "Digital Capacity Building: Trained students to use Google Forms, Data Studio, and Wixsite to independently collect, manage, and visualize data on mangrove ecosystems and coastal environments."
+            },
+            {
+              "text": "Participatory Monitoring: Inspired by UNESCO’s Sandwatch methodology, the pilot demonstrated that students can act as young scientists and environmental change agents."
+            },
+            {
+              "text": "Foresight Workshops: Conducted Horizon Scanning workshops with students, teachers, and communities to identify local priorities—education gaps, waste management needs, and mangrove conservation strategies."
+            },
+            {
+              "text": "Scaling & Expansion: Expanded the initiative to SMPN 25 Balikpapan (a green-curriculum school built above the sea). The ongoing phase, \"Ocean Literacy Based on Zero Waste,\" aims to scale the Blue School model nationally by linking coastal schools and communities."
+            },
+            {
+              "text": "“The ocean begins in the classroom—where informed students create a sustainable blue future.”"
+            }
+          ]
+        },
+        {
+          "title": "Coordinating Ministry for Human Development & Culture (Kemenko PMK)",
+          "items": [
+            {
+              "text": "Foresight Training: Delivered capacity-building sessions on Horizon Scanning methodology as a foresight and policy dialogue tool."
+            },
+            {
+              "text": "Contextualization: Presented international applications (UK and Italy) and developed a simplified version suited for Indonesia’s inter-ministerial context."
+            },
+            {
+              "text": "Dissemination: Supported its dissemination through the member of Persatuan Profesi Kebijakan Publik, contributing to the institutionalization of foresight-based policymaking."
+            }
+          ]
+        },
+        {
+          "title": "CSR & Private Sector Development",
+          "items": [
+            {
+              "text": "Strategy Co-creation: Co-created CSR strategies that promote community resilience and shared value between companies and local residents."
+            },
+            {
+              "text": "Economic Empowerment: Designed programs such as SME-run food stalls around industrial zones—offering sustainable livelihoods for villagers while ensuring affordable meals for factory workers."
+            },
+            {
+              "text": "Advocacy: Advocated for inclusive, participatory CSR planning rooted in circular economy principles."
+            }
+          ]
+        },
+        {
+          "title": "Executive Technical Portfolio",
+          "items": [
+            {
+              "text": "Angga Saputra | Solutions Architect | Cultural Data Scientist | Gov-Tech Innovator"
+            }
+          ]
+        },
+        {
+          "title": "Strategic Overview: Pragmatic Innovation",
+          "items": [
+            {
+              "text": "Philosophy: Pragmatic Innovation through AI-Augmented Development. I operate as a Sole Architect & Developer, bridging the gap between high-level policy strategy and technical execution. By leveraging foundational web standards and orchestration of Generative AI, I build zero-cost, serverless, and scalable digital ecosystems."
+            }
+          ]
+        },
+        {
+          "title": "The \"Zero-Cost\" Architecture Stack",
+          "items": [
+            {
+              "text": "Frontend: HTML5 + Vanilla JavaScript + Tailwind CSS (Lightweight, Single Page Applications)."
+            },
+            {
+              "text": "Backend & Database: Google Sheets + Google Apps Script (Serverless CRUD APIs)."
+            },
+            {
+              "text": "Deployment: GitHub Pages (Secure, static hosting)."
+            },
+            {
+              "text": "Development Accelerator: AI-Augmented coding for rapid prototyping and complex logic implementation."
+            },
+            {
+              "text": "Impact: This approach enables ministries, NGOs, and UN agencies to own sustainable, maintenance-free digital systems without requiring large IT teams or recurring server costs."
+            }
+          ]
+        }
       ]
     },
     {
@@ -670,6 +782,240 @@
           "metric": "delegation participants",
           "value": "approximately 20"
         }
+      ],
+      "sourceDetailSections": [
+        {
+          "title": "UNESCO",
+          "items": [
+            {
+              "text": "Feb 2023 to April 2025"
+            }
+          ]
+        },
+        {
+          "title": "Period: 2023",
+          "items": [
+            {
+              "text": "During my time with UNESCO Jakarta, I supported the implementation of the 2003 Convention for the Safeguarding of the Intangible Cultural Heritage and the 2001 Convention on the Protection of Underwater Cultural Heritage. While my role was primarily to assist the Programme Specialist, in 2023 I temporarily took on a more central coordination role due to the sabbatical of the Chief of Culture and the retirement of the Director. I managed key activities and ensured continuity of both conventions. Since the Chief’s return in 2024, I have resumed my supporting function."
+            }
+          ]
+        },
+        {
+          "title": "Main Achievements:",
+          "items": [
+            {
+              "text": "Process Automation Architect: Developed an open-source \"UN Travel & DSA Calculator\" (Web-based). This tool automates complex subsistence allowance calculations (ICSC rates, deductions), reducing administrative processing time and ensuring audit compliance. Live Tool: https://anggaconni.github.io/un-travel-calculator/"
+            },
+            {
+              "text": "Gamified Digital Learning Architect: Designed and coded 3D interactive educational platforms (\"Heritage Commons\") using WebGL/Three.js. These tools gamify complex policy concepts (ICH Safeguarding), proving that high-level UN mandates can be translated into engaging, accessible digital experiences for youth in developing regions. Live Tool: https://anggaconni.github.io/ICH-Games/"
+            }
+          ]
+        },
+        {
+          "title": "CLT Output 1 – Strengthening Member States’ capacities to identify, protect, and manage tangible heritage:",
+          "items": [
+            {
+              "text": "Supported projects under the 1972 World Heritage Convention, including AJE Indonesia and the Borobudur Community Empowerment Program Phase 5."
+            },
+            {
+              "text": "Facilitated TOR development for vendors and provided reporting/backstopping guidance."
+            },
+            {
+              "text": "Organized a joint webinar with CRIHAP titled \"Capacity Building Workshop on Intangible Cultural Heritage and World Heritage: Promoting Sustainable Development for Indonesia and Malaysia\", which addressed cross-border cultural claims. View details"
+            }
+          ]
+        },
+        {
+          "title": "CLT Output 2 – Combating illicit trafficking of cultural property:",
+          "items": [
+            {
+              "text": "Supported the Culture Secretariat in procurement, payment processing, and feasibility research for ratifying the UNESCO 2001 Underwater Cultural Heritage Convention in the Philippines."
+            },
+            {
+              "text": "Managed the end-to-end organization of the Regional Workshop on World War Shipwrecks in Southeast Asia: Threats of Marine Pollution and Looting (6–7 December 2023), including budget planning, logistics, liaising with the Ministry of Fisheries, drafting articles, and supporting documentation efforts. View article"
+            }
+          ]
+        },
+        {
+          "title": "CLT Output 4 – Strengthening Member States’ capacities for intangible cultural heritage (ICH):",
+          "items": [
+            {
+              "text": "Contributed to capacity-building initiatives under the 2003 ICH Convention."
+            },
+            {
+              "text": "Contributed to the implementation of the UNESCO Jakarta Talkshow on ICH for UN Day, addressing misinformation among youth and celebrating cultural diversity. Also acted as moderator during the event. View reel"
+            },
+            {
+              "text": "Supported ICH and UCH discussions with Ritsumeikan University, UNPAD, and the Indonesian National ICH Consultative Forum."
+            },
+            {
+              "text": "Supported the Living Heritage Secretariat and UNESCO Beijing in documenting video footage and interviews for the Asia and the Pacific Chapter of the 2003 Convention’s Global Network of Facilitators. View article"
+            }
+          ]
+        },
+        {
+          "title": "Main Achievements:",
+          "items": [
+            {
+              "text": "Support end-to-end management of projects"
+            },
+            {
+              "text": "Administrative Support: Successfully prepared 3 contracts with travel agents (LTA holders) for event management, 6 consultants, and 6 partners (NGOs, Member States, private sectors) to facilitate collaboration."
+            },
+            {
+              "text": "Supported payment request processes, ensuring timely and accurate documentation."
+            },
+            {
+              "text": "Uploaded all administrative documents to DUO and Teams Shared Folder to maintain compliance with documentation standards."
+            },
+            {
+              "text": "Provided direct partner support to ensure smooth administrative coordination."
+            },
+            {
+              "text": "Managed additional administrative tasks as assigned by supervisor or director."
+            },
+            {
+              "text": "Monitoring and Reporting: Supported a consultant tasked with guiding Indonesia’s periodic reporting under the 2003 ICH Convention, including orientation on the new framework, sharing Jeonju workshop materials, and capacity-building tools."
+            },
+            {
+              "text": "Helped recreate technical discussions for BPK representatives in Jakarta to strengthen their understanding of the Convention."
+            },
+            {
+              "text": "Contribute to developing and maintaining partnerships"
+            },
+            {
+              "text": "Internal and External Relations: Reminded 2003 Convention focal points about upcoming reporting deadlines and follow-up training."
+            },
+            {
+              "text": "Sent invitations and coordinated logistics for member states participating in the Bangkok event on the WH Tentative list."
+            },
+            {
+              "text": "Supported CRIHAP in capacity-building workshops for government staff on safeguarding intangible cultural heritage."
+            },
+            {
+              "text": "Maintained communication with UNESCO Jakarta units on administrative processes, including payments, LTA holder contracts, VAT, budget codes, and travel requests."
+            },
+            {
+              "text": "Participation in Meetings and Missions: Participated in multiple stakeholder meetings, including the FGD on Batik Day with Museum Batik, ICH focal points from MoECRT, and the Creative Economy focal point from the Ministry of Tourism, as well as the Natcom brainstorming session (Dec 18, 2024) and the Noken Festival meeting (Dec 20, 2024)."
+            },
+            {
+              "text": "Supported the ICHLinks Video Competition Jury by reviewing film scripts, providing cultural accuracy advice, and encouraging community-based documentation of endangered practices."
+            },
+            {
+              "text": "Supported the Ministry of Fisheries and Maritime Affairs with logistics and technical arrangements for a pre-workshop mission in Belitung (Nov 14, 2024)."
+            },
+            {
+              "text": "Resource Mobilization: Developed simplified training presentations and briefs on the 2001 and 2003 conventions, enhancing donor engagement alongside the Resources Mobilization Officer and consultants, targeting BPK."
+            },
+            {
+              "text": "Contribute to team building within UNESCO and the UN system"
+            },
+            {
+              "text": "Knowledge Sharing: Advocated for environmentally friendly office tools, recommending mechanical keyboards to reduce e-waste, which were subsequently adopted by the Administrative Unit."
+            },
+            {
+              "text": "Persuaded the Administrative Officer to prioritize modular PCs and laptops over soldered or fixed models, encouraging a more sustainable approach to device maintenance and prolonging hardware life. Highlighted the value of repairs (such as replacing thermal paste) to extend equipment use rather than replacing entire laptops unnecessarily."
+            },
+            {
+              "text": "Volunteered as IT support when needed and shared IT knowledge with colleagues."
+            },
+            {
+              "text": "Initiated a private sharing session on the Horizon Scan Foresight Tool (UNGP), engaging staff and interns across SHS and CI units to build foresight planning skills."
+            },
+            {
+              "text": "Encouraged the introduction of IoT technology to monitor artifact conditions in museums, promoting data-driven preventive conservation practices."
+            },
+            {
+              "text": "Ideas for Joint Programmes: Managed end-to-end coordination for the US Congress delegation visit to Kota Tua, including liaising with UNDSS, briefing the UN Resident Coordinator’s Office in advance, and representing UNESCO in inter-agency meetings. Oversaw on-site arrangements by coordinating with restaurants, museums, and security teams, ensuring route planning and smooth execution aligned with UNESCO’s cultural heritage goals."
+            },
+            {
+              "text": "Initiated discussions on creating an ICH NGO Consultative Group following the Jeonju workshop. Initial meetings explored models inspired by Brunei but were postponed due to stakeholder disagreements over roles and branding."
+            },
+            {
+              "text": "Developmental / Learning Objectives"
+            },
+            {
+              "text": "Independent Capacity Building & Networking: Engaged stakeholders for the Noken safeguarding initiative, advising Natcom on partnerships with universities, NGOs, and ministries to build market ecosystems and sustainability frameworks."
+            },
+            {
+              "text": "Participated in follow-up stakeholder discussions at the Sarinah Noken Festival, creating pathways for dossier analysis and policy reviews."
+            },
+            {
+              "text": "Practiced informal diplomacy with Brunei's Director-General of Culture during the Jeonju Workshop, fostering direct and responsive communication through rapport-building."
+            },
+            {
+              "text": "Collaboration with Stakeholders: Advanced the ICH Foodways initiative by recommending experts and moderating sessions with partners from UNESCO HQ, Bangkok, and Nusa Gastronomy, exploring Indonesian traditional food safeguarding and mapping."
+            },
+            {
+              "text": "Participated in additional events by Nusa Gastronomy with MoFA and the US Ambassador in early and late 2024."
+            },
+            {
+              "text": "Provided political economy and stakeholder risk analysis on ICH governance, including mapping influence networks and identifying risks of NGO and consultative group politicization."
+            },
+            {
+              "text": "Monitored elite alliances, incentives, and spoilers affecting cultural policy spaces, particularly during national political transitions."
+            },
+            {
+              "text": "Advised senior leadership on maintaining institutional neutrality and safeguarding multilateral credibility in politically sensitive contexts."
+            },
+            {
+              "text": "Communication Skills: Attended workshops on the new ICH periodic report framework in Jeonju, Korea, and the Weaver Exchange Workshop to enhance capacity-building and concept note drafting skills."
+            },
+            {
+              "text": "Supported the delivery of international training sessions on the ICH periodic report framework, in collaboration with CRIHAP, with plans for continued engagement in 2025."
+            }
+          ]
+        },
+        {
+          "title": "Educational Innovation & Gamification",
+          "items": [
+            {
+              "text": "Project Title: Heritage Commons – A 3D Simulation for Cultural Diplomacy"
+            },
+            {
+              "text": "Description: Conceptualized and developed a browser-based 3D board game to revolutionize capacity building for UNESCO’s 2003 Convention on Intangible Cultural Heritage (ICH). Leveraging Generative AI and Three.js to bridge the gap between policy and technology, the project transformed abstract legal concepts into interactive gameplay."
+            }
+          ]
+        },
+        {
+          "title": "Key Innovations:",
+          "items": [
+            {
+              "text": "Philosophical Re-engineering: Reversed traditional \"Monopoly\" mechanics (ownership/competition) into \"Safeguarding\" mechanics (collaboration/trust), introducing concepts like Joint Nominations and Cultural Trust Points (CTP) to address regional cultural tensions."
+            },
+            {
+              "text": "Rapid Prototyping: Demonstrated \"Maker\" capability by coding a fully functional, installation-free MVP (Minimum Viable Product) in a single weekend using AI assistance, proving that high-impact educational tools can be low-cost and accessible."
+            },
+            {
+              "text": "Strategic Impact: Created a scalable tool for peacebuilding education that teaches the value of shared heritage over exclusive cultural claims."
+            }
+          ]
+        },
+        {
+          "title": "Digital Transformation & System Architecture",
+          "items": [
+            {
+              "text": "Project Title: AI-Integrated Community-Based Inventory (CBI) System – Architecture & Strategic Pilot"
+            },
+            {
+              "text": "Description: Engineered a fully functional, ready-to-deploy digital ecosystem designed to modernize national heritage reporting for a SIDS member nation. The system was built to replace manual workflows with an automated pipeline using the Google Stack (Forms, Sheets, Looker Studio), enhanced by Google Apps Script and Gemini AI. Delivered the complete technical architecture and secured strategic approval prior to the project's administrative conclusion."
+            }
+          ]
+        },
+        {
+          "title": "Key Innovations:",
+          "items": [
+            {
+              "text": "Behavioral Change Management: Successfully applied a proprietary \"Cognitive Ownership Technique\"—rooted in behavioral science (Consistency Principle)—to overcome initial institutional resistance and secure official leadership endorsement for the digital roadmap."
+            },
+            {
+              "text": "Scalable Architecture: Developed a \"Single Source of Truth\" data structure with automated logic to prevent database bloat (\"Fat Cell Risk\"), ensuring long-term sustainability designs without enterprise-level costs."
+            },
+            {
+              "text": "AI Automation: Prototyped and validated an \"AI Rapporteur\" feature that converts raw field data into formal periodic reports via zero-click messaging, demonstrating the feasibility of streamlined M&E processes."
+            }
+          ]
+        }
       ]
     },
     {
@@ -834,6 +1180,74 @@
         {
           "metric": "UNICEF/WHO co-funded capacity-building events",
           "value": 8
+        }
+      ],
+      "sourceDetailSections": [
+        {
+          "title": "UNDP",
+          "items": [
+            {
+              "text": "March 2022 to Feb 2023"
+            }
+          ]
+        },
+        {
+          "title": "Main Achievements:",
+          "items": [
+            {
+              "text": "Policy Advocacy Successfully advocated for the Provincial and District Health Offices to develop policies ensuring effective implementation and optimal use of the SMILE application."
+            },
+            {
+              "text": "Proposed the implementation of IoT technology in health facilities and regions previously lacking such infrastructure, to strengthen real-time monitoring and improve service resilience."
+            },
+            {
+              "text": "Convinced UNICEF and WHO to co-fund 8 SMILE capacity-building workshops in Papua under the UN Reform “Delivering as One.”"
+            },
+            {
+              "text": "Capacity Building Persuasively influenced the District Health Office to conduct offline training and collaborated with stakeholders to secure funding, supporting comprehensive capacity-building and knowledge transfer initiatives."
+            },
+            {
+              "text": "Developed PowerPoint guidance materials and capacity-building content to support user understanding of SMILE."
+            },
+            {
+              "text": "Produced comprehensive training video guidance, including scriptwriting, voice-over, editing, and final uploading, managing the process end-to-end."
+            },
+            {
+              "text": "Data Reporting Improvement Increased vaccine utilization reporting rates from 5% to 60%, addressing obstacles such as limited road access, connectivity issues, and conflict-affected areas."
+            },
+            {
+              "text": "Documentation and Storytelling Conducted research to document and highlight the dedication and challenges faced by health workers with disabilities in Papua, sharing their stories through impactful blogs, websites, and videos."
+            },
+            {
+              "text": "Created and maintained dedicated blog sites for each training and event, consolidating data and documentation in an accessible, organized format."
+            },
+            {
+              "text": "Visual Awareness Campaign Successfully organized a Photostory event to showcase compelling visual narratives, exhibited at the Ministry of Health to promote recognition of healthcare professionals’ contributions."
+            },
+            {
+              "text": "Multimedia Content Production Produced a series of videos and diverse content formats to communicate the stories behind healthcare services and raise public awareness."
+            },
+            {
+              "text": "Event & Technical Support Provided comprehensive technical and logistical support during regional meeting events, including equipment preparation, camera operation, and shooting arrangements, resulting in engaging website blogs."
+            },
+            {
+              "text": "Applied strong skills in repairing PCs and computing equipment — addressing both hardware and software issues to maintain uninterrupted operations for health services and health centers, in a context where qualified technicians were scarce."
+            },
+            {
+              "text": "Conflict Mediation & Partnership Building Successfully mediated between the Malaria and Vaccine units, resolving conflict over SMILE’s integration of drug recording functions by advocating a collaborative merger instead of replacement, achieving consensus and improved program cooperation."
+            },
+            {
+              "text": "Established a productive partnership with the malaria unit in the Papua Health Office, encouraging collaboration on a new malaria monitoring application to strengthen disease monitoring and control efforts."
+            }
+          ]
+        },
+        {
+          "title": "Clinical Risk Mitigation (UNDP – 1 year)",
+          "items": [
+            {
+              "text": "Analyzed SMILE application data and identified a critical dosing error after the introduction of a new BCG vaccine vial size (from 10 doses to 20 doses per vial, same brand). Discovered that health workers were still administering 0.1 ml per injection instead of the updated 0.05 ml dosage. Verified findings through field discussions with nurses and doctors, revealing a lack of awareness about the change. Escalated the issue to UNICEF, WHO, and the Ministry of Health, leading to a technical meeting and revised guidance. Successfully prevented double-dosing in infants, averting potential harm."
+            }
+          ]
         }
       ]
     },
@@ -1048,6 +1462,117 @@
             "Communication"
           ]
         }
+      ],
+      "sourceDetailSections": [
+        {
+          "title": "Ministry of Village, Development of Disadvantaged Regions, and Transmigration",
+          "items": [
+            {
+              "text": "Period: January 2016 - January 2020"
+            }
+          ]
+        },
+        {
+          "title": "Main Achievements:",
+          "items": [
+            {
+              "text": "Strategic Planning Facilitated the development of strategic plans to enhance sustainability across multiple tourism villages, providing critical support to senior management."
+            },
+            {
+              "text": "Documentation & Knowledge Products Authored a comprehensive village book capturing the success story of Pujon Kidul village’s sustainable tourism initiatives funded by village funds, highlighting collaboration with BUMDesa (village-owned enterprises)."
+            },
+            {
+              "text": "Effectively documented key elements and best practices of Pujon Kidul, positioning it as an exemplary model for other villages."
+            },
+            {
+              "text": "Stakeholder Engagement Demonstrated exceptional problem-solving skills by negotiating with over 100 stakeholders to resolve administrative errors and finalize the village fund benefits book report before contract completion."
+            },
+            {
+              "text": "Responded to village concerns over Dana Desa usage through impromptu FGDs, clarifying the flexibility under Indonesia's decentralization law."
+            },
+            {
+              "text": "Standard Operating Procedures Led the development of Standard Operating Procedures (SOPs) for data and information delivery, as well as data sampling guidelines, under the direction of the Agency Head."
+            },
+            {
+              "text": "Digital Systems Oversight Monitored and evaluated 10 internal and 5 external E-Government applications and systems, ensuring functionality, identifying bugs, and resolving technical issues."
+            },
+            {
+              "text": "Acted as an advisor to the Secretary General and the Head of BALILATFO in designing and implementing digital solutions, including village monitoring applications and IoT-based devices, to improve data quality and performance monitoring."
+            },
+            {
+              "text": "Conflict Resolution Successfully resolved a complex policy conflict in Jambi Province by serving as a lead speaker and organizing a focused group discussion (FGD) to harmonize central and local government regulations."
+            },
+            {
+              "text": "Research & Impact Studies Coordinated and supervised extensive research in collaboration with 33 public universities across Indonesia to study the positive impacts of village funds in all provinces."
+            },
+            {
+              "text": "Event Coordination Managed and coordinated 11 events, including meetings, book launches, and application rollout events."
+            },
+            {
+              "text": "Publications & Knowledge Sharing Authored 33 concise and informative Pocket Books for Work Visits, providing vital reference material."
+            },
+            {
+              "text": "Served as book editor for the publication on Village Owned Enterprises (BUMDesa) across all 33 provinces."
+            },
+            {
+              "text": "Collaborated with Gadjah Mada University, Bengkulu University, and Mataram University to prepare and curate 60 Village Development Innovation Books."
+            },
+            {
+              "text": "Multimedia Production Produced high-quality Ministry Videos within tight budget constraints and supported documentation tasks, including video presentations, reports, and books."
+            },
+            {
+              "text": "Digital Capacity Building Conducted comprehensive training sessions across multiple provinces on the use of Online Villages platforms, enabling communities to embrace digital tools and adapt to emerging challenges."
+            }
+          ]
+        },
+        {
+          "title": "Data & Information Officer (2016 – 2020)",
+          "items": [
+            {
+              "text": "Led the formulation of national data collection guidelines (Decree No. 336/2017) for the Village, Disadvantaged Area, and Transmigration sectors, harmonizing indicators across regions for policy use."
+            },
+            {
+              "text": "Developed templates and metadata standards for the national “Village Information Form,” ensuring interoperability of local datasets with the Ministry’s central data system."
+            },
+            {
+              "text": "Collaborated with regional offices to pilot and refine data reporting methods, improving data reliability for evidence-based rural development planning."
+            }
+          ]
+        },
+        {
+          "title": "Strategic Interventions & Policy Impact",
+          "items": [
+            {
+              "text": "Dana Desa Allocation Flexibility: In response to urgent concerns from village stakeholders about the perceived obligation to use 70% of Dana Desa for infrastructure development, we conducted an ad-hoc workshop and focus group discussion (FGD) at the village level. This spontaneous engagement aimed to clarify that, under Indonesia's decentralization policy, local governments and village authorities retain the autonomy to allocate Village Funds in ways that best meet their community needs — including for human resource development, capacity building, or social empowerment programs."
+            },
+            {
+              "text": "Evidence-Based Policy in Jambi: Served as the focal point for data and information at BALILATFO. Conducted qualitative data analysis in Jambi province, revealing that infrastructure-focused development policies inadvertently increased the Gini ratio. Identified that improved road access (from 1–2 hours travel time to just 30 minutes) led travelers to bypass village food stalls in favor of urban centers, reducing local economic activity. Provided evidence-based policy recommendations to address unintended socio-economic impacts."
+            }
+          ]
+        },
+        {
+          "title": "Innovation: 3rd Generation AI (Analytical & Reasoning AI)",
+          "items": [
+            {
+              "text": "Initiated a third-generation AI model using Python-based machine learning to automate statistical analysis of village data."
+            },
+            {
+              "text": "The system aimed to detect Type II errors (missed detections) — meaning cases where the system failed to flag anomalies or inequalities."
+            },
+            {
+              "text": "It combined automated data cleaning, anomaly detection, and inferential validation — effectively trying to “think” like a policy analyst."
+            },
+            {
+              "text": "The project wasn’t completed due to limited funding, but the prototype demonstrated an early AI reasoning model for social policy data validation."
+            },
+            {
+              "text": "💬 AI role: Self-learning analytical AI for data quality control."
+            },
+            {
+              "text": "💬 Impact (potential): Early identification of hidden socio-economic patterns and policy blind spots."
+            }
+          ]
+        }
       ]
     },
     {
@@ -1139,6 +1664,88 @@
           "themes": [
             "Monitoring, Evaluation & Learning",
             "AI & Data Systems"
+          ]
+        }
+      ],
+      "sourceDetailSections": [
+        {
+          "title": "Freelance Tech Consultant",
+          "items": [
+            {
+              "text": "Period: October 2009 – December 2015"
+            },
+            {
+              "text": "6 years Acted as a project broker between government/NGO clients and developers. Oversaw the development of database monitoring systems and interactive dashboard applications, ensuring secure and accurate data visualization."
+            }
+          ]
+        },
+        {
+          "title": "Project Intermediation and Brokerage",
+          "items": [
+            {
+              "text": "Acted as a trusted intermediary between government/NGO clients and software developers, effectively bridging communication gaps to ensure smooth project execution and on-time delivery."
+            },
+            {
+              "text": "Facilitated clear understanding between technical teams and non-technical stakeholders, reducing miscommunication and costly rework."
+            }
+          ]
+        },
+        {
+          "title": "Requirements Analysis & Agile Design",
+          "items": [
+            {
+              "text": "Applied Agile methodologies to systematically elicit, document, and manage evolving user requirements, translating client needs into precise, actionable specifications."
+            },
+            {
+              "text": "Developed wireframes and interface mockups using CorelDRAW, providing visual guidance to developers and enhancing stakeholder engagement throughout the development cycle."
+            }
+          ]
+        },
+        {
+          "title": "Stakeholder Relationship & Consultative Support",
+          "items": [
+            {
+              "text": "Maintained strong, ongoing relationships with clients, ensuring continuous clarification and alignment of functional and technical requirements with user expectations."
+            },
+            {
+              "text": "Provided consultative expertise across project lifecycles, from initial scoping through final delivery and deployment."
+            },
+            {
+              "text": "Brokered IoT technology solutions by connecting diverse suppliers with donors and client companies, enabling the introduction of innovative digital tools customized to operational needs."
+            }
+          ]
+        },
+        {
+          "title": "Development Coordination & Quality Assurance",
+          "items": [
+            {
+              "text": "Coordinated closely with development teams to ensure deliverables adhered strictly to design specifications, minimizing rework and ensuring high quality standards."
+            },
+            {
+              "text": "Led iterative review sessions incorporating user feedback to fine-tune prototypes and accelerate development cycles."
+            }
+          ]
+        },
+        {
+          "title": "Confidential Project Management",
+          "items": [
+            {
+              "text": "Managed multiple mobile and web application projects across various sectors, upholding strict confidentiality agreements with vendors, government agencies, and ministry partners."
+            },
+            {
+              "text": "Ensured protection of intellectual property and sensitive commercial information throughout all project phases."
+            }
+          ]
+        },
+        {
+          "title": "Custom Dashboard Development Coordination (M&E Tools)",
+          "items": [
+            {
+              "text": "Oversaw the creation of custom-built dashboards integrating HTML, CSS, and JavaScript frontends with CSV/Excel backend data sources."
+            },
+            {
+              "text": "Collaborated with developers using visualization libraries such as Highcharts and Chart.js to produce interactive, embeddable web dashboards that supported data-driven decision making for government programs."
+            }
           ]
         }
       ]
