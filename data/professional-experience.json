@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "language": "en",
+  "experiences": [
+    {
+      "id": "independent-consultant",
+      "period": {
+        "start": "2025",
+        "end": null,
+        "label": "2025 – Present"
+      },
+      "role": "Strategic Advisor & System Architect",
+      "organisation": "Independent Consultant",
+      "clients": [
+        "Ministry of Health, Indonesia",
+        "Ministry of Primary and Secondary Education (Kemendikdasmen)",
+        "Coordinating Ministry for Human Development and Cultural Affairs (Kemenko PMK)"
+      ],
+      "highlights": [
+        {
+          "area": "Digital Health",
+          "detail": "Designed digital reporting systems for specialist medical education, enhancing accountability for more than 2,600 residents."
+        },
+        {
+          "area": "Ocean Literacy",
+          "detail": "Co-developed an Ocean Literacy pilot under the Blue School approach, enabling student-led digital data collection."
+        },
+        {
+          "area": "Foresight",
+          "detail": "Delivered capacity building on Horizon Scanning methodology for policy foresight."
+        }
+      ]
+    },
+    {
+      "id": "unesco-jakarta",
+      "period": {
+        "start": "2023-02",
+        "end": "2025-04",
+        "label": "Feb 2023 – Apr 2025"
+      },
+      "role": "Project Assistant (Culture Unit)",
+      "organisation": "UNESCO Jakarta",
+      "highlights": [
+        {
+          "area": "Programme Coordination",
+          "detail": "Assumed key coordination duties during a leadership sabbatical in 2023, supporting the 2003 Convention on Intangible Cultural Heritage and the 2001 Convention on Underwater Cultural Heritage."
+        },
+        {
+          "area": "Digital Innovation",
+          "detail": "Built Heritage Commons 3D simulation game and a UN Travel Calculator to automate workflows."
+        },
+        {
+          "area": "Diplomacy",
+          "detail": "Facilitated high-level visits, including a US Congress delegation, and informal diplomacy efforts involving Brunei."
+        }
+      ]
+    },
+    {
+      "id": "undp-indonesia-papua",
+      "period": {
+        "start": "2022-03",
+        "end": "2023-02",
+        "label": "Mar 2022 – Feb 2023"
+      },
+      "role": "Vaccine Cold Chain Manager (SMILE Project)",
+      "organisation": "UNDP Indonesia (Papua Region)",
+      "highlights": [
+        {
+          "area": "Reporting Improvement",
+          "detail": "Increased vaccine stock reporting from 5% to 60% in remote districts using behavioural insights."
+        },
+        {
+          "area": "System Integration",
+          "detail": "Mediated workflow harmonisation between Malaria and Vaccine units."
+        },
+        {
+          "area": "Technology Oversight",
+          "detail": "Integrated IoT sensors for real-time cold-chain monitoring."
+        }
+      ]
+    },
+    {
+      "id": "ministry-village",
+      "period": {
+        "start": "2016-01",
+        "end": "2020-01",
+        "label": "Jan 2016 – Jan 2020"
+      },
+      "role": "PIC Data Command Room (BALILATFO)",
+      "organisation": "Ministry of Village, Development of Disadvantaged Regions and Transmigration, Indonesia",
+      "highlights": [
+        {
+          "area": "National Data",
+          "detail": "Established a Data Command Room to coordinate information flows between field facilitators and central leadership."
+        },
+        {
+          "area": "Policy Analysis",
+          "detail": "Produced weekly policy briefs and documented grassroots science, technology, and innovation practices."
+        }
+      ]
+    },
+    {
+      "id": "freelance-consultant",
+      "period": {
+        "start": "2009-10",
+        "end": "2015-12",
+        "label": "Oct 2009 – Dec 2015"
+      },
+      "role": "Technical Consultant & Liaison",
+      "organisation": "Freelance",
+      "highlights": [
+        {
+          "area": "Client–Developer Liaison",
+          "detail": "Bridged communication gaps between government and NGO clients and software developers."
+        },
+        {
+          "area": "Project Delivery",
+          "detail": "Managed Agile requirements gathering and custom monitoring and evaluation dashboard development."
+        }
+      ]
+    }
+  ]
+}
