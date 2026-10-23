@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "language": "en",
   "competencies": [
     {
@@ -8,21 +8,87 @@
       "title": "Behavioral Science",
       "icon": "ph-brain",
       "description": "Nudge Theory and Social Proof strategies applied to public-sector adoption.",
-      "modalId": "modal-behavioral"
+      "modalId": "modal-behavioral",
+      "evidence": [
+        {
+          "title": "Social Proof for Digital Transformation — UNDP",
+          "detail": "Engaged a respected local officer whose participation encouraged wider peer adoption of digital reporting in Papua."
+        },
+        {
+          "title": "COM-B Application in Remote Health Systems — UNDP",
+          "detail": "Addressed capability through training, opportunity through offline tools, and motivation through professional pride to improve vaccine-reporting adoption."
+        },
+        {
+          "title": "Nudge Design for Reporting Compliance — UNDP",
+          "detail": "Used pre-filled templates and visible “Save & Sync” prompts to make correct reporting behaviour easier."
+        },
+        {
+          "title": "Pygmalion Effect for Officer Motivation — UNDP",
+          "detail": "Recognised a hesitant officer as a “digital pioneer”, helping build confidence and encourage participation."
+        },
+        {
+          "title": "Dual-Process Communication — UNDP",
+          "detail": "Opened digital-transformation discussions with a human-centred story about children’s vaccination before presenting supporting data."
+        }
+      ]
     },
     {
       "id": "civic-tech-ai",
       "title": "Civic Tech & AI",
       "icon": "ph-code",
       "description": "Developing low-code systems, IoT integration, and gamified policy tools.",
-      "modalId": "modal-tech"
+      "modalId": "modal-tech",
+      "evidence": [
+        {
+          "title": "Digital Reporting & Workflow Adoption — UNDP",
+          "detail": "Supported adoption of digital vaccine reporting in remote Papua by aligning user needs, workflow design and behavioural insights."
+        },
+        {
+          "title": "Nudge Design for Reporting Compliance — UNDP",
+          "detail": "Applied practical interface and workflow cues, including pre-filled templates and visible “Save & Sync” actions."
+        },
+        {
+          "title": "Capability and Opportunity Design — UNDP",
+          "detail": "Combined training and offline-friendly workflows to address barriers faced by health workers in remote settings."
+        }
+      ]
     },
     {
       "id": "diplomacy-policy",
       "title": "Diplomacy & Policy",
       "icon": "ph-handshake",
       "description": "Stakeholder management, high-level policy bridging, and conflict resolution.",
-      "modalId": "modal-diplomacy"
+      "modalId": "modal-diplomacy",
+      "evidence": [
+        {
+          "title": "Informal Diplomacy & Reciprocity — UNESCO",
+          "detail": "Reopened communication with a previously unresponsive high-level counterpart through logistical support and goodwill during a regional workshop."
+        },
+        {
+          "title": "Relationship-Based Diplomacy — UNESCO",
+          "detail": "Built rapport with international delegates at the Jeonju Workshop through cultural stories and humour, helping move stalled exchanges toward collaboration."
+        },
+        {
+          "title": "Timing Intelligence in Diplomacy — UNESCO",
+          "detail": "Used relaxed informal settings to support more open discussion with a senior culture-sector counterpart."
+        },
+        {
+          "title": "Institutional Trust Repair — UNESCO",
+          "detail": "Addressed miscommunication by acknowledging the issue, clarifying intentions and maintaining transparent follow-up."
+        },
+        {
+          "title": "Creating Shared Identity Across ASEAN — UNESCO",
+          "detail": "Used inclusive regional language and shared visual cues to encourage a sense of common purpose among delegates."
+        },
+        {
+          "title": "Power Distance Sensitivity — UNESCO",
+          "detail": "Acknowledged senior government officials appropriately while coordinating with wider institutional teams."
+        },
+        {
+          "title": "Strategic Silence in High-Level Meetings — UNESCO",
+          "detail": "Presented UNESCO’s position clearly and paused, allowing counterparts to articulate internal constraints that could then inform practical solutions."
+        }
+      ]
     },
     {
       "id": "policy-governance",
