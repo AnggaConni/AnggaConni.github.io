@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "language": "en",
   "education": [
     {
@@ -47,6 +47,21 @@
   ],
   "coursework": [
     {
+      "id": "binus-communication-studies-enrollment",
+      "title": "Communication Studies (S1) — Enrollment Record",
+      "institution": "Universitas Bina Nusantara (BINUS)",
+      "studyProgram": "Communication Studies",
+      "degreeLevel": "Bachelor's programme (S1)",
+      "enrollmentDate": "2009-09-01",
+      "status": "discontinued",
+      "statusAsReported": "Dikeluarkan–2015/2016 Ganjil",
+      "sourceEvidence": [
+        "PDDikti student detail page supplied by the user",
+        "PDDikti student search results screenshot supplied by the user"
+      ],
+      "verificationNote": "PDDikti screenshot shows the institution, programme, entry date, and last student status. This is an enrollment record, not evidence of a completed degree. No transcript or credit total for BINUS was supplied."
+    },
+    {
       "id": "unas-communication-coursework",
       "title": "Communication Studies Coursework (S1 transcript)",
       "institution": "Universitas Nasional (UNAS)",
@@ -83,7 +98,7 @@
       "id": "communication-journalism-coursework-summary",
       "title": "Communication & Journalism Coursework (portfolio summary)",
       "institutions": [
-        "BINUS",
+        "Universitas Bina Nusantara (BINUS)",
         "Universitas Nasional (UNAS)",
         "Universitas Mercu Buana"
       ],
@@ -104,16 +119,16 @@
         "Quantitative Research Methods",
         "Multimedia Communication"
       ],
-      "note": "The earlier portfolio summary stated 104 credits across three institutions. The supplied UNAS and Mercu Buana transcripts show 84 and 82 credits respectively, so 104 should not be presented as a verified combined total. No BINUS transcript was supplied."
+      "note": "The PDDikti student record now confirms BINUS enrollment from 1 September 2009 and status 'Dikeluarkan–2015/2016 Ganjil'. The earlier portfolio summary stated 104 credits across the three institutions, but available transcripts show 84 credits at UNAS and 82 at Mercu Buana; no BINUS transcript or credit total is available, so the 104-credit aggregate remains unverified."
     }
   ],
   "dataNotes": {
     "lastReviewed": "2026-10-23",
-    "source": "Uploaded bachelor and master diplomas, UNAS and Mercu Buana transcripts, Hallo Arif training certificate, and earlier portfolio source.",
+    "source": "Uploaded bachelor and master diplomas, UNAS and Mercu Buana transcripts, Hallo Arif training certificate, earlier portfolio source, and PDDikti screenshots supplied by the user.",
     "policy": "Separate formal degrees, transcript-supported coursework, summary records awaiting reconciliation, and training certificates.",
     "reconciliationFlags": [
-      "Earlier portfolio summary stated 104 credits across BINUS, UNAS, and Mercu Buana. Supplied transcripts show 84 credits at UNAS and 82 at Mercu Buana; aggregate remains unverified.",
-      "No BINUS transcript or certificate was supplied.",
+      "PDDikti confirms BINUS Communication Studies enrollment from 1 September 2009 and status 'Dikeluarkan–2015/2016 Ganjil'; this must not be represented as a completed degree.",
+      "Earlier portfolio summary stated 104 credits across BINUS, UNAS, and Mercu Buana. Supplied transcripts show 84 credits at UNAS and 82 at Mercu Buana; the 104-credit aggregate remains unverified because no BINUS transcript or credit total is available.",
       "Master diploma does not display GPA or thesis title; these remain sourced from the earlier portfolio summary."
     ]
   },
