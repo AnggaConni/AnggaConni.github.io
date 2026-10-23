@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "language": "en",
   "education": [
     {
@@ -36,5 +36,34 @@
       },
       "focus": "Human Capacity Development"
     }
-  ]
+  ],
+  "coursework": [
+    {
+      "id": "communication-journalism-coursework",
+      "title": "Undergraduate Coursework in Communication & Journalism",
+      "institutions": [
+        "BINUS",
+        "UNAS",
+        "Mercu Buana"
+      ],
+      "status": "coursework",
+      "creditsCompleted": 104,
+      "focus": [
+        "Public Relations",
+        "Journalism"
+      ],
+      "keyModules": [
+        "Media Relations",
+        "Strategic Communication",
+        "Journalism Fundamentals",
+        "Crisis Management"
+      ],
+      "description": "Coursework across communication and journalism subjects, with emphasis on public relations, media relations, and mass communication strategy.",
+      "sourceNote": "Listed in the supplied All Achievements document. No completed degree or award is claimed."
+    }
+  ],
+  "dataNotes": {
+    "source": "Angga Conni Saputra - All Achievements document supplied in this conversation.",
+    "policy": "Formal qualifications are stored in education; non-degree coursework is stored separately and must not be represented as a completed degree."
+  }
 }
