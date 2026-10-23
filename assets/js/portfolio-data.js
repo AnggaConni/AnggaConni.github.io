@@ -17,7 +17,7 @@
   })[char]);
   const hasUniqueIds = (items) => {
     if (!Array.isArray(items)) return false;
-    const ids = items.map(item => item && item.id).filter(Boolean);
+    const ids = items.map(item => item && (item.id ?? item.number)).filter(value => value !== undefined && value !== null);
     return ids.length === items.length && new Set(ids).size === ids.length;
   };
 
