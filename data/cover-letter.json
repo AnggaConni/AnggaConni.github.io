@@ -1,0 +1,156 @@
+{
+  "version": "1.0.0",
+  "description": "Role-specific cover letter content templates for the portfolio Resume and Cover Letter Builder.",
+  "lastReviewed": "2026-10-23",
+  "defaults": {
+    "date": "[Date]",
+    "organisation": "[Organisation Name]",
+    "address": "[Organisation Address — optional]",
+    "position": "[Position Title]",
+    "salutation": "Dear Recruitment Team,"
+  },
+  "profiles": [
+    {
+      "id": "mel",
+      "title": "MEL Officer",
+      "subject": "Application for [Position Title] — Monitoring, Evaluation and Learning",
+      "opening": "I am writing to apply for the [Position Title] opportunity with [Organisation Name]. My experience spans monitoring and reporting workflows, field-level data systems, policy-oriented analysis, and practical capacity development. I am particularly interested in helping teams turn reliable information into learning, accountability, and better programme decisions.",
+      "focus": "In my work with UNDP Indonesia's SMILE project in Papua, I supported digital vaccine logistics and reporting in a challenging operating environment. I also contributed to national data collection processes and policy reporting at the Ministry of Village. These experiences shaped my practical understanding of data quality, implementation constraints, stakeholder engagement, and evidence use.",
+      "evidence": [
+        "UNDP Indonesia — supporting digital vaccine reporting and cold-chain operations in remote Papua.",
+        "Ministry of Village — contributing to national data collection guidance, policy briefs, and information systems.",
+        "Portfolio projects — developing dashboards, structured reporting tools, and evidence-oriented digital workflows."
+      ],
+      "closing": "I would welcome the opportunity to discuss how my experience in data systems, implementation support, and evidence-informed work could contribute to your monitoring, evaluation, and learning priorities.",
+      "keywords": [
+        "monitoring",
+        "evaluation",
+        "learning",
+        "MEL",
+        "M&E",
+        "reporting",
+        "data",
+        "research"
+      ],
+      "accent": "#0f766e"
+    },
+    {
+      "id": "digital",
+      "title": "Digital Transformation Officer",
+      "subject": "Application for [Position Title] — Digital Transformation",
+      "opening": "I am writing to express my interest in the [Position Title] role at [Organisation Name]. I combine public-sector programme experience with hands-on development of practical digital tools, including browser-based systems, structured data workflows, mapping applications, and AI-assisted prototypes.",
+      "focus": "My approach to digital transformation is pragmatic: understand the operational problem, design around user needs and constraints, and build solutions that are accessible, maintainable, and useful for decision-making. At UNDP Indonesia, I supported digital vaccine reporting in remote Papua; in my independent work, I have developed tools spanning policy, education, GIS, and institutional workflows.",
+      "evidence": [
+        "UNDP Indonesia — supporting adoption of digital reporting for vaccine logistics in remote districts.",
+        "Independent consulting — designing browser-based and serverless applications for data, mapping, reporting, and decision support.",
+        "Portfolio projects — prototypes demonstrating AI-assisted research, GIS mapping, workflow automation, and digital learning."
+      ],
+      "closing": "I would value the opportunity to discuss how this combination of programme understanding and hands-on digital prototyping could support your organisation's transformation priorities.",
+      "keywords": [
+        "digital",
+        "AI",
+        "system",
+        "workflow",
+        "automation",
+        "GIS",
+        "data",
+        "technology"
+      ],
+      "accent": "#2458a6"
+    },
+    {
+      "id": "coord",
+      "title": "Project Coordination",
+      "subject": "Application for [Position Title] — Project Coordination",
+      "opening": "I am pleased to submit my application for the [Position Title] position with [Organisation Name]. My experience includes coordinating programmes and stakeholders across international organisations and public institutions, supporting workshops and regional activities, and translating institutional priorities into practical follow-up and deliverables.",
+      "focus": "At UNESCO Jakarta, I supported culture-sector programme implementation and coordination involving government, regional partners, and other stakeholders. My earlier work with UNDP Indonesia and the Ministry of Village strengthened my experience in operational delivery, information management, and working across institutional contexts.",
+      "evidence": [
+        "UNESCO Jakarta — supporting regional culture and heritage activities and stakeholder coordination.",
+        "UNDP Indonesia — contributing to vaccine cold-chain and digital reporting operations in Papua.",
+        "Ministry of Village — supporting national data processes, policy reporting, and coordination."
+      ],
+      "closing": "I would welcome the opportunity to contribute my coordination, communication, and implementation experience to your team and help ensure activities progress toward clear, practical results.",
+      "keywords": [
+        "coordination",
+        "partnership",
+        "workshop",
+        "project",
+        "stakeholder",
+        "operations",
+        "diplomacy"
+      ],
+      "accent": "#7c3aed"
+    },
+    {
+      "id": "social",
+      "title": "Social Change & Behavioural Insights",
+      "subject": "Application for [Position Title] — Social Change and Behavioural Insights",
+      "opening": "I am applying for the [Position Title] role at [Organisation Name] because my work has consistently focused on the practical question of how policies, programmes, and tools are adopted by people in real settings.",
+      "focus": "My experience combines behavioural insights, stakeholder-sensitive coordination, capacity development, and user-centred workflow design. In remote health settings in Papua, I supported digital reporting adoption while considering training, connectivity, local ownership, and motivation. In multilateral settings, I have also used culturally aware communication to support collaboration among diverse stakeholders.",
+      "evidence": [
+        "UNDP Indonesia — supporting digital reporting adoption in remote health districts.",
+        "UNESCO Jakarta — coordinating across institutional and cultural contexts and supporting constructive collaboration.",
+        "Portfolio projects — creating learning, community mapping, and environmental field tools designed around practical user needs."
+      ],
+      "closing": "I would be glad to discuss how my experience in behavioural approaches, capacity development, and implementation support could help your team strengthen participation and sustainable adoption.",
+      "keywords": [
+        "behaviour",
+        "community",
+        "education",
+        "learning",
+        "capacity",
+        "COM-B",
+        "heritage",
+        "coastal"
+      ],
+      "accent": "#b45309"
+    },
+    {
+      "id": "policy",
+      "title": "Data / Policy Analyst",
+      "subject": "Application for [Position Title] — Policy and Data Analysis",
+      "opening": "I am writing to apply for the [Position Title] position at [Organisation Name]. My background combines public policy, data and information systems, institutional analysis, and the development of practical evidence products for decision-making.",
+      "focus": "At the Ministry of Village, I contributed to national data collection processes, policy briefs, and information management. My subsequent work with UNESCO and UNDP added experience in international programme implementation, stakeholder coordination, and the use of structured information to address operational and policy questions.",
+      "evidence": [
+        "Ministry of Village — contributing to national data collection guidance and policy briefs.",
+        "UNESCO and UNDP — supporting programme implementation and evidence-informed coordination.",
+        "Portfolio projects — developing structured data tools, dashboards, mapping systems, and strategic-intelligence prototypes."
+      ],
+      "closing": "I welcome the opportunity to discuss how my policy background, analytical approach, and practical experience with data systems could support your team's research and decision-making needs.",
+      "keywords": [
+        "policy",
+        "data",
+        "analysis",
+        "governance",
+        "research",
+        "foresight",
+        "intelligence"
+      ],
+      "accent": "#1d4ed8"
+    },
+    {
+      "id": "foresight",
+      "title": "Strategic Foresight & OSINT",
+      "subject": "Application for [Position Title] — Strategic Foresight and Intelligence",
+      "opening": "I am writing to express my interest in the [Position Title] opportunity with [Organisation Name]. My work brings together horizon scanning, structured evidence, policy context, and AI-assisted tools to help identify emerging signals and explore their implications.",
+      "focus": "I have developed radar-style workflows and research tools that organise information, trace relationships, and support anticipatory thinking. My broader experience across UNESCO, UNDP, and public-sector work helps me connect signals with institutional realities, stakeholder behaviour, and potential implementation pathways.",
+      "evidence": [
+        "Horizon-scanning and radar projects — organising emerging signals and evidence into structured intelligence workflows.",
+        "UNESCO, UNDP, and public-sector experience — interpreting institutional context and supporting cross-stakeholder coordination.",
+        "Portfolio projects — prototypes for AI-assisted research, evidence mapping, and strategic analysis."
+      ],
+      "closing": "I would welcome a conversation about how my combination of foresight methods, digital prototyping, and policy implementation experience could contribute to your team's anticipatory and analytical work.",
+      "keywords": [
+        "foresight",
+        "radar",
+        "OSINT",
+        "horizon",
+        "signals",
+        "risk",
+        "intelligence",
+        "strategic"
+      ],
+      "accent": "#0f766e"
+    }
+  ]
+}
