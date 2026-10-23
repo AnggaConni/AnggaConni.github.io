@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "language": "en",
   "authoredPublications": [
     {
@@ -155,7 +155,23 @@
         "isbn": "978-623-7129-69-1"
       }
     ],
-    "dataCompleteness": "The current HTML visibly lists items 1–20 and item 34, with an ellipsis for items 21–33. Complete ISBN data for the omitted titles should be added only after verifying source material."
+    "dataCompleteness": "The current HTML visibly lists items 1–20 and item 34, with an ellipsis for items 21–33. Complete ISBN data for the omitted titles should be added only after verifying source material.",
+    "missingItemNumbers": [
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ],
+    "completenessStatus": "partial-source-data"
   },
   "multimedia": [
     {
@@ -222,5 +238,11 @@
       "linkLabel": "Read News",
       "url": "https://philippines.icomos.org/2023/10/16/icomos-philippines-selected-as-the-implementing-partner-of-the-first-unesco-heritage-emergency-fund-project-for-the-republic-of-the-philippines/"
     }
-  ]
+  ],
+  "dataNotes": {
+    "lastReviewed": "2026-10-23",
+    "source": "Angga Conni Saputra - All Achievements document supplied in this conversation and existing portfolio HTML data.",
+    "editorialCompleteness": "editorialWorks reports 34 works, but only items 1–20 and 34 are currently represented. Titles and ISBNs for items 21–33 have not been filled because the supplied source excerpt does not provide their complete metadata.",
+    "attributionPolicy": "Distinguish author, editor, layout designer, multimedia contributor, and media coverage. Do not infer authorship from media mentions."
+  }
 }
