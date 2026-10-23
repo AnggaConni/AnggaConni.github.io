@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "language": "en",
   "name": "Angga Conni Saputra",
   "headline": "Policy-Tech Architect | Digital Transformation & Foresight | Cultural Data & Public Innovation",
@@ -26,6 +26,21 @@
       "id": "contact",
       "label": "Email",
       "url": "mailto:angga.conni@horizon-scanning.org"
+    },
+    {
+      "id": "complete-portfolio",
+      "label": "Complete Portfolio Index",
+      "url": "https://anggaconni.github.io/Complete-Portofolio/"
+    },
+    {
+      "id": "tips",
+      "label": "Tips & Resources",
+      "url": "https://anggaconni.github.io/tips"
+    },
+    {
+      "id": "cover-letter",
+      "label": "Cover Letter",
+      "url": "https://horizon-scanning.org/CL"
     }
   ],
   "summaryFilters": {
@@ -62,7 +77,9 @@
         "leadership",
         "strategy"
       ],
-      "text": "A policy and technology practitioner working across public-sector delivery, cultural heritage, public health, rural development, and education. Experienced in translating institutional mandates into practical workflows, structured data systems, capacity-building activities, and digital prototypes."
+      "text": "A policy and technology practitioner working across public-sector delivery, cultural heritage, public health, rural development, and education. Experienced in translating institutional mandates into practical workflows, structured data systems, capacity-building activities, and digital prototypes.",
+      "shortText": "A policy and technology practitioner working across public-sector delivery, cultural heritage, public health, rural development, and education. Experienced in translating institutional mandates into practical workflows, structured data systems, capacity-bui…",
+      "status": "active"
     },
     {
       "id": "policy-tech-architecture",
@@ -85,7 +102,9 @@
         "serverless",
         "workflow"
       ],
-      "text": "Designs low-cost, browser-based and serverless digital systems that connect institutional workflows, structured data, reporting, and decision support. Focuses on practical adoption, auditability, maintainability, and implementation under resource constraints."
+      "text": "Designs low-cost, browser-based and serverless digital systems that connect institutional workflows, structured data, reporting, and decision support. Focuses on practical adoption, auditability, maintainability, and implementation under resource constraints.",
+      "shortText": "Designs low-cost, browser-based and serverless digital systems that connect institutional workflows, structured data, reporting, and decision support. Focuses on practical adoption, auditability, maintainability, and implementation under resource constraints.",
+      "status": "active"
     },
     {
       "id": "foresight-strategic-intelligence",
@@ -110,7 +129,9 @@
         "radar",
         "signals"
       ],
-      "text": "Builds horizon-scanning workflows and AI-assisted radar tools to discover emerging signals, organise evidence, map relationships, and support anticipatory policy thinking. Facilitates workshops that turn observations from communities and practitioners into potential innovation pathways."
+      "text": "Builds horizon-scanning workflows and AI-assisted radar tools to discover emerging signals, organise evidence, map relationships, and support anticipatory policy thinking. Facilitates workshops that turn observations from communities and practitioners into potential innovation pathways.",
+      "shortText": "Builds horizon-scanning workflows and AI-assisted radar tools to discover emerging signals, organise evidence, map relationships, and support anticipatory policy thinking. Facilitates workshops that turn observations from communities and practitioners into…",
+      "status": "active"
     },
     {
       "id": "cultural-heritage-data",
@@ -138,7 +159,9 @@
         "GIS",
         "culture"
       ],
-      "text": "Combines experience supporting UNESCO's 2003 Intangible Cultural Heritage and 2001 Underwater Cultural Heritage conventions with digital mapping, heritage knowledge products, stakeholder coordination, and experimental tools for documenting and safeguarding living heritage."
+      "text": "Combines experience supporting UNESCO's 2003 Intangible Cultural Heritage and 2001 Underwater Cultural Heritage conventions with digital mapping, heritage knowledge products, stakeholder coordination, and experimental tools for documenting and safeguarding living heritage.",
+      "shortText": "Combines experience supporting UNESCO's 2003 Intangible Cultural Heritage and 2001 Underwater Cultural Heritage conventions with digital mapping, heritage knowledge products, stakeholder coordination, and experimental tools for documenting and safeguarding…",
+      "status": "active"
     },
     {
       "id": "behavioural-policy-delivery",
@@ -163,7 +186,9 @@
         "adoption",
         "M&E"
       ],
-      "text": "Uses behavioural framing, peer influence, local ownership, and practical workflow design to address the gap between formal programme outputs and real-world adoption. Experience includes supporting digital-reporting uptake in remote health districts and applying stakeholder-sensitive approaches in multilateral settings."
+      "text": "Uses behavioural framing, peer influence, local ownership, and practical workflow design to address the gap between formal programme outputs and real-world adoption. Experience includes supporting digital-reporting uptake in remote health districts and applying stakeholder-sensitive approaches in multilateral settings.",
+      "shortText": "Uses behavioural framing, peer influence, local ownership, and practical workflow design to address the gap between formal programme outputs and real-world adoption. Experience includes supporting digital-reporting uptake in remote health districts and appl…",
+      "status": "active"
     },
     {
       "id": "data-governance-evidence",
@@ -188,7 +213,9 @@
         "evidence",
         "analytics"
       ],
-      "text": "Experience ranges from national data collection guidelines and metadata standards to policy briefs, dashboard oversight, qualitative analysis, anomaly-detection prototypes, and operational data quality improvements. Emphasises traceable evidence and the policy implications of data, not only visualisation."
+      "text": "Experience ranges from national data collection guidelines and metadata standards to policy briefs, dashboard oversight, qualitative analysis, anomaly-detection prototypes, and operational data quality improvements. Emphasises traceable evidence and the policy implications of data, not only visualisation.",
+      "shortText": "Experience ranges from national data collection guidelines and metadata standards to policy briefs, dashboard oversight, qualitative analysis, anomaly-detection prototypes, and operational data quality improvements. Emphasises traceable evidence and the pol…",
+      "status": "active"
     },
     {
       "id": "coastal-climate-education",
@@ -214,7 +241,9 @@
         "education",
         "climate"
       ],
-      "text": "Develops and supports digital tools and learning pilots that help students and communities map coastal environments, monitor mangrove ecosystems, and connect environmental education with field evidence and local resilience priorities."
+      "text": "Develops and supports digital tools and learning pilots that help students and communities map coastal environments, monitor mangrove ecosystems, and connect environmental education with field evidence and local resilience priorities.",
+      "shortText": "Develops and supports digital tools and learning pilots that help students and communities map coastal environments, monitor mangrove ecosystems, and connect environmental education with field evidence and local resilience priorities.",
+      "status": "active"
     },
     {
       "id": "ai-augmented-builder",
@@ -240,7 +269,9 @@
         "GIS",
         "serverless"
       ],
-      "text": "Uses AI-augmented development to prototype and deliver browser-based tools across policy, education, GIS, document processing, and public-sector workflows. Favors accessible technologies and transparent architectures that can be maintained without expensive infrastructure."
+      "text": "Uses AI-augmented development to prototype and deliver browser-based tools across policy, education, GIS, document processing, and public-sector workflows. Favors accessible technologies and transparent architectures that can be maintained without expensive infrastructure.",
+      "shortText": "Uses AI-augmented development to prototype and deliver browser-based tools across policy, education, GIS, document processing, and public-sector workflows. Favors accessible technologies and transparent architectures that can be maintained without expensive…",
+      "status": "active"
     },
     {
       "id": "capacity-building-learning-design",
@@ -265,7 +296,9 @@
         "ADDIE",
         "learning design"
       ],
-      "text": "Supports capacity development through learning-needs analysis, training materials, digital learning experiences, workshops, and practical tools. Experience spans cultural heritage reporting, health logistics, digital-government systems, and school-based environmental learning."
+      "text": "Supports capacity development through learning-needs analysis, training materials, digital learning experiences, workshops, and practical tools. Experience spans cultural heritage reporting, health logistics, digital-government systems, and school-based environmental learning.",
+      "shortText": "Supports capacity development through learning-needs analysis, training materials, digital learning experiences, workshops, and practical tools. Experience spans cultural heritage reporting, health logistics, digital-government systems, and school-based env…",
+      "status": "active"
     },
     {
       "id": "multilateral-diplomacy",
@@ -290,7 +323,9 @@
         "coordination",
         "ASEAN"
       ],
-      "text": "Experience coordinating government, UN, academic, NGO, and community stakeholders; supporting regional workshops and delegations; facilitating cross-institutional cooperation; and analysing political-economy and stakeholder risks in culturally sensitive policy environments."
+      "text": "Experience coordinating government, UN, academic, NGO, and community stakeholders; supporting regional workshops and delegations; facilitating cross-institutional cooperation; and analysing political-economy and stakeholder risks in culturally sensitive policy environments.",
+      "shortText": "Experience coordinating government, UN, academic, NGO, and community stakeholders; supporting regional workshops and delegations; facilitating cross-institutional cooperation; and analysing political-economy and stakeholder risks in culturally sensitive pol…",
+      "status": "active"
     },
     {
       "id": "rural-development-innovation",
@@ -315,7 +350,9 @@
         "policy analysis",
         "local economy"
       ],
-      "text": "Worked with national village-development data and policy processes, including innovation documentation, Village-Owned Enterprises, national research coordination, and analysis of unintended local economic consequences of infrastructure investments."
+      "text": "Worked with national village-development data and policy processes, including innovation documentation, Village-Owned Enterprises, national research coordination, and analysis of unintended local economic consequences of infrastructure investments.",
+      "shortText": "Worked with national village-development data and policy processes, including innovation documentation, Village-Owned Enterprises, national research coordination, and analysis of unintended local economic consequences of infrastructure investments.",
+      "status": "active"
     },
     {
       "id": "knowledge-publications",
@@ -340,7 +377,9 @@
         "video",
         "communication"
       ],
-      "text": "Produces policy briefs, books, training materials, reporting guidance, multimedia documentation, and publication layouts. Authored and edited rural-development knowledge products and published The Invisible Architecture of Diplomacy in 2026."
+      "text": "Produces policy briefs, books, training materials, reporting guidance, multimedia documentation, and publication layouts. Authored and edited rural-development knowledge products and published The Invisible Architecture of Diplomacy in 2026.",
+      "shortText": "Produces policy briefs, books, training materials, reporting guidance, multimedia documentation, and publication layouts. Authored and edited rural-development knowledge products and published The Invisible Architecture of Diplomacy in 2026.",
+      "status": "active"
     }
   ],
   "credentials": [
@@ -410,5 +449,10 @@
       "value": "15",
       "description": "10 internal and 5 external applications/systems during Ministry of Village work."
     }
-  ]
+  ],
+  "dataNotes": {
+    "lastReviewed": "2026-10-23",
+    "sourcePolicy": "Profile summaries are authored narrative; credentials and project claims should be reconciled with the dedicated education, experience, and application datasets.",
+    "languagePolicy": "The current canonical content is English. Add Indonesian language variants as separate fields when translated content is prepared; do not assume automatic translation is reviewed."
+  }
 }
