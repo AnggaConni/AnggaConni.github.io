@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "language": "en",
   "authoredPublications": [
     {
@@ -146,8 +146,112 @@
       },
       {
         "number": 20,
-        "title": "Manfaat Dana Desa di Provinsi Kalimantan Utara",
+        "title": "Data dan Informasi Dana Desa di Provinsi Kalimantan Utara",
         "isbn": "978-623-7129-57-8"
+      },
+      {
+        "number": 21,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Sulawesi Utara",
+        "isbn": "978-623-7129-58-5",
+        "authors": "Steven R. Sentinuwo ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 22,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Sulawesi Barat",
+        "isbn": "978-623-7129-59-2",
+        "authors": "Anhar ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 23,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Sulawesi Tengah",
+        "isbn": "978-623-7129-60-8",
+        "authors": "Amiruddin Kade ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 24,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Sulawesi Selatan",
+        "isbn": "978-623-7129-61-5",
+        "authors": "Andi Alimuddin Unde ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 25,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Kalimantan Timur",
+        "isbn": "978-623-7129-62-2",
+        "authors": "Hartutiningsih ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 26,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Kalimantan Selatan",
+        "isbn": "978-623-7129-63-9",
+        "authors": "H. Basir ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 27,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Sulawesi Tenggara",
+        "isbn": "978-623-7129-64-6",
+        "authors": "LM. Magribi ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 28,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Gorontalo",
+        "isbn": "978-623-7129-65-3",
+        "authors": "Hasanuddin Fatsah ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 29,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Maluku",
+        "isbn": "978-623-7129-66-0",
+        "authors": "La Ega ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 30,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Maluku Utara",
+        "isbn": "978-623-7129-67-7",
+        "authors": "Husen Alting ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 31,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Riau",
+        "isbn": "978-623-7129-71-4",
+        "authors": "Dahlan Tampubolon ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 32,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Papua Barat",
+        "isbn": "978-623-7129-72-1",
+        "authors": "Jacob Manusawai ... [et al.]",
+        "year": 2018,
+        "source": "List of Published Book.docx"
+      },
+      {
+        "number": 33,
+        "title": "Data dan Informasi Manfaat Dana Desa di Provinsi Papua",
+        "isbn": "978-623-7129-70-7",
+        "authors": "Johanis Paulus Kilmaskossu, Kaleb Amaghi Yenusi, Jacob Manusawai",
+        "year": 2018,
+        "source": "List of Published Book.docx"
       },
       {
         "number": 34,
@@ -155,23 +259,8 @@
         "isbn": "978-623-7129-69-1"
       }
     ],
-    "dataCompleteness": "The current HTML visibly lists items 1–20 and item 34, with an ellipsis for items 21–33. Complete ISBN data for the omitted titles should be added only after verifying source material.",
-    "missingItemNumbers": [
-      21,
-      22,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31,
-      32,
-      33
-    ],
-    "completenessStatus": "partial-source-data"
+    "dataCompleteness": "All 34 numbered entries are represented using the supplied List of Published Book.docx. Titles, ISBNs, authors, and year for entries 21–33 were transcribed from the source document; author listings abbreviated as '[et al.]' are retained as shown in the source.",
+    "completenessStatus": "complete-from-supplied-source"
   },
   "multimedia": [
     {
@@ -241,8 +330,8 @@
   ],
   "dataNotes": {
     "lastReviewed": "2026-10-23",
-    "source": "Angga Conni Saputra - All Achievements document supplied in this conversation and existing portfolio HTML data.",
-    "editorialCompleteness": "editorialWorks reports 34 works, but only items 1–20 and 34 are currently represented. Titles and ISBNs for items 21–33 have not been filled because the supplied source excerpt does not provide their complete metadata.",
+    "source": "Angga Conni Saputra - All Achievements document, List of Published Book.docx supplied in this conversation, and existing portfolio HTML data.",
+    "editorialCompleteness": "All 34 editorial works are represented. Items 21–33 were verified against List of Published Book.docx; author names abbreviated in the source remain abbreviated. Item 20's source title omits the word 'manfaat', so the entry should preserve source wording.",
     "attributionPolicy": "Distinguish author, editor, layout designer, multimedia contributor, and media coverage. Do not infer authorship from media mentions."
   }
 }
