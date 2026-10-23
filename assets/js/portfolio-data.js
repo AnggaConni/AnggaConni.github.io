@@ -120,6 +120,46 @@
     return true;
   }
 
+  function renderCompetencies(dataset) {
+    const container = document.querySelector("[data-json-competencies]");
+    const competencies = dataset?.competencies;
+    if (!container || !Array.isArray(competencies)) return false;
+
+    const iconClass = value => {
+      const allowed = /^[a-z0-9-]+$/.test(value || "") ? value : "ph-lightbulb";
+      return "ph " + allowed;
+    };
+    const categoryLabels = {
+      policy: "Policy & Governance",
+      methodology: "Methods & Intelligence",
+      data: "Data & Analytics",
+      technical: "Digital & Technical",
+      sector: "Sector Expertise",
+      professional: "Professional Practice",
+      outputs: "Knowledge & Communication"
+    };
+    container.innerHTML = competencies.map(item => {
+      const title = text(item.title || "Competency");
+      const description = text(item.description || "");
+      const tags = (Array.isArray(item.tags) ? item.tags : []).map(tag => '<span class="competency-tag">' + text(tag) + '</span>').join("");
+      const category = item.category ? '<span class="tag">' + text(categoryLabels[item.category] || item.category) + '</span>' : "";
+      const modal = item.modalId && document.getElementById(item.modalId)
+        ? '<a class="competency-evidence-link" href="#" onclick="event.preventDefault(); event.stopPropagation(); openModal(\'' + text(item.modalId) + '\')">View detailed case examples ↗</a>'
+        : "";
+      const expanded = '<details><summary>Explore this competency</summary><div class="competency-details">' +
+        (tags ? '<div class="competency-tags">' + tags + '</div>' : '<p>More structured focus areas can be added to this competency in the JSON dataset.</p>') +
+        modal + '</div></details>';
+      return '<article class="expert-card competency-card">' +
+        '<i class="' + iconClass(item.icon) + '" aria-hidden="true"></i>' +
+        category +
+        '<h3>' + title + '</h3>' +
+        '<p>' + description + '</p>' +
+        expanded +
+        '</article>';
+    }).join("");
+    return true;
+  }
+
   function renderApplications(dataset) {
     const container = document.querySelector('[data-json-source="applications"]');
     const applications = dataset?.applications;
@@ -255,6 +295,7 @@
       if (!report.errors.length) {
         renderEducation(data.education);
         renderExperience(data.experience);
+        renderCompetencies(data.competencies);
         renderEditorialWorks(data.publications);
         renderApplications(data.applications);
       }
