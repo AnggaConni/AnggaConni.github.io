@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Central manifest for the portfolio's structured JSON data. Paths are relative to the website root.",
   "lastReviewed": "2026-10-23",
   "datasets": {
@@ -10,6 +10,7 @@
     "competencies": "data/core-competencies.json",
     "applications": "data/app-portofolio.json",
     "publications": "data/publications-media.json",
-    "coverLetter": "data/cover-letter.json"
+    "coverLetter": "data/cover-letter.json",
+    "resume": "data/resume.json"
   }
 }
