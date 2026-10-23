@@ -1,0 +1,172 @@
+{
+  "version": "1.0.0",
+  "language": "en",
+  "lastReviewed": "2026-10-23",
+  "description": "Role-specific resume configuration selecting tailored summaries, experience, competencies and portfolio products by dataset IDs.",
+  "profiles": [
+    {
+      "id": "mel",
+      "title": "MEL Officer",
+      "headline": "Monitoring, Evaluation & Learning | Evidence, Reporting & Programme Quality",
+      "summary": "Monitoring, evaluation and learning practitioner with experience improving field reporting, analysing operational data, supporting learning-needs assessments, and translating evidence into programme and policy decisions. Combines public-sector programme experience with practical digital monitoring tools and capacity building.",
+      "experienceIds": [
+        "undp-indonesia-papua",
+        "ministry-village",
+        "unesco-jakarta",
+        "independent-consultant"
+      ],
+      "competencyIds": [
+        "mel-research",
+        "data-governance-analytics",
+        "policy-governance",
+        "capacity-learning-design",
+        "digital-architecture"
+      ],
+      "applicationIds": [
+        "impactarchitect",
+        "gis-mel-citizenship-data",
+        "s3-builder",
+        "shadowops-iso",
+        "un-travel-calculator"
+      ],
+      "highlightLimit": 3
+    },
+    {
+      "id": "digital",
+      "title": "Digital Transformation Officer",
+      "headline": "Digital Transformation | GovTech | AI-Assisted Systems & Data Governance",
+      "summary": "Policy-tech practitioner designing practical digital systems that connect institutional workflows, structured data, reporting and decision support. Experienced in low-cost serverless architecture, AI-assisted prototyping, digital adoption, and human-in-the-loop verification across public-sector and development contexts.",
+      "experienceIds": [
+        "independent-consultant",
+        "ministry-village",
+        "undp-indonesia-papua",
+        "unesco-jakarta",
+        "freelance-consultant"
+      ],
+      "competencyIds": [
+        "digital-architecture",
+        "data-governance-analytics",
+        "civic-tech-ai",
+        "gis-geospatial",
+        "capacity-learning-design"
+      ],
+      "applicationIds": [
+        "e-persuratan",
+        "grade-conversion",
+        "gis-mel-citizenship-data",
+        "impactarchitect",
+        "smart-ocr-ai",
+        "stakeholder-intelligence-platform"
+      ],
+      "highlightLimit": 3
+    },
+    {
+      "id": "coord",
+      "title": "Project Coordination",
+      "headline": "Programme & Project Coordination | Partnerships | Operations & Delivery",
+      "summary": "Programme coordination professional experienced in supporting regional initiatives, workshops, multi-stakeholder engagement, procurement and administrative workflows, reporting, and partner follow-up. Brings a practical combination of institutional coordination, digital documentation, and cross-sector collaboration.",
+      "experienceIds": [
+        "unesco-jakarta",
+        "undp-indonesia-papua",
+        "ministry-village",
+        "independent-consultant"
+      ],
+      "competencyIds": [
+        "diplomacy-policy",
+        "capacity-learning-design",
+        "knowledge-communication",
+        "policy-governance",
+        "mel-research"
+      ],
+      "applicationIds": [
+        "shadowops-iso",
+        "un-travel-calculator",
+        "e-persuratan",
+        "stakeholder-intelligence-platform",
+        "structureflow"
+      ],
+      "highlightLimit": 3
+    },
+    {
+      "id": "social",
+      "title": "Social Change & Behavioural Insights",
+      "headline": "Behavioural Insights | Social Change | Community Adoption & Learning",
+      "summary": "Practitioner applying behavioural framing, peer influence, local ownership, and workflow design to improve adoption of programmes and digital tools. Experience includes supporting digital reporting in remote health districts, facilitating stakeholder cooperation, and developing community-centred learning and environmental initiatives.",
+      "experienceIds": [
+        "undp-indonesia-papua",
+        "unesco-jakarta",
+        "independent-consultant",
+        "ministry-village"
+      ],
+      "competencyIds": [
+        "behavioral-science",
+        "capacity-learning-design",
+        "climate-citizen-science",
+        "diplomacy-policy",
+        "mel-research"
+      ],
+      "applicationIds": [
+        "impactarchitect",
+        "gamified-learning-architect",
+        "pesisirkita",
+        "barnum-effect-demonstrator",
+        "edu-radar"
+      ],
+      "highlightLimit": 3
+    },
+    {
+      "id": "policy",
+      "title": "Data / Policy Analyst",
+      "headline": "Policy Analysis | Data Governance | Evidence & Decision Support",
+      "summary": "Policy and data practitioner experienced in national data standards, metadata, policy briefs, qualitative analysis, dashboard oversight, and identifying unintended socio-economic effects of public interventions. Focuses on turning structured and field-level evidence into actionable recommendations and decision support.",
+      "experienceIds": [
+        "ministry-village",
+        "independent-consultant",
+        "undp-indonesia-papua",
+        "unesco-jakarta"
+      ],
+      "competencyIds": [
+        "policy-governance",
+        "data-governance-analytics",
+        "mel-research",
+        "rural-local-economy",
+        "foresight-osint"
+      ],
+      "applicationIds": [
+        "s3-builder",
+        "gis-mel-citizenship-data",
+        "stakeholder-intelligence-platform",
+        "gpir",
+        "variable-planner"
+      ],
+      "highlightLimit": 3
+    },
+    {
+      "id": "foresight",
+      "title": "Strategic Foresight & OSINT",
+      "headline": "Strategic Foresight | Horizon Scanning | OSINT & Emerging Signals",
+      "summary": "Foresight and intelligence practitioner building structured scanning workflows and AI-assisted radar tools to discover emerging signals, organise evidence, map relationships, and support anticipatory policy thinking. Combines workshop facilitation, stakeholder analysis, and practical digital tools for decision support.",
+      "experienceIds": [
+        "independent-consultant",
+        "unesco-jakarta",
+        "ministry-village",
+        "undp-indonesia-papua"
+      ],
+      "competencyIds": [
+        "foresight-osint",
+        "policy-governance",
+        "data-governance-analytics",
+        "digital-architecture",
+        "diplomacy-policy"
+      ],
+      "applicationIds": [
+        "horizon-scanning",
+        "gsi-radar",
+        "ich-radar",
+        "artifact-radar",
+        "nexus-radar"
+      ],
+      "highlightLimit": 3
+    }
+  ]
+}
