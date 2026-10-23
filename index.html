@@ -326,6 +326,11 @@
             margin-left: 10px; 
             padding-left: 25px; 
         }
+        .editorial-intro { color: var(--text-muted); font-size: .9rem; margin: -5px 0 14px; }
+        [data-editorial-table] .pub-table td { vertical-align: top; }
+        [data-editorial-table] .pub-table td:first-child { color: var(--text-muted); font-weight: 700; }
+        .editorial-title { font-weight: 600; }
+        .editorial-meta { display: block; color: var(--text-muted); font-size: .75rem; margin-top: 4px; }
         .experience-json-card { padding: 20px; margin-bottom: 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow-sm); }
         .experience-json-card h3 { margin: 4px 0 5px; font-size: 1.05rem; line-height: 1.45; }
         .experience-json-card .job-period { display: inline-block; font-size: .78rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
@@ -1051,36 +1056,16 @@
                 </div>
 
             <!-- EDITED -->
-            <h3 style="font-size:1.1rem; color:var(--text-muted); margin: 40px 0 15px;">Editorial Works - Copy Editor (34 Titles)</h3>
-            <div class="table-scroll">
+            <h3 data-editorial-heading style="font-size:1.1rem; color:var(--text-muted); margin: 40px 0 15px;">Editorial Works - Copy Editor (34 Titles)</h3>
+            <p class="editorial-intro">A selection of 34 village-development publications for which Angga Conni Saputra contributed as Copy Editor. The catalogue below is generated from the publications dataset.</p>
+            <div class="table-scroll" data-editorial-table>
                 <table class="pub-table">
                     <thead>
                         <tr><th width="10%">No</th><th>Title / Province</th><th>ISBN</th></tr>
                     </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Manfaat Dana Desa di Provinsi Aceh</td><td><span class="isbn-code">978-623-7129-38-7</span></td></tr>
-                        <tr><td>2</td><td>Manfaat Dana Desa di Provinsi Lampung</td><td><span class="isbn-code">978-623-7129-39-4</span></td></tr>
-                        <tr><td>3</td><td>Manfaat Dana Desa di Provinsi Sumatera Selatan</td><td><span class="isbn-code">978-623-7129-40-0</span></td></tr>
-                        <tr><td>4</td><td>Manfaat Dana Desa di Provinsi Kepulauan Riau</td><td><span class="isbn-code">978-623-7129-41-7</span></td></tr>
-                        <tr><td>5</td><td>Manfaat Dana Desa di Provinsi Sumatera Utara</td><td><span class="isbn-code">978-623-7129-42-4</span></td></tr>
-                        <tr><td>6</td><td>Manfaat Dana Desa di Provinsi Sumatera Barat</td><td><span class="isbn-code">978-623-7129-43-1</span></td></tr>
-                        <tr><td>7</td><td>Manfaat Dana Desa di Provinsi Jambi</td><td><span class="isbn-code">978-623-7129-44-8</span></td></tr>
-                        <tr><td>8</td><td>Manfaat Dana Desa di Provinsi Bengkulu</td><td><span class="isbn-code">978-623-7129-45-5</span></td></tr>
-                        <tr><td>9</td><td>Manfaat Dana Desa di Provinsi Bangka Belitung</td><td><span class="isbn-code">978-623-7129-46-2</span></td></tr>
-                        <tr><td>10</td><td>Manfaat Dana Desa di Provinsi Banten</td><td><span class="isbn-code">978-623-7129-47-9</span></td></tr>
-                        <tr><td>11</td><td>Manfaat Dana Desa di Provinsi D.I. Yogyakarta</td><td><span class="isbn-code">978-623-7129-48-6</span></td></tr>
-                        <tr><td>12</td><td>Manfaat Dana Desa di Provinsi Jawa Barat</td><td><span class="isbn-code">978-623-7129-49-3</span></td></tr>
-                        <tr><td>13</td><td>Manfaat Dana Desa di Provinsi Jawa Tengah</td><td><span class="isbn-code">978-623-7129-50-9</span></td></tr>
-                        <tr><td>14</td><td>Manfaat Dana Desa di Provinsi Jawa Timur</td><td><span class="isbn-code">978-623-7129-51-6</span></td></tr>
-                        <tr><td>15</td><td>Manfaat Dana Desa di Provinsi Bali</td><td><span class="isbn-code">978-623-7129-52-3</span></td></tr>
-                        <tr><td>16</td><td>Manfaat Dana Desa di Provinsi NTB</td><td><span class="isbn-code">978-623-7129-53-0</span></td></tr>
-                        <tr><td>17</td><td>Manfaat Dana Desa di Provinsi NTT</td><td><span class="isbn-code">978-623-7129-54-7</span></td></tr>
-                        <tr><td>18</td><td>Manfaat Dana Desa di Provinsi Kalimantan Barat</td><td><span class="isbn-code">978-623-7129-55-4</span></td></tr>
-                        <tr><td>19</td><td>Manfaat Dana Desa di Provinsi Kalimantan Tengah</td><td><span class="isbn-code">978-623-7129-56-1</span></td></tr>
-                        <tr><td>20</td><td>Manfaat Dana Desa di Provinsi Kalimantan Utara</td><td><span class="isbn-code">978-623-7129-57-8</span></td></tr>
-                        <!-- Truncated to prevent extreme length, represented by last entries -->
-                        <tr><td>...</td><td>And 14 other provinces (Sulawesi, Maluku, Papua)</td><td>-</td></tr>
-                        <tr><td>34</td><td>Dinamika Pembangunan Desa (Kajian 7 Wilayah Pulau)</td><td><span class="isbn-code">978-623-7129-69-1</span></td></tr>
+                    <tbody data-json-editorial-works>
+                        <!-- Populated from data/publications-media.json; static fallback remains if JSON loading fails. -->
+                        <tr><td colspan="3">Loading editorial catalogue…</td></tr>
                     </tbody>
                 </table>
             </div>
