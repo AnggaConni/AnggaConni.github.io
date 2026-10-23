@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "language": "en",
   "education": [
     {
       "id": "masters-public-policy",
-      "degree": "Master of Science in Public Policy Administration",
+      "degree": "Master of Science in Administration Science (Magister Ilmu Administrasi)",
       "institution": "Prof. Dr. Moestopo (Beragama) University",
       "location": "Jakarta, Indonesia",
       "period": {
@@ -18,12 +18,16 @@
         "scale": 4
       },
       "thesis": "Analysis of Organizational Effectiveness at the Ministry of Village (Case Study: Data and Information Center).",
-      "relevance": "Academic evaluation of the national data centre supported by the author's professional experience."
+      "relevance": "Academic evaluation of the national data centre supported by the author's professional experience.",
+      "sourceEvidence": [
+        "Master Degree.pdf"
+      ],
+      "verificationNote": "Diploma confirms the programme and 2019 award; GPA and thesis title are from the earlier portfolio source, not visible on the uploaded diploma."
     },
     {
       "id": "bachelors-human-resources",
-      "degree": "Bachelor of Economics in Human Resources Management",
-      "institution": "STIE YAPAN Surabaya",
+      "degree": "Bachelor of Economics (Sarjana Ekonomi / S.E.) in Human Resources Management",
+      "institution": "Sekolah Tinggi Ilmu Ekonomi YAPAN",
       "location": "Surabaya, Indonesia",
       "period": {
         "start": "2009",
@@ -34,36 +38,97 @@
         "value": 3.13,
         "scale": 4
       },
-      "focus": "Human Capacity Development"
+      "focus": "Human Capacity Development",
+      "sourceEvidence": [
+        "Bachelor Degree.pdf"
+      ],
+      "verificationNote": "Diploma confirms the degree programme and 1 July 2013 graduation date; GPA is from the earlier portfolio source."
     }
   ],
   "coursework": [
     {
-      "id": "communication-journalism-coursework",
-      "title": "Undergraduate Coursework in Communication & Journalism",
+      "id": "unas-communication-coursework",
+      "title": "Communication Studies Coursework (S1 transcript)",
+      "institution": "Universitas Nasional (UNAS)",
+      "studyProgram": "Communication Studies; Public Relations",
+      "entryPeriod": "2011/2012",
+      "creditsCompleted": 84,
+      "gpa": {
+        "value": 2.75,
+        "scale": 4
+      },
+      "status": "transcript-coursework",
+      "sourceEvidence": [
+        "UNAS TRANSKRIP.pdf"
+      ],
+      "note": "Transcript lists 31 courses and 84 credits. It is evidence of coursework, not a completed degree."
+    },
+    {
+      "id": "mercubuana-communication-coursework",
+      "title": "Communication Sciences Coursework (S1 transcript)",
+      "institution": "Universitas Mercu Buana",
+      "studyProgram": "Communication Sciences; Public Relations",
+      "creditsCompleted": 82,
+      "gpa": {
+        "value": 3.25,
+        "scale": 4
+      },
+      "status": "transcript-coursework",
+      "sourceEvidence": [
+        "Communication Course - ANGGA CONNI SAPUTRA - MercuBuana(1).pdf"
+      ],
+      "note": "Unofficial transcript lists 29 courses and 82 credits. It is evidence of coursework, not a completed degree."
+    },
+    {
+      "id": "communication-journalism-coursework-summary",
+      "title": "Communication & Journalism Coursework (portfolio summary)",
       "institutions": [
         "BINUS",
-        "UNAS",
-        "Mercu Buana"
+        "Universitas Nasional (UNAS)",
+        "Universitas Mercu Buana"
       ],
-      "status": "coursework",
-      "creditsCompleted": 104,
+      "status": "pending-reconciliation",
       "focus": [
         "Public Relations",
-        "Journalism"
+        "Journalism",
+        "Media Relations",
+        "Mass Communication"
       ],
       "keyModules": [
         "Media Relations",
-        "Strategic Communication",
-        "Journalism Fundamentals",
-        "Crisis Management"
+        "Reporting and Interview Techniques",
+        "Public Relations Management",
+        "Public Speaking",
+        "Communication Psychology",
+        "Mass Communication",
+        "Quantitative Research Methods",
+        "Multimedia Communication"
       ],
-      "description": "Coursework across communication and journalism subjects, with emphasis on public relations, media relations, and mass communication strategy.",
-      "sourceNote": "Listed in the supplied All Achievements document. No completed degree or award is claimed."
+      "note": "The earlier portfolio summary stated 104 credits across three institutions. The supplied UNAS and Mercu Buana transcripts show 84 and 82 credits respectively, so 104 should not be presented as a verified combined total. No BINUS transcript was supplied."
     }
   ],
   "dataNotes": {
-    "source": "Angga Conni Saputra - All Achievements document supplied in this conversation.",
-    "policy": "Formal qualifications are stored in education; non-degree coursework is stored separately and must not be represented as a completed degree."
-  }
+    "lastReviewed": "2026-10-23",
+    "source": "Uploaded bachelor and master diplomas, UNAS and Mercu Buana transcripts, Hallo Arif training certificate, and earlier portfolio source.",
+    "policy": "Separate formal degrees, transcript-supported coursework, summary records awaiting reconciliation, and training certificates.",
+    "reconciliationFlags": [
+      "Earlier portfolio summary stated 104 credits across BINUS, UNAS, and Mercu Buana. Supplied transcripts show 84 credits at UNAS and 82 at Mercu Buana; aggregate remains unverified.",
+      "No BINUS transcript or certificate was supplied.",
+      "Master diploma does not display GPA or thesis title; these remain sourced from the earlier portfolio summary."
+    ]
+  },
+  "professionalDevelopment": [
+    {
+      "id": "hallo-arif-motivator-training",
+      "title": "Hallo Arif Motivator Training",
+      "date": "2017-12-19/2017-12-20",
+      "location": "Grand Sekuntum Hotel, Metro City, Lampung, Indonesia",
+      "participation": "Participant",
+      "sourceEvidence": [
+        "Dj Arie comms school - Angga.pdf"
+      ],
+      "status": "training-certificate",
+      "note": "Short training certificate; not a formal academic degree."
+    }
+  ]
 }
