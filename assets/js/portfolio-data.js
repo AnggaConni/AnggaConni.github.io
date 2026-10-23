@@ -79,26 +79,38 @@
   function renderEducation(dataset) {
     const section = document.querySelector('[data-json-source="education"]');
     const timeline = section?.querySelector(".timeline");
+    const courseworkContainer = section?.querySelector("[data-json-coursework]");
     if (!timeline || !Array.isArray(dataset.education)) return false;
 
     const cards = dataset.education.map(item => {
       const period = item.period?.label || [item.period?.start, item.period?.end].filter(Boolean).join("–");
       const gpa = item.gpa && Number.isFinite(Number(item.gpa.value))
-        ? `<strong>GPA: ${text(item.gpa.value)} / ${text(item.gpa.scale || 4)}</strong><br>`
+        ? "<strong>GPA: " + text(item.gpa.value) + " / " + text(item.gpa.scale || 4) + "</strong><br>"
         : "";
-      const thesis = item.thesis ? `Thesis: "${text(item.thesis)}"<br>` : "";
-      const focus = item.focus ? `Focus: ${text(item.focus)}<br>` : "";
-      const relevance = item.relevance ? `<em>Strategic Relevance: ${text(item.relevance)}</em>` : "";
-      return `<div class="edu-item">
-        <h3>${text(item.degree)}</h3>
-        <div class="edu-meta">${text(item.institution)} | ${text(period)}</div>
-        <div class="edu-desc">${gpa}${thesis}${focus}${relevance}</div>
-      </div>`;
+      const thesis = item.thesis ? "Thesis: \"" + text(item.thesis) + "\"<br>" : "";
+      const focus = item.focus ? "Focus: " + text(item.focus) + "<br>" : "";
+      const relevance = item.relevance ? "<em>Strategic Relevance: " + text(item.relevance) + "</em>" : "";
+      return '<div class="edu-item"><h3>' + text(item.degree) + '</h3><div class="edu-meta">' + text(item.institution) + " | " + text(period) + '</div><div class="edu-desc">' + gpa + thesis + focus + relevance + "</div></div>";
     }).join("");
-
-    // Only completed education entries appear in the main Education timeline.
-    // Enrollment/coursework records remain in the JSON for a future dedicated view.
     timeline.innerHTML = cards || timeline.innerHTML;
+
+    if (courseworkContainer && Array.isArray(dataset.coursework)) {
+      const allowed = ["binus-communication-studies-enrollment", "unas-communication-coursework", "mercubuana-communication-coursework"];
+      const records = dataset.coursework.filter(item => item && allowed.includes(item.id));
+      const courseworkCards = records.map(item => {
+        const isEnrollment = item.status === "discontinued";
+        const statusLabel = isEnrollment ? "Enrollment record · not a completed degree" : "Transcript-supported coursework";
+        const stats = [];
+        if (Number.isFinite(Number(item.creditsCompleted))) stats.push(text(item.creditsCompleted) + " SKS");
+        if (item.gpa && Number.isFinite(Number(item.gpa.value))) stats.push("GPA " + text(item.gpa.value) + " / " + text(item.gpa.scale || 4));
+        if (item.entryPeriod) stats.push("Entry " + text(item.entryPeriod));
+        if (item.enrollmentDate) stats.push("Entry " + text(item.enrollmentDate));
+        const detail = item.note || item.verificationNote || "";
+        const status = item.statusAsReported ? "<br>Recorded status: " + text(item.statusAsReported) : "";
+        return '<article class="coursework-card"><h4>' + text(item.studyProgram || item.title) + '</h4><div class="coursework-institution">' + text(item.institution) + '</div><div class="coursework-stats"><span class="coursework-stat">' + text(statusLabel) + "</span>" + stats.map(value => '<span class="coursework-stat">' + value + "</span>").join("") + '</div><div class="coursework-note">' + text(detail) + status + "</div></article>";
+      }).join("");
+      courseworkContainer.innerHTML = courseworkCards ? '<h3 class="coursework-heading">Additional Academic Coursework &amp; Enrollment</h3><p class="education-coursework-intro">Additional study records are shown separately from completed degrees. Credit totals and grades are displayed only where supported by the available records.</p><div class="coursework-grid">' + courseworkCards + "</div>" : "";
+    }
     return true;
   }
 
