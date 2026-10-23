@@ -387,6 +387,16 @@
             border: 1px solid var(--border); border-radius: 8px;
             border-left: 4px solid var(--accent-gold); 
         }
+        .education-coursework-block { margin-top: 24px; }
+        .education-coursework-block h3.coursework-heading { font-size: 1rem; margin: 0 0 6px; color: var(--text-main); }
+        .education-coursework-intro { font-size: .85rem; color: var(--text-muted); margin-bottom: 14px; }
+        .coursework-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px; }
+        .coursework-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 15px; }
+        .coursework-card h4 { margin: 0 0 5px; font-size: .95rem; line-height: 1.45; color: var(--text-main); }
+        .coursework-institution { color: var(--primary); font-weight: 600; font-size: .82rem; margin-bottom: 9px; }
+        .coursework-stats { display: flex; flex-wrap: wrap; gap: 7px; margin: 8px 0; }
+        .coursework-stat { font-size: .75rem; font-weight: 700; color: var(--text-muted); background: #F1F5F9; border-radius: 999px; padding: 4px 9px; }
+        .coursework-note { color: var(--text-muted); font-size: .8rem; line-height: 1.55; margin-top: 9px; }
 
         /* --- LISTS & TABLES --- */
         .mm-list { display: flex; flex-direction: column; gap: 10px; }
@@ -1009,6 +1019,9 @@
                     </div>
                 </div>
 
+            </div>
+            <div class="education-coursework-block" data-json-coursework>
+                <!-- Populated from data/education.json by portfolio-data.js -->
             </div>
         </section>
 
