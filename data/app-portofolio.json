@@ -1,0 +1,536 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "version": "1.0.0",
+  "language": "en",
+  "lastReviewed": "2026-10-23",
+  "categories": [
+    {
+      "id": "ai-data",
+      "label": "AI & Data",
+      "description": "AI-assisted intelligence, research, and strategic analytics."
+    },
+    {
+      "id": "gis",
+      "label": "GIS & WebMap",
+      "description": "Interactive mapping, geospatial data, and monitoring dashboards."
+    },
+    {
+      "id": "edtech",
+      "label": "EdTech & Games",
+      "description": "Educational tools, interactive learning, and gamified simulations."
+    },
+    {
+      "id": "tools",
+      "label": "Systems & Tools",
+      "description": "Digital workflows, decision-support applications, and utilities."
+    }
+  ],
+  "applications": [
+    {
+      "id": "ich-radar",
+      "title": "ICH Radar",
+      "category": "ai-data",
+      "description": "AI-assisted cultural intelligence engine that autonomously scans blogs, local news, and community forums to discover, document, and analyze Intangible Cultural Heritage using Google Gemini with Search grounding.",
+      "tags": [
+        "AI",
+        "Gemini",
+        "OSINT"
+      ],
+      "links": [
+        {
+          "label": "Launch App",
+          "url": "https://anggaconni.github.io/ICH-Radar/"
+        }
+      ]
+    },
+    {
+      "id": "gsi-radar",
+      "title": "GSI Radar",
+      "category": "ai-data",
+      "description": "AI-powered intelligence system that transforms decentralised innovation data into structured, policy-ready insights and identifies patterns, emerging risks, and high-impact opportunities across sectors.",
+      "tags": [
+        "AI",
+        "Gemini",
+        "OSINT"
+      ],
+      "links": [
+        {
+          "label": "Launch App",
+          "url": "https://anggaconni.github.io/GSI-Radar/"
+        }
+      ]
+    },
+    {
+      "id": "horizon-scanning",
+      "title": "Horizon Scanning",
+      "category": "ai-data",
+      "description": "Interactive scanning matrices with AI-powered strategic synthesis to explore probability, impact, uncertainty, and time-horizon relationships for foresight practice.",
+      "tags": [
+        "Foresight",
+        "Matrix",
+        "AI"
+      ],
+      "links": [
+        {
+          "label": "Visit Site",
+          "url": "https://horizon-scanning.org/"
+        }
+      ]
+    },
+    {
+      "id": "pesisirkita",
+      "title": "PesisirKita",
+      "category": "edtech",
+      "description": "An offline-first field-operation and mapping app empowering youth to conduct coastal ecological mapping and compile field data into a PDF portfolio.",
+      "tags": [
+        "EdTech",
+        "Ecology",
+        "Offline-First"
+      ],
+      "badge": {
+        "label": "Closing Test",
+        "status": "testing"
+      },
+      "links": [
+        {
+          "label": "Project Site",
+          "url": "https://anggaconni.github.io/Pesisirkita/"
+        },
+        {
+          "label": "Dashboard",
+          "url": "https://anggaconni.github.io/PesisirKita-Dashboard/index.html"
+        }
+      ]
+    },
+    {
+      "id": "impactarchitect",
+      "title": "ImpactArchitect v3.3",
+      "category": "ai-data",
+      "description": "A digital canvas integrating Theory of Change with the COM-B behavioural model, enhanced with Gemini AI as a strategic sparring partner.",
+      "tags": [
+        "Behavioural Science",
+        "Gemini AI"
+      ],
+      "links": [
+        {
+          "label": "Launch Canvas",
+          "url": "https://anggaconni.github.io/TheoryofChange_COM-B/"
+        }
+      ]
+    },
+    {
+      "id": "foodways-shared-heritage",
+      "title": "Foodways: Shared Heritage",
+      "category": "gis",
+      "description": "Serverless GIS platform mapping culinary history networks with polygon mapping and node-link network analysis, built with Vanilla JS, Tailwind, Leaflet.js, and Google Sheets.",
+      "tags": [
+        "GIS",
+        "Leaflet.js",
+        "Serverless"
+      ],
+      "links": [
+        {
+          "label": "Desktop",
+          "url": "https://anggaconni.github.io/Foodways/"
+        },
+        {
+          "label": "Mobile",
+          "url": "https://anggaconni.github.io/Foodways-Mobile/"
+        }
+      ]
+    },
+    {
+      "id": "globalscript",
+      "title": "GlobalScript",
+      "category": "edtech",
+      "description": "A freehand writing app supporting global and indigenous scripts, including Latin, Arabic, Japanese, Korean, Thai, Javanese, Balinese, and more.",
+      "tags": [
+        "Linguistics",
+        "EdTech"
+      ],
+      "badge": {
+        "label": "Coming Soon",
+        "status": "coming-soon"
+      },
+      "links": [
+        {
+          "label": "Web App",
+          "url": "https://anggaconni.github.io/learn-to-write/"
+        }
+      ]
+    },
+    {
+      "id": "artifact-radar",
+      "title": "Artifact Radar",
+      "category": "ai-data",
+      "description": "AI-assisted OSINT monitoring system combining web crawling, search-engine intelligence, and AI reasoning to detect and analyze online trade in ancient artifacts and cultural heritage objects.",
+      "tags": [
+        "AI",
+        "Web Crawling",
+        "OSINT"
+      ],
+      "links": [
+        {
+          "label": "Launch App",
+          "url": "https://anggaconni.github.io/artifact-radar/"
+        }
+      ]
+    },
+    {
+      "id": "drr-builders-journey",
+      "title": "DRR Builder's Journey",
+      "category": "edtech",
+      "description": "Educational block-building game where players construct bridges, seawalls, and evacuation paths to protect communities from floods, tsunamis, and volcanic threats.",
+      "tags": [
+        "Game",
+        "Education",
+        "DRR"
+      ],
+      "links": [
+        {
+          "label": "Play Game",
+          "url": "https://anggaconni.github.io/DRR-Bricks/"
+        }
+      ]
+    },
+    {
+      "id": "batna-analyzer",
+      "title": "BATNA Analyzer",
+      "category": "tools",
+      "description": "Decision-support tool for structured negotiation, helping users map alternatives, compare outcomes, and assess leverage using evidence-based strategy.",
+      "tags": [
+        "Negotiation",
+        "Decision Support",
+        "Strategy"
+      ],
+      "links": [
+        {
+          "label": "Launch App",
+          "url": "https://anggaconni.github.io/BATNA/"
+        }
+      ]
+    },
+    {
+      "id": "variable-planner",
+      "title": "Variable Planner",
+      "category": "tools",
+      "description": "A serverless, browser-based canvas for dynamic scenario planning and organising variables and decision pathways.",
+      "tags": [
+        "Scenario Planning",
+        "Canvas",
+        "Serverless"
+      ],
+      "links": [
+        {
+          "label": "Launch Canvas",
+          "url": "https://anggaconni.github.io/VariablePlanner/"
+        }
+      ]
+    },
+    {
+      "id": "leaders-compass",
+      "title": "Leader's Compass",
+      "category": "ai-data",
+      "description": "An AI-powered diagnostic platform that transforms informal observations into actionable job-enrichment strategies and helps leaders optimise team engagement.",
+      "tags": [
+        "AI",
+        "HR Tech",
+        "Leadership"
+      ],
+      "links": [
+        {
+          "label": "Launch Compass",
+          "url": "https://anggaconni.github.io/Leader-Compass/"
+        }
+      ]
+    },
+    {
+      "id": "atlas-of-atmosphere",
+      "title": "Atlas of Atmosphere",
+      "category": "tools",
+      "description": "Evidence-based environmental design app translating research into actionable atmosphere recipes for lighting, temperature, colour, and sensory elements.",
+      "tags": [
+        "Environmental Design",
+        "Web App"
+      ],
+      "links": [
+        {
+          "label": "Explore Atlas",
+          "url": "https://anggaconni.github.io/atmosphere-atlas/"
+        }
+      ]
+    },
+    {
+      "id": "s3-builder",
+      "title": "S3 Builder",
+      "category": "ai-data",
+      "description": "Quantitative intelligence platform integrating Indonesia's PODES logic with Gemini AI for Smart Specialization Strategy analysis and report generation.",
+      "tags": [
+        "Data Analytics",
+        "Policy"
+      ],
+      "links": [
+        {
+          "label": "Launch Builder",
+          "url": "https://anggaconni.github.io/SmartSpecializationAIreport/"
+        }
+      ]
+    },
+    {
+      "id": "gis-mel-citizenship-data",
+      "title": "GIS MEL: Citizenship Data",
+      "category": "gis",
+      "description": "Serverless GIS-based monitoring dashboard visualising biodiversity and biosphere-reserve overlaps on an interactive map with CRUD operations.",
+      "tags": [
+        "GIS",
+        "Serverless",
+        "Apps Script"
+      ],
+      "links": [
+        {
+          "label": "View Dashboard",
+          "url": "https://anggaconni.github.io/citizenship-data/"
+        }
+      ]
+    },
+    {
+      "id": "script-explorer",
+      "title": "Script Explorer",
+      "category": "edtech",
+      "description": "Interactive map visualising digital preservation status and geographic distribution of more than 60 global and indigenous writing systems.",
+      "tags": [
+        "Linguistics",
+        "Data Visualisation"
+      ],
+      "links": [
+        {
+          "label": "Launch Explorer",
+          "url": "https://anggaconni.github.io/Script-Explorer/"
+        }
+      ]
+    },
+    {
+      "id": "barnum-effect-demonstrator",
+      "title": "Barnum Effect Demonstrator",
+      "category": "edtech",
+      "description": "Interactive psychology tool illustrating cognitive bias by demonstrating how people may accept vague, general statements as highly personal.",
+      "tags": [
+        "Psychology",
+        "Cognitive Bias",
+        "EdTech"
+      ],
+      "links": [
+        {
+          "label": "Launch Tool",
+          "url": "https://anggaconni.github.io/Barnum-eduLab/"
+        }
+      ]
+    },
+    {
+      "id": "gamified-learning-architect",
+      "title": "Gamified Learning Architect",
+      "category": "edtech",
+      "description": "3D interactive educational platforms using WebGL and Three.js to gamify complex policy concepts, including ICH safeguarding and climate resilience.",
+      "tags": [
+        "WebGL",
+        "Three.js",
+        "EdTech"
+      ],
+      "links": [
+        {
+          "label": "Eco-Jumanji",
+          "url": "https://anggaconni.github.io/Ocean-Literacy-JUMANJI-ID-Ver/"
+        },
+        {
+          "label": "ICH Games",
+          "url": "https://anggaconni.github.io/ICH-Games/"
+        }
+      ]
+    },
+    {
+      "id": "e-persuratan",
+      "title": "E-Persuratan",
+      "category": "tools",
+      "description": "Bilingual serverless government mail-management system with CRUD workflows and analytics using Google Sheets and Apps Script.",
+      "tags": [
+        "Gov-Tech",
+        "CRUD",
+        "Apps Script"
+      ],
+      "links": [
+        {
+          "label": "Launch App",
+          "url": "https://anggaconni.github.io/E-Persuratan/"
+        }
+      ]
+    },
+    {
+      "id": "structureflow",
+      "title": "StructureFlow",
+      "category": "tools",
+      "description": "AI-assisted writing framework prioritising structure before content, with section guidance, drafting support, and feedback.",
+      "tags": [
+        "Writing Tool",
+        "AI Framework"
+      ],
+      "links": [
+        {
+          "label": "Launch Flow",
+          "url": "https://anggaconni.github.io/StructureFlow/"
+        }
+      ]
+    },
+    {
+      "id": "sql-nosql-academy",
+      "title": "SQL & NoSQL Academy",
+      "category": "edtech",
+      "description": "Browser-based gamified platform for learning SQL and NoSQL with client-side query processing, real-time results, bilingual support, and level-based progression.",
+      "tags": [
+        "SQL",
+        "Gamification",
+        "AlaSQL"
+      ],
+      "links": [
+        {
+          "label": "Learn SQL",
+          "url": "https://anggaconni.github.io/Learn_SQL/"
+        },
+        {
+          "label": "Learn NoSQL",
+          "url": "https://anggaconni.github.io/Learn_NoSQL/"
+        }
+      ]
+    },
+    {
+      "id": "gamified-html-js-learning",
+      "title": "Gamified HTML/JS Learning",
+      "category": "edtech",
+      "description": "Two 90-level gamified learning experiences for HTML/CSS and JavaScript with live browser rendering, AI guidance, guided and sandbox modes, and exportable standalone HTML.",
+      "tags": [
+        "EdTech",
+        "HTML/JS",
+        "AI"
+      ],
+      "links": [
+        {
+          "label": "Learn HTML",
+          "url": "https://anggaconni.github.io/Learn-HTML/"
+        },
+        {
+          "label": "Learn JavaScript",
+          "url": "https://anggaconni.github.io/Learn-Javascript/"
+        }
+      ]
+    },
+    {
+      "id": "smart-ocr-ai",
+      "title": "Smart OCR AI",
+      "category": "tools",
+      "description": "Multi-agent OCR system combining local Tesseract processing with Gemini Vision for complex layouts, tables, and charts from images and PDFs.",
+      "tags": [
+        "OCR",
+        "Gemini AI",
+        "Utility"
+      ],
+      "links": [
+        {
+          "label": "Launch Scanner",
+          "url": "https://anggaconni.github.io/SMART-OCR/Smart-OCR-AI.html"
+        }
+      ]
+    },
+    {
+      "id": "un-travel-calculator",
+      "title": "UN Travel Calculator",
+      "category": "tools",
+      "description": "Automates UN subsistence allowance calculations, including ICSC rates and deductions, to support administrative efficiency and audit compliance.",
+      "tags": [
+        "Automation",
+        "DSA",
+        "Finance"
+      ],
+      "links": [
+        {
+          "label": "Calculator",
+          "url": "https://anggaconni.github.io/un-travel-calculator/"
+        }
+      ]
+    },
+    {
+      "id": "shadowops-iso",
+      "title": "ShadowOps (ISO)",
+      "category": "tools",
+      "description": "Strategic operations map and activity tracker combining pipeline visibility, daily logs, and AI-generated summaries via Google Sheets and Apps Script.",
+      "tags": [
+        "Management",
+        "Tracking"
+      ],
+      "links": [
+        {
+          "label": "Launch ISO",
+          "url": "https://anggaconni.github.io/ShadowOps/"
+        }
+      ]
+    },
+    {
+      "id": "bayesian-tools",
+      "title": "Bayesian Tools",
+      "category": "ai-data",
+      "description": "Probabilistic reasoning tools using a Naive Bayes framework to evaluate hypotheses with likelihood ratios and structured evidence.",
+      "tags": [
+        "Statistics",
+        "Reasoning"
+      ],
+      "links": [
+        {
+          "label": "Naive Bayes",
+          "url": "https://anggaconni.github.io/Naive-Bayesian/"
+        },
+        {
+          "label": "Attachment Calculator",
+          "url": "https://anggaconni.github.io/Love-Attachment/"
+        }
+      ]
+    },
+    {
+      "id": "learner-id-tool",
+      "title": "Learner ID Tool",
+      "category": "edtech",
+      "description": "Behavioural-science-based app using 18 questions to identify instructional friction and provide actionable guidance for educators and trainers.",
+      "tags": [
+        "Behavioural Science",
+        "EdTech"
+      ],
+      "links": [
+        {
+          "label": "Launch Tool",
+          "url": "https://anggaconni.github.io/Learner-Identification-Tools/"
+        }
+      ]
+    },
+    {
+      "id": "misc-prototypes",
+      "title": "Misc / Prototypes",
+      "category": "tools",
+      "description": "Experimental setups and utilities including a 3D Museum demonstration, WebPDF browser utility, and prototyping environments.",
+      "tags": [
+        "Prototype",
+        "Utility"
+      ],
+      "links": [
+        {
+          "label": "3D Museum",
+          "url": "https://anggaconni.github.io/3D-Museum/"
+        },
+        {
+          "label": "WebPDF",
+          "url": "https://anggaconni.github.io/WebPDF/"
+        },
+        {
+          "label": "Prototyping",
+          "url": "https://anggaconni.github.io/Prototyping/"
+        }
+      ]
+    }
+  ]
+}
