@@ -531,6 +531,356 @@
           "url": "https://anggaconni.github.io/Prototyping/"
         }
       ]
+    },
+    {
+      "id": "invergent",
+      "title": "Invergent",
+      "category": "tools",
+      "description": "Experimental browser-based toolkit for practicing divergent and convergent thinking. Combines possibility generation, constraint-based evaluation, trade-off analysis, switching exercises, heuristic profiles, and timed learning sessions. Questions and exercises are editable through a JSON question bank.",
+      "tags": [
+        "Thinking Skills",
+        "Decision Support",
+        "Learning"
+      ],
+      "links": [
+        {
+          "label": "Open Toolkit",
+          "url": "https://anggaconni.github.io/invergent/"
+        }
+      ]
+    },
+    {
+      "id": "dkv-colour",
+      "title": "DKV Colour",
+      "category": "tools",
+      "description": "Interactive visual design and colour-theory exploration tool for experimenting with colour relationships, contrast, and composition in a lightweight browser-based workspace.",
+      "tags": [
+        "Colour Theory",
+        "Visual Design",
+        "Prototyping"
+      ],
+      "links": [
+        {
+          "label": "Open Tool",
+          "url": "https://anggaconni.github.io/Prototyping/proto/DKV-colour.html"
+        }
+      ]
+    },
+    {
+      "id": "mygrammar",
+      "title": "MyGrammar",
+      "category": "edtech",
+      "description": "Browser-based English grammar and writing toolkit combining live grammar correction, verb and tense exploration, Indonesian learner-error patterns, and document checking for grammar, verb patterns, spelling, sentence health, and writing style. Uses editable JSON knowledge bases and offline-capable tools.",
+      "tags": [
+        "English Learning",
+        "Writing",
+        "Grammar",
+        "Offline-Capable"
+      ],
+      "links": [
+        {
+          "label": "Open MyGrammar",
+          "url": "https://anggaconni.github.io/MyGrammar/index.html"
+        }
+      ]
+    },
+    {
+      "id": "myjobs",
+      "title": "MyJOBS",
+      "category": "tools",
+      "description": "Experimental job aggregator designed to help users in Indonesia and ASEAN discover international, humanitarian, development, UN, and NGO opportunities. Combines multi-source vacancy aggregation, location-aware filtering, UN professional-level and UNDP IPSA classification, source and country filters, search, saved opportunities, and links to original vacancies. Some vacancies may be missed or misclassified.",
+      "tags": [
+        "Jobs",
+        "UN Careers",
+        "Development",
+        "Aggregator"
+      ],
+      "links": [
+        {
+          "label": "Open MyJOBS",
+          "url": "https://anggaconni.github.io/MyJOBS/"
+        }
+      ]
+    },
+    {
+      "id": "gpir",
+      "title": "Global Product Intelligence Radar (GPIR)",
+      "category": "gis",
+      "description": "Multilingual platform for pre-baseline mapping of local economic development, SMEs, and creative economy. Local SME Finder explores opportunities based on resources, skills, and capital; Potential Explorer maps locations, tourism attractions, heritage sites, and global market signals using sources such as OpenStreetMap, OpenTripMap, UNESCO DataHub, UN Tourism, World Bank, Wikivoyage, and UN Comtrade.",
+      "tags": [
+        "Local Economic Development",
+        "SME",
+        "GIS",
+        "Market Intelligence"
+      ],
+      "links": [
+        {
+          "label": "Open GPIR",
+          "url": "https://anggaconni.github.io/GPIR/index.html"
+        }
+      ]
+    },
+    {
+      "id": "world-heritage-atlas",
+      "title": "World Heritage Atlas",
+      "category": "gis",
+      "description": "Interactive modular web application connecting UNESCO-designated sites worldwide through geospatial exploration, 3D terrain visualisation, building models, and educational quizzes. Integrates UNESCO DataHub, biodiversity observations, environmental data, and news signals to connect cultural and natural heritage with broader environmental and social context.",
+      "tags": [
+        "UNESCO",
+        "Heritage",
+        "GIS",
+        "3D",
+        "Education"
+      ],
+      "links": [
+        {
+          "label": "Explore Atlas",
+          "url": "https://anggaconni.github.io/UNESCO-Designated-Site-Explorer/"
+        }
+      ]
+    },
+    {
+      "id": "sekolahkita",
+      "title": "SekolahKita",
+      "category": "edtech",
+      "description": "Education-related web application listed in the portfolio links. Further feature description has not yet been verified.",
+      "tags": [
+        "Education"
+      ],
+      "links": [
+        {
+          "label": "Open SekolahKita",
+          "url": "https://anggaconni.github.io/sekolahkita/"
+        }
+      ]
+    },
+    {
+      "id": "smart-mom-studio",
+      "title": "Smart MoM Studio",
+      "category": "tools",
+      "description": "Privacy-first, offline-capable meeting assistant combining multiple physical microphones with system audio through the Web Audio API and using Gemini AI to generate structured meeting minutes. Raw audio is kept in local storage, with online and offline transcription workflows.",
+      "tags": [
+        "Meetings",
+        "Audio",
+        "AI",
+        "Privacy",
+        "Offline-Capable"
+      ],
+      "links": [
+        {
+          "label": "Open Smart MoM Studio",
+          "url": "https://anggaconni.github.io/Smart-Recorder/"
+        }
+      ]
+    },
+    {
+      "id": "pocket-science-lab",
+      "title": "Pocket Science Lab (Science-HUB)",
+      "category": "edtech",
+      "description": "Modular, offline-capable STEM application that turns smartphones into interactive science instruments using device sensors, simulations, and DIY crafting guides for hands-on exploration.",
+      "tags": [
+        "STEM",
+        "Sensors",
+        "Offline-Capable",
+        "Mobile Learning"
+      ],
+      "links": [
+        {
+          "label": "Open Science-HUB",
+          "url": "https://anggaconni.github.io/ScieScience-HUBnce-HUB/"
+        }
+      ]
+    },
+    {
+      "id": "stakeholder-intelligence-platform",
+      "title": "Stakeholder Intelligence Platform",
+      "category": "ai-data",
+      "description": "Decision-support prototype for stakeholder mapping that combines influence analysis, salience assessment, engagement prioritisation, and network visualisation.",
+      "tags": [
+        "Stakeholder Mapping",
+        "Policy",
+        "Network Analysis"
+      ],
+      "links": [
+        {
+          "label": "Open Prototype",
+          "url": "https://anggaconni.github.io/Prototyping/proto/Stakeholder-Mapping.html"
+        }
+      ]
+    },
+    {
+      "id": "ibf-system",
+      "title": "IBF System",
+      "category": "ai-data",
+      "description": "Climate-risk monitoring and anticipatory-action platform integrating satellite telemetry, weather forecasts, and community vulnerability data to produce impact-based risk assessments and early actions for agriculture and food security.",
+      "tags": [
+        "Climate Risk",
+        "Early Warning",
+        "Anticipatory Action"
+      ],
+      "links": [
+        {
+          "label": "Open IBF",
+          "url": "https://anggaconni.github.io/IBF/"
+        }
+      ]
+    },
+    {
+      "id": "ourheritage-ews",
+      "title": "OurHeritage EWS",
+      "category": "tools",
+      "description": "Serverless early-warning system for museums and historical sites. Tracks environmental threats such as extreme humidity, earthquakes, and air pollution, calculates artefact risk scores, provides preventive-conservation checklists, and stores local risk history for up to five years.",
+      "tags": [
+        "Heritage",
+        "Early Warning",
+        "Risk Monitoring"
+      ],
+      "links": [
+        {
+          "label": "Open OurHeritage",
+          "url": "https://anggaconni.github.io/OurHeritage/"
+        }
+      ]
+    },
+    {
+      "id": "gizikita",
+      "title": "GiziKita",
+      "category": "tools",
+      "description": "Offline decision-support application helping families and community health workers plan affordable, nutritionally balanced meals using local food prices and evidence-based recommendations.",
+      "tags": [
+        "Nutrition",
+        "Food Security",
+        "Offline-Capable"
+      ],
+      "links": [
+        {
+          "label": "Open GiziKita",
+          "url": "https://anggaconni.github.io/GiziKita/"
+        }
+      ]
+    },
+    {
+      "id": "edu-radar",
+      "title": "EDU Radar",
+      "category": "ai-data",
+      "description": "AI-assisted OSINT platform for discovering, analysing, and structuring educational innovations worldwide. Integrates Google Scholar and UNESCO UNESDOC to help identify trends and opportunities in educational transformation.",
+      "tags": [
+        "Education",
+        "OSINT",
+        "AI",
+        "Research"
+      ],
+      "links": [
+        {
+          "label": "Open EDU Radar",
+          "url": "https://anggaconni.github.io/EDU-Innovation/"
+        }
+      ]
+    },
+    {
+      "id": "nexus-radar",
+      "title": "Nexus Radar",
+      "category": "ai-data",
+      "description": "AI-powered OSINT engine designed to detect emerging environmental and societal anomalies and weak signals across climate, oceans, and biodiversity for proactive disaster-risk-reduction intelligence.",
+      "tags": [
+        "OSINT",
+        "Early Warning",
+        "Climate",
+        "Biodiversity"
+      ],
+      "links": [
+        {
+          "label": "Open Nexus Radar",
+          "url": "https://anggaconni.github.io/Nexus-Radar/"
+        }
+      ]
+    },
+    {
+      "id": "grade-conversion",
+      "title": "Academic Credential Conversion",
+      "category": "tools",
+      "description": "Multi-stage AI workflow for international academic credential conversion.",
+      "tags": [
+        "AI Workflow",
+        "Education",
+        "Credential Conversion"
+      ],
+      "links": [
+        {
+          "label": "Open Tool",
+          "url": "https://anggaconni.github.io/Grade-Conversion/"
+        }
+      ]
+    },
+    {
+      "id": "ridercheck-auto-track",
+      "title": "RiderCheck Auto Track",
+      "category": "tools",
+      "description": "Utility page listed in the portfolio directory. Detailed feature description has not yet been verified.",
+      "tags": [
+        "Utility",
+        "Mobility"
+      ],
+      "links": [
+        {
+          "label": "Open RiderCheck",
+          "url": "https://anggaconni.github.io/Rider-Check/"
+        }
+      ]
+    },
+    {
+      "id": "maintenance-page",
+      "title": "Maintenance Page",
+      "category": "tools",
+      "description": "Maintenance/status page for web projects.",
+      "tags": [
+        "Utility",
+        "Web Operations"
+      ],
+      "links": [
+        {
+          "label": "Open Maintenance Page",
+          "url": "https://anggaconni.github.io/Maintenance-Page/"
+        }
+      ]
+    },
+    {
+      "id": "cover-letter",
+      "title": "Cover Letter",
+      "category": "tools",
+      "description": "Professional cover-letter page.",
+      "tags": [
+        "Career",
+        "Professional Profile"
+      ],
+      "links": [
+        {
+          "label": "Open Cover Letter",
+          "url": "https://horizon-scanning.org/CL"
+        }
+      ]
+    },
+    {
+      "id": "apk-downloads",
+      "title": "APK Downloads",
+      "category": "tools",
+      "description": "Download page for Android APK builds associated with the portfolio projects.",
+      "tags": [
+        "Android",
+        "Downloads"
+      ],
+      "links": [
+        {
+          "label": "Open Downloads",
+          "url": "https://anggaconni.github.io/Download/"
+        }
+      ]
     }
+  ],
+  "changeNotes": [
+    "Expanded from the initial index.html project array using the owner's supplied portfolio directory on 2026-10-23.",
+    "Entries with feature descriptions are based on supplied descriptions; entries with limited evidence are explicitly marked as not yet verified.",
+    "Potential URL typo preserved as supplied: Science-HUB link contains /ScieScience-HUBnce-HUB/; verify before changing.",
+    "Main portfolio, tips, email contact, and cover letter are profile/navigation resources rather than standalone applications; the download page is included as a utility entry."
   ]
 }
