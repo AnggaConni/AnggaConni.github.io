@@ -120,6 +120,63 @@
     return true;
   }
 
+  function renderApplications(dataset) {
+    const container = document.querySelector('[data-json-source="applications"]');
+    const applications = dataset?.applications;
+    if (!container || !Array.isArray(applications)) return false;
+
+    const categoryLabels = Object.fromEntries(
+      (Array.isArray(dataset.categories) ? dataset.categories : []).map(category => [category.id, category.label])
+    );
+    const fallbackImage = "thum/placeholder.png";
+    const makeLink = link => {
+      const label = text(link.label || "Open project");
+      const url = text(link.url || "#");
+      return '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1 group">' +
+        label + ' <span aria-hidden="true">↗</span></a>';
+    };
+
+    container.innerHTML = applications.map(app => {
+      const links = Array.isArray(app.links) ? app.links.filter(link => link && link.url) : [];
+      const primaryUrl = links[0]?.url || "#";
+      const category = text(app.category || "tools");
+      const tags = (Array.isArray(app.tags) ? app.tags : []).map(tag =>
+        '<span class="bg-indigo-50 text-indigo-700 border border-indigo-100 px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider whitespace-nowrap">' + text(tag) + '</span>'
+      ).join("");
+      const badge = app.badge
+        ? '<div class="absolute top-3 right-3 z-30"><span class="text-[10px] font-bold px-2.5 py-1 rounded-full border shadow-sm backdrop-blur-sm ' +
+          (app.badge.status === "testing" ? "bg-amber-50 text-amber-800 border-amber-200" :
+           app.badge.status === "coming-soon" ? "bg-slate-50 text-slate-700 border-slate-200" :
+           "bg-blue-50 text-blue-700 border-blue-200") + '">' + text(app.badge.label) + '</span></div>'
+        : "";
+      const image = app.image ? text(app.image) : "";
+      const imageHtml = image
+        ? '<img src="' + image + '" alt="' + text(app.title) + '" loading="lazy" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700 relative z-10" onerror="this.onerror=null;this.src=\'' + fallbackImage + '\'">'
+        : '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-slate-100 text-indigo-300"><span class="text-4xl" aria-hidden="true">✦</span></div>';
+      return '<div class="portfolio-item snap-center shrink-0 w-[300px] md:w-[350px] flex flex-col relative pt-8 md:pt-16 group" data-category="' + category + '">' +
+        '<div class="absolute top-[31px] left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-4 border-indigo-500 rounded-full z-10 hidden md:block group-hover:scale-125 group-hover:border-indigo-600 transition-transform"></div>' +
+        '<div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">' +
+        '<div class="w-full h-44 bg-slate-100 overflow-hidden relative border-b border-slate-100 shrink-0 group-img">' + badge + imageHtml + '</div>' +
+        '<div class="p-6 flex flex-col flex-grow"><span class="text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-2">' + text(categoryLabels[app.category] || app.category || "Project") + '</span>' +
+        '<h3 class="text-xl font-bold text-slate-900 mb-2 leading-tight" title="' + text(app.title) + '">' + text(app.title || "Untitled application") + '</h3>' +
+        '<p class="text-slate-600 text-sm mb-4 line-clamp-3 flex-grow" title="' + text(app.description || "") + '">' + text(app.description || "") + '</p>' +
+        '<div class="flex flex-wrap gap-1.5 mb-5">' + tags + '</div>' +
+        '<div class="mt-auto pt-4 border-t border-slate-100 flex flex-wrap items-center gap-3">' + links.map(makeLink).join('<span class="text-slate-300">|</span>') + '</div>' +
+        '</div></div></div>';
+    }).join("");
+
+    const emptyState = document.getElementById("empty-state");
+    const activeFilter = document.querySelector("#filter-container .filter-btn.active")?.getAttribute("data-filter") || "all";
+    let visible = 0;
+    container.querySelectorAll(".portfolio-item").forEach(item => {
+      const show = activeFilter === "all" || item.getAttribute("data-category") === activeFilter;
+      item.classList.toggle("hide-item", !show);
+      if (show) visible++;
+    });
+    if (emptyState) emptyState.classList.toggle("hidden", visible > 0);
+    return true;
+  }
+
   function renderEditorialWorks(dataset) {
     const tbody = document.querySelector("[data-json-editorial-works]");
     const works = dataset?.editorialWorks?.items;
@@ -200,6 +257,7 @@
         renderEducation(data.education);
         renderExperience(data.experience);
         renderEditorialWorks(data.publications);
+        renderApplications(data.applications);
       }
     } catch (error) {
       console.warn("[Portfolio JSON] Loader failed; existing static HTML remains active.", error);
