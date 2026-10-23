@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "language": "en",
   "competencies": [
     {
@@ -23,6 +23,154 @@
       "icon": "ph-handshake",
       "description": "Stakeholder management, high-level policy bridging, and conflict resolution.",
       "modalId": "modal-diplomacy"
+    },
+    {
+      "id": "policy-governance",
+      "title": "Policy Analysis & Public Administration",
+      "description": "Public-sector policy analysis, institutional workflows, governance, and implementation design.",
+      "icon": "ph-scales",
+      "category": "policy",
+      "tags": [
+        "Policy analysis",
+        "governance",
+        "public administration",
+        "institutional reform"
+      ]
+    },
+    {
+      "id": "mel-research",
+      "title": "Monitoring, Evaluation, Research & Learning",
+      "description": "Monitoring systems, learning-needs analysis, research coordination, evaluation design, and evidence use.",
+      "icon": "ph-chart-line",
+      "category": "methodology",
+      "tags": [
+        "MEL",
+        "M&E",
+        "LNA",
+        "evaluation",
+        "research"
+      ]
+    },
+    {
+      "id": "data-governance-analytics",
+      "title": "Data Governance & Analytics",
+      "description": "Data quality, data standards, structured datasets, dashboard oversight, and evidence-oriented analysis.",
+      "icon": "ph-database",
+      "category": "data",
+      "tags": [
+        "Data governance",
+        "data quality",
+        "analytics",
+        "dashboards"
+      ]
+    },
+    {
+      "id": "gis-geospatial",
+      "title": "GIS & Geospatial Interoperability",
+      "description": "Interactive mapping, spatial data processing, biodiversity mapping, and GIS interoperability.",
+      "icon": "ph-map-trifold",
+      "category": "technical",
+      "tags": [
+        "GIS",
+        "Leaflet",
+        "GeoJSON",
+        "spatial data"
+      ]
+    },
+    {
+      "id": "foresight-osint",
+      "title": "Strategic Foresight & OSINT",
+      "description": "Horizon scanning, weak-signal discovery, strategic intelligence, and structured analysis of emerging change.",
+      "icon": "ph-binoculars",
+      "category": "methodology",
+      "tags": [
+        "Foresight",
+        "horizon scanning",
+        "OSINT",
+        "early warning"
+      ]
+    },
+    {
+      "id": "heritage-data-science",
+      "title": "Cultural Heritage & Cultural Data Science",
+      "description": "Digital heritage documentation, intangible cultural heritage, underwater cultural heritage, and cultural data workflows.",
+      "icon": "ph-bank",
+      "category": "sector",
+      "tags": [
+        "ICH",
+        "underwater cultural heritage",
+        "heritage data"
+      ]
+    },
+    {
+      "id": "capacity-learning-design",
+      "title": "Capacity Building & Learning Design",
+      "description": "Learning-needs analysis, instructional design, adult learning, facilitation, and digital learning resources.",
+      "icon": "ph-chalkboard-teacher",
+      "category": "professional",
+      "tags": [
+        "Capacity building",
+        "ADDIE",
+        "adult learning",
+        "training"
+      ]
+    },
+    {
+      "id": "climate-citizen-science",
+      "title": "Climate Resilience & Citizen Science",
+      "description": "Coastal monitoring, mangrove field operations, ocean literacy, environmental learning, and community-based data collection.",
+      "icon": "ph-leaf",
+      "category": "sector",
+      "tags": [
+        "Climate resilience",
+        "mangroves",
+        "ocean literacy",
+        "citizen science"
+      ]
+    },
+    {
+      "id": "digital-architecture",
+      "title": "AI-Augmented Development & Systems Architecture",
+      "description": "Low-cost web systems, serverless workflows, AI-assisted prototyping, and maintainable digital product architecture.",
+      "icon": "ph-cpu",
+      "category": "technical",
+      "tags": [
+        "AI-assisted development",
+        "JavaScript",
+        "serverless",
+        "system architecture"
+      ]
+    },
+    {
+      "id": "knowledge-communication",
+      "title": "Knowledge Products & Technical Communication",
+      "description": "Policy publications, editorial work, reporting, layout design, multimedia documentation, and stakeholder-facing communication.",
+      "icon": "ph-notebook",
+      "category": "outputs",
+      "tags": [
+        "Publications",
+        "editing",
+        "reporting",
+        "communication"
+      ]
+    },
+    {
+      "id": "rural-local-economy",
+      "title": "Rural Development & Local Economic Systems",
+      "description": "Village development, village-owned enterprises, local economic analysis, circular economy, and community livelihoods.",
+      "icon": "ph-house-line",
+      "category": "sector",
+      "tags": [
+        "Rural development",
+        "BUMDesa",
+        "local economy",
+        "CSR"
+      ]
     }
-  ]
+  ],
+  "taxonomyNotes": {
+    "purpose": "Competency taxonomy for future filtering and evidence linking.",
+    "legacyCompatibility": "Existing competency IDs, icons, and modalId values are preserved. New records use category and tags; modalId is optional.",
+    "evidencePolicy": "Competencies describe areas of practice and should be linked to experience highlights or projects before being treated as independently verified claims."
+  }
 }
