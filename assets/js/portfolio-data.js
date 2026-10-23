@@ -37,7 +37,7 @@
       competencies: data.competencies?.competencies,
       applications: data.applications?.applications,
       authoredPublications: data.publications?.authoredPublications || [],
-      editorialWorks: data.publications?.editorialWorks || []
+      editorialWorks: data.publications?.editorialWorks?.items || []
     };
 
     for (const name of REQUIRED_DATASETS) {
