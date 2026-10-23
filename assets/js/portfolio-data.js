@@ -150,9 +150,8 @@
            "bg-blue-50 text-blue-700 border-blue-200") + '">' + text(app.badge.label) + '</span></div>'
         : "";
       const image = app.image ? text(app.image) : "";
-      const imageHtml = image
-        ? '<img src="' + image + '" alt="' + text(app.title) + '" loading="lazy" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700 relative z-10" onerror="this.onerror=null;this.src=\'' + fallbackImage + '\'">'
-        : '<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-slate-100 text-indigo-300"><span class="text-4xl" aria-hidden="true">✦</span></div>';
+      const imageUrl = image || ("https://api.microlink.io/?url=" + encodeURIComponent(primaryUrl) + "&embed=image.url");
+      const imageHtml = '<img src="' + imageUrl + '" data-fallback-step="' + (image ? "1" : "2") + '" data-target-url="' + text(primaryUrl) + '" alt="' + text(app.title) + '" loading="lazy" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700 relative z-10" onerror="imageFallback(this)">';
       return '<div class="portfolio-item snap-center shrink-0 w-[300px] md:w-[350px] flex flex-col relative pt-8 md:pt-16 group" data-category="' + category + '">' +
         '<div class="absolute top-[31px] left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-4 border-indigo-500 rounded-full z-10 hidden md:block group-hover:scale-125 group-hover:border-indigo-600 transition-transform"></div>' +
         '<div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full overflow-hidden">' +
