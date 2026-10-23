@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "language": "en",
   "dataNotes": {
     "purpose": "Structured professional experience and achievement database for future HTML filtering and detail views.",
@@ -17,7 +17,15 @@
     ],
     "source": "Angga Conni Saputra - All Achievements document supplied in this conversation, reconciled with the existing portfolio experience data.",
     "editorialPolicy": "Preserve source claims and distinctions. Items described as prototypes, pilots, drafts, or ongoing work are labelled accordingly; no external verification implied.",
-    "reconciliation": "2026-10-23: sourceDetailSections were added by extracting the existing legacy HTML experience modals, preserving headings, paragraphs, and list items that are more detailed than concise filterable highlights. Existing highlights and filter metadata are preserved. HTML remains unchanged."
+    "reconciliation": "2026-10-23: sourceDetailSections were added by extracting the existing legacy HTML experience modals, preserving headings, paragraphs, and list items that are more detailed than concise filterable highlights. Existing highlights and filter metadata are preserved. HTML remains unchanged.",
+    "lastReviewed": "2026-10-23",
+    "crossReferencePolicy": "Where an experience highlight URL matches a portfolio application URL, relatedApplicationIds links the achievement to the canonical application record. Do not infer a relationship solely from similar names.",
+    "evidenceLevels": [
+      "documented achievement",
+      "prototype / proof of concept",
+      "pilot / ongoing",
+      "prototype undergoing refinement and validation"
+    ]
   },
   "filterOptions": {
     "experienceType": [
@@ -137,6 +145,9 @@
             "education",
             "credential assessment",
             "human-in-the-loop"
+          ],
+          "relatedApplicationIds": [
+            "grade-conversion"
           ]
         },
         {
@@ -156,6 +167,9 @@
             "knowledge discovery",
             "UNESCO",
             "policy"
+          ],
+          "relatedApplicationIds": [
+            "edu-radar"
           ]
         },
         {
@@ -287,6 +301,9 @@
             "government",
             "NGO",
             "decision support"
+          ],
+          "relatedApplicationIds": [
+            "stakeholder-intelligence-platform"
           ]
         },
         {
@@ -710,7 +727,10 @@
             "Education Innovation",
             "Digital Transformation"
           ],
-          "evidenceLevel": "prototype / proof of concept"
+          "evidenceLevel": "prototype / proof of concept",
+          "relatedApplicationIds": [
+            "gamified-learning-architect"
+          ]
         },
         {
           "id": "unesco-cbi-architecture",
